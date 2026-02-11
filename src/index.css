@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 10% 90%;
+    /* Soft Mist - Darker for card contrast */
+    --foreground: 175 60% 15%;
+    /* #0F3D39 - Deep Teal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 175 60% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 175 60% 15%;
+
+    --primary: 175 68% 22%;
+    /* #115E59 - Teal 800 */
+    --primary-foreground: 160 60% 98%;
+
+    --secondary: 160 30% 96%;
+    /* #E0F2F1 - Sage Light */
+    --secondary-foreground: 175 60% 15%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 170 50% 96%;
+    --accent-foreground: 175 60% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 175 30% 90%;
+    --input: 175 30% 90%;
+    --ring: 175 68% 22%;
+
+    --radius: 1.5rem;
+  }
+
+  .dark {
+    --background: 175 60% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 175 60% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 175 60% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 170 80% 80%;
+    --primary-foreground: 175 60% 12%;
+
+    --secondary: 175 40% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 175 40% 20%;
+    --muted-foreground: 215 20% 80%;
+    /* Brighter for better contrast */
+
+    --accent: 175 40% 20%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 175 40% 20%;
+    --input: 175 40% 20%;
+    --ring: 170 80% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  background: hsl(var(--background));
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Layered Organic Background */
+.bg-zen-layers {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 0% 0%, #E0F2F1 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, #F1F8E9 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, #E3F2FD 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, #F5F5F5 0%, transparent 50%);
+  filter: blur(40px);
+  opacity: 0.8;
+}
+
+.bg-zen-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: blobFloat 20s infinite ease-in-out;
+}
+
+@keyframes blobFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(10vw, -5vh) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-5vw, 10vh) scale(0.9);
+  }
+}
+
+#root {
+  width: 100%;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  /* More milky */
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 20px 40px -10px rgba(13, 148, 136, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-item {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+/* Premium Texture */
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  opacity: 0.04;
+  /* Slightly more visible noise */
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

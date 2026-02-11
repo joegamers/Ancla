@@ -1,0 +1,387 @@
+[
+  {
+    "id": "1",
+    "text": "Tus pensamientos no son hechos, son solo eventos mentales.",
+    "author": "Aaron Beck",
+    "source": "Cognitive Therapy and the Emotional Disorders",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "2",
+    "text": "La única salida es a través.",
+    "author": "Robert Frost",
+    "source": "A Servant to Servants",
+    "category": "Estrés"
+  },
+  {
+    "id": "3",
+    "text": "Eres más fuerte de lo que crees, y más capaz de lo que imaginas.",
+    "author": "Marcus Aurelius",
+    "source": "Meditations",
+    "category": "Motivación"
+  },
+  {
+    "id": "4",
+    "text": "No busques que los eventos sucedan como tú quieres, sino desea que sucedan como suceden.",
+    "author": "Epictetus",
+    "source": "Enchiridion",
+    "category": "Enfoque"
+  },
+  {
+    "id": "5",
+    "text": "Acepta lo que no puedes cambiar y cambia lo que no puedes aceptar.",
+    "author": "Reinhold Niebuhr",
+    "source": "Serenity Prayer",
+    "category": "Calma"
+  },
+  {
+    "id": "6",
+    "text": "Estoy dispuesta a cambiar y a crecer. Todo está bien en mi mundo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "7",
+    "text": "Me siento seguro y a salvo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Seguridad"
+  },
+  {
+    "id": "8",
+    "text": "Todo lo que necesito saber se me revela. Ahora libero tranquilamente todas mis viejas creencias.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Revelación"
+  },
+  {
+    "id": "9",
+    "text": "La puerta de mi corazón se abre hacia dentro.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Amor"
+  },
+  {
+    "id": "10",
+    "text": "El pasado ha terminado, ya no tiene poder en el presente.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Presencia"
+  },
+  {
+    "id": "11",
+    "text": "No es divertido ser una víctima. Rechazo volver a sentirme una persona indefensa. Reclamo mi fuerza.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Poder"
+  },
+  {
+    "id": "12",
+    "text": "Me concedo el don de librarme del pasado y me adentro con júbilo en el Ahora.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Liberación"
+  },
+  {
+    "id": "13",
+    "text": "Amo y acepto a todos los miembros de mi familia tal como son ahora mismo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Familia"
+  },
+  {
+    "id": "14",
+    "text": "Abandono todo el miedo y la duda; la vida se vuelve sencilla y fácil para mí.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Bienestar"
+  },
+  {
+    "id": "15",
+    "text": "Merezco la libertad de ser todo lo que puedo ser. Merezco todo lo bueno.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Valor"
+  },
+  {
+    "id": "16",
+    "text": "Hoy no reacciono, elijo responder desde la calma y la compasión.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Serenidad"
+  },
+  {
+    "id": "17",
+    "text": "Lo que parecía difícil ahora se vuelve simple porque confío.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Confianza"
+  },
+  {
+    "id": "18",
+    "text": "Hoy escucho mis sentimientos y soy amable conmigo mismo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Autocuidado"
+  },
+  {
+    "id": "19",
+    "text": "Los pensamientos de Este Momento crean mi futuro.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Conciencia"
+  },
+  {
+    "id": "20",
+    "text": "Consigo la ayuda que necesito, y esta puede llegar de cualquier parte.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Apoyo"
+  },
+  {
+    "id": "21",
+    "text": "Mi sistema de apoyo es sólido y afectuoso a la vez.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Comunidad"
+  },
+  {
+    "id": "22",
+    "text": "No hay problema ni demasiado grande ni demasiado pequeño que el amor no pueda resolver.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Amor"
+  },
+  {
+    "id": "23",
+    "text": "Estoy dispuesto a curarme.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Sanación"
+  },
+  {
+    "id": "24",
+    "text": "Estoy dispuesto a perdonar.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Perdón"
+  },
+  {
+    "id": "25",
+    "text": "Todo está bien cuando cometo una equivocación.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "26",
+    "text": "Mi corazón es el centro de mi poder.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Poder"
+  },
+  {
+    "id": "27",
+    "text": "Sigo a mi corazón.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Intuición"
+  },
+  {
+    "id": "28",
+    "text": "Me desahogo de mis temores de la infancia.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Liberación"
+  },
+  {
+    "id": "29",
+    "text": "Mi conciencia está llena de pensamientos saludables, positivos y amorosos.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Mentalidad"
+  },
+  {
+    "id": "30",
+    "text": "Sé que estoy a salvo y que cuento con la protección y guía divina.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Seguridad"
+  },
+  {
+    "id": "31",
+    "text": "Elijo la alegría.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Alegría"
+  },
+  {
+    "id": "32",
+    "text": "Confío en el proceso de la vida.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Confianza"
+  },
+  {
+    "id": "33",
+    "text": "Me amo y me apruebo tal como soy.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Amor Propio"
+  },
+  {
+    "id": "34",
+    "text": "La vida me apoya en todas mis decisiones.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Apoyo"
+  },
+  {
+    "id": "35",
+    "text": "Estoy abierto a recibir toda la abundancia del universo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Abundancia"
+  },
+  {
+    "id": "36",
+    "text": "Mi cuerpo es un templo sagrado y lo cuido con amor.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Salud"
+  },
+  {
+    "id": "37",
+    "text": "Escucho la sabiduría de mi cuerpo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Salud"
+  },
+  {
+    "id": "38",
+    "text": "Soy digno de amor, alegría y éxito.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Valor"
+  },
+  {
+    "id": "39",
+    "text": "Agradezco todas las experiencias de mi vida.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Gratitud"
+  },
+  {
+    "id": "40",
+    "text": "Soy un imán para la felicidad.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Alegría"
+  },
+  {
+    "id": "41",
+    "text": "Mis relaciones están llenas de amor y respeto.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Relaciones"
+  },
+  {
+    "id": "42",
+    "text": "Expreso mi creatividad de formas maravillosas.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Creatividad"
+  },
+  {
+    "id": "43",
+    "text": "Mi trabajo es satisfactorio y me trae alegría.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Éxito"
+  },
+  {
+    "id": "44",
+    "text": "El dinero fluye hacia mí con facilidad y abundancia.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Abundancia"
+  },
+  {
+    "id": "45",
+    "text": "Suelto la necesidad de controlarlo todo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Entrega"
+  },
+  {
+    "id": "46",
+    "text": "Mi corazón está lleno de gratitud y mi mente está en silencio.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Paz"
+  },
+  {
+    "id": "47",
+    "text": "Hoy elijo responder desde la calma y la compasión.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Calma"
+  },
+  {
+    "id": "48",
+    "text": "Recurro a una fuerza interior que está a mi disposición.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Poder"
+  },
+  {
+    "id": "49",
+    "text": "Me relajo y libero mis pensamientos de toda tensión.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Relajación"
+  },
+  {
+    "id": "50",
+    "text": "Soy una persona libre que vive en un mundo que es reflejo de mi amor.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Libertad"
+  },
+  {
+    "id": "51",
+    "text": "Todo lo que doy regresa a mí multiplicado.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Abundancia"
+  },
+  {
+    "id": "52",
+    "text": "Cada célula de mi cuerpo escucha mis pensamientos y responde a ellos.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Salud"
+  },
+  {
+    "id": "53",
+    "text": "Elijo ver con los ojos del alma, no con los del juicio.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Intuición"
+  },
+  {
+    "id": "54",
+    "text": "Mis pensamientos están alineados con la paz, la expansión y la dicha.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Paz"
+  },
+  {
+    "id": "55",
+    "text": "Merezco lo mejor y estoy dispuesto a aceptarlo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Valor"
+  }
+]
