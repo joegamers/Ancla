@@ -23,7 +23,7 @@ En un mundo de distracciones, Ancla te ofrece un momento de respiración, una ve
 
 ## 🚀 Características Principales
 
-- 🌊 **Entorno Zen Inmersivo**: Fondo animado en 3D con Three.js que simula una respiración tranquila y reacciona al movimiento.
+- 🌊 **Entorno Zen Inmersivo**: Ecosistema 3D multicapa con materiales de cristal y un nudo toroidal que reacciona sutilmente a tu movimiento (Efecto Parallax).
 - 🧠 **+100 Afirmaciones de Calidad**: Curadas bajo criterios psicológicos y bíblicos para fortalecer tu identidad y paz.
 - 🔔 **Notificaciones Inteligentes**: Recibe dosis de luz durante el día con una frecuencia personalizada.
 - 📤 **Comparte la Luz**: Genera imágenes hermosas con tus afirmaciones favoritas para inspirar a otros.

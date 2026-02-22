@@ -78,8 +78,10 @@ function App() {
   }, [setNotificationAffirmation]);
 
   const handleNewAffirmation = () => {
+    const { refreshGeometry } = useStore.getState();
     const newAff = affirmationEngine.getRandomAffirmation(currentVibe);
     setLastAffirmation(newAff);
+    refreshGeometry();
   };
 
   const handleShare = async () => {

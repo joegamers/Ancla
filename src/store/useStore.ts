@@ -11,6 +11,7 @@ interface AppState {
     notificationIntention: string;
     lastAffirmation: Affirmation | null;
     notificationAffirmation: string | null;
+    geometrySeed: number; // For triggering random geometry changes
 
     // Toast State
     toast: { message: string, visible: boolean };
@@ -26,6 +27,7 @@ interface AppState {
     setLastAffirmation: (aff: Affirmation) => void;
     setNotificationAffirmation: (text: string | null) => void;
     completeOnboarding: () => void;
+    refreshGeometry: () => void;
 
     // Onboarding State
     hasCompletedOnboarding: boolean;
@@ -42,6 +44,7 @@ export const useStore = create<AppState>()(
             notificationIntention: 'Todas',
             lastAffirmation: null,
             notificationAffirmation: null,
+            geometrySeed: 0,
             hasCompletedOnboarding: false,
 
             toast: { message: '', visible: false },
@@ -55,6 +58,7 @@ export const useStore = create<AppState>()(
             setLastAffirmation: (aff) => set({ lastAffirmation: aff }),
             setNotificationAffirmation: (text) => set({ notificationAffirmation: text }),
             completeOnboarding: () => set({ hasCompletedOnboarding: true }),
+            refreshGeometry: () => set((state) => ({ geometrySeed: state.geometrySeed + 1 })),
 
             showToast: (message) => {
                 set({ toast: { message, visible: true } });
@@ -67,8 +71,8 @@ export const useStore = create<AppState>()(
         {
             name: 'ancla-storage',
             partialize: (state) => {
-                // Exclude toast from persistence
-                const { toast, notificationAffirmation, ...rest } = state;
+                // Exclude toast and transient states from persistence
+                const { toast, notificationAffirmation, geometrySeed, ...rest } = state;
                 return rest;
             }
         }
