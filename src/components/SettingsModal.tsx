@@ -42,20 +42,22 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
     }, [notificationTime, checkInterval, activePeriod, notificationIntention, isOpen]);
 
     const handleSave = () => {
-        // Save settings to store first so rescheduleFromSettings reads the new values
+        // Save settings to store
         setNotificationTime(tempTime);
         setCheckInterval(tempInterval);
         setActivePeriod(tempPeriod);
         setNotificationIntention(tempIntention);
 
         if (notificationsEnabled) {
-            // Use centralized rescheduling — reads config from store and programs next 24h
-            // Small delay to ensure store has updated before reading
-            setTimeout(() => {
-                notificationService.rescheduleFromSettings().catch((err) => {
-                    console.error('[Ancla] Error scheduling notifications:', err);
-                });
-            }, 100);
+            // Pass values directly to avoid race condition with store updates
+            notificationService.rescheduleFromSettings({
+                interval: tempInterval,
+                period: tempPeriod,
+                intention: tempIntention,
+                notificationTime: tempTime
+            }).catch((err) => {
+                console.error('[Ancla] Error scheduling notifications:', err);
+            });
         } else {
             notificationService.cancelAll();
         }

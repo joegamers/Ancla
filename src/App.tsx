@@ -1,9 +1,11 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GlassCard, SettingsModal, ZenToast, IntentionsModal, Onboarding } from './components';
+import { GlassCard, SettingsModal, ZenToast, IntentionsModal, Onboarding, AffirmationOverlay } from './components';
 import { affirmationEngine } from './services/AffirmationEngine';
 import { notificationService } from './services/NotificationService';
 import { useStore } from './store/useStore';
+import { Capacitor } from '@capacitor/core';
+import { LocalNotifications } from '@capacitor/local-notifications';
 import {
   Sparkles,
   Wind,
@@ -37,7 +39,7 @@ const MOOD_ICONS: Record<string, any> = {
 };
 
 function App() {
-  const { currentVibe, setVibe, setLastAffirmation, lastAffirmation, hasCompletedOnboarding } = useStore();
+  const { currentVibe, setVibe, setLastAffirmation, lastAffirmation, hasCompletedOnboarding, notificationAffirmation, setNotificationAffirmation } = useStore();
   const [showReveal, setShowReveal] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showIntentionsModal, setShowIntentionsModal] = useState(false);
@@ -50,6 +52,27 @@ function App() {
       console.warn('[Ancla] Failed to reschedule notifications:', err);
     });
   }, []);
+
+  // Listen for notification taps to show the affirmation
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) return;
+
+    const setupListener = async () => {
+      await LocalNotifications.addListener('localNotificationActionPerformed', (action) => {
+        const body = action.notification.body;
+        if (body) {
+          console.log('[Ancla] Notification tapped:', body);
+          setNotificationAffirmation(body);
+        }
+      });
+    };
+
+    setupListener();
+
+    return () => {
+      LocalNotifications.removeAllListeners();
+    };
+  }, [setNotificationAffirmation]);
 
   const handleVibeSelect = (mood: string) => {
     setVibe(mood);
@@ -251,6 +274,16 @@ function App() {
             }}
           />
           <ZenToast />
+
+          {/* Notification tap overlay */}
+          <AnimatePresence>
+            {notificationAffirmation && (
+              <AffirmationOverlay
+                text={notificationAffirmation}
+                onClose={() => setNotificationAffirmation(null)}
+              />
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </ThemeProvider>

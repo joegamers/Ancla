@@ -10,6 +10,7 @@ interface AppState {
     notificationTime: string; // "HH:MM"
     notificationIntention: string;
     lastAffirmation: Affirmation | null;
+    notificationAffirmation: string | null;
 
     // Toast State
     toast: { message: string, visible: boolean };
@@ -23,6 +24,7 @@ interface AppState {
     setNotificationTime: (time: string) => void;
     setNotificationIntention: (intention: string) => void;
     setLastAffirmation: (aff: Affirmation) => void;
+    setNotificationAffirmation: (text: string | null) => void;
     completeOnboarding: () => void;
 
     // Onboarding State
@@ -39,6 +41,7 @@ export const useStore = create<AppState>()(
             notificationTime: '09:00',
             notificationIntention: 'Todas',
             lastAffirmation: null,
+            notificationAffirmation: null,
             hasCompletedOnboarding: false,
 
             toast: { message: '', visible: false },
@@ -50,6 +53,7 @@ export const useStore = create<AppState>()(
             setNotificationTime: (time) => set({ notificationTime: time }),
             setNotificationIntention: (intention) => set({ notificationIntention: intention }),
             setLastAffirmation: (aff) => set({ lastAffirmation: aff }),
+            setNotificationAffirmation: (text) => set({ notificationAffirmation: text }),
             completeOnboarding: () => set({ hasCompletedOnboarding: true }),
 
             showToast: (message) => {
@@ -64,7 +68,7 @@ export const useStore = create<AppState>()(
             name: 'ancla-storage',
             partialize: (state) => {
                 // Exclude toast from persistence
-                const { toast, ...rest } = state;
+                const { toast, notificationAffirmation, ...rest } = state;
                 return rest;
             }
         }
