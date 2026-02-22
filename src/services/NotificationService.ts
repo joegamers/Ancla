@@ -35,7 +35,8 @@ export class CapacitorNotificationService extends NotificationService {
                     name: 'Afirmaciones',
                     description: 'Notificaciones periódicas de afirmaciones positivas',
                     importance: 4,
-                    visibility: 1
+                    visibility: 1,
+                    sound: 'zen_bell.mp3' // Note: For Android, put zen_bell.mp3 in res/raw
                 });
                 this.channelCreated = true;
             } catch (e) {
@@ -62,7 +63,8 @@ export class CapacitorNotificationService extends NotificationService {
                 id: Math.floor(Math.random() * 100000),
                 schedule: options.scheduleAt ? { at: options.scheduleAt, allowWhileIdle: true } : undefined,
                 extra: { type: 'random' },
-                channelId: 'affirmations'
+                channelId: 'affirmations',
+                sound: 'zen_bell.mp3'
             }]
         });
     }
@@ -82,7 +84,8 @@ export class CapacitorNotificationService extends NotificationService {
                     allowWhileIdle: true,
                     every: 'day'
                 },
-                channelId: 'affirmations'
+                channelId: 'affirmations',
+                sound: 'zen_bell.mp3'
             }]
         });
     }
@@ -139,7 +142,8 @@ export class CapacitorNotificationService extends NotificationService {
                         allowWhileIdle: true
                     },
                     silent: false,
-                    channelId: 'affirmations'
+                    channelId: 'affirmations',
+                    sound: 'zen_bell.mp3'
                 });
                 scheduledCount++;
             }
@@ -207,10 +211,7 @@ export class CapacitorNotificationService extends NotificationService {
             }
 
             // Also remove any already-delivered ones from the tray
-            const delivered = await LocalNotifications.getDeliveredNotifications();
-            if (delivered.notifications.length > 0) {
-                await LocalNotifications.removeAllDeliveredNotifications();
-            }
+            await LocalNotifications.removeAllDeliveredNotifications();
         } catch (e) {
             // Fallback: cancel known ID ranges if getPending fails
             try {
@@ -226,6 +227,16 @@ export class CapacitorNotificationService extends NotificationService {
 import { useStore } from '../store/useStore';
 
 export class WebNotificationService extends NotificationService {
+    private playSound() {
+        try {
+            const audio = new Audio('/zen_bell.mp3');
+            audio.volume = 0.5;
+            audio.play().catch(e => console.warn('[Ancla Web] Sound play blocked by browser:', e));
+        } catch (e) {
+            console.error('[Ancla Web] Error playing notification sound:', e);
+        }
+    }
+
     async requestPermission(): Promise<boolean> {
         if (!("Notification" in window)) return false;
         const permission = await Notification.requestPermission();
@@ -233,9 +244,9 @@ export class WebNotificationService extends NotificationService {
     }
 
     async schedule(options: NotificationOptions): Promise<void> {
-        console.log("Web Schedule:", options);
         if (Notification.permission === "granted") {
-            new Notification(options.text);
+            new Notification("Ancla", { body: options.text });
+            this.playSound();
         }
         useStore.getState().showToast(`Notificación enviada: "${options.text.substring(0, 30)}..."`);
     }
@@ -245,19 +256,18 @@ export class WebNotificationService extends NotificationService {
     }
 
     async scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void> {
-        console.log(`Web Daily (${time.hour}:${time.minute}):`, text);
         useStore.getState().showToast(`Recordatorio programado para las ${time.hour}:${time.minute.toString().padStart(2, '0')}`);
     }
 
     async scheduleQueue(affirmations: string[], intervalMinutes: number, _activePeriod: 'day' | 'night' | 'always'): Promise<void> {
-        console.log("Queue:", affirmations);
         useStore.getState().showToast(`Ritmo activado. Recibirás mensajes positivos cada ${intervalMinutes}m.`);
 
         if (affirmations.length > 0) {
             setTimeout(() => {
                 const previewText = affirmations[0];
                 if (Notification.permission === "granted") {
-                    new Notification(previewText);
+                    new Notification("Ancla", { body: previewText });
+                    this.playSound();
                 } else {
                     useStore.getState().showToast(`Ejemplo: "${previewText}"`);
                 }
