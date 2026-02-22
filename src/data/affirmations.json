@@ -383,5 +383,320 @@
     "author": "Louise Hay",
     "source": "El poder está dentro de ti",
     "category": "Valor"
+  },
+  {
+    "id": "56",
+    "text": "No te afanes por el mañana, porque el mañana traerá su propio afán. Mi mente está en paz con el presente.",
+    "author": "Mateo 6:34",
+    "source": "Biblia + Psicología Cognitiva",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "57",
+    "text": "Todo lo puedo en Cristo que me fortalece. Mi fuerza interior es ilimitada.",
+    "author": "Filipenses 4:13",
+    "source": "Biblia + Afirmación",
+    "category": "Motivación"
+  },
+  {
+    "id": "58",
+    "text": "Venid a mí los que estáis cansados y cargados, y yo os haré descansar. Hoy elijo soltar la carga.",
+    "author": "Mateo 11:28",
+    "source": "Biblia + Afirmación",
+    "category": "Estrés"
+  },
+  {
+    "id": "59",
+    "text": "Porque yo sé los planes que tengo para ti, planes de bienestar y no de calamidad. Mi futuro es esperanza.",
+    "author": "Jeremías 29:11",
+    "source": "Biblia + Afirmación",
+    "category": "Confianza"
+  },
+  {
+    "id": "60",
+    "text": "No temas, porque yo estoy contigo. No tengo que enfrentar nada solo.",
+    "author": "Isaías 41:10",
+    "source": "Biblia + Afirmación",
+    "category": "Seguridad"
+  },
+  {
+    "id": "61",
+    "text": "La paz os dejo, mi paz os doy. Yo no os la doy como el mundo la da. Mi paz viene de adentro.",
+    "author": "Juan 14:27",
+    "source": "Biblia + Afirmación",
+    "category": "Paz"
+  },
+  {
+    "id": "62",
+    "text": "Echa toda tu ansiedad sobre Él, porque Él tiene cuidado de ti. Hoy suelto lo que no puedo controlar.",
+    "author": "1 Pedro 5:7",
+    "source": "Biblia + Afirmación",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "63",
+    "text": "El Señor es mi pastor, nada me faltará. Descanso en la certeza de que estoy provisto.",
+    "author": "Salmos 23:1",
+    "source": "Biblia + Afirmación",
+    "category": "Abundancia"
+  },
+  {
+    "id": "64",
+    "text": "Cuando siento miedo, en ti confío. La fe y el miedo no pueden habitar juntos.",
+    "author": "Salmos 56:3",
+    "source": "Biblia + Afirmación",
+    "category": "Confianza"
+  },
+  {
+    "id": "65",
+    "text": "Dios no nos ha dado espíritu de cobardía, sino de poder, de amor y de dominio propio.",
+    "author": "2 Timoteo 1:7",
+    "source": "Biblia + Afirmación",
+    "category": "Poder"
+  },
+  {
+    "id": "66",
+    "text": "Sé fuerte y valiente. No temas ni desmayes, porque el Señor tu Dios estará contigo.",
+    "author": "Josué 1:9",
+    "source": "Biblia + Afirmación",
+    "category": "Valor"
+  },
+  {
+    "id": "67",
+    "text": "Todas las cosas obran para bien. Incluso lo que no entiendo hoy tiene un propósito.",
+    "author": "Romanos 8:28",
+    "source": "Biblia + Afirmación",
+    "category": "Confianza"
+  },
+  {
+    "id": "68",
+    "text": "Renovaos en el espíritu de vuestra mente. Hoy elijo pensamientos que me construyen.",
+    "author": "Efesios 4:23",
+    "source": "Biblia + Psicología Cognitiva",
+    "category": "Mentalidad"
+  },
+  {
+    "id": "69",
+    "text": "Lámpara es a mis pies tu palabra, y lumbrera a mi camino. Tengo claridad para dar el siguiente paso.",
+    "author": "Salmos 119:105",
+    "source": "Biblia + Afirmación",
+    "category": "Claridad"
+  },
+  {
+    "id": "70",
+    "text": "Los que esperan en el Señor renovarán sus fuerzas; levantarán alas como las águilas.",
+    "author": "Isaías 40:31",
+    "source": "Biblia + Afirmación",
+    "category": "Motivación"
+  },
+  {
+    "id": "71",
+    "text": "El gozo del Señor es mi fortaleza. Hoy encuentro razones para sonreír.",
+    "author": "Nehemías 8:10",
+    "source": "Biblia + Afirmación",
+    "category": "Alegría"
+  },
+  {
+    "id": "72",
+    "text": "Ama a tu prójimo como a ti mismo. Me permito amarme para poder amar mejor a otros.",
+    "author": "Marcos 12:31",
+    "source": "Biblia + Afirmación",
+    "category": "Amor Propio"
+  },
+  {
+    "id": "73",
+    "text": "Si Dios es por nosotros, ¿quién contra nosotros? Estoy respaldado por una fuerza infinita.",
+    "author": "Romanos 8:31",
+    "source": "Biblia + Afirmación",
+    "category": "Seguridad"
+  },
+  {
+    "id": "74",
+    "text": "Dad gracias en todo. La gratitud transforma mi perspectiva y mi realidad.",
+    "author": "1 Tesalonicenses 5:18",
+    "source": "Biblia + Psicología Positiva",
+    "category": "Gratitud"
+  },
+  {
+    "id": "75",
+    "text": "Puestos los ojos en Jesús, el autor y consumador de la fe. Mi enfoque determina mi destino.",
+    "author": "Hebreos 12:2",
+    "source": "Biblia + Afirmación",
+    "category": "Enfoque"
+  },
+  {
+    "id": "76",
+    "text": "Sanad enfermos, limpiad leprosos. Tengo el poder de ser instrumento de sanación.",
+    "author": "Mateo 10:8",
+    "source": "Biblia + Afirmación",
+    "category": "Sanación"
+  },
+  {
+    "id": "77",
+    "text": "Perdona setenta veces siete. El perdón me libera a mí primero.",
+    "author": "Mateo 18:22",
+    "source": "Biblia + Psicología",
+    "category": "Perdón"
+  },
+  {
+    "id": "78",
+    "text": "He aquí, yo hago nuevas todas las cosas. Cada amanecer es una oportunidad de empezar de nuevo.",
+    "author": "Apocalipsis 21:5",
+    "source": "Biblia + Afirmación",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "79",
+    "text": "El amor es paciente, es bondadoso. Merezco un amor que construye, no que destruye.",
+    "author": "1 Corintios 13:4",
+    "source": "Biblia + Afirmación",
+    "category": "Amor"
+  },
+  {
+    "id": "80",
+    "text": "Bienaventurados los que lloran, porque serán consolados. Mi dolor tiene fecha de caducidad.",
+    "author": "Mateo 5:4",
+    "source": "Biblia + Afirmación",
+    "category": "Sanación"
+  },
+  {
+    "id": "81",
+    "text": "El que observa el viento no sembrará. Hoy actúo a pesar de la incertidumbre.",
+    "author": "Eclesiastés 11:4",
+    "source": "Biblia + TCC",
+    "category": "Motivación"
+  },
+  {
+    "id": "82",
+    "text": "Mis emociones son señales, no sentencias. Puedo sentir sin dejar que me controlen.",
+    "author": "Albert Ellis",
+    "source": "Terapia Racional Emotiva",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "83",
+    "text": "No es lo que me pasa lo que me afecta, sino cómo interpreto lo que me pasa.",
+    "author": "Albert Ellis",
+    "source": "Terapia Racional Emotiva",
+    "category": "Mentalidad"
+  },
+  {
+    "id": "84",
+    "text": "Puedo tolerar la incomodidad. Lo incómodo no es lo mismo que lo insoportable.",
+    "author": "Albert Ellis",
+    "source": "TRE",
+    "category": "Estrés"
+  },
+  {
+    "id": "85",
+    "text": "Cuestiono mis pensamientos automáticos. No todo lo que pienso es verdad.",
+    "author": "Aaron Beck",
+    "source": "Terapia Cognitiva",
+    "category": "Conciencia"
+  },
+  {
+    "id": "86",
+    "text": "Mis pensamientos negativos son distorsiones, no la realidad. Puedo elegir una perspectiva diferente.",
+    "author": "David Burns",
+    "source": "Feeling Good",
+    "category": "Mentalidad"
+  },
+  {
+    "id": "87",
+    "text": "La felicidad no es la ausencia de problemas, sino la capacidad de lidiar con ellos.",
+    "author": "Steve Maraboli",
+    "source": "Life, the Truth, and Being Free",
+    "category": "Bienestar"
+  },
+  {
+    "id": "88",
+    "text": "El coraje no es la ausencia de miedo, sino actuar a pesar de él.",
+    "author": "Mark Twain",
+    "source": "Atribución popular",
+    "category": "Valor"
+  },
+  {
+    "id": "89",
+    "text": "Lo que resistes, persiste. Acepto lo que es y me muevo hacia lo que puede ser.",
+    "author": "Carl Jung",
+    "source": "Psicología Analítica",
+    "category": "Calma"
+  },
+  {
+    "id": "90",
+    "text": "Soy suficiente tal como soy en este momento. Mi valor no depende de mi productividad.",
+    "author": "Brené Brown",
+    "source": "Los dones de la imperfección",
+    "category": "Amor Propio"
+  },
+  {
+    "id": "91",
+    "text": "La vulnerabilidad es el lugar de nacimiento de la conexión y la alegría. Me permito ser humano.",
+    "author": "Brené Brown",
+    "source": "Daring Greatly",
+    "category": "Comunidad"
+  },
+  {
+    "id": "92",
+    "text": "No necesito la aprobación de todos. La opinión más importante es la que tengo de mí mismo.",
+    "author": "Albert Ellis",
+    "source": "TRE",
+    "category": "Amor Propio"
+  },
+  {
+    "id": "93",
+    "text": "El momento presente es el único que existe. Respira. Estás aquí y eso es suficiente.",
+    "author": "Eckhart Tolle",
+    "source": "El poder del ahora",
+    "category": "Presencia"
+  },
+  {
+    "id": "94",
+    "text": "No soy lo que me pasó. Soy lo que elijo ser a partir de ahora.",
+    "author": "Carl Jung",
+    "source": "Psicología Analítica",
+    "category": "Liberación"
+  },
+  {
+    "id": "95",
+    "text": "Cada respiración es una oportunidad de empezar de nuevo.",
+    "author": "Thich Nhat Hanh",
+    "source": "El milagro de mindfulness",
+    "category": "Calma"
+  },
+  {
+    "id": "96",
+    "text": "Puedo ser amable conmigo mismo en los días difíciles. Merezco la misma compasión que doy a otros.",
+    "author": "Kristin Neff",
+    "source": "Self-Compassion",
+    "category": "Autocuidado"
+  },
+  {
+    "id": "97",
+    "text": "Mi ansiedad es una alarma, no una profecía. Lo que siento ahora pasará.",
+    "author": "David Carbonell",
+    "source": "The Worry Trick",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "98",
+    "text": "El fracaso no es una identidad, es un evento. Puedo aprender y seguir adelante.",
+    "author": "Carol Dweck",
+    "source": "Mindset",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "99",
+    "text": "No tengo que tener todas las respuestas hoy. Me basta con dar el siguiente paso.",
+    "author": "Martin Luther King Jr.",
+    "source": "Discurso",
+    "category": "Confianza"
+  },
+  {
+    "id": "100",
+    "text": "Hoy elijo creer que lo mejor está por venir. Suelto el control y confío en el camino.",
+    "author": "Ancla",
+    "source": "Afirmación original",
+    "category": "Entrega"
   }
 ]
