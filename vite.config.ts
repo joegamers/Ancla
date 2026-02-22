@@ -12,7 +12,7 @@ export default defineConfig({
       devOptions: {
         enabled: true
       },
-      includeAssets: ['favicon.ico', 'app-icon.svg', 'apple-touch-icon.png'],
+      includeAssets: ['app-icon.svg', 'notification-icon.svg'],
       manifest: {
         name: 'Ancla - Tu espacio de calma',
         short_name: 'Ancla',
@@ -20,12 +20,28 @@ export default defineConfig({
         theme_color: '#0a0f18',
         background_color: '#0a0f18',
         display: 'standalone',
+        orientation: 'portrait',
+        start_url: '.',
+        scope: '/',
+        lang: 'es',
         icons: [
+          {
+            src: 'app-icon.svg',
+            sizes: '192x192',
+            type: 'image/svg+xml',
+            purpose: 'any'
+          },
           {
             src: 'app-icon.svg',
             sizes: '512x512',
             type: 'image/svg+xml',
-            purpose: 'any maskable'
+            purpose: 'any'
+          },
+          {
+            src: 'app-icon.svg',
+            sizes: '512x512',
+            type: 'image/svg+xml',
+            purpose: 'maskable'
           }
         ]
       }
