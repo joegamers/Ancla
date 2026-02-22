@@ -147,7 +147,7 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         ctx.font = '600 18px Inter, system-ui, sans-serif';
         ctx.fillStyle = 'rgba(94, 234, 212, 0.45)';
         ctx.letterSpacing = '3px';
-        ctx.fillText('ANCLA.WEB.APP · @JOEGAMERSDEV', width / 2, height - 60);
+        ctx.fillText('ANCLAS.VERCEL.APP · @JOEGAMERSDEV', width / 2, height - 60);
 
         // ─── Export as blob ───
         canvas.toBlob((blob) => {

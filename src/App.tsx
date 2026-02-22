@@ -36,7 +36,7 @@ function App() {
         await navigator.share({
           title: 'Ancla — Tu espacio de calma',
           text: 'Te comparto esta app de afirmaciones que me está ayudando mucho a mantener la calma y reprogramar pensamientos negativos. Es gratuita y Zen. ✨',
-          url: 'https://ancla.web.app', // Placeholder URL from plan
+          url: 'https://anclas.vercel.app', // Final production URL
         });
       }
     } catch (err) {
