@@ -21,6 +21,7 @@ export abstract class NotificationService {
     abstract cancelAll(): Promise<void>;
     abstract requestPermission(): Promise<boolean>;
     abstract rescheduleFromSettings(directConfig?: DirectScheduleConfig): Promise<void>;
+    abstract sendTestNotification(): Promise<void>;
 }
 
 export class CapacitorNotificationService extends NotificationService {
@@ -51,10 +52,6 @@ export class CapacitorNotificationService extends NotificationService {
     }
 
     async schedule(options: NotificationOptions): Promise<void> {
-        await this.scheduleRandom(options);
-    }
-
-    async scheduleRandom(options: NotificationOptions): Promise<void> {
         await this.ensureChannel();
         await LocalNotifications.schedule({
             notifications: [{
@@ -62,11 +59,18 @@ export class CapacitorNotificationService extends NotificationService {
                 body: options.text,
                 id: Math.floor(Math.random() * 100000),
                 schedule: options.scheduleAt ? { at: options.scheduleAt, allowWhileIdle: true } : undefined,
-                extra: { type: 'random' },
                 channelId: 'affirmations',
                 sound: 'zen_bell.mp3'
             }]
         });
+    }
+
+    async scheduleRandom(options: NotificationOptions): Promise<void> {
+        await this.schedule(options);
+    }
+
+    async sendTestNotification(): Promise<void> {
+        await this.schedule({ text: "✨ ¡Prueba de Ancla exitosa! Tu sistema de notificaciones está configurado correctamente." });
     }
 
     async scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void> {
@@ -77,10 +81,7 @@ export class CapacitorNotificationService extends NotificationService {
                 body: text,
                 id: 1001,
                 schedule: {
-                    on: {
-                        hour: time.hour,
-                        minute: time.minute
-                    },
+                    on: { hour: time.hour, minute: time.minute },
                     allowWhileIdle: true,
                     every: 'day'
                 },
@@ -101,10 +102,12 @@ export class CapacitorNotificationService extends NotificationService {
     async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always'): Promise<void> {
         await this.ensureChannel();
 
-        if (affirmations.length === 0) {
-            console.log('[Ancla] No affirmations to schedule');
-            return;
-        }
+        if (affirmations.length === 0) return;
+
+        // Immediate confirmation notification (1s delay)
+        setTimeout(() => {
+            this.schedule({ text: `✨ Ritmo iniciado. Tu primera afirmación llegará en breve.` });
+        }, 1000);
 
         const notifications: any[] = [];
         const now = new Date();
@@ -137,11 +140,7 @@ export class CapacitorNotificationService extends NotificationService {
                     title: "Ancla",
                     body: affirmations[affIndex],
                     id: 2000 + scheduledCount,
-                    schedule: {
-                        at: new Date(date),
-                        allowWhileIdle: true
-                    },
-                    silent: false,
+                    schedule: { at: new Date(date), allowWhileIdle: true },
                     channelId: 'affirmations',
                     sound: 'zen_bell.mp3'
                 });
@@ -150,12 +149,8 @@ export class CapacitorNotificationService extends NotificationService {
         }
 
         if (notifications.length > 0) {
-            const times = notifications.map(n => {
-                const d = n.schedule.at as Date;
-                return `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
-            });
-            console.log(`[Ancla] Scheduling ${notifications.length} notifications for the next 24h at: ${times.join(', ')}`);
             await LocalNotifications.schedule({ notifications });
+            console.log(`[Ancla] scheduled ${notifications.length} native notifications`);
         } else {
             console.log('[Ancla] No valid time slots found for the current active period in the next 24h');
         }
@@ -175,8 +170,9 @@ export class CapacitorNotificationService extends NotificationService {
 
         if (!state.notificationsEnabled) return;
 
-        // Cancel all existing before rescheduling
-        await this.cancelAll();
+        // Only cancel if we are explicitly re-configuring (not just app load)
+        const isInitialLoad = !directConfig;
+        if (!isInitialLoad) await this.cancelAll();
 
         // Use direct config if provided, otherwise read from store
         const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
@@ -189,7 +185,6 @@ export class CapacitorNotificationService extends NotificationService {
             const [hour, minute] = notifTime.split(':').map(Number);
             const aff = affirmationEngine.getRandomAffirmation(intention);
             await this.scheduleDaily(aff.text, { hour, minute });
-            console.log(`[Ancla] Scheduled daily notification at ${hour}:${minute.toString().padStart(2, '0')}`);
         } else {
             // Interval mode: schedule next 24h of notifications
             const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
@@ -213,12 +208,6 @@ export class CapacitorNotificationService extends NotificationService {
             // Also remove any already-delivered ones from the tray
             await LocalNotifications.removeAllDeliveredNotifications();
         } catch (e) {
-            // Fallback: cancel known ID ranges if getPending fails
-            try {
-                const ids: number[] = [1001];
-                for (let i = 0; i < 200; i++) ids.push(2000 + i);
-                await LocalNotifications.cancel({ notifications: ids.map(id => ({ id })) });
-            } catch (_) { /* ignore */ }
             console.error("Error canceling notifications:", e);
         }
     }
@@ -227,14 +216,14 @@ export class CapacitorNotificationService extends NotificationService {
 import { useStore } from '../store/useStore';
 
 export class WebNotificationService extends NotificationService {
+    private activeTimer: any = null;
+
     private playSound() {
         try {
             const audio = new Audio('/zen_bell.mp3');
             audio.volume = 0.5;
-            audio.play().catch(e => console.warn('[Ancla Web] Sound play blocked by browser:', e));
-        } catch (e) {
-            console.error('[Ancla Web] Error playing notification sound:', e);
-        }
+            audio.play().catch(() => { });
+        } catch (e) { }
     }
 
     async requestPermission(): Promise<boolean> {
@@ -245,43 +234,91 @@ export class WebNotificationService extends NotificationService {
 
     async schedule(options: NotificationOptions): Promise<void> {
         if (Notification.permission === "granted") {
-            new Notification("Ancla", { body: options.text });
-            this.playSound();
+            setTimeout(() => {
+                new Notification("Ancla", {
+                    body: options.text,
+                    icon: '/notification-icon.svg'
+                });
+                this.playSound();
+            }, 100);
         }
-        useStore.getState().showToast(`Notificación enviada: "${options.text.substring(0, 30)}..."`);
+        useStore.getState().showToast(`Notificación: "${options.text.substring(0, 30)}..."`);
     }
 
     async scheduleRandom(options: NotificationOptions): Promise<void> {
-        this.schedule(options);
+        await this.schedule(options);
+    }
+
+    async sendTestNotification(): Promise<void> {
+        await this.schedule({ text: "✨ ¡Prueba de Ancla exitosa! Estás listo para recibir calma." });
     }
 
     async scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void> {
-        useStore.getState().showToast(`Recordatorio programado para las ${time.hour}:${time.minute.toString().padStart(2, '0')}`);
+        useStore.getState().showToast(`Recordatorio programado (${time.hour}:${time.minute.toString().padStart(2, '0')}): "${text.substring(0, 20)}..."`);
     }
 
-    async scheduleQueue(affirmations: string[], intervalMinutes: number, _activePeriod: 'day' | 'night' | 'always'): Promise<void> {
-        useStore.getState().showToast(`Ritmo activado. Recibirás mensajes positivos cada ${intervalMinutes}m.`);
+    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always'): Promise<void> {
+        if (this.activeTimer) clearInterval(this.activeTimer);
 
-        if (affirmations.length > 0) {
-            setTimeout(() => {
-                const previewText = affirmations[0];
-                if (Notification.permission === "granted") {
-                    new Notification("Ancla", { body: previewText });
-                    this.playSound();
-                } else {
-                    useStore.getState().showToast(`Ejemplo: "${previewText}"`);
+        // Immediate visual/audit confirmation
+        this.schedule({ text: `✨ Ritmo iniciado. Recibirás mensajes cada ${intervalMinutes}m.` });
+
+        this.activeTimer = setInterval(() => {
+            const now = new Date();
+            const hour = now.getHours();
+            let isValid = true;
+            if (activePeriod === 'day') isValid = hour >= 8 && hour < 22;
+            else if (activePeriod === 'night') isValid = hour >= 22 || hour < 8;
+
+            if (isValid && Notification.permission === "granted") {
+                const text = affirmations[Math.floor(Math.random() * affirmations.length)];
+                this.schedule({ text });
+            }
+        }, intervalMinutes * 60 * 1000);
+    }
+
+    async rescheduleFromSettings(directConfig?: DirectScheduleConfig): Promise<void> {
+        const { useStore } = await import('../store/useStore');
+        const { affirmationEngine } = await import('./AffirmationEngine');
+        const state = useStore.getState();
+
+        if (!state.notificationsEnabled) {
+            if (this.activeTimer) clearInterval(this.activeTimer);
+            return;
+        }
+
+        const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
+        const interval = directConfig?.interval ?? state.checkInterval;
+        const period = directConfig?.period ?? state.activePeriod;
+
+        const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
+        const queue = allAffirmations.map(a => a.text);
+
+        // For web, we only start the timer if it's an explicit re-scheduling (user clicked Save)
+        // because we don't want to start multiple confirmation notifications on every reload.
+        if (directConfig) {
+            await this.scheduleQueue(queue, interval, period);
+        } else {
+            // Background silent start for refreshes
+            this.activeTimer = setInterval(() => {
+                const now = new Date();
+                const hour = now.getHours();
+                let isValid = true;
+                if (period === 'day') isValid = hour >= 8 && hour < 22;
+                else if (period === 'night') isValid = hour >= 22 || hour < 8;
+                if (isValid && Notification.permission === "granted") {
+                    const text = queue[Math.floor(Math.random() * queue.length)];
+                    this.schedule({ text });
                 }
-            }, 1500);
+            }, interval * 60 * 1000);
         }
     }
 
-    async rescheduleFromSettings(_directConfig?: DirectScheduleConfig): Promise<void> {
-        // No-op on web — notifications are not persistent
-        console.log('[Ancla Web] rescheduleFromSettings called (no-op)');
-    }
-
     async cancelAll(): Promise<void> {
-        console.log("Web Cancel All");
+        if (this.activeTimer) {
+            clearInterval(this.activeTimer);
+            this.activeTimer = null;
+        }
     }
 }
 

@@ -118,14 +118,28 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
 
                             <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar space-y-6">
                                 {/* Enable Toggle */}
-                                <div className="flex items-center justify-between p-4 rounded-2xl bg-teal-50/50 dark:bg-slate-800/50">
-                                    <span className="text-sm font-medium text-zen-primary dark:text-slate-200">Activadas</span>
-                                    <button
-                                        onClick={() => handleToggleNotifications(!notificationsEnabled)}
-                                        className={`w-12 h-6 rounded-full transition-colors relative ${notificationsEnabled ? 'bg-teal-600' : 'bg-slate-300 dark:bg-slate-700'}`}
-                                    >
-                                        <div className={`w-4 h-4 rounded-full bg-white shadow-sm absolute top-1 transition-all ${notificationsEnabled ? 'left-7' : 'left-1'}`} />
-                                    </button>
+                                <div className="space-y-4">
+                                    <div className="flex items-center justify-between p-4 rounded-2xl bg-teal-50/50 dark:bg-slate-800/50">
+                                        <span className="text-sm font-medium text-zen-primary dark:text-slate-200">Activadas</span>
+                                        <button
+                                            onClick={() => handleToggleNotifications(!notificationsEnabled)}
+                                            className={`w-12 h-6 rounded-full transition-colors relative ${notificationsEnabled ? 'bg-teal-600' : 'bg-slate-300 dark:bg-slate-700'}`}
+                                        >
+                                            <div className={`w-4 h-4 rounded-full bg-white shadow-sm absolute top-1 transition-all ${notificationsEnabled ? 'left-7' : 'left-1'}`} />
+                                        </button>
+                                    </div>
+
+                                    {notificationsEnabled && (
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => notificationService.sendTestNotification()}
+                                            className="w-full border-teal-200 text-teal-700 hover:bg-teal-50 dark:border-teal-800 dark:text-teal-400 dark:hover:bg-teal-900/20"
+                                        >
+                                            <Bell className="w-4 h-4 mr-2" />
+                                            Enviar notificación de prueba
+                                        </Button>
+                                    )}
                                 </div>
 
                                 {notificationsEnabled && (
