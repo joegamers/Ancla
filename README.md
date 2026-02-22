@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+<div align="center">
+  <img src="public/app-icon.svg" width="128" height="128" alt="Ancla Logo">
+  <h1>Ancla — Tu Espacio de Calma</h1>
+  <p><b>Interrumpe pensamientos negativos, reprograma tu mente y encuentra tu centro.</b></p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <p>
+    <a href="https://anclas.vercel.app"><b>🚀 Usar App Web</b></a> •
+    <a href="#-instalación"><b>📱 Instalar PWA</b></a> •
+    <a href="https://ko-fi.com/joegamersdev"><b>☕ Apoyar Proyecto</b></a>
+  </p>
+</div>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ ¿Qué es Ancla?
 
-## Expanding the ESLint configuration
+**Ancla** no es solo una app de frases; es una herramienta de **enclajamiento cognitivo** diseñada para ser tu refugio digital. Combina la psicología cognitiva moderna (TCC) con sabiduría profunda para ayudarte a detener espirales de ansiedad y negatividad.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+En un mundo de distracciones, Ancla te ofrece un momento de respiración, una verdad poderosa y un entorno visual que calma tus sentidos.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Características Principales
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 🌊 **Entorno Zen Inmersivo**: Fondo animado en 3D con Three.js que simula una respiración tranquila.
+- 🧠 **+100 Afirmaciones de Calidad**: Curadas bajo criterios psicológicos y bíblicos para fortalecer tu identidad y paz.
+- 🔔 **Notificaciones Inteligentes**: Recibe dosis de luz durante el día con una frecuencia personalizada.
+- 📤 **Comparte la Luz**: Genera imágenes hermosas con tus afirmaciones favoritas para inspirar a otros en redes sociales.
+- 📱 **Experiencia PWA**: Instálala en tu iPhone o Android como una app nativa, sin ocupar espacio y con acceso offline.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Showcase
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+<div align="center">
+  <img src="public/screenshots/main_ui.png" width="45%" alt="Interfaz Principal">
+  <img src="public/screenshots/zen_bg.webp" width="45%" alt="Fondo Zen">
+</div>
+
+## 🛠️ Stack Tecnológico
+
+- **Frontend**: React 19 + TypeScript + Vite
+- **Gráficos**: Three.js (3D Zen Background)
+- **Estilos**: Tailwind CSS + Framer Motion (Animaciones suaves)
+- **Nativo/PWA**: Capacitor + Vite PWA Plugin
+- **Estado**: Zustand (Ligero y rápido)
+
+## 📲 Instalación
+
+Ancla es una **PWA (Progressive Web App)**. No necesitas la Play Store:
+
+1. Visita [anclas.vercel.app](https://anclas.vercel.app)
+2. **Android**: Toca el aviso "Instalar aplicación" o ve al menú de Chrome → "Instalar app".
+3. **iOS**: En Safari, toca "Compartir" (cuadrado con flecha) y selecciona **"Añadir a la pantalla de inicio"**.
+
+---
+
+## 👨‍💻 Desarrollador
+
+Creado con ❤️ por **[JoeGamers Dev](https://github.com/joegamers)**. 
+Si esta herramienta te ayuda, considera invitarme a un café para seguir mejorando Ancla.
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/joegamersdev)
+
+---
+## 📄 Licencia
+
+Este proyecto es de código cerrado y propiedad exclusiva de **JoeGamers Dev**. No se permite el uso, copia, modificación o distribución del código fuente sin autorización previa. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+<div align="center">
+  <sub>© 2026 Ancla App. Tu paz es nuestra prioridad.</sub>
+</div>
