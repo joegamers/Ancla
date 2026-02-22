@@ -144,9 +144,10 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         }
 
         // ─── Footer ───
-        ctx.font = '500 12px Inter, system-ui, sans-serif';
-        ctx.fillStyle = 'rgba(94, 234, 212, 0.3)';
-        ctx.fillText('ancla.app · @joegamers', width / 2, height - 60);
+        ctx.font = '600 18px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(94, 234, 212, 0.45)';
+        ctx.letterSpacing = '3px';
+        ctx.fillText('ANCLA.WEB.APP · @JOEGAMERSDEV', width / 2, height - 60);
 
         // ─── Export as blob ───
         canvas.toBlob((blob) => {

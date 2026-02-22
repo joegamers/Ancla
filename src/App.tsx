@@ -8,7 +8,7 @@ import { notificationService } from './services/NotificationService';
 import { useStore } from './store/useStore';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { RefreshCw, Share2, Settings, Coffee, Bell } from 'lucide-react';
+import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
 import { Button } from './components/ui/button';
 
 function App() {
@@ -29,6 +29,20 @@ function App() {
   const [showOnboarding, setShowOnboarding] = useState(!hasCompletedOnboarding);
 
   const moods = useMemo(() => affirmationEngine.getMoods(), []);
+
+  const handleInvite = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Ancla — Tu espacio de calma',
+          text: 'Te comparto esta app de afirmaciones que me está ayudando mucho a mantener la calma y reprogramar pensamientos negativos. Es gratuita y Zen. ✨',
+          url: 'https://ancla.web.app', // Placeholder URL from plan
+        });
+      }
+    } catch (err) {
+      if ((err as Error).name !== 'AbortError') console.error(err);
+    }
+  };
 
   // Load initial affirmation
   useEffect(() => {
@@ -232,6 +246,14 @@ function App() {
               >
                 <Share2 size={12} />
                 {isSharing ? 'Creando...' : 'Compartir'}
+              </button>
+              <button
+                onClick={handleInvite}
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                title="Invitar amigos"
+              >
+                <Users size={12} />
+                Invitar
               </button>
             </motion.div>
 
