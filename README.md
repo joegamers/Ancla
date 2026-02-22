@@ -1,7 +1,10 @@
 <div align="center">
-  <img src="public/app-icon.svg" width="128" height="128" alt="Ancla Logo">
+  <img src="public/app-icon.svg" width="120" height="120" alt="Ancla Logo">
   <h1>Ancla — Tu Espacio de Calma</h1>
   <p><b>Interrumpe pensamientos negativos, reprograma tu mente y encuentra tu centro.</b></p>
+
+  <!-- Efecto Wow Video -->
+  <img src="public/screenshots/wow_effect.webp" width="80%" alt="Ancla Zen Environment" style="border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin: 20px 0;">
 
   <p>
     <a href="https://anclas.vercel.app"><b>🚀 Usar App Web</b></a> •
@@ -20,11 +23,11 @@ En un mundo de distracciones, Ancla te ofrece un momento de respiración, una ve
 
 ## 🚀 Características Principales
 
-- 🌊 **Entorno Zen Inmersivo**: Fondo animado en 3D con Three.js que simula una respiración tranquila.
+- 🌊 **Entorno Zen Inmersivo**: Fondo animado en 3D con Three.js que simula una respiración tranquila y reacciona al movimiento.
 - 🧠 **+100 Afirmaciones de Calidad**: Curadas bajo criterios psicológicos y bíblicos para fortalecer tu identidad y paz.
 - 🔔 **Notificaciones Inteligentes**: Recibe dosis de luz durante el día con una frecuencia personalizada.
-- 📤 **Comparte la Luz**: Genera imágenes hermosas con tus afirmaciones favoritas para inspirar a otros en redes sociales.
-- 📱 **Experiencia PWA**: Instálala en tu iPhone o Android como una app nativa, sin ocupar espacio y con acceso offline.
+- 📤 **Comparte la Luz**: Genera imágenes hermosas con tus afirmaciones favoritas para inspirar a otros.
+- 📱 **Experiencia PWA**: Instálala en tu iPhone o Android como una app nativa, sin ocupar espacio.
 
 ## 📸 Showcase
 
@@ -37,26 +40,25 @@ En un mundo de distracciones, Ancla te ofrece un momento de respiración, una ve
 
 - **Frontend**: React 19 + TypeScript + Vite
 - **Gráficos**: Three.js (3D Zen Background)
-- **Estilos**: Tailwind CSS + Framer Motion (Animaciones suaves)
-- **Nativo/PWA**: Capacitor + Vite PWA Plugin
-- **Estado**: Zustand (Ligero y rápido)
+- **Animaciones**: Framer Motion
+- **Estado**: Zustand
 
 ## 📲 Instalación
 
-Ancla es una **PWA (Progressive Web App)**. No necesitas la Play Store:
+Ancla es una **PWA (Progressive Web App)**:
 
 1. Visita [anclas.vercel.app](https://anclas.vercel.app)
-2. **Android**: Toca el aviso "Instalar aplicación" o ve al menú de Chrome → "Instalar app".
-3. **iOS**: En Safari, toca "Compartir" (cuadrado con flecha) y selecciona **"Añadir a la pantalla de inicio"**.
+2. **Android**: Chrome sugerirá "Instalar aplicación".
+3. **iOS**: En Safari, toca "Compartir" y selecciona **"Añadir a la pantalla de inicio"**.
 
 ---
 
-## 👨‍💻 Desarrollador
+## ❤️ Apoya este proyecto
 
-Creado con ❤️ por **[JoeGamers Dev](https://github.com/joegamers)**. 
-Si esta herramienta te ayuda, considera invitarme a un café para seguir mejorando Ancla.
+Si Ancla te ha servido o crees en la importancia de la salud mental accesible, puedes apoyar su desarrollo:
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/joegamersdev)
+*   [☕ **Invítame un café (Ko-fi)**](https://ko-fi.com/joegamersdev): Tu apoyo directo me permite mantener la app gratuita y sin anuncios.
+*   [⭐️ **Dale una estrella a este repositorio**](https://github.com/joegamers/Ancla): Ayúdanos a llegar a más personas que necesitan un momento de calma.
 
 ---
 ## 📄 Licencia
