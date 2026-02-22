@@ -42,28 +42,20 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
     }, [notificationTime, checkInterval, activePeriod, notificationIntention, isOpen]);
 
     const handleSave = () => {
+        // Save settings to store first so rescheduleFromSettings reads the new values
         setNotificationTime(tempTime);
         setCheckInterval(tempInterval);
         setActivePeriod(tempPeriod);
         setNotificationIntention(tempIntention);
 
         if (notificationsEnabled) {
-            notificationService.cancelAll().then(() => {
-                if (tempInterval === 1440) { // Daily
-                    const [hour, minute] = tempTime.split(':').map(Number);
-                    const aff = affirmationEngine.getRandomAffirmation(tempIntention);
-                    notificationService.scheduleDaily(aff.text, { hour, minute });
-                } else {
-                    // Generate queue of 50 unique affirmations based on selected intention
-                    const allAffirmations = affirmationEngine.getAffirmationsByMood(tempIntention);
-                    // Shuffle array
-                    const shuffled = [...allAffirmations].sort(() => 0.5 - Math.random());
-                    // Take top 50 (or less if not enough data)
-                    const queue = shuffled.slice(0, 50).map(a => a.text);
-
-                    notificationService.scheduleQueue(queue, tempInterval, tempPeriod);
-                }
-            });
+            // Use centralized rescheduling — reads config from store and programs next 24h
+            // Small delay to ensure store has updated before reading
+            setTimeout(() => {
+                notificationService.rescheduleFromSettings().catch((err) => {
+                    console.error('[Ancla] Error scheduling notifications:', err);
+                });
+            }, 100);
         } else {
             notificationService.cancelAll();
         }

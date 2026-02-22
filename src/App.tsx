@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GlassCard, SettingsModal, ZenToast, IntentionsModal, Onboarding } from './components';
 import { affirmationEngine } from './services/AffirmationEngine';
@@ -42,6 +42,14 @@ function App() {
   const [showSettings, setShowSettings] = useState(false);
   const [showIntentionsModal, setShowIntentionsModal] = useState(false);
   const moods = useMemo(() => affirmationEngine.getMoods(), []);
+
+  // Re-schedule notifications every time the app opens
+  // This ensures the next 24h of notifications are always queued
+  useEffect(() => {
+    notificationService.rescheduleFromSettings().catch((err) => {
+      console.warn('[Ancla] Failed to reschedule notifications:', err);
+    });
+  }, []);
 
   const handleVibeSelect = (mood: string) => {
     setVibe(mood);
