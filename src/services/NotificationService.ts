@@ -17,7 +17,7 @@ export abstract class NotificationService {
     abstract schedule(options: NotificationOptions): Promise<void>;
     abstract scheduleRandom(options: NotificationOptions): Promise<void>;
     abstract scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void>;
-    abstract scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always'): Promise<void>;
+    abstract scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always', silent?: boolean): Promise<void>;
     abstract cancelAll(): Promise<void>;
     abstract requestPermission(): Promise<boolean>;
     abstract rescheduleFromSettings(directConfig?: DirectScheduleConfig): Promise<void>;
@@ -99,15 +99,17 @@ export class CapacitorNotificationService extends NotificationService {
      * The loop iterates ALL time slots in the 24h window. Affirmations are
      * recycled if there are more valid slots than texts.
      */
-    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always'): Promise<void> {
+    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always', silent = false): Promise<void> {
         await this.ensureChannel();
 
         if (affirmations.length === 0) return;
 
-        // Immediate confirmation notification (1s delay)
-        setTimeout(() => {
-            this.schedule({ text: `✨ Ritmo iniciado. Tu primera afirmación llegará en breve.` });
-        }, 1000);
+        // Only show confirmation when user explicitly saves settings
+        if (!silent) {
+            setTimeout(() => {
+                this.schedule({ text: `✨ Ritmo iniciado. Tu primera afirmación llegará en breve.` });
+            }, 1000);
+        }
 
         const notifications: any[] = [];
         const now = new Date();
@@ -170,15 +172,18 @@ export class CapacitorNotificationService extends NotificationService {
 
         if (!state.notificationsEnabled) return;
 
-        // Only cancel if we are explicitly re-configuring (not just app load)
-        const isInitialLoad = !directConfig;
-        if (!isInitialLoad) await this.cancelAll();
+        // ALWAYS cancel old notifications before scheduling new ones
+        // This prevents duplicates and stale timings on every app open
+        await this.cancelAll();
 
         // Use direct config if provided, otherwise read from store
         const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
         const interval = directConfig?.interval ?? state.checkInterval;
         const period = directConfig?.period ?? state.activePeriod;
         const notifTime = directConfig?.notificationTime ?? state.notificationTime ?? '09:00';
+
+        // Silent on app load (no directConfig), show confirmation on manual save
+        const silent = !directConfig;
 
         if (interval === 1440) {
             // Daily mode: schedule a repeating notification
@@ -190,7 +195,7 @@ export class CapacitorNotificationService extends NotificationService {
             const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
             const shuffled = [...allAffirmations].sort(() => 0.5 - Math.random());
             const queue = shuffled.slice(0, 50).map(a => a.text);
-            await this.scheduleQueue(queue, interval, period);
+            await this.scheduleQueue(queue, interval, period, silent);
         }
     }
 
@@ -257,11 +262,13 @@ export class WebNotificationService extends NotificationService {
         useStore.getState().showToast(`Recordatorio programado (${time.hour}:${time.minute.toString().padStart(2, '0')}): "${text.substring(0, 20)}..."`);
     }
 
-    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always'): Promise<void> {
+    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always', silent = false): Promise<void> {
         if (this.activeTimer) clearInterval(this.activeTimer);
 
-        // Immediate visual/audit confirmation
-        this.schedule({ text: `✨ Ritmo iniciado. Recibirás mensajes cada ${intervalMinutes}m.` });
+        // Only show confirmation when user explicitly saves settings
+        if (!silent) {
+            this.schedule({ text: `✨ Ritmo iniciado. Recibirás mensajes cada ${intervalMinutes}m.` });
+        }
 
         this.activeTimer = setInterval(() => {
             const now = new Date();
@@ -287,6 +294,9 @@ export class WebNotificationService extends NotificationService {
             return;
         }
 
+        // ALWAYS cancel old timers before scheduling new ones
+        await this.cancelAll();
+
         const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
         const interval = directConfig?.interval ?? state.checkInterval;
         const period = directConfig?.period ?? state.activePeriod;
@@ -294,24 +304,9 @@ export class WebNotificationService extends NotificationService {
         const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
         const queue = allAffirmations.map(a => a.text);
 
-        // For web, we only start the timer if it's an explicit re-scheduling (user clicked Save)
-        // because we don't want to start multiple confirmation notifications on every reload.
-        if (directConfig) {
-            await this.scheduleQueue(queue, interval, period);
-        } else {
-            // Background silent start for refreshes
-            this.activeTimer = setInterval(() => {
-                const now = new Date();
-                const hour = now.getHours();
-                let isValid = true;
-                if (period === 'day') isValid = hour >= 8 && hour < 22;
-                else if (period === 'night') isValid = hour >= 22 || hour < 8;
-                if (isValid && Notification.permission === "granted") {
-                    const text = queue[Math.floor(Math.random() * queue.length)];
-                    this.schedule({ text });
-                }
-            }, interval * 60 * 1000);
-        }
+        // Silent on app load (no directConfig), show confirmation on manual save
+        const silent = !directConfig;
+        await this.scheduleQueue(queue, interval, period, silent);
     }
 
     async cancelAll(): Promise<void> {
