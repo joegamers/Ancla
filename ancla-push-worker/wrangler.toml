@@ -1,0 +1,19 @@
+name = "ancla-push"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+[triggers]
+crons = ["* * * * *"]
+
+[[kv_namespaces]]
+binding = "SUBSCRIPTIONS"
+id = "a088d4f2adc54710b282332b287fed33"
+
+[vars]
+VAPID_PUBLIC_KEY = "BLuldDuA543vUH4DnHBPACCFHu6mzECBuFlG8IXp0dpCtCai4N2zhcveley9v-u6RGNHmxIqc6ZZcUMoACRgXBA"
+FCM_PROJECT_ID = "ancla-a37a4"
+
+# Secrets (set via `wrangler secret put`):
+# VAPID_PRIVATE_KEY
+# FCM_CLIENT_EMAIL
+# FCM_PRIVATE_KEY

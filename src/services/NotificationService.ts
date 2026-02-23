@@ -1,4 +1,3 @@
-import { LocalNotifications } from '@capacitor/local-notifications';
 import { Capacitor } from '@capacitor/core';
 
 export interface NotificationOptions {
@@ -13,6 +12,35 @@ export interface DirectScheduleConfig {
     notificationTime: string;
 }
 
+// ── Worker API URL ─────────────────────────────────────────────────
+const PUSH_WORKER_URL = 'https://ancla-push.joel22sd.workers.dev';
+const VAPID_PUBLIC_KEY = 'BLuldDuA543vUH4DnHBPACCFHu6mzECBuFlG8IXp0dpCtCai4N2zhcveley9v-u6RGNHmxIqc6ZZcUMoACRgXBA';
+
+// Storage key for the subscription ID returned by the Worker
+const SUB_ID_KEY = 'ancla-push-sub-id';
+
+function getSubId(): string | null {
+    return localStorage.getItem(SUB_ID_KEY);
+}
+function setSubId(id: string): void {
+    localStorage.setItem(SUB_ID_KEY, id);
+}
+function clearSubId(): void {
+    localStorage.removeItem(SUB_ID_KEY);
+}
+
+// Convert VAPID key to Uint8Array for PushManager
+function urlBase64ToUint8Array(base64String: string): Uint8Array {
+    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+    const rawData = window.atob(base64);
+    const output = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; i++) output[i] = rawData.charCodeAt(i);
+    return output;
+}
+
+// ── Abstract service ───────────────────────────────────────────────
+
 export abstract class NotificationService {
     abstract schedule(options: NotificationOptions): Promise<void>;
     abstract scheduleRandom(options: NotificationOptions): Promise<void>;
@@ -24,6 +52,8 @@ export abstract class NotificationService {
     abstract sendTestNotification(): Promise<void>;
 }
 
+// ── Capacitor (Android) — Push via FCM + Worker ────────────────────
+
 export class CapacitorNotificationService extends NotificationService {
     private channelCreated = false;
 
@@ -31,13 +61,14 @@ export class CapacitorNotificationService extends NotificationService {
         if (this.channelCreated) return;
         if (Capacitor.getPlatform() === 'android') {
             try {
+                const { LocalNotifications } = await import('@capacitor/local-notifications');
                 await LocalNotifications.createChannel({
                     id: 'affirmations',
                     name: 'Afirmaciones',
                     description: 'Notificaciones periódicas de afirmaciones positivas',
                     importance: 4,
                     visibility: 1,
-                    sound: 'zen_bell.mp3' // Note: For Android, put zen_bell.mp3 in res/raw
+                    sound: 'zen_bell.mp3'
                 });
                 this.channelCreated = true;
             } catch (e) {
@@ -47,12 +78,26 @@ export class CapacitorNotificationService extends NotificationService {
     }
 
     async requestPermission(): Promise<boolean> {
-        const perm = await LocalNotifications.requestPermissions();
-        return perm.display === 'granted';
+        try {
+            const { PushNotifications } = await import('@capacitor/push-notifications');
+            const perm = await PushNotifications.requestPermissions();
+            if (perm.receive === 'granted') {
+                await PushNotifications.register();
+                return true;
+            }
+            return false;
+        } catch (e) {
+            console.warn('[Ancla] PushNotifications not available, falling back to local:', e);
+            // Fallback to local notifications permission
+            const { LocalNotifications } = await import('@capacitor/local-notifications');
+            const perm = await LocalNotifications.requestPermissions();
+            return perm.display === 'granted';
+        }
     }
 
     async schedule(options: NotificationOptions): Promise<void> {
         await this.ensureChannel();
+        const { LocalNotifications } = await import('@capacitor/local-notifications');
         await LocalNotifications.schedule({
             notifications: [{
                 title: "Ancla",
@@ -73,163 +118,207 @@ export class CapacitorNotificationService extends NotificationService {
         await this.schedule({ text: "✨ ¡Prueba de Ancla exitosa! Tu sistema de notificaciones está configurado correctamente." });
     }
 
-    async scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void> {
-        await this.ensureChannel();
-        await LocalNotifications.schedule({
-            notifications: [{
-                title: "Ancla",
-                body: text,
-                id: 1001,
-                schedule: {
-                    on: { hour: time.hour, minute: time.minute },
-                    allowWhileIdle: true,
-                    every: 'day'
-                },
-                channelId: 'affirmations',
-                sound: 'zen_bell.mp3'
-            }]
-        });
+    async scheduleDaily(_text: string, _time: { hour: number, minute: number }): Promise<void> {
+        // Handled by the Worker now
+    }
+
+    async scheduleQueue(_affirmations: string[], _intervalMinutes: number, _activePeriod: 'day' | 'night' | 'always', _silent = false): Promise<void> {
+        // Handled by the Worker now
     }
 
     /**
-     * Schedules notifications for the NEXT 24 hours only.
-     * Each time the app opens, rescheduleFromSettings() will re-call this
-     * to keep the next 24h always populated.
-     *
-     * The loop iterates ALL time slots in the 24h window. Affirmations are
-     * recycled if there are more valid slots than texts.
-     */
-    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always', silent = false): Promise<void> {
-        await this.ensureChannel();
-
-        if (affirmations.length === 0) return;
-
-        // Only show confirmation when user explicitly saves settings
-        if (!silent) {
-            setTimeout(() => {
-                this.schedule({ text: `✨ Ritmo iniciado. Tu primera afirmación llegará en breve.` });
-            }, 1000);
-        }
-
-        const notifications: any[] = [];
-        const now = new Date();
-        const maxTime = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 hours from now
-        let date = new Date(now);
-        let scheduledCount = 0;
-
-        // Iterate ALL time slots in the next 24 hours
-        while (true) {
-            // Advance time by interval
-            date = new Date(date.getTime() + intervalMinutes * 60 * 1000);
-
-            // Stop after 24 hours
-            if (date >= maxTime) break;
-
-            const hour = date.getHours();
-            let isValidTime = true;
-
-            if (activePeriod === 'day') {
-                isValidTime = hour >= 8 && hour < 22;
-            } else if (activePeriod === 'night') {
-                isValidTime = hour >= 22 || hour < 8;
-            }
-            // 'always' → isValidTime stays true
-
-            if (isValidTime) {
-                // Recycle affirmations using modulo so we never run out
-                const affIndex = scheduledCount % affirmations.length;
-                notifications.push({
-                    title: "Ancla",
-                    body: affirmations[affIndex],
-                    id: 2000 + scheduledCount,
-                    schedule: { at: new Date(date), allowWhileIdle: true },
-                    channelId: 'affirmations',
-                    sound: 'zen_bell.mp3'
-                });
-                scheduledCount++;
-            }
-        }
-
-        if (notifications.length > 0) {
-            await LocalNotifications.schedule({ notifications });
-            console.log(`[Ancla] scheduled ${notifications.length} native notifications`);
-        } else {
-            console.log('[Ancla] No valid time slots found for the current active period in the next 24h');
-        }
-    }
-
-    /**
-     * Re-schedules notifications based on saved settings or direct config.
-     * Called every time the app opens to ensure continuous delivery.
-     * When called from handleSave, directConfig avoids reading stale store values.
+     * Subscribe to push via FCM + Worker.
+     * Also registers a listener for FCM token.
      */
     async rescheduleFromSettings(directConfig?: DirectScheduleConfig): Promise<void> {
-        // Import store dynamically to avoid circular deps
         const { useStore } = await import('../store/useStore');
-        const { affirmationEngine } = await import('./AffirmationEngine');
-
         const state = useStore.getState();
 
         if (!state.notificationsEnabled) return;
 
-        // ALWAYS cancel old notifications before scheduling new ones
-        // This prevents duplicates and stale timings on every app open
-        await this.cancelAll();
-
-        // Use direct config if provided, otherwise read from store
         const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
         const interval = directConfig?.interval ?? state.checkInterval;
         const period = directConfig?.period ?? state.activePeriod;
-        const notifTime = directConfig?.notificationTime ?? state.notificationTime ?? '09:00';
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        // Silent on app load (no directConfig), show confirmation on manual save
-        const silent = !directConfig;
+        try {
+            const { PushNotifications } = await import('@capacitor/push-notifications');
 
-        if (interval === 1440) {
-            // Daily mode: schedule a repeating notification
-            const [hour, minute] = notifTime.split(':').map(Number);
-            const aff = affirmationEngine.getRandomAffirmation(intention);
-            await this.scheduleDaily(aff.text, { hour, minute });
-        } else {
-            // Interval mode: schedule next 24h of notifications
-            const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
-            const shuffled = [...allAffirmations].sort(() => 0.5 - Math.random());
-            const queue = shuffled.slice(0, 50).map(a => a.text);
-            await this.scheduleQueue(queue, interval, period, silent);
+            // Get FCM token
+            const fcmToken = await new Promise<string>((resolve, reject) => {
+                const timeout = setTimeout(() => reject(new Error('FCM token timeout')), 10000);
+
+                PushNotifications.addListener('registration', (token) => {
+                    clearTimeout(timeout);
+                    resolve(token.value);
+                });
+                PushNotifications.addListener('registrationError', (error) => {
+                    clearTimeout(timeout);
+                    reject(error);
+                });
+                PushNotifications.register();
+            });
+
+            console.log('[Ancla] FCM token:', fcmToken.substring(0, 20) + '...');
+
+            const existingId = getSubId();
+            if (existingId) {
+                // Update existing subscription config
+                await fetch(`${PUSH_WORKER_URL}/config`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: existingId, interval, period, intention, timezone }),
+                });
+            } else {
+                // New subscription
+                const response = await fetch(`${PUSH_WORKER_URL}/subscribe`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        platform: 'android',
+                        fcmToken,
+                        interval,
+                        period,
+                        intention,
+                        timezone,
+                    }),
+                });
+                const data = await response.json() as { ok: boolean; id: string };
+                if (data.ok) setSubId(data.id);
+            }
+
+            if (directConfig) {
+                // User explicitly saved — show confirmation
+                await this.schedule({ text: `✨ Ritmo iniciado. Tu primera afirmación llegará en breve.` });
+            }
+
+            console.log('[Ancla] Push subscription active via Worker');
+        } catch (e) {
+            console.warn('[Ancla] FCM push failed, falling back to local notifications:', e);
+            // Fallback: schedule local notifications
+            await this.fallbackToLocal(directConfig);
         }
     }
 
-    async cancelAll(): Promise<void> {
+    /**
+     * Fallback to local notifications if push is not available.
+     */
+    private async fallbackToLocal(directConfig?: DirectScheduleConfig): Promise<void> {
+        const { useStore } = await import('../store/useStore');
+        const { affirmationEngine } = await import('./AffirmationEngine');
+        const state = useStore.getState();
+
+        if (!state.notificationsEnabled) return;
+
+        const { LocalNotifications } = await import('@capacitor/local-notifications');
+        await this.ensureChannel();
+
+        // Cancel existing
         try {
-            // Get all pending notifications and cancel them robustly
             const pending = await LocalNotifications.getPending();
             if (pending.notifications.length > 0) {
                 await LocalNotifications.cancel({
                     notifications: pending.notifications.map(n => ({ id: n.id }))
                 });
-                console.log(`[Ancla] Cancelled ${pending.notifications.length} pending notifications`);
             }
-
-            // Also remove any already-delivered ones from the tray
             await LocalNotifications.removeAllDeliveredNotifications();
         } catch (e) {
-            console.error("Error canceling notifications:", e);
+            console.error("Error canceling local notifications:", e);
+        }
+
+        const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
+        const interval = directConfig?.interval ?? state.checkInterval;
+        const period = directConfig?.period ?? state.activePeriod;
+        const notifTime = directConfig?.notificationTime ?? state.notificationTime ?? '09:00';
+
+        if (interval === 1440) {
+            const [hour, minute] = notifTime.split(':').map(Number);
+            const aff = affirmationEngine.getRandomAffirmation(intention);
+            await LocalNotifications.schedule({
+                notifications: [{
+                    title: "Ancla",
+                    body: aff.text,
+                    id: 1001,
+                    schedule: { on: { hour, minute }, allowWhileIdle: true, every: 'day' },
+                    channelId: 'affirmations',
+                    sound: 'zen_bell.mp3'
+                }]
+            });
+        } else {
+            const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
+            const shuffled = [...allAffirmations].sort(() => 0.5 - Math.random());
+            const queue = shuffled.slice(0, 50).map(a => a.text);
+            const notifications: any[] = [];
+            const now = new Date();
+            const maxTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+            let date = new Date(now);
+            let scheduledCount = 0;
+
+            while (true) {
+                date = new Date(date.getTime() + interval * 60 * 1000);
+                if (date >= maxTime) break;
+                const hour = date.getHours();
+                let isValidTime = true;
+                if (period === 'day') isValidTime = hour >= 8 && hour < 22;
+                else if (period === 'night') isValidTime = hour >= 22 || hour < 8;
+                if (isValidTime) {
+                    notifications.push({
+                        title: "Ancla",
+                        body: queue[scheduledCount % queue.length],
+                        id: 2000 + scheduledCount,
+                        schedule: { at: new Date(date), allowWhileIdle: true },
+                        channelId: 'affirmations',
+                        sound: 'zen_bell.mp3'
+                    });
+                    scheduledCount++;
+                }
+            }
+
+            if (notifications.length > 0) {
+                await LocalNotifications.schedule({ notifications });
+            }
+        }
+
+        if (directConfig) {
+            await this.schedule({ text: `✨ Ritmo iniciado (local). Tu primera afirmación llegará en breve.` });
+        }
+    }
+
+    async cancelAll(): Promise<void> {
+        // Unsubscribe from Worker
+        const subId = getSubId();
+        if (subId) {
+            try {
+                await fetch(`${PUSH_WORKER_URL}/unsubscribe`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: subId }),
+                });
+            } catch (e) {
+                console.warn('[Ancla] Failed to unsubscribe from worker:', e);
+            }
+            clearSubId();
+        }
+
+        // Also cancel any local notifications
+        try {
+            const { LocalNotifications } = await import('@capacitor/local-notifications');
+            const pending = await LocalNotifications.getPending();
+            if (pending.notifications.length > 0) {
+                await LocalNotifications.cancel({
+                    notifications: pending.notifications.map(n => ({ id: n.id }))
+                });
+            }
+            await LocalNotifications.removeAllDeliveredNotifications();
+        } catch (e) {
+            console.error("Error canceling local notifications:", e);
         }
     }
 }
 
-import { useStore } from '../store/useStore';
+// ── Web (PWA) — Push via Service Worker + Worker ───────────────────
 
 export class WebNotificationService extends NotificationService {
-    private activeTimer: any = null;
-
-    private playSound() {
-        try {
-            const audio = new Audio('/zen_bell.mp3');
-            audio.volume = 0.5;
-            audio.play().catch(() => { });
-        } catch (e) { }
-    }
 
     async requestPermission(): Promise<boolean> {
         if (!("Notification" in window)) return false;
@@ -238,16 +327,13 @@ export class WebNotificationService extends NotificationService {
     }
 
     async schedule(options: NotificationOptions): Promise<void> {
+        // For immediate notifications (test, confirmation) — use Notification API directly
         if (Notification.permission === "granted") {
-            setTimeout(() => {
-                new Notification("Ancla", {
-                    body: options.text,
-                    icon: '/notification-icon.svg'
-                });
-                this.playSound();
-            }, 100);
+            new Notification("Ancla", {
+                body: options.text,
+                icon: '/app-icon.svg',
+            });
         }
-        useStore.getState().showToast(`Notificación: "${options.text.substring(0, 30)}..."`);
     }
 
     async scheduleRandom(options: NotificationOptions): Promise<void> {
@@ -258,64 +344,129 @@ export class WebNotificationService extends NotificationService {
         await this.schedule({ text: "✨ ¡Prueba de Ancla exitosa! Estás listo para recibir calma." });
     }
 
-    async scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void> {
-        useStore.getState().showToast(`Recordatorio programado (${time.hour}:${time.minute.toString().padStart(2, '0')}): "${text.substring(0, 20)}..."`);
+    async scheduleDaily(_text: string, _time: { hour: number, minute: number }): Promise<void> {
+        // Handled by the Worker
     }
 
-    async scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always', silent = false): Promise<void> {
-        if (this.activeTimer) clearInterval(this.activeTimer);
-
-        // Only show confirmation when user explicitly saves settings
-        if (!silent) {
-            this.schedule({ text: `✨ Ritmo iniciado. Recibirás mensajes cada ${intervalMinutes}m.` });
-        }
-
-        this.activeTimer = setInterval(() => {
-            const now = new Date();
-            const hour = now.getHours();
-            let isValid = true;
-            if (activePeriod === 'day') isValid = hour >= 8 && hour < 22;
-            else if (activePeriod === 'night') isValid = hour >= 22 || hour < 8;
-
-            if (isValid && Notification.permission === "granted") {
-                const text = affirmations[Math.floor(Math.random() * affirmations.length)];
-                this.schedule({ text });
-            }
-        }, intervalMinutes * 60 * 1000);
+    async scheduleQueue(_affirmations: string[], _intervalMinutes: number, _activePeriod: 'day' | 'night' | 'always', _silent = false): Promise<void> {
+        // Handled by the Worker
     }
 
+    /**
+     * Subscribe to Web Push and register with the Worker.
+     */
     async rescheduleFromSettings(directConfig?: DirectScheduleConfig): Promise<void> {
         const { useStore } = await import('../store/useStore');
-        const { affirmationEngine } = await import('./AffirmationEngine');
         const state = useStore.getState();
 
-        if (!state.notificationsEnabled) {
-            if (this.activeTimer) clearInterval(this.activeTimer);
-            return;
-        }
-
-        // ALWAYS cancel old timers before scheduling new ones
-        await this.cancelAll();
+        if (!state.notificationsEnabled) return;
 
         const intention = directConfig?.intention ?? state.notificationIntention ?? 'Todas';
         const interval = directConfig?.interval ?? state.checkInterval;
         const period = directConfig?.period ?? state.activePeriod;
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        const allAffirmations = affirmationEngine.getAffirmationsByMood(intention);
-        const queue = allAffirmations.map(a => a.text);
+        try {
+            // Get the Service Worker registration
+            const registration = await navigator.serviceWorker.ready;
 
-        // Silent on app load (no directConfig), show confirmation on manual save
-        const silent = !directConfig;
-        await this.scheduleQueue(queue, interval, period, silent);
+            // Subscribe to Web Push
+            let subscription = await registration.pushManager.getSubscription();
+            if (!subscription) {
+                subscription = await registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY) as BufferSource,
+                });
+            }
+
+            const subJson = subscription.toJSON();
+            const webPush = {
+                endpoint: subscription.endpoint,
+                keys: {
+                    p256dh: subJson.keys?.p256dh || '',
+                    auth: subJson.keys?.auth || '',
+                },
+            };
+
+            const existingId = getSubId();
+            if (existingId && !directConfig) {
+                // App load — just update config silently (no re-subscribe needed)
+                await fetch(`${PUSH_WORKER_URL}/config`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: existingId, interval, period, intention, timezone }),
+                });
+            } else {
+                // New subscription or config change — subscribe fresh
+                if (existingId) {
+                    // Unsubscribe old first
+                    try {
+                        await fetch(`${PUSH_WORKER_URL}/unsubscribe`, {
+                            method: 'DELETE',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id: existingId }),
+                        });
+                    } catch (e) { /* ignore */ }
+                }
+
+                const response = await fetch(`${PUSH_WORKER_URL}/subscribe`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        platform: 'web',
+                        webPush,
+                        interval,
+                        period,
+                        intention,
+                        timezone,
+                    }),
+                });
+                const data = await response.json() as { ok: boolean; id: string };
+                if (data.ok) setSubId(data.id);
+            }
+
+            if (directConfig) {
+                // User explicitly saved — show immediate confirmation
+                await this.schedule({ text: `✨ Ritmo iniciado. Tu primera afirmación llegará en breve.` });
+            }
+
+            console.log('[Ancla] Web Push subscription active via Worker');
+        } catch (e) {
+            console.error('[Ancla] Web Push subscription failed:', e);
+            // Show toast with error for debugging
+            const { useStore } = await import('../store/useStore');
+            useStore.getState().showToast('Error al activar push: ' + String(e).substring(0, 50));
+        }
     }
 
     async cancelAll(): Promise<void> {
-        if (this.activeTimer) {
-            clearInterval(this.activeTimer);
-            this.activeTimer = null;
+        // Unsubscribe from Worker
+        const subId = getSubId();
+        if (subId) {
+            try {
+                await fetch(`${PUSH_WORKER_URL}/unsubscribe`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: subId }),
+                });
+            } catch (e) {
+                console.warn('[Ancla] Failed to unsubscribe from worker:', e);
+            }
+            clearSubId();
+        }
+
+        // Also unsubscribe from browser push
+        try {
+            const registration = await navigator.serviceWorker.ready;
+            const subscription = await registration.pushManager.getSubscription();
+            if (subscription) await subscription.unsubscribe();
+        } catch (e) {
+            console.warn('[Ancla] Failed to unsubscribe browser push:', e);
         }
     }
 }
+
+// ── Factory ────────────────────────────────────────────────────────
 
 export const getNotificationService = (): NotificationService => {
     if (Capacitor.isNativePlatform()) {

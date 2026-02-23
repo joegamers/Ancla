@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774553189453",
+    "project_id": "ancla-a37a4",
+    "storage_bucket": "ancla-a37a4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774553189453:android:5a94c3cbbfb99814c67004",
+        "android_client_info": {
+          "package_name": "com.joegamers.ancla"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ3juPRrHeqQUKa6dQ4D_dqqD_XnSZ5Y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

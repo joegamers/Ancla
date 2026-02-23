@@ -9,8 +9,15 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
       devOptions: {
-        enabled: true
+        enabled: true,
+        type: 'module'
+      },
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,svg,webmanifest}'],
       },
       includeAssets: ['app-icon.svg', 'notification-icon.svg'],
       manifest: {
