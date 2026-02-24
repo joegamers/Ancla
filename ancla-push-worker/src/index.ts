@@ -155,6 +155,29 @@ function derToRaw(der: Uint8Array): ArrayBuffer {
     return raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.byteLength) as ArrayBuffer;
 }
 
+// HMAC helper
+async function hmacSha256(key: CryptoKey, data: Uint8Array): Promise<Uint8Array> {
+    const signature = await crypto.subtle.sign('HMAC', key, data);
+    return new Uint8Array(signature);
+}
+
+// HKDF-Extract(salt, IKM) -> PRK
+async function hkdfExtract(salt: Uint8Array, ikm: Uint8Array): Promise<Uint8Array> {
+    const saltKey = await crypto.subtle.importKey('raw', salt, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    return hmacSha256(saltKey, ikm);
+}
+
+// HKDF-Expand(PRK, info, L) -> OKM
+async function hkdfExpand(prk: Uint8Array, info: Uint8Array, length: number): Promise<Uint8Array> {
+    const prkKey = await crypto.subtle.importKey('raw', prk, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    // info | 0x01 (since L <= 32 for SHA-256, we only need 1 block)
+    const block = new Uint8Array(info.length + 1);
+    block.set(info, 0);
+    block[info.length] = 1;
+    const okm = await hmacSha256(prkKey, block);
+    return okm.slice(0, length);
+}
+
 // Encrypt payload for Web Push (RFC 8291 aes128gcm)
 async function encryptPayload(
     payload: string,
@@ -177,39 +200,33 @@ async function encryptPayload(
     // Salt
     const salt = crypto.getRandomValues(new Uint8Array(16));
 
-    // PRK for auth
-    const authInfo = concatBuffers(
+    // RFC 8291 Key derivation
+    // 1. IKM = HKDF-Extract(auth_secret, ecdh_secret)
+    const prk1 = await hkdfExtract(clientAuth, new Uint8Array(sharedSecret));
+
+    // 2. key_info = "WebPush: info\0" + client_public_key + local_public_key
+    const keyInfo = concatBuffers(
         new TextEncoder().encode('WebPush: info\0'),
         clientPublicKey,
-        new Uint8Array(localPublicKeyRaw),
+        new Uint8Array(localPublicKeyRaw)
     );
-    const prkKey = await crypto.subtle.importKey('raw', clientAuth.buffer as ArrayBuffer, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const ikm = await crypto.subtle.sign('HMAC', prkKey, sharedSecret);
 
-    // HKDF extract
-    const prkHmacKey = await crypto.subtle.importKey('raw', salt.buffer as ArrayBuffer, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const prk = await crypto.subtle.sign('HMAC', prkHmacKey, ikm);
+    // 3. IKM = HKDF-Expand(PRK_key, key_info, 32)
+    const ikm = await hkdfExpand(prk1, keyInfo, 32);
 
-    // Derive auth IKM
-    const authIkmKey = await crypto.subtle.importKey('raw', prk, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const authIkm = await crypto.subtle.sign('HMAC', authIkmKey, concatBuffers(authInfo, new Uint8Array([1])));
+    // 4. PRK = HKDF-Extract(salt, IKM)
+    const prk2 = await hkdfExtract(salt, ikm);
 
-    // HKDF for content encryption key  
+    // 5. CEK = HKDF-Expand(PRK, "Content-Encoding: aes128gcm\0", 16)
     const cekInfo = new TextEncoder().encode('Content-Encoding: aes128gcm\0');
-    const cekPrkKey = await crypto.subtle.importKey('raw', salt.buffer as ArrayBuffer, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const cekPrk = await crypto.subtle.sign('HMAC', cekPrkKey, new Uint8Array(authIkm).slice(0, 32));
-    const cekHmacKey = await crypto.subtle.importKey('raw', cekPrk, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const cekFull = await crypto.subtle.sign('HMAC', cekHmacKey, concatBuffers(cekInfo, new Uint8Array([1])));
-    const cek = new Uint8Array(cekFull).slice(0, 16);
+    const cek = await hkdfExpand(prk2, cekInfo, 16);
 
-    // HKDF for nonce
+    // 6. NONCE = HKDF-Expand(PRK, "Content-Encoding: nonce\0", 12)
     const nonceInfo = new TextEncoder().encode('Content-Encoding: nonce\0');
-    const nonceHmacKey = await crypto.subtle.importKey('raw', cekPrk, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const nonceFull = await crypto.subtle.sign('HMAC', nonceHmacKey, concatBuffers(nonceInfo, new Uint8Array([1])));
-    const nonce = new Uint8Array(nonceFull).slice(0, 12);
+    const nonce = await hkdfExpand(prk2, nonceInfo, 12);
 
     // Encrypt with AES-GCM
-    const aesKey = await crypto.subtle.importKey('raw', cek.buffer as ArrayBuffer, 'AES-GCM', false, ['encrypt']);
+    const aesKey = await crypto.subtle.importKey('raw', cek, 'AES-GCM', false, ['encrypt']);
     const paddedPayload = concatBuffers(new TextEncoder().encode(payload), new Uint8Array([2])); // delimiter
     const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: nonce }, aesKey, paddedPayload);
 
