@@ -62,8 +62,8 @@ function base64UrlDecode(str: string): Uint8Array {
     return bytes;
 }
 
-function base64UrlEncode(buffer: ArrayBuffer): string {
-    const bytes = new Uint8Array(buffer);
+function base64UrlEncode(data: ArrayBuffer | Uint8Array): string {
+    const bytes = data instanceof Uint8Array ? data : new Uint8Array(data);
     let binary = '';
     for (const b of bytes) binary += String.fromCharCode(b);
     return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
@@ -108,8 +108,10 @@ async function createVapidJwt(
     const now = Math.floor(Date.now() / 1000);
     const payload = { aud: audience, exp: now + 86400, sub: subject };
 
-    const encodedHeader = base64UrlEncode(new TextEncoder().encode(JSON.stringify(header)));
-    const encodedPayload = base64UrlEncode(new TextEncoder().encode(JSON.stringify(payload)));
+    const headerEncoded = new TextEncoder().encode(JSON.stringify(header));
+    const payloadEncoded = new TextEncoder().encode(JSON.stringify(payload));
+    const encodedHeader = base64UrlEncode(headerEncoded);
+    const encodedPayload = base64UrlEncode(payloadEncoded);
     const unsignedToken = `${encodedHeader}.${encodedPayload}`;
 
     const signature = await crypto.subtle.sign(
@@ -125,7 +127,9 @@ async function createVapidJwt(
 
 function derToRaw(der: Uint8Array): ArrayBuffer {
     // If already raw (64 bytes), return as-is
-    if (der.length === 64) return der.buffer;
+    if (der.length === 64) {
+        return der.buffer.slice(der.byteOffset, der.byteOffset + der.byteLength) as ArrayBuffer;
+    }
 
     // DER format: 0x30 <len> 0x02 <rLen> <r> 0x02 <sLen> <s>
     let offset = 2; // skip 0x30 + length byte
@@ -148,7 +152,7 @@ function derToRaw(der: Uint8Array): ArrayBuffer {
     const sBytes = der.slice(sStart, sStart + sLen);
     raw.set(sLen > 32 ? sBytes.slice(sLen - 32) : sBytes, 32 - Math.min(sLen, 32));
 
-    return raw.buffer;
+    return raw.buffer.slice(raw.byteOffset, raw.byteOffset + raw.byteLength) as ArrayBuffer;
 }
 
 // Encrypt payload for Web Push (RFC 8291 aes128gcm)
@@ -161,14 +165,14 @@ async function encryptPayload(
     const clientAuth = base64UrlDecode(authSecret);
 
     // Generate local ECDH keypair
-    const localKeyPair = await crypto.subtle.generateKey({ name: 'ECDH', namedCurve: 'P-256' }, true, ['deriveBits']);
-    const localPublicKeyRaw = await crypto.subtle.exportKey('raw', localKeyPair.publicKey);
+    const localKeyPair = await crypto.subtle.generateKey({ name: 'ECDH', namedCurve: 'P-256' }, true, ['deriveBits']) as CryptoKeyPair;
+    const localPublicKeyRaw = await crypto.subtle.exportKey('raw', localKeyPair.publicKey) as ArrayBuffer;
 
     // Import client public key
     const clientKey = await crypto.subtle.importKey('raw', clientPublicKey, { name: 'ECDH', namedCurve: 'P-256' }, false, []);
 
     // ECDH shared secret
-    const sharedSecret = await crypto.subtle.deriveBits({ name: 'ECDH', public: clientKey }, localKeyPair.privateKey, 256);
+    const sharedSecret = await crypto.subtle.deriveBits({ name: 'ECDH', public: clientKey } as any, localKeyPair.privateKey, 256);
 
     // Salt
     const salt = crypto.getRandomValues(new Uint8Array(16));
@@ -179,11 +183,11 @@ async function encryptPayload(
         clientPublicKey,
         new Uint8Array(localPublicKeyRaw),
     );
-    const prkKey = await crypto.subtle.importKey('raw', clientAuth, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    const prkKey = await crypto.subtle.importKey('raw', clientAuth.buffer as ArrayBuffer, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
     const ikm = await crypto.subtle.sign('HMAC', prkKey, sharedSecret);
 
     // HKDF extract
-    const prkHmacKey = await crypto.subtle.importKey('raw', salt, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    const prkHmacKey = await crypto.subtle.importKey('raw', salt.buffer as ArrayBuffer, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
     const prk = await crypto.subtle.sign('HMAC', prkHmacKey, ikm);
 
     // Derive auth IKM
@@ -192,7 +196,7 @@ async function encryptPayload(
 
     // HKDF for content encryption key  
     const cekInfo = new TextEncoder().encode('Content-Encoding: aes128gcm\0');
-    const cekPrkKey = await crypto.subtle.importKey('raw', salt, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+    const cekPrkKey = await crypto.subtle.importKey('raw', salt.buffer as ArrayBuffer, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
     const cekPrk = await crypto.subtle.sign('HMAC', cekPrkKey, new Uint8Array(authIkm).slice(0, 32));
     const cekHmacKey = await crypto.subtle.importKey('raw', cekPrk, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
     const cekFull = await crypto.subtle.sign('HMAC', cekHmacKey, concatBuffers(cekInfo, new Uint8Array([1])));
@@ -205,7 +209,7 @@ async function encryptPayload(
     const nonce = new Uint8Array(nonceFull).slice(0, 12);
 
     // Encrypt with AES-GCM
-    const aesKey = await crypto.subtle.importKey('raw', cek, 'AES-GCM', false, ['encrypt']);
+    const aesKey = await crypto.subtle.importKey('raw', cek.buffer as ArrayBuffer, 'AES-GCM', false, ['encrypt']);
     const paddedPayload = concatBuffers(new TextEncoder().encode(payload), new Uint8Array([2])); // delimiter
     const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: nonce }, aesKey, paddedPayload);
 
@@ -216,7 +220,7 @@ async function encryptPayload(
     const header = concatBuffers(salt, rs, new Uint8Array([localPubKeyBytes.length]), localPubKeyBytes);
     const ciphertext = concatBuffers(header, new Uint8Array(encrypted));
 
-    return { ciphertext: ciphertext.buffer, salt, localPublicKey: localPublicKeyRaw };
+    return { ciphertext: ciphertext.buffer.slice(ciphertext.byteOffset, ciphertext.byteOffset + ciphertext.byteLength) as ArrayBuffer, salt, localPublicKey: localPublicKeyRaw as ArrayBuffer };
 }
 
 function concatBuffers(...buffers: (Uint8Array | ArrayBuffer)[]): Uint8Array {
@@ -285,8 +289,10 @@ async function getFCMAccessToken(env: Env): Promise<string> {
         exp: now + 3600,
     };
 
-    const headerB64 = base64UrlEncode(new TextEncoder().encode(JSON.stringify(header)));
-    const payloadB64 = base64UrlEncode(new TextEncoder().encode(JSON.stringify(payload)));
+    const headerEncoded = new TextEncoder().encode(JSON.stringify(header));
+    const payloadEncoded = new TextEncoder().encode(JSON.stringify(payload));
+    const headerB64 = base64UrlEncode(headerEncoded);
+    const payloadB64 = base64UrlEncode(payloadEncoded);
     const unsignedToken = `${headerB64}.${payloadB64}`;
 
     // Import RSA private key
@@ -417,7 +423,7 @@ export default {
                     period: body.period || 'day',
                     intention: body.intention || 'Todas',
                     timezone: body.timezone || 'America/Caracas',
-                    lastSent: 0, // Send first notification on next CRON cycle
+                    lastSent: 0, // 0 so it fires immediately on first CRON
                     createdAt: Date.now(),
                 };
 
@@ -490,6 +496,84 @@ export default {
             return jsonResponse({ status: 'ok', subscriptions: count });
         }
 
+        // ── GET /test-push ──
+        if (path === '/test-push') {
+            try {
+                const id = url.searchParams.get('id');
+                if (!id) return jsonResponse({ error: 'id required' }, 400);
+
+                const raw = await env.SUBSCRIPTIONS.get(`sub:${id}`);
+                if (!raw) return jsonResponse({ error: 'sub not found' }, 404);
+
+                const sub: Subscription = JSON.parse(raw);
+                if (sub.platform !== 'web' || !sub.webPush) return jsonResponse({ error: 'not a web push sub' }, 400);
+
+                const payload = {
+                    title: '✨ Ancla Test',
+                    body: 'Prueba manual de Web Push',
+                    icon: '/app-icon.svg',
+                };
+
+                // We run sendWebPush manually and return whatever it logs
+                let pushResult: any = { success: false };
+                try {
+                    const payloadStr = JSON.stringify(payload);
+                    const endpointUrl = new URL(sub.webPush.endpoint);
+                    const audience = `${endpointUrl.protocol}//${endpointUrl.host}`;
+
+                    const vapidKey = await importVapidKey(env.VAPID_PRIVATE_KEY);
+                    const jwt = await createVapidJwt(audience, 'mailto:push@ancla.app', vapidKey);
+
+                    const { ciphertext } = await encryptPayload(payloadStr, sub.webPush.keys.p256dh, sub.webPush.keys.auth);
+
+                    const response = await fetch(sub.webPush.endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `vapid t=${jwt}, k=${env.VAPID_PUBLIC_KEY}`,
+                            'Content-Type': 'application/octet-stream',
+                            'Content-Encoding': 'aes128gcm',
+                            'TTL': '86400',
+                            'Urgency': 'normal',
+                        },
+                        body: ciphertext,
+                    });
+
+                    if (!response.ok) {
+                        pushResult.error = `HTTP ${response.status}: ${await response.text()}`;
+                    } else {
+                        pushResult.success = true;
+                    }
+                } catch (e) {
+                    pushResult.error = String(e);
+                    pushResult.stack = (e as Error).stack;
+                }
+
+                return jsonResponse(pushResult);
+            } catch (e) {
+                return jsonResponse({ error: String(e), stack: (e as Error).stack }, 500);
+            }
+        }
+
+        // ── GET /test-cron ──
+        if (path === '/test-cron') {
+            try {
+                let logs: string[] = [];
+                const originalLog = console.log;
+                const originalError = console.error;
+                console.log = (...args) => logs.push('[LOG] ' + args.join(' '));
+                console.error = (...args) => logs.push('[ERR] ' + args.join(' '));
+
+                await this.scheduled({} as any, env, {} as any);
+
+                console.log = originalLog;
+                console.error = originalError;
+
+                return jsonResponse({ success: true, logs });
+            } catch (e) {
+                return jsonResponse({ error: String(e), stack: (e as Error).stack }, 500);
+            }
+        }
+
         return jsonResponse({ error: 'not found' }, 404);
     },
 
@@ -513,11 +597,21 @@ export default {
             const intervalMs = sub.interval * 60 * 1000;
             const elapsed = now - sub.lastSent;
 
+            console.log(`[CRON] Checking sub ${id} | platform=${sub.platform} | elapsed=${elapsed}ms | interval=${intervalMs}ms | lastSent=${sub.lastSent}`);
+
             // Check if enough time has passed
-            if (elapsed < intervalMs) continue;
+            if (elapsed < intervalMs) {
+                console.log(`[CRON] Skip ${id}: elapsed < intervalMs`);
+                continue;
+            }
 
             // Check if we're in the active period
-            if (!isInActivePeriod(sub.period, sub.timezone)) continue;
+            if (!isInActivePeriod(sub.period, sub.timezone)) {
+                console.log(`[CRON] Skip ${id}: not in active period (${sub.period} / ${sub.timezone})`);
+                continue;
+            }
+
+            console.log(`[CRON] Sending push to ${id}...`);
 
             // Get a random affirmation for the user's intention
             const aff = getRandomAffirmation(sub.intention);
