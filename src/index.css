@@ -90,10 +90,22 @@
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   color: #1A1A1A;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
+  
+  /* Support for mobile safe areas (notch, status bar, home indicator) */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+html {
+  height: -webkit-fill-available;
+  background-color: #0a0f18; /* Force dark background beyond the safe area */
 }
 
 /* Layered Organic Background */
