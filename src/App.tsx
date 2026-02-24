@@ -47,10 +47,10 @@ function App() {
   // Load initial affirmation
   useEffect(() => {
     if (!lastAffirmation) {
-      const aff = affirmationEngine.getRandomAffirmation('Todas');
+      const aff = affirmationEngine.getRandomAffirmation(currentVibe);
       setLastAffirmation(aff);
     }
-  }, [lastAffirmation, setLastAffirmation]);
+  }, [lastAffirmation, setLastAffirmation, currentVibe]);
 
   // Re-schedule notifications on app open
   useEffect(() => {

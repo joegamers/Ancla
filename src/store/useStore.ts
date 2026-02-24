@@ -72,7 +72,7 @@ export const useStore = create<AppState>()(
             name: 'ancla-storage',
             partialize: (state) => {
                 // Exclude toast and transient states from persistence
-                const { toast, notificationAffirmation, geometrySeed, ...rest } = state;
+                const { toast, notificationAffirmation, geometrySeed, lastAffirmation, ...rest } = state;
                 return rest;
             }
         }
