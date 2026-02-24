@@ -165,11 +165,11 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
         const blob = await generateImage(options);
         const file = new File([blob], 'ancla-afirmacion.png', { type: 'image/png' });
 
-        // Try native share
         if (navigator.share && navigator.canShare?.({ files: [file] })) {
             await navigator.share({
                 title: 'Ancla — Tu espacio de calma',
-                text: `"${options.text}" — ${options.author}`,
+                text: `"${options.text}" — ${options.author}\n\nEncuentra más paz en: https://anclas.vercel.app`,
+                url: 'https://anclas.vercel.app',
                 files: [file],
             });
             return;
