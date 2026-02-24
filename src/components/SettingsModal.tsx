@@ -65,7 +65,15 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
         onClose();
     };
 
-    const handleToggleNotifications = (enabled: boolean) => {
+    const handleToggleNotifications = async (enabled: boolean) => {
+        if (enabled) {
+            const hasPermission = await notificationService.requestPermission();
+            if (!hasPermission) {
+                useStore.getState().showToast('Permiso de notificaciones denegado.');
+                setNotificationsEnabled(false);
+                return;
+            }
+        }
         setNotificationsEnabled(enabled);
         if (!enabled) {
             notificationService.cancelAll();

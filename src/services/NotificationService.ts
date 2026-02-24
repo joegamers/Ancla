@@ -1,6 +1,6 @@
 import { Capacitor } from '@capacitor/core';
 
-export interface NotificationOptions {
+export interface AppNotificationOptions {
     text: string;
     scheduleAt?: Date;
 }
@@ -42,8 +42,8 @@ function urlBase64ToUint8Array(base64String: string): Uint8Array {
 // ── Abstract service ───────────────────────────────────────────────
 
 export abstract class NotificationService {
-    abstract schedule(options: NotificationOptions): Promise<void>;
-    abstract scheduleRandom(options: NotificationOptions): Promise<void>;
+    abstract schedule(options: AppNotificationOptions): Promise<void>;
+    abstract scheduleRandom(options: AppNotificationOptions): Promise<void>;
     abstract scheduleDaily(text: string, time: { hour: number, minute: number }): Promise<void>;
     abstract scheduleQueue(affirmations: string[], intervalMinutes: number, activePeriod: 'day' | 'night' | 'always', silent?: boolean): Promise<void>;
     abstract cancelAll(): Promise<void>;
@@ -95,7 +95,7 @@ export class CapacitorNotificationService extends NotificationService {
         }
     }
 
-    async schedule(options: NotificationOptions): Promise<void> {
+    async schedule(options: AppNotificationOptions): Promise<void> {
         await this.ensureChannel();
         const { LocalNotifications } = await import('@capacitor/local-notifications');
         await LocalNotifications.schedule({
@@ -110,7 +110,7 @@ export class CapacitorNotificationService extends NotificationService {
         });
     }
 
-    async scheduleRandom(options: NotificationOptions): Promise<void> {
+    async scheduleRandom(options: AppNotificationOptions): Promise<void> {
         await this.schedule(options);
     }
 
@@ -326,17 +326,28 @@ export class WebNotificationService extends NotificationService {
         return permission === "granted";
     }
 
-    async schedule(options: NotificationOptions): Promise<void> {
-        // For immediate notifications (test, confirmation) — use Notification API directly
+    async schedule(options: AppNotificationOptions): Promise<void> {
+        // For immediate notifications (test, confirmation)
         if (Notification.permission === "granted") {
-            new Notification("Ancla", {
-                body: options.text,
-                icon: '/app-icon.svg',
-            });
+            try {
+                const registration = await navigator.serviceWorker.ready;
+                registration.showNotification("Ancla", {
+                    body: options.text,
+                    icon: '/app-icon.svg',
+                    badge: '/app-icon.svg',
+                    vibrate: [100, 50, 100],
+                } as any);
+            } catch (e) {
+                // Fallback if no service worker
+                new Notification("Ancla", {
+                    body: options.text,
+                    icon: '/app-icon.svg',
+                });
+            }
         }
     }
 
-    async scheduleRandom(options: NotificationOptions): Promise<void> {
+    async scheduleRandom(options: AppNotificationOptions): Promise<void> {
         await this.schedule(options);
     }
 
