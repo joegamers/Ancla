@@ -94,8 +94,11 @@ body {
   color: #1A1A1A;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overflow-y: hidden;
   position: relative;
-  
+  overscroll-behavior: none;
+  touch-action: manipulation;
+
   /* Support for mobile safe areas (notch, status bar, home indicator) */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
@@ -105,7 +108,8 @@ body {
 
 html {
   height: -webkit-fill-available;
-  background-color: #0a0f18; /* Force dark background beyond the safe area */
+  background-color: #0a0f18;
+  /* Force dark background beyond the safe area */
 }
 
 /* Layered Organic Background */
