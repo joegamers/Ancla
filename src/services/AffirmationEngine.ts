@@ -4,8 +4,8 @@ export interface Affirmation {
     id: string;
     text: string;
     author: string;
-    source: string;
     category: string;
+    source?: string;
 }
 
 export class AffirmationEngine {
