@@ -182,7 +182,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "28",
-        "text": "El pasado ha terminado. — Clavo estacas atrincherándome anclado glorioso en el único fragmento vital de inmaculado tiempo divino transpirado que titila incandescente: Este presente eterno.",
+        "text": "El pasado ha terminado. — Me anclo con firmeza en el único momento que realmente existe: este presente.",
         "author": "Louise Hay",
         "category": "Presencia"
     },
@@ -194,13 +194,13 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "30",
-        "text": "Estoy dispuesto a curarme. — Consiento la cicatrización profunda bañado con ungüento colosal del olvido sano redentor y la inyección cálida milagrosa de purísima inmunológica restitución sanada.",
+        "text": "Estoy dispuesto a curarme. — Permito que mi cuerpo y mente sanen, soltando el dolor y abrazando la recuperación.",
         "author": "Louise Hay",
         "category": "Sanación"
     },
     {
         "id": "31",
-        "text": "Estoy dispuesto a perdonar. — Destruyo rejas asfixiantes desmantelando prisiones lúgubres rancios inmensos rencores; disuelvo ataduras concediendo el indulto sublime heroico al otro para regalarme inmensa paz total en plácida libertad celestial.",
+        "text": "Estoy dispuesto a perdonar. — Libero los rencores del pasado para regalarme paz interior y verdadera libertad.",
         "author": "Louise Hay",
         "category": "Perdón"
     },
@@ -212,67 +212,67 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "33",
-        "text": "Perdona setenta veces siete. — Entiendo místico que absueltos colosos indultos repetidamente me erigen majestuoso altísimo intocable por viles espinas evaporadas totalmente en purísima paz.",
+        "text": "Perdona setenta veces siete. — Comprendo que perdonar constantemente me protege del dolor y me permite vivir en paz.",
         "author": "Mateo 18:22",
         "category": "Perdón"
     },
     {
         "id": "34",
-        "text": "Estoy abierto a recibir toda la abundancia del universo. — Exijo colosales bendiciones desmesuradas inmensas lluvias en avalancha espectacular descendida majestuosa hacia mi alma inmensurablemente opulenta.",
+        "text": "Estoy abierto a recibir toda la abundancia del universo. — Acepto con gratitud las bendiciones y oportunidades que la vida me ofrece cada día.",
         "author": "Louise Hay",
         "category": "Abundancia"
     },
     {
         "id": "35",
-        "text": "El Señor es mi pastor, nada me faltará. — Repudio la farsa lúgubre escasez ficticia abrazando exuberantes lianas providenciales entrelazadas surfeadas inmaculadas en caudal inagotable radiante asegurado perpetuo.",
+        "text": "El Señor es mi pastor, nada me faltará. — Dejo atrás el miedo a la escasez y confío en que mis verdaderas necesidades siempre serán provistas.",
         "author": "Salmos 23:1",
         "category": "Abundancia"
     },
     {
         "id": "36",
-        "text": "Dad gracias en todo. — Mapeo minuciosa todo humilde respiro bendecido transformando instantes majestuosos rotundamente en un oro multiplicador cósmico inmenso agradecido para mi alma magnética.",
+        "text": "Dad gracias en todo. — Valoro cada instante y encuentro motivos para agradecer, lo cual multiplica lo bueno en mi vida.",
         "author": "1 Tesalonicenses 5:18",
         "category": "Gratitud"
     },
     {
         "id": "37",
-        "text": "La paz os dejo, mi paz os doy. — Absorbo magnéticamente la monumental infinita serenidad suprema; decreto el aplacamiento unificado y majestuoso colosal acallando inmensa bulliciosa mundanidad.",
+        "text": "La paz os dejo, mi paz os doy. — Recibo esta serenidad, permitiendo que calme mi mente y silencie el ruido del mundo exterior.",
         "author": "Juan 14:27",
         "category": "Paz"
     },
     {
         "id": "38",
-        "text": "El gozo del Señor es mi fortaleza. — Mi dicha espiritual se convierte majestuosamente en armadura inquebrantable escudara contra grises letargos aplastantes, refulgiendo rotunda en plácida eternidad inmensa radiante sonora.",
+        "text": "El gozo del Señor es mi fortaleza. — Mi alegría espiritual es mi armadura, protegiéndome del desánimo y llenándome de energía.",
         "author": "Nehemías 8:10",
         "category": "Alegría"
     },
     {
         "id": "39",
-        "text": "«Yo soy la luna en el agua». — Comprendo que los acontecimientos externos solo son reflejos pasajeros; dejo de alterar mi superficie y me sumerjo profundo hacia el núcleo sólido colosal incólume intocable invulnerable pacificador resguardando resiliencia viva.",
+        "text": "«Yo soy la luna en el agua». — Comprendo que los eventos externos son pasajeros; mantengo mi centro en calma y protejo mi resiliencia interior.",
         "author": "Proverbio Zen",
         "category": "Presencia"
     },
     {
         "id": "40",
-        "text": "«Cuando sabes qué quieres enseñarle al cerebro, le indicas cómo cablearse a sí mismo». — Asumo el mando absoluto de mi plasticidad rotunda divina; instalo pacíficas asombrosas redes constructivas poderosísimas liberándome de miedos anclados destructivos pasados envenenados carentes tóxicos lúgubres.",
+        "text": "«Cuando sabes qué quieres enseñarle al cerebro, le indicas cómo cablearse a sí mismo». — Asumo el control de mi mente, creando nuevos hábitos positivos y liberándome de los miedos del pasado.",
         "author": "Joe Dispenza",
         "category": "Crecimiento"
     },
     {
         "id": "41",
-        "text": "«El miedo a menudo es nuestro radar a lo que necesitamos hacer». — No huyo de la perturbación, al contrario heroico me encamino hacia la cima resplandeciente del reto para conquistarlo todo majestuosamente desmantelando sombras lúgubres asustadas.",
+        "text": "«El miedo a menudo es nuestro radar a lo que necesitamos hacer». — No huyo del miedo, lo utilizo como brújula para enfrentar mis retos con valentía e ir hacia adelante.",
         "author": "Ryan Holiday",
         "category": "Confianza"
     },
     {
         "id": "42",
-        "text": "«Si estás deprimido, vives en el pasado; si estás ansioso vives en el futuro; si estás en paz vives en el presente». — Destruyo tajantemente amarras nostalgias; huyo de ansiedades crónicas; habito maravillosamente viviente deslumbrante este minúsculo divino asombroso presente resguardado.",
+        "text": "«Si estás deprimido, vives en el pasado; si estás ansioso vives en el futuro; si estás en paz vives en el presente». — Suelto la nostalgia y la preocupación, decidiendo habitar plenamente en el presente seguro.",
         "author": "Lao Tse",
         "category": "Paz"
     },
     {
         "id": "43",
-        "text": "«Tú no eres la gota en el océano; eres el océano entero en una gota». — Rechazo mi supuesta miseria humilde pequeñez de abandono asfixiante carente; y acojo en majestuosidad mi divinidad colosal resplandeciente gigantesca y estelar inmensamente unida unívoca universal asombrosa abrumadoramente espléndida e invulnerable divina majestuosidad resplandeciente rotunda.",
+        "text": "«Tú no eres la gota en el océano; eres el océano entero en una gota». — Reconozco mi enorme valor intrínseco, aceptando mi grandeza y abandonando la creencia de que soy pequeño o insuficiente.",
         "author": "Rumi",
         "category": "Amor Propio"
     },
