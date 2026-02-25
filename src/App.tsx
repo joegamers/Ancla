@@ -57,7 +57,21 @@ function App() {
     notificationService.rescheduleFromSettings().catch((err) => {
       console.warn('[Ancla] Failed to reschedule notifications:', err);
     });
-  }, []);
+
+    // PWA Service Worker message listener (for when a notification is clicked)
+    const handleServiceWorkerMessage = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'NOTIFICATION_CLICK' && event.data.text) {
+        console.log('[Ancla] PWA Notification tapped:', event.data.text);
+        setNotificationAffirmation(event.data.text);
+      }
+    };
+
+    navigator.serviceWorker?.addEventListener('message', handleServiceWorkerMessage);
+
+    return () => {
+      navigator.serviceWorker?.removeEventListener('message', handleServiceWorkerMessage);
+    };
+  }, [setNotificationAffirmation]);
 
   // Listen for notification taps
   useEffect(() => {
