@@ -29,29 +29,29 @@ export function SupportModal({ isOpen, onClose }: SupportModalProps) {
                         transition={{ duration: 0.2 }}
                         className="relative w-full max-w-sm flex flex-col"
                     >
-                        <GlassCard className="flex flex-col p-6 md:p-8 !bg-white/95 dark:!bg-slate-900/95 border border-white/20 shadow-2xl relative overflow-hidden">
+                        <GlassCard className="flex flex-col p-6 md:p-8 !bg-[#0a0f18]/80 border border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-xl">
                             {/* Close button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-4 right-4 p-2 rounded-full focus:outline-none transition-colors text-zen-secondary dark:text-slate-400 hover:bg-black/5 dark:hover:bg-white/10 z-10"
+                                className="absolute top-4 right-4 p-2 rounded-full focus:outline-none transition-colors text-white/40 hover:text-white hover:bg-white/10 z-10"
                             >
                                 <X size={20} />
                             </button>
 
                             <div className="flex flex-col items-center text-center mt-2">
                                 {/* Icon Header */}
-                                <div className="w-16 h-16 rounded-full bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center mb-6 ring-1 ring-amber-200 dark:ring-amber-500/20 shadow-inner">
-                                    <Heart className="text-amber-500 dark:text-amber-400 w-8 h-8" strokeWidth={1.5} />
+                                <div className="w-16 h-16 rounded-full bg-amber-500/10 flex items-center justify-center mb-6 ring-1 ring-amber-500/20 shadow-inner">
+                                    <Heart className="text-amber-400 w-8 h-8" strokeWidth={1.5} />
                                 </div>
 
-                                <h2 className="text-xl font-semibold text-zen-primary dark:text-slate-100 mb-3">
+                                <h2 className="text-xl font-semibold text-white/90 mb-3">
                                     Hecho con mucho amor
                                 </h2>
 
-                                <p className="text-sm text-zen-secondary dark:text-slate-300 leading-relaxed mb-6">
+                                <p className="text-sm text-white/60 leading-relaxed mb-6">
                                     Decidí que Ancla fuera <strong>100% gratuita y sin anuncios molestos</strong> porque la paz mental no debería ser un lujo.
                                     <br /><br />
-                                    Soy <span className="font-semibold text-zen-primary dark:text-slate-200">Joe</span>, el desarrollador detrás de esto. Si la app te ayuda a estar en calma o te roba una sonrisa, invítame un café ☕ para ayudarme a mantener los servidores funcionando.
+                                    Soy <span className="font-semibold text-white/80">Joe</span>, el desarrollador detrás de esto. Si la app te ayuda a estar en calma o te roba una sonrisa, invítame un café ☕ para ayudarme a mantener los servidores funcionando.
                                 </p>
 
                                 {/* Action Buttons */}
@@ -69,7 +69,7 @@ export function SupportModal({ isOpen, onClose }: SupportModalProps) {
 
                                     <button
                                         onClick={onClose}
-                                        className="w-full py-3 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium transition-colors"
+                                        className="w-full py-3 px-6 rounded-xl bg-white/5 hover:bg-white/10 text-white/60 hover:text-white font-medium transition-colors"
                                     >
                                         Quizás más tarde
                                     </button>
