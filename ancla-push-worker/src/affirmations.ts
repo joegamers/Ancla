@@ -743,6 +743,132 @@ const affirmations: Affirmation[] = [
         "text": "Dejo que mis preocupaciones se disuelvan en el aire de la noche. Mi mente está serena y lista para sanar.",
         "author": "Louise Hay",
         "category": "Dormir"
+    },
+    {
+        "id": "122",
+        "text": "No me afano por el mañana; hoy decido enfocarme solo en el paso que tengo frente a mí, confiando en la provisión divina.",
+        "author": "Mateo 6:34",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "123",
+        "text": "Echo toda mi ansiedad sobre Él, porque sé que Él tiene cuidado de mí.",
+        "author": "1 Pedro 5:7",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "124",
+        "text": "La paz de Dios, que sobrepasa todo entendimiento, guarda mi corazón y mis pensamientos en este momento.",
+        "author": "Filipenses 4:7",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "125",
+        "text": "No me ha dado Dios un espíritu de cobardía, sino de poder, de amor y de dominio propio.",
+        "author": "2 Timoteo 1:7",
+        "category": "Focus"
+    },
+    {
+        "id": "126",
+        "text": "En paz me acuesto y asimísmo duermo, porque solo Tú me haces vivir confiado.",
+        "author": "Salmos 4:8",
+        "category": "Dormir"
+    },
+    {
+        "id": "127",
+        "text": "Todo lo puedo en Aquel que me fortalece. Mi fuerza no proviene solo de mí, sino de una fuente inagotable.",
+        "author": "Filipenses 4:13",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "128",
+        "text": "Aunque ande en valle de sombra, no temeré mal alguno, porque Tú estás conmigo.",
+        "author": "Salmos 23:4",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "129",
+        "text": "Mi fe es la certeza de lo que espero, la convicción de lo que aún no veo.",
+        "author": "Hebreos 11:1",
+        "category": "Focus"
+    },
+    {
+        "id": "130",
+        "text": "Renuevo mi mente cada día; dejo atrás lo viejo y abrazo la transformación de mi ser.",
+        "author": "Romanos 12:2",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "131",
+        "text": "Busco primero la paz y la justicia, sabiendo que todo lo demás me será añadido a su debido tiempo.",
+        "author": "Mateo 6:33",
+        "category": "Focus"
+    },
+    {
+        "id": "132",
+        "text": "Soy una creación maravillosa; reconozco el valor infinito que se me fue dado desde mi origen.",
+        "author": "Salmos 139:14",
+        "category": "Autoestima"
+    },
+    {
+        "id": "133",
+        "text": "Nada de lo que enfrento hoy podrá separarme del amor incondicional que me sostiene.",
+        "author": "Romanos 8:38-39",
+        "category": "Autoestima"
+    },
+    {
+        "id": "134",
+        "text": "Dejo que el amor perfecto eche fuera todo mi temor; elijo caminar con confianza.",
+        "author": "1 Juan 4:18",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "135",
+        "text": "Soy hechura suya, creado para buenas obras; mi vida tiene un propósito profundo.",
+        "author": "Efesios 2:10",
+        "category": "Autoestima"
+    },
+    {
+        "id": "136",
+        "text": "Vengo a descansar; entrego mis cargas pesadas y recibo a cambio ligereza y paz.",
+        "author": "Mateo 11:28",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "137",
+        "text": "Mi corazón no se turbará ni tendrá miedo. Recibo la paz que se me ha dado.",
+        "author": "Juan 14:27",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "138",
+        "text": "Espero con paciencia; renuevo mis fuerzas y me levanto como las águilas por encima de mis problemas.",
+        "author": "Isaías 40:31",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "139",
+        "text": "Sé que los planes que hay para mí son de bienestar y no de calamidad, para darme un futuro y una esperanza.",
+        "author": "Jeremías 29:11",
+        "category": "Focus"
+    },
+    {
+        "id": "140",
+        "text": "Si me falta sabiduría, la pido con fe, confiando en que se me dará abundantemente.",
+        "author": "Santiago 1:5",
+        "category": "Focus"
+    },
+    {
+        "id": "141",
+        "text": "Guardo mi corazón por sobre todas las cosas, porque sé que de él mana la vida.",
+        "author": "Proverbios 4:23",
+        "category": "Autoestima"
+    },
+    {
+        "id": "142",
+        "text": "No me apoyaré solo en mi propia prudencia; reconozco la guía superior en todos mis caminos.",
+        "author": "Proverbios 3:5-6",
+        "category": "Paz Mental"
     }
 ];
 
