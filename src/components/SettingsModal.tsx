@@ -30,6 +30,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
     const [tempInterval, setTempInterval] = useState(checkInterval);
     const [tempPeriod, setTempPeriod] = useState(activePeriod);
     const [tempIntention, setTempIntention] = useState(notificationIntention || 'Todas');
+    const [deviceCount, setDeviceCount] = useState<number | null>(null);
 
     // Get all categories for the dropdown/selector
     const allCategories = React.useMemo(() => ['Todas', ...affirmationEngine.getAllCategories()], []);
@@ -40,6 +41,19 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
         setTempPeriod(activePeriod);
         setTempIntention(notificationIntention || 'Todas');
     }, [notificationTime, checkInterval, activePeriod, notificationIntention, isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
+            fetch('https://ancla-push.joel22sd.workers.dev/health')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'ok' && typeof data.subscriptions === 'number') {
+                        setDeviceCount(data.subscriptions);
+                    }
+                })
+                .catch(err => console.error('[Ancla] Failed to fetch device count:', err));
+        }
+    }, [isOpen]);
 
     const handleSave = () => {
         // Save settings to store
@@ -246,10 +260,15 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                     Confirmar Ritmo
                                 </Button>
 
-                                <div className="pt-2 pb-1 flex justify-center">
+                                <div className="pt-2 pb-1 flex flex-col items-center gap-1">
                                     <span className="text-[10px] font-medium tracking-widest text-slate-400/70 dark:text-slate-500/70 uppercase">
                                         Ancla v{import.meta.env.VITE_APP_VERSION || '1.0.0'}
                                     </span>
+                                    {deviceCount !== null && (
+                                        <span className="text-[10px] font-medium text-pink-500/80 tracking-wide flex items-center gap-1">
+                                            ❤️ Dispositivos activos: {deviceCount}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </GlassCard>
