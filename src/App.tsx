@@ -175,32 +175,30 @@ function App() {
             </Button>
           </div>
 
-          {/* Category pills (compact, scrollable horizontally) */}
-          <div className="w-full shrink-0 overflow-x-auto overflow-y-hidden no-scrollbar">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex justify-start sm:justify-center gap-1.5 mt-3 mb-3 pb-1 w-max mx-auto px-2"
-            >
-              {['Todas', ...moods.filter(m => m !== 'Todas')].map((mood) => (
-                <button
-                  key={mood}
-                  onClick={() => {
-                    setVibe(mood);
-                    const newAff = affirmationEngine.getRandomAffirmation(mood);
-                    setLastAffirmation(newAff);
-                  }}
-                  className={`px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-semibold transition-all duration-300 shrink-0 ${currentVibe === mood
-                    ? 'bg-teal-500/20 text-teal-300 ring-1 ring-teal-500/30'
-                    : 'text-white/25 hover:text-white/50 hover:bg-white/5'
-                    }`}
-                >
-                  {mood}
-                </button>
-              ))}
-            </motion.div>
-          </div>
+          {/* Category pills */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="flex flex-wrap justify-center gap-1.5 mt-3 mb-3 max-w-sm shrink-0 px-2"
+          >
+            {['Todas', ...moods.filter(m => m !== 'Todas')].map((mood) => (
+              <button
+                key={mood}
+                onClick={() => {
+                  setVibe(mood);
+                  const newAff = affirmationEngine.getRandomAffirmation(mood);
+                  setLastAffirmation(newAff);
+                }}
+                className={`px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-semibold transition-all duration-300 ${currentVibe === mood
+                  ? 'bg-teal-500/20 text-teal-300 ring-1 ring-teal-500/30'
+                  : 'text-white/25 hover:text-white/50 hover:bg-white/5'
+                  }`}
+              >
+                {mood}
+              </button>
+            ))}
+          </motion.div>
 
           {/* Affirmation Card — takes remaining space */}
           <div className="flex-1 flex flex-col justify-center items-center w-full min-h-0 overflow-hidden">
