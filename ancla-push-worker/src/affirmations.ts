@@ -1319,6 +1319,486 @@ const affirmations: Affirmation[] = [
         "text": "Navego las olas agitadas del mundo exterior sin perder jamás la estabilidad interna propia.",
         "author": "Louise Hay",
         "category": "Seguridad"
+    },
+    {
+        "id": "218",
+        "text": "Elijo creer que la vida es bondadosa conmigo. — Todo lo que necesito saber me es revelado en el momento ideal.",
+        "author": "Louise Hay",
+        "category": "Confianza"
+    },
+    {
+        "id": "219",
+        "text": "Me amo y me apruebo a mí mismo. — Mi aprobación interna vale más que cualquier validación del mundo exterior.",
+        "author": "Louise Hay",
+        "category": "Autoestima"
+    },
+    {
+        "id": "220",
+        "text": "El momento de poder es siempre y únicamente el presente. — Hoy me levanto para forjar un hermoso futuro.",
+        "author": "Louise Hay",
+        "category": "Poder"
+    },
+    {
+        "id": "221",
+        "text": "Reconozco que merezco que me ocurran cosas buenas. — Abro los brazos para recibir alegría y milagros hoy.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "222",
+        "text": "Cada decisión que tomo es la correcta para mi propio crecimiento. — Confío ciegamente en mi intuición interior.",
+        "author": "Louise Hay",
+        "category": "Intuición"
+    },
+    {
+        "id": "223",
+        "text": "Mi cuerpo sabe exactamente cómo curarse a sí mismo. — Le otorgo el alimento, el descanso y el amor necesarios.",
+        "author": "Louise Hay",
+        "category": "Salud"
+    },
+    {
+        "id": "224",
+        "text": "El perdón me hace libre. — Decido soltar definitivamente el pasado para vivir hoy plenamente mi presente.",
+        "author": "Louise Hay",
+        "category": "Perdón"
+    },
+    {
+        "id": "225",
+        "text": "Disfruto profundamente de ser quien soy. — Cada mañana descubro un nuevo y brillante matiz de mi propia luz.",
+        "author": "Louise Hay",
+        "category": "Alegría"
+    },
+    {
+        "id": "226",
+        "text": "Soy un imán para los milagros cotidianos. — Agradezco fervientemente las bendiciones ocultas en lo pequeño.",
+        "author": "Louise Hay",
+        "category": "Gratitud"
+    },
+    {
+        "id": "227",
+        "text": "Mis pensamientos crean íntegramente mi realidad. — Hoy solo elijo plantar semillas de esperanza en mi mente.",
+        "author": "Louise Hay",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "228",
+        "text": "Estoy dispuesto a cambiar mis viejos patrones. — Dejo atrás el miedo y me renuevo completamente.",
+        "author": "Louise Hay",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "229",
+        "text": "El universo de infinitas posibilidades es mi hogar. — Siempre hay abundante espacio para mí prosperidad aquí.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "230",
+        "text": "Las críticas ajenas resbalan sobre mi piel. — Sé exactamente mi inmenso valor y nada puede desestabilizarme.",
+        "author": "Louise Hay",
+        "category": "Seguridad"
+    },
+    {
+        "id": "231",
+        "text": "El bienestar inunda toda mi existencia. — Respiro lenta y calmadamente asumiendo que estoy completamente a salvo.",
+        "author": "Louise Hay",
+        "category": "Calma"
+    },
+    {
+        "id": "232",
+        "text": "Irradio amor, y la vida me lo devuelve multiplicado. — El ciclo divino del afecto verdadero me cobija entero.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "233",
+        "text": "La paz de la divinidad llena el profundo abismo de mi pecho. — Mi corazón descansa sereno y ligero hoy.",
+        "author": "Louise Hay",
+        "category": "Paz"
+    },
+    {
+        "id": "234",
+        "text": "El amor hacia mí mismo se traduce en cuidar mis ritmos biológicos. — Aprendo a descansar cuando lo necesito.",
+        "author": "Louise Hay",
+        "category": "Autocuidado"
+    },
+    {
+        "id": "235",
+        "text": "Suelto y dejo ir mi falsa dependencia al dolor. — Avanzo gloriosamente libre y sin pesadas ataduras pasadas.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "236",
+        "text": "Nadie puede hacerme sentir inferior sin mi consentimiento. — Yo soy el único arquitecto de mis sentimientos.",
+        "author": "Louise Hay",
+        "category": "Libertad"
+    },
+    {
+        "id": "237",
+        "text": "Confío en que poseo todo el talento necesario. — Actúo firmemente desde una fuerza y sabiduría innombrables.",
+        "author": "Louise Hay",
+        "category": "Enfoque"
+    },
+    {
+        "id": "238",
+        "text": "Dentro de mí habita un poder inmenso. — Elijo apoyarme en él para superar cualquier desafío que llegue hoy.",
+        "author": "Louise Hay",
+        "category": "Poder"
+    },
+    {
+        "id": "239",
+        "text": "Enamórate perdidamente de ti mismo. — Admito que el romance más duradero es el que mantengo con propio ser.",
+        "author": "Louise Hay",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "240",
+        "text": "El amor fluye abundantemente desde de mi corazón hacia el infinito. — Conecto el mundo entero con mi bondad.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "241",
+        "text": "Toda situación problemática tiene escondida una hermosa lección. — Abro mi mente para descubrir la enseñanza.",
+        "author": "Louise Hay",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "242",
+        "text": "Mis ingresos superan holgadamente todos mis gastos esperados. — Soy libre y estoy cuidado financieramente.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "243",
+        "text": "Todo lo que mis manos tocan hoy es un éxito asombroso. — Agradezco profundamente cada uno de mis grandes triunfos.",
+        "author": "Louise Hay",
+        "category": "Éxito"
+    },
+    {
+        "id": "244",
+        "text": "Mi mente subconsciente está repleta de instrucciones positivas y poderosas. — Mi mente está en sintonía con la paz.",
+        "author": "Louise Hay",
+        "category": "Subconsciente"
+    },
+    {
+        "id": "245",
+        "text": "Respiro alegría, exhalo y dejo marchar toda la profunda pesadumbre de mi ser. — Abrazo mi propio entusiasmo vivo.",
+        "author": "Louise Hay",
+        "category": "Alegría"
+    },
+    {
+        "id": "246",
+        "text": "Libero intencionalmente cualquier sentimiento doloroso o de culpa arraigada. — Sé perdonarme a mí mismo eternamente.",
+        "author": "Louise Hay",
+        "category": "Perdón"
+    },
+    {
+        "id": "247",
+        "text": "Las limitaciones impuestas en la infancia quedaron atrás. — Yo decido las sólidas reglas de mi actual realidad.",
+        "author": "Louise Hay",
+        "category": "Libertad"
+    },
+    {
+        "id": "248",
+        "text": "Tomo mis mejores decisiones basadas en pleno amor en lugar del doloroso miedo. — El amor guía hoy mis pasos.",
+        "author": "Louise Hay",
+        "category": "Confianza"
+    },
+    {
+        "id": "249",
+        "text": "Siento orgullo de las elecciones que tomé ayer porque me trajeron aquí. — Todo paso dado fue exacto y correcto.",
+        "author": "Louise Hay",
+        "category": "Autoestima"
+    },
+    {
+        "id": "250",
+        "text": "Yo construyo activamente puentes dorados hacia relaciones armoniosas completas. — Vivo siempre la unión total pacífica.",
+        "author": "Louise Hay",
+        "category": "Relaciones"
+    },
+    {
+        "id": "251",
+        "text": "Desbordo creatividad en mi trabajo habitual y mis pasatiempos. — Mis talentos únicos brillan espectacularmente.",
+        "author": "Louise Hay",
+        "category": "Creatividad"
+    },
+    {
+        "id": "252",
+        "text": "Este bello día me obsequia infinitos y fascinantes caminos inexplorados. — La vida es mi emocionante aventura hoy.",
+        "author": "Louise Hay",
+        "category": "Aventura"
+    },
+    {
+        "id": "253",
+        "text": "A medida que exhalo profundamente renuncio definitivamente a acumular dolor innecesario. — Elijo mi total consuelo.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "254",
+        "text": "Todas mis células actúan como esponjas perfectas de la vital energía divina. — Atraigo salud absoluta cada día.",
+        "author": "Louise Hay",
+        "category": "Salud"
+    },
+    {
+        "id": "255",
+        "text": "Cuando caigo amistosamente me lavanto acariciándome a mí mismo. — Mi compasión personal sana de inmediato.",
+        "author": "Louise Hay",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "256",
+        "text": "Reconozco sinceramente que mis temores solo querían protegerme inocentemente. — Pero ahora asumo el liderazgo.",
+        "author": "Louise Hay",
+        "category": "Valentía"
+    },
+    {
+        "id": "257",
+        "text": "Las ideas inspiradoras germinan velozmente en las ricas tierras fértiles de mi maravillosa mente creadora hoy.",
+        "author": "Louise Hay",
+        "category": "Inspiración"
+    },
+    {
+        "id": "258",
+        "text": "Sabiendo que todo esfuerzo humano valió, decido amarme con profunda paciencia y delicadeza ilimitada hoy.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "259",
+        "text": "Estoy dispuesto a disolver para siempre y mágicamente mis viejos bloqueos emocionales pasados con el amor puro.",
+        "author": "Louise Hay",
+        "category": "Liberación"
+    },
+    {
+        "id": "260",
+        "text": "La sabiduría inmensamente atemporal rebosa en la claridad pura de los ríos ocultos de todas mis corazonadas.",
+        "author": "Louise Hay",
+        "category": "Intuición"
+    },
+    {
+        "id": "261",
+        "text": "El poderoso torrente vibrante curativo baña mis pulmones en este mismo milagroso acto instantáneo de mi exhalación.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "262",
+        "text": "Siempre afirmo orgullosamente que estoy inmensamente orgulloso del ser especial y brillante y resiliente que soy.",
+        "author": "Louise Hay",
+        "category": "Orgullo"
+    },
+    {
+        "id": "263",
+        "text": "El pasado fue un precioso maestro necesario. — Agradezco sus mágicas enseñanzas y regreso jubilosamente al hoy.",
+        "author": "Louise Hay",
+        "category": "Aceptación"
+    },
+    {
+        "id": "264",
+        "text": "El dolor y la incomodidad mental cesan inmediatamente en nombre de la luz total que llena de calma y poder este ser.",
+        "author": "Louise Hay",
+        "category": "Calma"
+    },
+    {
+        "id": "265",
+        "text": "A medida que el alba y bella aurora surgen sobre mis ojos despiertos elijo despertar verdaderamente libre del estrés.",
+        "author": "Louise Hay",
+        "category": "Esperanza"
+    },
+    {
+        "id": "266",
+        "text": "Celebro con asombrosa efusividad todos y cada uno de los pequeños incesantes progresos minúsculos de mis esfuerzos.",
+        "author": "Louise Hay",
+        "category": "Celebración"
+    },
+    {
+        "id": "267",
+        "text": "El tesoro auténtico y valioso de la galaxia yace pacíficamente puro dentro de mí.",
+        "author": "Louise Hay",
+        "category": "Valor"
+    },
+    {
+        "id": "268",
+        "text": "Siento cómo la tensión abandona progresivamente cada músculo. — Confío en la inmensa capacidad reparadora del descanso.",
+        "author": "Louise Hay",
+        "category": "Relajación"
+    },
+    {
+        "id": "269",
+        "text": "Manejo eficientemente todos los niveles de estrés acumulado hoy. — Poseo herramientas psíquicas formidables exactas.",
+        "author": "Louise Hay",
+        "category": "Estrés"
+    },
+    {
+        "id": "270",
+        "text": "Ante la tempestad emocional, mi núcleo consciente actúa como gran amortiguador infalible que anula el fuerte impacto.",
+        "author": "Louise Hay",
+        "category": "Calma"
+    },
+    {
+        "id": "271",
+        "text": "Cuestiono proactivamente mis ansiedades invasivas. — Los peores escenarios jamás ocurren.",
+        "author": "Louise Hay",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "272",
+        "text": "Decodifico la pesada tristeza dolorosa como simples mensajeros fisiológicos pasajeros y reconfortantes de advertencia.",
+        "author": "Louise Hay",
+        "category": "Emociones"
+    },
+    {
+        "id": "273",
+        "text": "Las punzadas de malestar se difuminan rápido por mi constante autorregulación y paz.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "274",
+        "text": "Estoy clínicamente a salvo. — Ninguno de mis pensamientos caóticos posee el poder para dañarme hoy.",
+        "author": "Louise Hay",
+        "category": "Seguridad"
+    },
+    {
+        "id": "275",
+        "text": "Reconstruyo los pilares cognitivos seguros donde basar de aquí adelante toda mi existencia actual.",
+        "author": "Louise Hay",
+        "category": "Reestructuración"
+    },
+    {
+        "id": "276",
+        "text": "Reviso analíticamente mis distorsiones asimilando las verdades y desechando todo el ruido residual.",
+        "author": "Louise Hay",
+        "category": "Claridad"
+    },
+    {
+        "id": "277",
+        "text": "Restauro la química relajante de mi cerebro mediante suaves y precisas respiraciones curativas.",
+        "author": "Louise Hay",
+        "category": "Fisiología"
+    },
+    {
+        "id": "278",
+        "text": "Declamo la detención cognitiva al frenético ruido paralizante que secuestra ahora mi lúcida mente.",
+        "author": "Louise Hay",
+        "category": "Enfoque"
+    },
+    {
+        "id": "279",
+        "text": "Las alertas físicas son energía neutra retenida que yo diluyo tranquilamente mientras respiro.",
+        "author": "Louise Hay",
+        "category": "Somatización"
+    },
+    {
+        "id": "280",
+        "text": "Mi salud mental robusta siempre perdura indemne ante cualquier avalancha amenazadora del entorno.",
+        "author": "Louise Hay",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "281",
+        "text": "Racionalizo rápidamente el miedo infundado usando evidencia absoluta de mi protección incondicional.",
+        "author": "Louise Hay",
+        "category": "Lógica"
+    },
+    {
+        "id": "282",
+        "text": "Aplico la paciencia estructurada en mi lento proceder regenerativo neuronal garantizando mi sanación.",
+        "author": "Louise Hay",
+        "category": "Paciencia"
+    },
+    {
+        "id": "283",
+        "text": "Aíslo cada suceso estresante perjudicial quitándole la facultad de contaminar los momentos de paz.",
+        "author": "Louise Hay",
+        "category": "Límites"
+    },
+    {
+        "id": "284",
+        "text": "Refuerzo el canal directo parasimpático activando de inmediato mi relajación biológica incondicional.",
+        "author": "Louise Hay",
+        "category": "Relajación"
+    },
+    {
+        "id": "285",
+        "text": "Integro compasivamente antiguas cicatrices somáticas como testimonios de supervivencia imborrables.",
+        "author": "Louise Hay",
+        "category": "Aceptación"
+    },
+    {
+        "id": "286",
+        "text": "Inhibo eficazmente cada impulso primitivo reactivo cediendo control voluntario a la sabia mente frontal.",
+        "author": "Louise Hay",
+        "category": "Autocontrol"
+    },
+    {
+        "id": "287",
+        "text": "Las abrumadoras oleadas de profunda fatiga simplemente se enjuagan mediante un profundo descanso.",
+        "author": "Louise Hay",
+        "category": "Fatiga"
+    },
+    {
+        "id": "288",
+        "text": "Mis mecanismos subconscientes funcionan gloriosamente bien orquestando salud constante psíquica.",
+        "author": "Louise Hay",
+        "category": "Salud Mental"
+    },
+    {
+        "id": "289",
+        "text": "Toda rumia tóxica es neutralizada cortante y elegantemente anclándome al vívido presente sensomotor.",
+        "author": "Louise Hay",
+        "category": "Mindfulness"
+    },
+    {
+        "id": "290",
+        "text": "Transformo magistralmente cada pesimista hipótesis en simples suposiciones erróneas por falsas.",
+        "author": "Louise Hay",
+        "category": "Cuestionamiento"
+    },
+    {
+        "id": "291",
+        "text": "En mi propio refugio terapéutico cognitivo personal jamás penetra el letargo desesperanzador invasivo.",
+        "author": "Louise Hay",
+        "category": "Área Segura"
+    },
+    {
+        "id": "292",
+        "text": "Mitigo hábilmente el agotamiento incesante dándome enormes y abundantes permisos absolutos de paz.",
+        "author": "Louise Hay",
+        "category": "Descanso"
+    },
+    {
+        "id": "293",
+        "text": "Regulo mi umbral de tolerancia incondicional extendiendo incesante paciencia frente al agobio externo.",
+        "author": "Louise Hay",
+        "category": "Tolerancia"
+    },
+    {
+        "id": "294",
+        "text": "La arquitectura psíquica impecable de mi mente alberga en su centro un oasis impenetrable de calma.",
+        "author": "Louise Hay",
+        "category": "Arquitectura Mental"
+    },
+    {
+        "id": "295",
+        "text": "Sistematizo impecablemente la disolución de los dolorosos nudos formados en mi red neuronal hoy.",
+        "author": "Louise Hay",
+        "category": "Terapia Sistémica"
+    },
+    {
+        "id": "296",
+        "text": "Canalizo el excedente vivo de angustiada energía interna hacia actos plenamente creadores hoy.",
+        "author": "Louise Hay",
+        "category": "Sublimación"
+    },
+    {
+        "id": "297",
+        "text": "Desarrollo una formidable autoconsciencia inquebrantable como escudo frente a dudas futuras.",
+        "author": "Louise Hay",
+        "category": "Defensa Psíquica"
     }
 ];
 
