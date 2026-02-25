@@ -27,9 +27,14 @@ Este proceso define cómo la Inteligencia Artificial debe actuar cada vez que el
    // turbo
    `node scripts/sync-affirmations.js`
 
-5. **Actualizar el Registro**:
+5. **Desplegar el Worker**:
+   Como paso vital, debes hacer el *deploy* a Cloudflare para que las frases y arreglos se apliquen en vivo a los usuarios.
+   // turbo
+   `cd ancla-push-worker && npm run deploy`
+
+6. **Actualizar el Registro**:
    Abre o modifica el archivo `src/data/Afirmaciones-Registro.md`. 
    Agrega a la lista alfanumérica los nombres del autor, libro o fuentes nuevas que hayas recién generado para mantener el inventario actualizado.
 
-6. **Notificar**:
-   Dile al usuario cuáles fueron las frases añadidas (muéstralas en la conversación) y confirma que el worker y el registro han sido actualizados satisfactoriamente.
+7. **Notificar**:
+   Dile al usuario cuáles fueron las frases añadidas (muéstralas en la conversación) y confirma que el worker, el registro y el deploy en Cloudflare han sido ejecutados satisfactoriamente.

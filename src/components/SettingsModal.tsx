@@ -245,6 +245,12 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                 >
                                     Confirmar Ritmo
                                 </Button>
+
+                                <div className="pt-2 pb-1 flex justify-center">
+                                    <span className="text-[10px] font-medium tracking-widest text-slate-400/70 dark:text-slate-500/70 uppercase">
+                                        Ancla v{import.meta.env.VITE_APP_VERSION || '1.0.0'}
+                                    </span>
+                                </div>
                             </div>
                         </GlassCard>
                     </motion.div>

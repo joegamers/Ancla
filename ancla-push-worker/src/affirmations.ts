@@ -1079,6 +1079,246 @@ const affirmations: Affirmation[] = [
         "text": "Soy el autor, el director y escritor de mi propio guion. — Mi poder personal es innegable y mi potencial es inmenso.",
         "author": "Louise Hay",
         "category": "Poder"
+    },
+    {
+        "id": "178",
+        "text": "Cada pensamiento que creamos está moldeando nuestro futuro. — Elijo sembrar paz para cosechar bienestar mañana.",
+        "author": "Louise Hay",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "179",
+        "text": "El punto de poder reside siempre en el momento presente. — Tomo las riendas de mi vida hoy, con confianza plena.",
+        "author": "Louise Hay",
+        "category": "Poder"
+    },
+    {
+        "id": "180",
+        "text": "Nuestros pensamientos pasados nos trajeron donde estamos. — Mis pensamientos actuales me llevan donde quiero ir.",
+        "author": "Louise Hay",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "181",
+        "text": "Estoy dispuesto a perdonar a los demás y a mí mismo. — Suelto las heridas del ayer y abrazo mi libertad total.",
+        "author": "Louise Hay",
+        "category": "Perdón"
+    },
+    {
+        "id": "182",
+        "text": "Solo es un pensamiento, y un pensamiento puede cambiarse. — Renuncio a creencias limitantes y elijo empoderarme.",
+        "author": "Louise Hay",
+        "category": "Mentalidad"
+    },
+    {
+        "id": "183",
+        "text": "Me desprendo de la necesidad de tener siempre la razón. — Prefiero tener paz mental por encima de ganar argumentos.",
+        "author": "Louise Hay",
+        "category": "Paz"
+    },
+    {
+        "id": "184",
+        "text": "Cuanto más amor doy, más amor tengo para dar. — Me convierto en un canal inagotable de afecto hacia mí y otros.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "185",
+        "text": "Acepto la alegría de la vida a mi manera. — Dejo de compararme y celebro profunda y honestamente quién soy.",
+        "author": "Louise Hay",
+        "category": "Alegría"
+    },
+    {
+        "id": "186",
+        "text": "Creo mis propias experiencias mediante mis opiniones. — Dejo de ser la víctima y actúo como el arquitecto ahora.",
+        "author": "Louise Hay",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "187",
+        "text": "El estrés es temor a la propia vida. — Elijo confiar en que el universo y el camino me sostienen con seguridad.",
+        "author": "Louise Hay",
+        "category": "Seguridad"
+    },
+    {
+        "id": "188",
+        "text": "Agradezco todo lo positivo que está ocurriendo en mi vida. — Lleno mi corazón de una gratitud sincera y brillante.",
+        "author": "Louise Hay",
+        "category": "Gratitud"
+    },
+    {
+        "id": "189",
+        "text": "Me desprendo de culpar a mis padres; ellos hicieron lo mejor. — Ahora soy adulto y responsable de sanar mi niño.",
+        "author": "Louise Hay",
+        "category": "Perdón"
+    },
+    {
+        "id": "190",
+        "text": "Cualquier enfermedad es la manera en que el cuerpo habla. — Escucho a mi cuerpo con compasión y le ofrezco salud.",
+        "author": "Louise Hay",
+        "category": "Salud"
+    },
+    {
+        "id": "191",
+        "text": "El universo es amor abundante. — Acepto merecer absolutamente todo lo bueno, rico y hermoso del mundo desde ya.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "192",
+        "text": "La autoaceptación ahora es la clave para la evolución positiva. — Abrazo mis defectos con la misma luz que mis dotes.",
+        "author": "Louise Hay",
+        "category": "Autoestima"
+    },
+    {
+        "id": "193",
+        "text": "A medida que cambio mis pensamientos, el mundo a mi alrededor cambia. — Guío mi enfoque a lo constructivo.",
+        "author": "Louise Hay",
+        "category": "Enfoque"
+    },
+    {
+        "id": "194",
+        "text": "Pongo a un lado mi miedo al cambio y abrazo lo nuevo. — Avanzar requiere valentía y yo derrocho coraje hoy.",
+        "author": "Louise Hay",
+        "category": "Valor"
+    },
+    {
+        "id": "195",
+        "text": "Mi mente está limpia de la basura del pasado. — Hay espacio amplio e infinito solo para armonía y paz verdadera.",
+        "author": "Louise Hay",
+        "category": "Calma"
+    },
+    {
+        "id": "196",
+        "text": "Todos los eventos pasados terminaron ayer. Hoy empiezo de cero. — Mi destino es brillante e intacto desde aquí.",
+        "author": "Louise Hay",
+        "category": "Esperanza"
+    },
+    {
+        "id": "197",
+        "text": "El amor incondicional es el sanador más poderoso. — Permito que la ternura empape mis heridas más calladas hoy.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "198",
+        "text": "Hoy es un día maravilloso. El dinero viene a mí de maneras esperadas e inesperadas.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "199",
+        "text": "Me abro a recibir el amor incondicional. Cuanto más amo, más soy amado a cambio.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "200",
+        "text": "Cada célula de mi cuerpo vibra con energía y salud vibrante. Estoy completamente sano.",
+        "author": "Louise Hay",
+        "category": "Salud"
+    },
+    {
+        "id": "201",
+        "text": "Confío en el proceso de la vida. Todo lo que necesito viene a mí en el momento perfecto.",
+        "author": "Louise Hay",
+        "category": "Confianza"
+    },
+    {
+        "id": "202",
+        "text": "Elijo hacer de mi vida un lugar gozoso y feliz para vivir. Mi alegría constante lo atrae todo.",
+        "author": "Louise Hay",
+        "category": "Alegría"
+    },
+    {
+        "id": "203",
+        "text": "Suelto cualquier preocupación por el mañana. Mi paz mental presente construye mi propio destino.",
+        "author": "Louise Hay",
+        "category": "Calma"
+    },
+    {
+        "id": "204",
+        "text": "Me amo incondicionalmente. Soy lo suficientemente bueno ahora mismo, exactamente como soy.",
+        "author": "Louise Hay",
+        "category": "Autoestima"
+    },
+    {
+        "id": "205",
+        "text": "Atraigo el éxito de manera natural. Todo lo que toco se convierte en prosperidad prístina.",
+        "author": "Louise Hay",
+        "category": "Éxito"
+    },
+    {
+        "id": "206",
+        "text": "Mi mente está llena de pensamientos sanos y positivos. El universo entero me apoya siempre.",
+        "author": "Louise Hay",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "207",
+        "text": "Acepto la plena responsabilidad de mis decisiones de vida. Soy poderoso y sé cómo dirigir mi propio barco.",
+        "author": "Louise Hay",
+        "category": "Poder"
+    },
+    {
+        "id": "208",
+        "text": "Manejo el cambio fluida y fácilmente. Recibo calurosamente las oportunidades inminentes.",
+        "author": "Louise Hay",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "209",
+        "text": "Vivo libre de todo dolor y sufrimiento innecesario. Soy un ser digno de la magia del universo.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "210",
+        "text": "Honro y valido siempre mis sentimientos. Todas y cada una de mis emociones tienen permiso de existir.",
+        "author": "Louise Hay",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "211",
+        "text": "Mis días fluyen en un remanso de paz. Inspiro serenidad profunda y la exhalo transformando el ambiente.",
+        "author": "Louise Hay",
+        "category": "Paz"
+    },
+    {
+        "id": "212",
+        "text": "Permito que mis ingresos económicos aumenten exponencialmente con gran comodidad constante.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "213",
+        "text": "Me rodeo eternamente de personas que enriquecen y respetan enteramente mis capacidades maravillosas.",
+        "author": "Louise Hay",
+        "category": "Comunidad"
+    },
+    {
+        "id": "214",
+        "text": "Siento gratitud infinita por todo lo que tengo. Comprendo que mi corazón es un faro inmenso magnético.",
+        "author": "Louise Hay",
+        "category": "Gratitud"
+    },
+    {
+        "id": "215",
+        "text": "Reconozco sinceramente el valor de mi intuición y sabiduría. Me guía el sendero de la verdad hoy.",
+        "author": "Louise Hay",
+        "category": "Intuición"
+    },
+    {
+        "id": "216",
+        "text": "El estrés hoy desaparece misteriosamente y mágicamente de mi ser y mi entorno entero es luz.",
+        "author": "Louise Hay",
+        "category": "Relajación"
+    },
+    {
+        "id": "217",
+        "text": "Navego las olas agitadas del mundo exterior sin perder jamás la estabilidad interna propia.",
+        "author": "Louise Hay",
+        "category": "Seguridad"
     }
 ];
 
