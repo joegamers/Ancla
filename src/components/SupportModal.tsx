@@ -45,13 +45,13 @@ export function SupportModal({ isOpen, onClose }: SupportModalProps) {
                                 </div>
 
                                 <h2 className="text-xl font-semibold text-white/90 mb-3">
-                                    Hecho con mucho amor
+                                    Un refugio que construimos juntos
                                 </h2>
 
                                 <p className="text-sm text-white/60 leading-relaxed mb-6">
-                                    Decidí que Ancla fuera <strong>100% gratuita y sin anuncios molestos</strong> porque la paz mental no debería ser un lujo.
+                                    Detrás de Ancla no hay una gran empresa, solo estoy yo (Joe). Desarrollé esta app en mis momentos de mayor ansiedad, buscando una forma silenciosa de apagar el ruido mental y reprogramar mis días. Me ayudó tanto que decidí regalarla al mundo, sin muros de pago ni interrupciones.
                                     <br /><br />
-                                    Soy <span className="font-semibold text-white/80">Joe</span>, el desarrollador detrás de esto. Si la app te ayuda a estar en calma o te roba una sonrisa, invítame un café ☕ para ayudarme a mantener los servidores funcionando.
+                                    Si esta herramienta te ha regalado aunque sea un momento de paz hoy, un café ☕ me ayudaría muchísimo a cubrir los costos y seguir mejorándola para todos.
                                 </p>
 
                                 {/* Action Buttons */}
