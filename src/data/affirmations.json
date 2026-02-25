@@ -36,14 +36,14 @@
   },
   {
     "id": "6",
-    "text": "Suelto la necesidad de saber exactamente qué pasará en el futuro. Me abro a la sorpresa y a la calma del ahora.",
+    "text": "Suelto la necesidad de saber exactamente qué pasará en el futuro.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Ansiedad"
   },
   {
     "id": "7",
-    "text": "Mi respiración es mi ancla. Cada vez que inhalo, inhalo paz; cada vez que exhalo, libero la tensión de mis hombros.",
+    "text": "Mi respiración es mi ancla.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Ansiedad"
@@ -70,29 +70,22 @@
     "category": "Ansiedad"
   },
   {
-    "id": "11",
-    "text": "Todo pasa. También esto pasará. Observo mi ansiedad como una nube en el cielo de mi mente, dejándola ir con el viento.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Ansiedad"
-  },
-  {
     "id": "12",
-    "text": "No soy mis pensamientos acelerados. Soy la calma profunda que existe detrás de ellos, esperando a ser escuchada.",
+    "text": "No soy mis pensamientos acelerados.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Ansiedad"
   },
   {
     "id": "13",
-    "text": "Pongo mi mano en el corazón y siento sus latidos. Estoy aquí, estoy vivo, y en este minuto exacto, nada malo está sucediendo.",
+    "text": "Pongo mi mano en el corazón y siento sus latidos.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Ansiedad"
   },
   {
     "id": "14",
-    "text": "Acepto la incertidumbre. No necesito controlar el océano; solo necesito aprender a surfear mis propias olas con calma.",
+    "text": "Acepto la incertidumbre.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Ansiedad"
@@ -120,7 +113,7 @@
   },
   {
     "id": "18",
-    "text": "Suelto lo que no puedo controlar. Mi energía es valiosa y decido invertirla solo en aquello donde puedo hacer una diferencia hoy.",
+    "text": "Suelto lo que no puedo controlar.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Estrés"
@@ -141,7 +134,7 @@
   },
   {
     "id": "21",
-    "text": "Me doy permiso de hacer pausas. El descanso no es un premio por trabajar en exceso, es un requisito biológico que honraré hoy.",
+    "text": "Me doy permiso de hacer pausas.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Estrés"
@@ -288,14 +281,14 @@
   },
   {
     "id": "42",
-    "text": "Mi concentración es como un rayo láser curativo. Todo en lo que me enfoco hoy se nutre, crece y se perfecciona.",
+    "text": "Mi concentración es como un rayo láser curativo.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Enfoque"
   },
   {
     "id": "43",
-    "text": "Tengo control total sobre dónde dirijo mi atención. Los ruidos externos no tienen poder frente a mi claridad interna.",
+    "text": "Tengo control total sobre dónde dirijo mi atención.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Enfoque"
@@ -337,21 +330,21 @@
   },
   {
     "id": "49",
-    "text": "Exhalo lentamente, soltando cada expectativa. Encuentro satisfacción y quietud exactamente donde me encuentro ahora mismo.",
+    "text": "Exhalo lentamente, soltando cada expectativa.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Calma"
   },
   {
     "id": "50",
-    "text": "No necesito reaccionar a nada. Entre cualquier eventualidad y mi reacción, creo una pausa infinita llena de serenidad profunda.",
+    "text": "No necesito reaccionar a nada.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Calma"
   },
   {
     "id": "51",
-    "text": "Estoy arraigado a la tierra. No importa qué tan feroz sople el viento allá afuera, yo permanezco estable, firme y en paz absoluta.",
+    "text": "Estoy arraigado a la tierra.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Calma"
@@ -393,28 +386,21 @@
   },
   {
     "id": "57",
-    "text": "Veo la resiliencia fluir abundantemente; el camino difícil ha sido magistralmente tallado para esculpir mi maestría suprema en desarrollo constante.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "58",
-    "text": "Honro profundamente a la versión de mí que libró batallas pasadas, pues su esfuerzo construyó con amor a este ser próspero e imparable que soy hoy.",
+    "text": "Veo la resiliencia fluir abundantemente.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Crecimiento"
   },
   {
     "id": "59",
-    "text": "Mis raíces persisten creciendo día con día en lo frondoso de lo profundo; aunque la flor aún no se abra, mantengo paciencia en que cada proceso forjará virtudes eternas.",
+    "text": "Mis raíces persisten creciendo día con día en lo frondoso de lo profundo.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Crecimiento"
   },
   {
     "id": "60",
-    "text": "Me fascina absorber nuevos aprendizajes. Conservo la humilde curiosidad infantil que cataliza de mi entorno constantes revelaciones para agigantar mi conocimiento vital.",
+    "text": "Me fascina absorber nuevos aprendizajes.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Crecimiento"
@@ -456,28 +442,7 @@
   },
   {
     "id": "66",
-    "text": "Extiendo infinitas banderas de la más alta compasión, especialmente para mis días frágiles; abrazo mis debilidades tratándome siempre con dulce humanidad indulgente.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "67",
-    "text": "Desgasto irrevocablemente cada tóxica etiqueta ajena asfixiante auto-colocándome inquebrantables afirmaciones de incalculable e indiscutida valía estelar.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "68",
-    "text": "Confíole serenamente a mis entrañas el asilo profundo seguro que inyecta cada inhalación, devolviéndome oxigenados alivios restaurativos inmaculadamente purificantes.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Seguridad"
-  },
-  {
-    "id": "69",
-    "text": "El vasto infinito espacio astral majestuosamente se inclina magnético confabulando tramas orquestadas para amparar mis anhelos de éxito invulnerable y absoluta plenitud.",
+    "text": "Extiendo infinitas banderas de la más alta compasión, especialmente para mis días frágiles.",
     "author": "Ancla",
     "source": "Afirmación Original",
     "category": "Amor Propio"
@@ -501,20 +466,6 @@
     "text": "El momento presente es el único que existe. — Aniquilo proyecciones torturosas del espejismo de ayer o mañana, disolviendo tiempos paralelos para fundirme en pura paz aquí.",
     "author": "Eckhart Tolle",
     "source": "El poder del ahora",
-    "category": "Presencia"
-  },
-  {
-    "id": "73",
-    "text": "Percibo un estruendo sosegado enigmático silencioso inyectando sabidurías insospechadas, dándole rienda a formidables intuiciones inmensas desatadas que resuelven incógnitas vitales espontáneamente.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Revelación"
-  },
-  {
-    "id": "74",
-    "text": "Desengancho estrepitosamente monumentales cadenas nostálgicas densas arrastradas inútilmente, exhiméndome indultado liberadamente al flotar en puro estar vivo palpitante respirado.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
     "category": "Presencia"
   },
   {
@@ -546,13 +497,6 @@
     "category": "Perdón"
   },
   {
-    "id": "79",
-    "text": "Mis heridas, transmutadas heroicamente están cubiertas con lajes doradas sagradas exhibiendo majestuosamente una indestructible heroica fortaleza desbordante incandescente y radiante vital en curación.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Sanación"
-  },
-  {
     "id": "80",
     "text": "Estoy abierto a recibir toda la abundancia del universo. — Exijo colosales bendiciones desmesuradas inmensas lluvias en avalancha espectacular descendida majestuosa hacia mi alma inmensurablemente opulenta.",
     "author": "Louise Hay",
@@ -574,20 +518,6 @@
     "category": "Gratitud"
   },
   {
-    "id": "83",
-    "text": "Reconozco que el vastísimo oceáno radiante de abundante vida inagotable divina jamás merma, brindando torrentes exuberantes asegurándole plenitud magnética innegable celestial a mi propio sendero.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Abundancia"
-  },
-  {
-    "id": "84",
-    "text": "Cada gigantesca bendición diaria destraba bóvedas colosales ocultas lloviendo cascadas de magníficas dichosas glorificadas oportunidades radiantes inmensuradas abrumadoramente espléndidas e infinitas puras maravillas.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Gratitud"
-  },
-  {
     "id": "85",
     "text": "La paz os dejo, mi paz os doy. — Absorbo magnéticamente la monumental infinita serenidad suprema; decreto el aplacamiento unificado y majestuoso colosal acallando inmensa bulliciosa mundanidad.",
     "author": "Juan 14:27",
@@ -602,22 +532,8 @@
     "category": "Alegría"
   },
   {
-    "id": "87",
-    "text": "Inundo compasivamente de paz inmensa y divina a cada espacio turbulento oscuro temeroso celular de mi organismo, llenándome con dulce alivio curativo reparador inaudito.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Paz"
-  },
-  {
-    "id": "88",
-    "text": "Tengo autorización sagrada magna infalible para soltar todas las corazas asfixiantes que protegían místicas corazas; abrazo rendirme dócilmente sedado a un merecido vasto relajo incondicional reparatorio.",
-    "author": "Ancla",
-    "source": "Afirmación Original",
-    "category": "Relajación"
-  },
-  {
     "id": "89",
-    "text": "Entiendo que el pánico es solo adrenalina intentando escapar. Hoy abrazo esa energía y la dejo fluir sin oponer resistencia.",
+    "text": "Entiendo que el pánico es solo adrenalina intentando escapar.",
     "author": "Ancla",
     "category": "Ansiedad"
   },
@@ -629,7 +545,7 @@
   },
   {
     "id": "91",
-    "text": "La ansiedad se alimenta de mis suposiciones futuras. Me anclo al aquí y ahora, donde todo está absolutamente en orden.",
+    "text": "La ansiedad se alimenta de mis suposiciones futuras.",
     "author": "Ancla",
     "category": "Ansiedad"
   },
@@ -646,14 +562,8 @@
     "category": "Ansiedad"
   },
   {
-    "id": "94",
-    "text": "Visualizo cómo exhalo mis miedos en forma de humo gris oscuro, e inhalo luz pura y cristalina de calma profunda.",
-    "author": "Ancla",
-    "category": "Ansiedad"
-  },
-  {
     "id": "95",
-    "text": "No necesito tener todas las respuestas ahora mismo. Acepto el misterio del mañana y disfruto la certeza del hoy.",
+    "text": "No necesito tener todas las respuestas ahora mismo.",
     "author": "Ancla",
     "category": "Ansiedad"
   },
@@ -677,7 +587,7 @@
   },
   {
     "id": "99",
-    "text": "Bajo la velocidad deliberadamente. Caminaré más lento, comeré más lento y hablaré más bajo. Elijo la serenidad.",
+    "text": "Bajo la velocidad deliberadamente.",
     "author": "Ancla",
     "category": "Estrés"
   },
@@ -713,7 +623,7 @@
   },
   {
     "id": "105",
-    "text": "La prisa es una ilusión. Cierro los ojos, respiro tres veces profundamente, y reclamo el control sobre mi tiempo.",
+    "text": "La prisa es una ilusión.",
     "author": "Ancla",
     "category": "Estrés"
   },
@@ -754,12 +664,6 @@
     "category": "Motivación"
   },
   {
-    "id": "112",
-    "text": "Yo construyo mi propia suerte y labro mi propio destino a base de pequeñas pero imparables acciones consistentes.",
-    "author": "Ancla",
-    "category": "Motivación"
-  },
-  {
     "id": "113",
     "text": "Transformo mi pereza en curiosidad. ¿Qué pasaría hoy si diera lo mejor de mí, solo por hoy?",
     "author": "Ancla",
@@ -767,7 +671,7 @@
   },
   {
     "id": "114",
-    "text": "Tengo talentos inmensos esperando ser usados. Es mi responsabilidad moral compartirlos con entusiasmo al mundo.",
+    "text": "Tengo talentos inmensos esperando ser usados.",
     "author": "Ancla",
     "category": "Motivación"
   },
@@ -791,7 +695,7 @@
   },
   {
     "id": "118",
-    "text": "Siento cómo un manantial inagotable de vitalidad se activa dentro de mí. Hoy me como al mundo con energía suprema.",
+    "text": "Siento cómo un manantial inagotable de vitalidad se activa dentro de mí.",
     "author": "Ancla",
     "category": "Motivación"
   },
@@ -803,7 +707,7 @@
   },
   {
     "id": "120",
-    "text": "Mi mente es aguda y afilada como una espada maestra. La distracción resbala inofensiva sobre mi superficie pulida.",
+    "text": "Mi mente es aguda y afilada como una espada maestra.",
     "author": "Ancla",
     "category": "Enfoque"
   },
@@ -814,32 +718,14 @@
     "category": "Enfoque"
   },
   {
-    "id": "122",
-    "text": "Cada hora de concentración profunda es una moneda de oro invertida en el palacio de mi radiante futuro inquebrantable.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
     "id": "123",
-    "text": "Retiro el permiso que le he dado a los demás para robar mi atención. Mi tiempo me pertenece total y exclusivamente.",
+    "text": "Retiro el permiso que le he dado a los demás para robar mi atención.",
     "author": "Ancla",
     "category": "Enfoque"
   },
   {
     "id": "124",
-    "text": "Ejecuto una sola tarea monumental en este momento; le dedico mi alma, mi cuidado meticuloso y mi brillante absoluta.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
-    "id": "125",
-    "text": "Cuando mi mente divaga con cansancio, la traigo amablemente pero con total firmeza y claridad de regreso a su centro.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
-    "id": "126",
-    "text": "Soy como el agua: me adapto al contenedor del trabajo profundo, fluyo, arraso y moldeo maravillas creativas puras.",
+    "text": "Ejecuto una sola tarea monumental en este momento.",
     "author": "Ancla",
     "category": "Enfoque"
   },
@@ -851,277 +737,67 @@
   },
   {
     "id": "128",
-    "text": "Apago todas las alarmas virtuales del mundo. Enciendo el motor maestro de silencio inmenso enfocado y constructor vivo.",
+    "text": "Apago todas las alarmas virtuales del mundo.",
     "author": "Ancla",
     "category": "Enfoque"
   },
   {
-    "id": "129",
-    "text": "Reconozco infinitamente que todo lo temporal es un breve milisegundo transcurrido frente a mi espíritu vasto milenario e imperturbable.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "130",
-    "text": "Hoy declaro mi mente un inquebrantable refugio pacífico y etéreo inviolable de donde nada puede extraer forzosamente angustia.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "131",
-    "text": "Siento cómo las olas inmensas y caóticas y tempestuosas del exterior se rompen rotunadamente tiernas orillas sin inmutarme grandiosos.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
     "id": "132",
-    "text": "Cedo gratamente a la rotunda paz y quietud magnética; comprendo serenamente fluir sosegado no resta en lo aboluto ninguna productividad.",
+    "text": "Cedo gratamente a la rotunda paz y quietud magnética.",
     "author": "Ancla",
     "category": "Calma"
   },
   {
     "id": "133",
-    "text": "Me colmo con profundos inmensos sosegados silencios; habito pacíficamente mis vacíos rellenándolos de amorosas comprensiones vastamente gigantescas en sereno reposo absoluto.",
+    "text": "Me colmo con profundos inmensos sosegados silencios.",
     "author": "Ancla",
     "category": "Calma"
   },
   {
     "id": "134",
-    "text": "Absolutamente nada es tan desesperanzador como el laberinto imaginario turbulento desarticulado; corto toda turbia duda afianzando sólida paz milenaria.",
+    "text": "Absolutamente nada es tan desesperanzador como el laberinto imaginario turbulento desarticulado.",
     "author": "Ancla",
     "category": "Calma"
-  },
-  {
-    "id": "135",
-    "text": "La quietud de mis propios pensamientos me sumerge plácidamente dentro de un estanque purísimo, rebosante y sanador que lo cubre y cura todo sin hablar.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "136",
-    "text": "Renuncio dócilmente a reaccionar a la desesperación apresurada, abrazando ser la respuesta suave madurada mística envuelta por una templanza colosal.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "137",
-    "text": "Me sumerjo hondamente resguardado por las imponentes capas tranquilas, silenciosas y vastísimas oscuras e inmensas celestiales exiliando para siempre todo afán ruidoso inútil.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "138",
-    "text": "El núcleo puro pacificador vibra resplandeciendo desde el plexo llenando arterias completas y calmado sistema nervioso entero en una cascada lenta tranquilizadora infinita y reparadora.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "139",
-    "text": "Crezco imponentemente a milímetros diarios microscópicos transformacionales consolidando virtudes rocosas férreas; admiro asombrado y enamorado inmensamente a quien en resiliencia viva me estoy maravillosamente convirtiendo a la par.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "140",
-    "text": "Destruyo viejas vestimentas sofocantes oxidadas renovándome por inmensos resplandecientes mantos glorificados que visten mis más audaces majestuosas ambiciosas versiones infinitas logradas colosales desatadas reales transcurridas.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "141",
-    "text": "Asumo ávidamente cada fracaso minúsculo destrozado inyectado como preciada dosis heroica reveladora de crecimiento abismal de insólita maestría suprema divina ilimitada en sabiduría.",
-    "author": "Ancla",
-    "category": "Crecimiento"
   },
   {
     "id": "142",
-    "text": "No importa cuán oscuras o tenebrosamente profundas se sintieran las tumbas sofocantes; constato que siempre he sido magistralmente semilla, e irreversiblemente decido florecer radiante gigantesco resplandeciente majestuoso en cualquier jardín vital incandescente de progreso.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "143",
-    "text": "Expando diariamente mi intelecto voraz elástico absorbiendo empáticamente maravillas ocultas esparcidas en la gigantesca universidad viviente ilimitada del maravilloso cosmos terrenal humano.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "144",
-    "text": "Cada experiencia áspera amarga ha sido minuciosamente pulidora colosal esmerilada forjando mis deslumbrantes imponentes hermosos diamantes tallados brillantes invulnerables y fuertes de puro desarrollo ascendente inmortal.",
+    "text": "No importa cuán oscuras o tenebrosamente profundas se sintieran las tumbas sofocantes.",
     "author": "Ancla",
     "category": "Crecimiento"
   },
   {
     "id": "145",
-    "text": "Rechazo radicalmente creerme o admitir que he llegado a un techo asfixiante tope paralizado; asumo con humildad inmensa mi constante interminable despegue majestuoso transfigurador hacia estratósferas inexploradas y puras.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "146",
-    "text": "En vez de quejarme dolorosamente por el viento adverso caótico tempestuoso inestable rotundo, afilo colosalmente mi inmensurables alas majestuosamente expertas diseñadas divinas a medida perfecta para dominar y surcar las altísimas ventiscas invencibles en rotundo equilibrio ascendente.",
+    "text": "Rechazo radicalmente creerme o admitir que he llegado a un techo asfixiante tope paralizado.",
     "author": "Ancla",
     "category": "Crecimiento"
   },
   {
     "id": "147",
-    "text": "Todo se está reescribiendo continuamente colosal; acepto fluidamente mi transformación milagrosa sabiendo firmemente que merezco brillar inmensurable impecablemente espléndido victorioso con la majestuosidad estelar gigantesca radiante y divina.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "148",
-    "text": "Honro a cada pequeña microscopia versión pasada de mi niñez frágil rindiéndole colosal pleitesía triunfadora con la sabiduría majestuosamente invulnerable madura próspera de quien incuestionablemente soy rotundamente hoy en paz absoluta.",
+    "text": "Todo se está reescribiendo continuamente colosal.",
     "author": "Ancla",
     "category": "Crecimiento"
   },
   {
     "id": "149",
-    "text": "Tomo mis manos, palpo la textura heroica sanada fuerte en mi rostro invicto; beso cada fragilidad con inmenso amor sublime reconociendo profundamente que soy espectacularmente completo suficiente rotundo divino enteramente mío invaluable celestial majestuoso amparado y radiante dorado de pies a la vastísima mente libre e incansable estelar.",
+    "text": "Tomo mis manos, palpo la textura heroica sanada fuerte en mi rostro invicto.",
     "author": "Ancla",
     "category": "Amor Propio"
-  },
-  {
-    "id": "150",
-    "text": "Siento cómo mis venas rebosan llenísimas destellantes de infinita divina compasión indulgente purificando mis severos castigos de autoexigencias despiadadas; elijo el calor protector gigante indulgente sanador de perdonar a este cuerpo humano que tantas cargas impositivas ha transportado sin fallarme jamás vivo inmensamente amado incondicional.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "151",
-    "text": "Reafirmo valientemente imborrable absoluta colosal dignidad innegociable gigante que exudo indudablemente desde el preciso instante sagrado de nacer radiante intocable; mi altísimo inmenso valor incondicional jamás inmutable se dictamina en aprobación externa inestable efímera carente ni lúgubre vacía de sentido.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "152",
-    "text": "Escudo mágicamente cada minúscula duda venenosa sembrada con titánica e implacable verdad rotunda inmensurable; soy oro puro reluciente, incandescente y maravilloso digno invencible de atrapar y magnetizar a mi vida los amores mas pacíficos reales seguros desbordantes purísimos eternos glorificados.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "153",
-    "text": "Abrazo heroicamente feroz majestuosidad mi sombra oscura densa frágil inmensamente renegada avergonzada en el pasado; y en lugar de ignorarla dolorosa decido iluminarla gentilmente cálidamente dándome abrigo absoluto refugio interno de calor compasivo en el que puedo finalmente destilar lloroso una grandiosa liberación redentora y sanada.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "154",
-    "text": "Borro irrevocablemente todas comparaciones letales destructoras asfixiantes envenenadas reconociendo firmísimamente mi único milagroso carril impecable maravilloso genuino exclusivo deslumbrante brillante único diseñado en milímetros a medida sublime en un planeta desbordante e inmenso vibrante.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "155",
-    "text": "Elijo mirarme hondísimamente transparente profundo a los ojos desnudados sin disfraces, prometiéndome resguardar fieramente heroicamente incondicionalmente las riendas absolutas purísimas grandiosas de mi imponente frágil radiante espectacular corazón a salvo latiendo esplendoroso puro invulnerable inexpugnable ante caos terrenal ruidoso ajeno indiferente cruel oscuro mundano caótico destructivo tóxico y asfixiante envenenado colosal desvanecido al final.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "156",
-    "text": "Declamo con voz sonora en mi interior silenciosa y rotunda vibrante el mandato absoluto supremo divino autoritario sanado amoroso puro de jamás mendigar frías desmigajadas sobras emocionales tacañas de afecto condicionado o efímero turbio asfixiante condicional.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "157",
-    "text": "Hoy celebro colosal magnánimo y heroico cada microscópico logro superado sanador callado que los demás desconocen ocultamente victoriosos librados solitaria gloriosa grandiosidad invendible y grandiosa purísima ganada.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "158",
-    "text": "No soy mis miedos de rechazos vacíos ni lúgubres asfixiantes pasados carentes tóxicos, soy la gigantesca inmensurable radiante heroica valía inamovible intocable resplandeciente rotunda dorada vibrante incandescente y deslumbradora invulnerable eterna maravilla purificada celestial.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "159",
-    "text": "Me perdono completa incondicionalmente todas y cada una de las veces colosales oscuras lúgubres cegadas donde, careciendo ignorante de herramientas sabias necesarias divinas curativas, tomé dóciles y duras terribles decisiones defensivas buscando sobrevivir al dolor agudo.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "160",
-    "text": "Destruyo rompo resueltamente y desvanezco para siempre los punzantes envenenados rencores acumulados quemadores consumistas; opto ser dócil blando indulto infinito sanado que vuela espléndido liberador en llanos pacíficos y resplandecientes liberaciones sublimes invictas inmensas rotuladas.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "161",
-    "text": "Comprendo compasivamente empáticamente majestuoso humano a todos aquellos vacíos confundidos cegados fracturados en dolor punzante letal que sin cautela majestuosa llegaron a raspar vulnerabilidades abiertas divinas heroicamente dolorosas.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "162",
-    "text": "Al perdonar heroico rotundo sublime yo devuelvo al infinito toda inmensa densa cadena invisible estancadora ahogante paralizadora colosal oscura lúgubre toxica pesada anclada oxidantemente oxidando; decreto rotunda vibrante inquebrantable libertad liberado aéreo puro limpio.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "163",
-    "text": "Reconozco místico sublime sabio colosal liberado rotundo la profunda majestuosa heroica magnánima y liberadora paz abrumadoramente espléndida que descansa glorificada intocable después del lloro y de destrabar magnético toda culpa punzante atesorada letalmente sin razón valedera jamás en pura ignorancia dolorosa redimida gloriosa y divina dorada purificante total eterna absoluta rotunda y sanada por siempre inmensamente iluminada espléndida infinita colosal imbatible inmensurable sublime suprema incuestionable espléndida.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "164",
-    "text": "Visualizo imbatible gloriosa magnética e incansable lluvia torrencial lloviendo copiosa divina lianas refulgentes infinitas riquezas prósperas inagotables rotundo doradas abundantes multiplicadoras en majestuosos asombrosos senderos grandiosos asombrosos celestes incuestionables incalculables inmensurables esparciendo majestuosa maravillas espléndidas invulnerables.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
-    "id": "165",
-    "text": "Cada paso que doy abre puertas inmensas hacia maravillosas riquezas invisibles y materiales que me corresponden por derecho cósmico. Yo soy merecedor de toda abundancia rotunda.",
-    "author": "Ancla",
-    "category": "Abundancia"
   },
   {
     "id": "166",
-    "text": "Disuelvo cualquier temor a la carencia. Siento la seguridad infinita de que el universo derrama provisiones constantes e inagotables en mi vida divina, perfecta y próspera.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
-    "id": "167",
-    "text": "Renuncio a la escasez y declaro que la opulencia rige mis días de manera fácil, pacífica y asombrosamente maravillosa.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
-    "id": "168",
-    "text": "Agradezco profundamente la infinita fuente inagotable providencial y milagrosa de toda riqueza majestuosa de salud, paz y prosperidad dorada asegurada.",
+    "text": "Disuelvo cualquier temor a la carencia.",
     "author": "Ancla",
     "category": "Abundancia"
   },
   {
     "id": "169",
-    "text": "Hecho fuera de mi psique los limitadores envenenados que frenan mi éxito grandioso y glorioso; fluyo magnéticamente resplandeciente atraendo puros éxitos invulnerables majestuosos.",
+    "text": "Hecho fuera de mi psique los limitadores envenenados que frenan mi éxito grandioso y glorioso.",
     "author": "Ancla",
     "category": "Abundancia"
   },
   {
     "id": "170",
-    "text": "Hoy doy gracias por mi propia existencia. Por poder respirar, por caminar y por la silenciosa oportunidad milagrosa que palpita ahora mismo.",
-    "author": "Ancla",
-    "category": "Gratitud"
-  },
-  {
-    "id": "171",
-    "text": "Transformo mis quejas en plegarias de agradecimiento inmenso reconociendo maravillas cotidianas ocultas gigantes y esplendidas desatadas místicas silenciosas dadas regaladas providencial asombrosamente perfectas abundantes formidables divinas.",
-    "author": "Ancla",
-    "category": "Gratitud"
-  },
-  {
-    "id": "172",
-    "text": "Todo sentimiento tóxico amargo retrocede y muere lentamente cuando lo observo mediante mis cristales agradecidos bondadosos colosales compasivos y dorados.",
-    "author": "Ancla",
-    "category": "Gratitud"
-  },
-  {
-    "id": "173",
-    "text": "Soy un imán gigantesco radiante de amor inmenso pues la pura sincera heroica divina rotunda grandiosa humilde y sencilla gratitud atrae en avalancha incuestionablemente colosales más y mayores maravillas majestuosas invulnerables y refulgentes resplandecientes divinas.",
+    "text": "Hoy doy gracias por mi propia existencia.",
     "author": "Ancla",
     "category": "Gratitud"
   },
@@ -1161,752 +837,164 @@
     "category": "Amor Propio"
   },
   {
-    "id": "179",
-    "text": "El silencio no me aturde, sino que se convierte en la maravillosa alfombra sosegadora que teje inmensas respuestas divinas espléndidas sanadoras formidables reveladoras.",
-    "author": "Ancla",
-    "category": "Revelación"
-  },
-  {
-    "id": "180",
-    "text": "Al afinar mi intuición sagrada me aseguro colosal majestuosamente grandioso de jamás extraviarme ciegamente por senderos vacíos de propósito y lúgubres ajenos.",
-    "author": "Ancla",
-    "category": "Revelación"
-  },
-  {
-    "id": "181",
-    "text": "Comienzo la jornada con un escudo radiante puro inquebrantable escudando de envidias odios o ataques externos, neutralizando heroicamente letales venenos incesantes desgastadores efímeros caóticos externos tóxicos envenenados trituradores aniquilando pacíficamente vibrante.",
-    "author": "Ancla",
-    "category": "Protección"
-  },
-  {
-    "id": "182",
-    "text": "Confío asombrosamente incondicional que todo evento destructivo dolorosísimo carente letal letárgico asfixiante que atravieso fue diseñado cósmicamente maestro puliendo formidables espléndidas lecciones gigantescas asombrosas divinas maravillas eternas de heroica imbatible fuerza pura.",
-    "author": "Ancla",
-    "category": "Confianza"
-  },
-  {
-    "id": "183",
-    "text": "Mis células palpitan sanas asombrosas vibrantes oxigenadas y vitales maravillosamente fuertes escudando mis defensas inmensurables para regalarme rotundos salud desbordante eterna ilimitada gigantesca divinamente resguardada.",
-    "author": "Ancla",
-    "category": "Salud"
-  },
-  {
-    "id": "184",
-    "text": "Renuncio para siempre eternamente tajantemente colosal al letal hábito hiriente envenenado sangriento mortífero asfixiante tóxico destructivo letárgico consumista ahogante auto atroz y lúgubre carente masoquista asqueroso paralizador agobiante lúgubre estúpido falso letal paralizador destructivo del menosprecio a mi alma.",
-    "author": "Ancla",
-    "category": "Autoestima"
-  },
-  {
-    "id": "185",
-    "text": "Mí inquebrantable lealtad purísima sagrada majestuosa divina heroica incandescente pertenece hoy y para la eternidad espléndida absolutamente al bienestar absoluto asombrosamente divino brillante glorificado y pacífico de mi ser amado divino.",
-    "author": "Ancla",
-    "category": "Bienestar"
-  },
-  {
-    "id": "186",
-    "text": "Al soltar las tensiones ancladas densas pesadas letárgicas oscuras durísimas lúgubres y crónicas atraigo fluida pacíficamente maravillosas resplandecientes grandiosas formidables maravillas liberadoras majestuosas divinas en pura placidez resguardada invulnerable.",
-    "author": "Ancla",
-    "category": "Relajación"
-  },
-  {
-    "id": "187",
-    "text": "Cada afirmación que mi psique interioriza en repetición amorosa humilde sana divina colosal va derramando lanas puros esplendidos grandiosos y formidables semillas asombrosas gigantescas divinas milagrosas que florecerán divinas espléndidas.",
-    "author": "Ancla",
-    "category": "Mente"
-  },
-  {
-    "id": "188",
-    "text": "Yo decreto, afianzo, prometo, sello, acredito, manifiesto y declaro incuestionablemente heroicamente colosalmente resplandeciente gigantesco imbatible divino puro que hoy viviré una asombrosamente espléndida maravillosa gozosa plácida triunfante rotunda pacífica sana feliz segura amorosa perfecta hermosa divina grandiosa victoriosa formidable radiante glorificada y épica y legendaria vida majestuosa sinigual brillante estupenda grandiosa sublime bendita infinita vibrante colosal divina radiante jornada hermosa perfecta.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "189",
-    "text": "Mi mente es un universo infinito donde solo permito que germinen semillas estelares de paz, calma desbordante y majestuosa luz brillante divina.",
-    "author": "Ancla",
-    "category": "Mente"
-  },
-  {
-    "id": "190",
-    "text": "Cada obstáculo gigante es en realidad diminuto comparado con mi propia grandeza heroica intrínseca que estallará majestuosa victoriosa.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "191",
-    "text": "Respiro y suelto por completo el agobiante peso inútil tóxico desgastante nocivo de tratar incansablemente perfeccionar inútilmente situaciones pasajeras.",
-    "author": "Ancla",
-    "category": "Relajación"
-  },
-  {
-    "id": "192",
-    "text": "Soy la perfecta divina manifestación vibrante rotunda espléndida de paz, abundancia infinita y maravillosas sincronías eternas doradas.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "193",
-    "text": "Me perdono completa inmensa heroicamente cada minuto gastado sufriendo en pura ilusión por miedos fantasmales que jamás existieron ni ocurrirán reales.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
     "id": "194",
-    "text": "Rechazo conformarme con la mediocridad en cualquier área de mi vida. Me exijo con respeto e inmenso amor celestial rotundo infinito.",
+    "text": "Rechazo conformarme con la mediocridad en cualquier área de mi vida.",
     "author": "Ancla",
     "category": "Motivación"
   },
   {
-    "id": "195",
-    "text": "Elijo desconectar de las irrelevancias masivas e invierto mis horas en maravillas puras legendarias que construirán mi destino dorado invencible.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
     "id": "196",
-    "text": "Soy invulnerable al ruido exterior destructivo. Me rodeo de un escudo sagrado de máximo enfoque y espléndido innegable progreso divino ascendente.",
+    "text": "Soy invulnerable al ruido exterior destructivo.",
     "author": "Ancla",
     "category": "Enfoque"
-  },
-  {
-    "id": "197",
-    "text": "Suelto mis falsas obligaciones impuestas y abrazo la cálida reconfortante liberación infinita que mi propia sabia alma eternamente pacífica merece sin culpas.",
-    "author": "Ancla",
-    "category": "Relajación"
-  },
-  {
-    "id": "198",
-    "text": "Tomo mis manos, beso cada herida sanada fuerte y reconozco que soy espectacularmente digno celestial majestuoso amparado radiante invencible vivo maravilloso.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "199",
-    "text": "Hoy declaro mi mente un inquebrantable refugio pacífico y etéreo inviolable de donde nada puede extraer angustia, solo emanará pura cristalina vibración sosegada.",
-    "author": "Ancla",
-    "category": "Calma"
   },
   {
     "id": "200",
-    "text": "Todo se está reescribiendo de manera gigantesca cósmica y milagrosamente; acepto mi propia resplandeciente transformación heroica divina imbatible invicta.",
+    "text": "Todo se está reescribiendo de manera gigantesca cósmica y milagrosamente.",
     "author": "Ancla",
     "category": "Crecimiento"
   },
   {
     "id": "201",
-    "text": "Escudo mágicamente cada minúscula duda instilada asfixiante tóxica; declaro ser oro purísimo reluciente incandescente invencible libre espléndido rotundo.",
+    "text": "Escudo mágicamente cada minúscula duda instilada asfixiante tóxica.",
     "author": "Ancla",
     "category": "Protección"
   },
   {
-    "id": "202",
-    "text": "Declamo vibrante vibrando en divina autoritaria heroica luz jamas mendigar atención ni lúgubres asfixiantes o frías migajas oscuras y tóxicas de nadie jamás.",
-    "author": "Ancla",
-    "category": "Autoestima"
-  },
-  {
-    "id": "203",
-    "text": "Las puertas del universo infinito majestuoso resplandeciente celestial inmenso abrumador cósmico doradas divinas opulento exuberantes se abren asombrosas ilimitadamente fluidas dóciles fáciles libres y milagrosas colosales hoy.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
-    "id": "204",
-    "text": "Abrazo mi propia historia humana rota pasada sanándola tierna compasiva infinita milagrosa majestuosa divinamente purificada libre rotunda limpia sanada inmaculada redimida colosal radiante dorada e irrompible ahora y por siempre viva purificada resplandeciente invencible espléndida asombrosa victoriosa maravilla colosal rotunda magnífica divina.",
-    "author": "Ancla",
-    "category": "Sanación"
-  },
-  {
-    "id": "205",
-    "text": "Rechazo la urgencia y elijo fluir suavemente con el tiempo divino donde absolutamente nada importante se me escapará ni me afectará ruidosamente.",
-    "author": "Ancla",
-    "category": "Relajación"
-  },
-  {
-    "id": "206",
-    "text": "Concedo absoluto plácido sosegado inquebrantable y profundo descanso puro ilimitado a cada una de mís células maravillosas vivas sanas incansables mías.",
-    "author": "Ancla",
-    "category": "Salud"
-  },
-  {
-    "id": "207",
-    "text": "Respiro en el aroma colosal milagroso reconfortante de la más alta gratitud que atrae en torrenciales vibrantes mi propio gran éxito abrumador asegurado inamovible.",
-    "author": "Ancla",
-    "category": "Agradecimiento"
-  },
-  {
-    "id": "208",
-    "text": "Soy suficiente tal cual maravillosamente he sido moldeado majestuoso radiante por lo sublime inmenso universo asombrosamente incondicional que brilla por siempre.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "209",
-    "text": "La quietud de mis propios pensamientos me sumerge plácidamente dentro de un estanque iluminado y sanador que limpia colosalmente todo malentendido interior silencioso.",
-    "author": "Ancla",
-    "category": "Paz"
-  },
-  {
     "id": "210",
-    "text": "Renuncio dócilmente a reaccionar a la desesperación; abrazo ser una respuesta suave madurada envuelta por una templanza radiante e invenciblemente iluminada.",
+    "text": "Renuncio dócilmente a reaccionar a la desesperación.",
     "author": "Ancla",
     "category": "Calma"
   },
   {
-    "id": "211",
-    "text": "El núcleo puro pacificador vibra desde el plexo llenando arterias completas y calmado sistema nervioso entero en una profunda milagrosa cascada tranquilizadora.",
-    "author": "Ancla",
-    "category": "Salud"
-  },
-  {
-    "id": "212",
-    "text": "Desgasto cada pesada etiqueta sofocante ajena auto-colocándome inquebrantables afirmaciones de indiscutida y bellísima maravilla estelar sin fin brillante asombrosa.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "213",
-    "text": "Transformo mis angustias inútiles vacías ficticias caóticas oscuras y letales tóxicas asfixiantes por serenas valientes sabias seguras colosales poderosas luces mías invulnerables espléndidas victorias legendarias.",
-    "author": "Ancla",
-    "category": "Seguridad"
-  },
-  {
-    "id": "214",
-    "text": "Mi intuición ruge sosegada majestuosa revelando sendas gloriosas y liberadoras iluminadas limpias y despejadas colosales libres maravillosas seguras invencibles inmensurables puras.",
-    "author": "Ancla",
-    "category": "Insight"
-  },
-  {
-    "id": "215",
-    "text": "Hoy decido, asumo, absorbo, declaro, prometo, firmo y acepto divinamente que todo mal ruidoso desvaneció, dejándome pleno inmenso sano victorioso y espléndido colosal majestuoso libre rotundo invulnerable ileso purificado dorado eterno vibrante vivo y feliz maravillosamente en pura asombrosa dicha gigante opulenta infinita radiante.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "216",
-    "text": "Mi fe colosal magnética rotunda inmensurable es la gigantesca poderosa creadora milagrosa infinita productora formadora divina que esculpe incansablemente mi rotunda éxito legendario y espléndida fortuna resguardada brillante pacífica asombrosamente hermosa victoriosa pura invencible y bendita radiante ilimitada.",
-    "author": "Ancla",
-    "category": "Confianza"
-  },
-  {
     "id": "217",
-    "text": "Inhalo suavemente paz colosal y serena confianza, exhalo tensa vibración ansiosa oscura tóxica; mi propio ritmo cardiaco baila tranquilo compasivo inmaculado divino sano rítmico puro incandescente maravilloso e intocablemente resguardado vivo seguro.",
+    "text": "Inhalo suavemente paz colosal y serena confianza, exhalo tensa vibración ansiosa oscura tóxica.",
     "author": "Ancla",
     "category": "Ansiedad"
   },
   {
-    "id": "218",
-    "text": "No busco que los demás rectifiquen mi valía, porque yo sé y afirmo con heroica devoción rotunda majestuosa grandeza inmensa e indisoluble que nací plenamente valioso espléndido merecedor dorado intocable resplandeciente gigantesco divino inmenso vivo asombroso y puro glorioso inquebrantable absoluto maravilloso iluminado.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "219",
-    "text": "Exijo incesantes e inagotables cataratas opulentes grandiosas de oportunidades esplendidas lloviendo colosalmente fluidas maravillosas abundantes radiantes gigantes doradas majestuosas refulgentes y ricas divinas copiosas providenciales que llenan y abaratan mis benditas ilimitadas cuentas invulnerables prósperas inmensurables maravillas.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
     "id": "220",
-    "text": "Inundo mi existencia milagrosa de heroica invencible deslumbradora paz; ningún ruido tóxico exterior rancio ahogante inyectado agobiante malicioso lúgubre denso podrá quebrar el colosal santuario esplendoroso invulnerable limpio puro y blanco majestuoso resguardado sano absoluto vibrante e indestructible iluminado pacífico sagrado celestial etéreo intocable donde mora silenciosa vibrante viva grandiosa victoriosa asombrosa resplandeciente maravilla brillante divina luz infinita limpia pura opulenta dorada y feliz poderosa sublime y mítica resiliencia del alma rotunda grandiosa invicta pura maravillada gozada inmensurable glorificada y amparada iluminada majestuosa sana.",
+    "text": "Inundo mi existencia milagrosa de heroica invencible deslumbradora paz.",
     "author": "Ancla",
     "category": "Paz"
   },
   {
-    "id": "221",
-    "text": "Toda dolencia temporal asfixiante tóxica es triturada y disuelta rotunda milagrosa pura maravillosamente sana por inmensa catarata de células radiantes gigantescas divinas milagrosas formidables vibrantes que reconstruyen cada tejido asombrosamente espectacular dorado imbatible victorioso grandioso.",
-    "author": "Ancla",
-    "category": "Salud"
-  },
-  {
-    "id": "222",
-    "text": "Renuncio tajantemente dócil maravillosamente puro a mis agobiantes pesadas densas inútiles cargas ansiosas tóxicas envenenadoras ficticias mentales; las dejo deslizarse colosalmente cayendo oscuras inertes muertas al piso rompiéndose para siempre liberando mis hombros asombrosos sanos divinos espléndidos puros gozosos alados celestes aéreos majestuosos hermosos relucientes impecables invulnerables fuertes intocables vivos.",
-    "author": "Ancla",
-    "category": "Estrés"
-  },
-  {
-    "id": "223",
-    "text": "Mis pies caminan fuertes inquebrantables victoriosos invencibles pasos dorados grandiosos sobre maravillosa alfombra verde radiante inmensurable divina gloriosa próspera infinita pacífica asombrosa divina segura libre; yo domino e ilumino colosal espléndidamente glorificadamente viva espectacular mi senda brillante majestuosa.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "224",
-    "text": "Siento cómo una energía superior, protectora invencible y rebosante me inunda y da fuerza absoluta para continuar mi día victorioso seguro ileso imbatible y exitoso reluciente de principio a fin impecable.",
-    "author": "Ancla",
-    "category": "Motivación"
-  },
-  {
-    "id": "225",
-    "text": "Asumo con gozo infinito inmenso rotundo radiante plácido maravilloso la majestuosidad estelar gigantesca próspera victoriosa invulnerable divina milagrosa pura y opulenta que se desata a mi favor siempre incuestionablemente perfecta.",
-    "author": "Ancla",
-    "category": "Confianza"
-  },
-  {
-    "id": "226",
-    "text": "Destrozo todo muro mental imaginario pesimista lúgubre denso limitante oscuro carente asfixiante lúgubre envenenado y oscuro; avanzo majestuosamente incandescente brillante libre limpio y rotundo dorado victorioso deslumbrador grandioso.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
     "id": "227",
-    "text": "Mis maravillosas entrañas confían en mí; mis células me apoyan incondicionalmente divina sanamente grandiosas perfectas formidables invencibles vibrantes puras resplandecientes opulentes radiantes.",
+    "text": "Mis maravillosas entrañas confían en mí.",
     "author": "Ancla",
     "category": "Sanación"
   },
   {
     "id": "228",
-    "text": "Hoy resido en un paraíso eterno interior, invulnerable al bullicio, al ataque sutil y a la confusión opaca; yo soy luz inamovible, profunda y radiante.",
+    "text": "Hoy resido en un paraíso eterno interior, invulnerable al bullicio, al ataque sutil y a la confusión opaca.",
     "author": "Ancla",
     "category": "Paz"
   },
   {
-    "id": "229",
-    "text": "Las dudas se asfixian y mueren de hambre frente a la imponente y monumental seguridad inmensa divina absoluta grandiosa gloriosa y brillante heroica de mis más hermosos anhelos desatados vivos espléndidos.",
-    "author": "Ancla",
-    "category": "Seguridad"
-  },
-  {
-    "id": "230",
-    "text": "Atesoro, valoro, mima y aprecio infinita cariñosamente compasivo rotundo humilde sano amoroso a mi propio frágil inmenso complejo doloroso y heroico victorioso humano brillante deslumbrador resplandeciente de pies a inmensurable mente pura majestuosa imponente amparado dorado y libre divino vivo maravIlloso sagrado sano limpio radiante eterno absoluto incondicional rotundo.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "231",
-    "text": "Me perdono heroicamente inmensamente todo acto, palabra viva vacía desesperada hiriente ignorante letárgica asfixiante; hoy soy pura plácida redención sanadora deslumbrador sublime invicto pacífico divino iluminado absoluto resplandeciente libre total rotundo limpio airoso aéreo eterno.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "232",
-    "text": "Abrazo mi destino incuestionable de gloria dorada, fortuna incesante ilimitada espectacular divina majestuosa, maravillas celestiales gigantescas resplandecientes formidables, dicha rotunda asombrosa plácida invulnerable resguardada, éxito heroico purísimo imponente invencible, plenitud infinita abrumadoramente espléndida maravillosa, tranquilidad absoluta colosal sublime hermosa viva vibrante gloriosa divina radiante pura y milagrosa perfecta eterna.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
     "id": "233",
-    "text": "Acojo la calma sedante pura; hoy no fuerzo nada, no me desgarro lúgubre por nada, solo confío pacífico resguardado inmenso sano victorioso y espléndido colosal y majestuosamente resplandeciente divino.",
+    "text": "Acojo la calma sedante pura.",
     "author": "Ancla",
     "category": "Relajación"
   },
   {
-    "id": "234",
-    "text": "Me prometo firmemente hoy brindarme el mismo tierno gigante poderoso desbordante absoluto y sanador desvelo amoroso gigante sincero milagroso heroico afecto infinito y puro que dedico maravillosamente a los afectos amados de verdad vibrante incondicional en llanuras pacíficas de lealtad majestuosa gloriosa e inamovible eterna imbatible colosal asombrosa divina dorada pura brillante espectacular invulnerable y hermosa resplandeciente.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "235",
-    "text": "Renuevo incansable inagotable colosal invencible la fuerza estelar dorada gigantesca mística magnánima heroica triunfadora majestuosa infinita iluminada viva maravillosa vibrante de mi propia resiliencia celestial amada grandiosa formidables y divina alma resguardadora inmensurables maravillas purificadas.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "236",
-    "text": "Todo evento tóxico hiriente doloroso envenenado asfixiante fue únicamente el puente maestro colosal sagrado maravilloso divino resplandeciente que catapulto formidablemente inmensa mi gigantesca deslumbradora victoriosa y asombrosa brillante sabiduría majestuosamente sanada gloriosa hoy invulnerable radiante inmaculada redimida.",
-    "author": "Ancla",
-    "category": "Insight"
-  },
-  {
-    "id": "237",
-    "text": "Declamo inquebrantable heroica devota absoluta pura iluminada viva grandiosa y rotunda vibrante que merezco resplandecer radiante impecablemente majestuosa gigantesca y estelar inmensamente unida a toda grandiosa espléndida y brillante maravilla celestial dorada abrumadoramente plena sana dichosa incondicional milagrosa y divinamente resguardada.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "238",
-    "text": "Esta mente, cuerpo, y alma operan en perfecta divina gloriosa milagrosa asombrosa sincrónica formidables sublime sana paz infinita pacífica radiante brillante majestuosa invulnerabilidad dorada invencible limpia resguardada redimida inmensurable y espléndidamente maravillosamente llena incondicional de luz inamovible eterna hermosa pura absoluta gigante.",
-    "author": "Ancla",
-    "category": "Paz"
-  },
-  {
-    "id": "239",
-    "text": "Mi mente no es una prisión, es un vasto cielo despejado donde mis pensamientos son simples nubes que observo pasar en paz absoluta.",
-    "author": "Ancla",
-    "category": "Ansiedad"
-  },
-  {
-    "id": "240",
-    "text": "Suelto el frenético control sobre el mañana y anclo mi ser entero en el seguro, cálido y luminoso resguardo del presente.",
-    "author": "Ancla",
-    "category": "Ansiedad"
-  },
-  {
     "id": "241",
-    "text": "Confío plenamente en la infinita inteligencia de mi cuerpo; mi respiración es rítmica, serena y profundamente sanadora hoy y siempre.",
+    "text": "Confío plenamente en la infinita inteligencia de mi cuerpo.",
     "author": "Ancla",
     "category": "Ansiedad"
   },
   {
     "id": "242",
-    "text": "Exijo a mis propios miedos que retrocedan; reclamo absoluta y radiante soberanía pacífica sobre mi propio estado interior.",
+    "text": "Exijo a mis propios miedos que retrocedan.",
     "author": "Ancla",
     "category": "Estrés"
   },
   {
     "id": "243",
-    "text": "El verdadero descanso es un acto de amor innegociable; desligo toda culpa y habito la pura quietud reparadora y silenciosa.",
+    "text": "El verdadero descanso es un acto de amor innegociable.",
     "author": "Ancla",
     "category": "Estrés"
   },
   {
     "id": "244",
-    "text": "Transformo en aire cada exigencia asfixiante tóxica; yo fluyo pacífico, inquebrantable y seguro bajo cualquier presión o tempestad exterior.",
+    "text": "Transformo en aire cada exigencia asfixiante tóxica.",
     "author": "Ancla",
     "category": "Estrés"
   },
   {
     "id": "245",
-    "text": "Destrozo todo muro paralizante impuesto; reconozco con audacia invicta mi propia inmensa valentía para edificar grandiosos triunfos diarios.",
+    "text": "Destrozo todo muro paralizante impuesto.",
     "author": "Ancla",
     "category": "Motivación"
-  },
-  {
-    "id": "246",
-    "text": "Mi disciplina estelar corta cada excusa debilitante como una inmensa espada refulgente forjadora de espléndidos éxitos irrefutables.",
-    "author": "Ancla",
-    "category": "Motivación"
-  },
-  {
-    "id": "247",
-    "text": "Asumo dócil e imparable la inmensurable vibrante e indestructible grandeza que mi alma poderosa y divinamente elegida guarda en secreto eterno.",
-    "author": "Ancla",
-    "category": "Motivación"
-  },
-  {
-    "id": "248",
-    "text": "Aniquilo toda insignificante distracción externa y activo un radar maestral de profunda, rotunda e inmensa concentración enfocada en mis metas luminosas.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
-    "id": "249",
-    "text": "Mi valiosa energía solo es ofrendada enteramente a mis ambiciones más sublimes divinas majestuosas y altas inquebrantables doradas formidables.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
-    "id": "250",
-    "text": "Hoy silenciaré al mundo para poder escuchar incandescente y deslumbradoramente la pura sabiduría colosal gigante de mí interior sanado.",
-    "author": "Ancla",
-    "category": "Enfoque"
-  },
-  {
-    "id": "251",
-    "text": "Abrazo mi calma majestuosa como un baluarte invencible irrompible pacífico estelar eterno imperturbable ante fútiles urgencias ajenas y vacías.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "252",
-    "text": "Deslizo mi conciencia hacia un mar plácido inmenso inmaculado divino donde solo existe infinita quietud y vibrante alivio sereno espectacular.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "253",
-    "text": "Yo me convierto deliberadamente hermoso rotundo majestuoso glorioso divino colosal radiante e incansable en refugio pacífico y amable para mí mismo siempre.",
-    "author": "Ancla",
-    "category": "Calma"
   },
   {
     "id": "254",
-    "text": "Acumulo sabidurías colosales deslumbradoras infinitas de cada lágrima pasada; hoy yo destilo una majestuosa grandiosa heroica pureza y sublime paz eterna.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "255",
-    "text": "Aplaudo invencible y heroicamente cada fragmento mío en poderosa transfiguración asombrosa constante divina maravillosamente libre hacia estrellas altas.",
+    "text": "Acumulo sabidurías colosales deslumbradoras infinitas de cada lágrima pasada.",
     "author": "Ancla",
     "category": "Crecimiento"
   },
   {
     "id": "256",
-    "text": "Niego terminantemente estancarme asfixiado; mis alas celestiales despliegan poderosísimas formidables incansables para dominar los vientos más feroces e indomables gloriosos.",
+    "text": "Niego terminantemente estancarme asfixiado.",
     "author": "Ancla",
     "category": "Crecimiento"
   },
   {
-    "id": "257",
-    "text": "Rompo cada etiqueta opresiva dañina lúgubre vacía de desamor oscuro tóxico destructivo letárgico instalándome inamovible radiante rotunda inmensurables puras doradas luces.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "258",
-    "text": "Celebro con asombrosa devoción infinita la exclusividad divina valiosa y legendaria majestuosa obra de arte pura viva glorificada espléndida en la que me erijo absoluto y majestamente único.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
     "id": "259",
-    "text": "Beso y abrazo afectuoso cada error humano de mis ayer; me trato en adelante y por siempre bajo absolutas dulces lluvias e invictas comprensiones sanas cálidas puras.",
+    "text": "Beso y abrazo afectuoso cada error humano de mis ayer.",
     "author": "Ancla",
     "category": "Amor Propio"
-  },
-  {
-    "id": "260",
-    "text": "Despliego innegociable blindaje estelar inmenso escudando heroicamente mi propio radiante tesoro vital resplandeciente frente a inagotables toxicas sombras del mundo vacío inmerso en su locura.",
-    "author": "Ancla",
-    "category": "Seguridad"
-  },
-  {
-    "id": "261",
-    "text": "La colosal protección divina mística infinita espléndida abriga todo aspecto vulnerable frágil humano reconfortando con plácida pura suave maravilla etérea inmensa de oro irrompible sanado.",
-    "author": "Ancla",
-    "category": "Seguridad"
-  },
-  {
-    "id": "262",
-    "text": "Comprendo místico sosegado revelador inmenso gigantesco que las inmensas incógnitas de mi destino se resolverán solas bajo el majestuosísimo brillo de estrellas alineadas formidables mágicas.",
-    "author": "Ancla",
-    "category": "Revelación"
-  },
-  {
-    "id": "263",
-    "text": "Confió plácido maravillosamente libre rotundo limpio claro asombroso celestial pacífico que las divinas respuestas necesarias se filtran sosegadas limpias formidables desde mis entrañas iluminadas eternas grandiosas majestuosas deslumbradoras en su tiempo resplandeciente.",
-    "author": "Ancla",
-    "category": "Revelación"
-  },
-  {
-    "id": "264",
-    "text": "Reclamo para mi vida una catarata ilimitada grandiosa vibrante imbatible radiante dorada opulenta divina majestuosa de infinita pura celestial asombrosamente espléndida maravillosa próspera salud milagrosa y abundante riqueza imponente absoluta viva vibrante poderosa invencible radiante.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
-    "id": "265",
-    "text": "Abrazo mi destino incuestionable de gloria dorada, fortuna incesante ilimitada espectacular divina majestuosa gloriosa incondicional y pacíficamente viva grandiosa victoriosa resplandeciente intocable eterna divina radiante invicta pura maravillada gozada inmensurable sublime perfecta.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "266",
-    "text": "Toda culpa asfixiante punzante oscura lúgubre denso letal y oxidada que arrastraba dolorosísima la perdono destilada en absoluto vacío compungido aéreo volátil pacífico radiante etéreo y colosal milagrosa sanado puro limpio deslumbradora redimido a salvo glorificada libre hermosa eterna majestuosa majestuosa rotunda vibrante viva divina invicta.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "267",
-    "text": "El indulto es mi gigante invulnerable maravillosas herramientas puras majestuosa de paz colosal, rompo densas barreras asfixias rancios atando a a oscuras prisiones, eximindome sublime al volar colosal resplandor infinito y blanco de desmedido heroico y sanado libre amor.",
-    "author": "Ancla",
-    "category": "Perdón"
-  },
-  {
-    "id": "268",
-    "text": "Derramo en mi sanación infinita luz colosal celestial inmensa inyectando majestuosa redención resplandeciente milagrosa divina a cada oscuro minúsculo dolor, resarciendo mis cicatrices engalanadas glorificadas doradas radiantes.",
-    "author": "Ancla",
-    "category": "Sanación"
-  },
-  {
-    "id": "269",
-    "text": "Estoy rotunda irrevocablemente sanado majestuoso asombroso divino vibrante poderoso milagroso sano puro reluciente imponente firme seguro intocable y abrumadoramente protegido y colmado.",
-    "author": "Ancla",
-    "category": "Salud"
   },
   {
     "id": "270",
-    "text": "Hoy consiento purificados relajos infinitos; suelto todo control asfixiante tóxico destructivo ruidoso y me envuelvo en sereno dócil plácido y maravilloso sedado calor de absoluto reparador descanso tierno de infinito afectuosísimo reposo.",
+    "text": "Hoy consiento purificados relajos infinitos.",
     "author": "Ancla",
     "category": "Relajación"
   },
   {
-    "id": "271",
-    "text": "Visualizo cómo cada segundo transcurrido exprime de mí agradecimientos dorados puros colosales multiplicadores divinos atraedores de formidables mágicas abundantes alegres y grandiosas glorificadas maravillas imponentes para mi ser amado divino.",
-    "author": "Ancla",
-    "category": "Gratitud"
-  },
-  {
-    "id": "272",
-    "text": "Reconozco infinita y compasiva pacífica devota glorificada la gigantesca divina reserva desbordante espléndida maravillosa eterna inmensamente providencial que me escuda pacífica rotunda majestuosa vibrante y heroica espléndida próspera radiante ilimitada colosal espectacular divina abrumadora y segura.",
-    "author": "Ancla",
-    "category": "Gratitud"
-  },
-  {
-    "id": "273",
-    "text": "Mi alegría desbordante profunda es el majestuoso motor indestructible radiante que destruye gris letargo fútil, abrazando gozo rotundo infinito colosal vibrante en puro resplandor plácido sonoro inquebrantable heroico puro milagroso deslumbrante.",
-    "author": "Ancla",
-    "category": "Alegría"
-  },
-  {
-    "id": "274",
-    "text": "Nadie tiene permiso fútil o destructivo de nublar colosalmente mi inmensurables maravillas vivientes divinas formidables eternas e intocablemente amparadas preciosas sanadas valiosas plácidas y majestuosamente resguardadas únicas felices grandiosas purificadas benditas y resplandecientes hermosas doradas inmaculadas.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "275",
-    "text": "Afirmo majestuoso imponente invulnerable colosal grandioso radiante invencible espléndido dorado milagroso formidable divino victorioso épico glorificado libre vibrante eterno inmaculado y sosegado hoy por vivir asombrosa dicha desbordante sana pacífica opulenta rotunda y abundante en milagros.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "276",
-    "text": "Siento cómo las montañas inmensas caóticas giran maravillosamente pacíficas formidables doradas divinas a mi inquebrantable favor sublime celestial imponente y espectacular hoy; es mi glorioso instante libre soberano y divino éxito arremolinándose puro a mí.",
-    "author": "Ancla",
-    "category": "Confianza"
-  },
-  {
     "id": "277",
-    "text": "Deslizo todos los fútiles oscuros caóticos asfixiantes o lúgubres de mi conciencia atestados dolorosamente; inundo de paz sanada reparadora pura milagrosa radiante gloriosa absoluta formidables inamovibles brillantes blancas radiantes e indestructibles eternas llanuras purificadas celestiales.",
+    "text": "Deslizo todos los fútiles oscuros caóticos asfixiantes o lúgubres de mi conciencia atestados dolorosamente.",
     "author": "Ancla",
     "category": "Mente"
   },
   {
-    "id": "278",
-    "text": "Absoluta incondicional grandiosa devota heroica es mi entrega dócil y amorosa al grandioso milagro espectacular palpitante puro infinito majestuoso glorioso e inmensurables maravilloso divino del instante sublime viviente aquí, sanado y protegido eternamente brillante radiante colosal perfecto seguro feliz iluminado y divino pacífico eterno.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "279",
-    "text": "Mi progreso no se mide por mi velocidad desesperada superficial sino por la absoluta colosal sólida e inmensa paz inamovible vibrante de mi mente sana.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
     "id": "280",
-    "text": "Elijo perdonar al instante y exhalar compasivo todo tóxico agobiante o espeso; soy una inmaculada esfera etérea viva brillante flotante de inagotable luz.",
+    "text": "Elijo perdonar al instante y exhalar compasivo todo tóxico agobiante o espeso.",
     "author": "Ancla",
     "category": "Perdón"
   },
   {
-    "id": "281",
-    "text": "Digo NO asertivamente hermoso firme y sano colosal para decirle un resonante SÍ radiante divino espectacular brillante y grandioso a mi propio bienestar.",
-    "author": "Ancla",
-    "category": "Estrés"
-  },
-  {
-    "id": "282",
-    "text": "Abrazo mi caos temporal asombrosamente viva pacífica pues sé que dentro de su oscuridad mística se está gestando mi obra maestra eterna más radiante gloriosa absoluta pura divina maravilla.",
-    "author": "Ancla",
-    "category": "Revelación"
-  },
-  {
-    "id": "283",
-    "text": "Hoy respiro dócil confiada segura plena colosal inquebrantable heroica divina sabiendo absoluta pura certera vibrante que mi victoria épica resplandeciente majestuosa grandiosa ilimitada está perfectamente asegurada.",
-    "author": "Ancla",
-    "category": "Ansiedad"
-  },
-  {
-    "id": "284",
-    "text": "Reconozco glorificado maravillosa libre sanado que mi inmenso divino radiante infinito valioso colosal ser humano mereció nacer pleno próspero rebosante majestuoso grandioso pacífico heroico afortunado.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
-    "id": "285",
-    "text": "Siento al universo gigante abrumadoramente espléndido conspirar resplandeciente magnético vivo cósmico radiante absoluto victorioso y majestuoso a mi rotundo incuestionable indudable invencible intocable inmenso y glorioso favor divino.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
-    "id": "286",
-    "text": "Todo letargo gris inútil paralizante agobiante y denso lúgubre desaparece frente a la avalancha majestuosa catarata de purísima divina motivación celestial asombrosa radiante viva invencible.",
-    "author": "Ancla",
-    "category": "Motivación"
-  },
-  {
-    "id": "287",
-    "text": "Mis pies caminan rotundos celestes divinos pisando las llanuras infinitas asombrosas pacíficas doradas resguardadas celestiales glorificadas que en espléndidas maravillas se dibujan ilimitadas ante mí puro sano radiante y esplendorosa vida magnética.",
-    "author": "Ancla",
-    "category": "Confianza"
-  },
-  {
-    "id": "288",
-    "text": "Inundo mi existencia de asombrosa milagrosa sanada vibrante espectacular gozosa inmensurable pura invulnerable gloriosa y celestial pacífica absoluta dulce tierna radiante compasiva e invicta incondicional paz inquebrantable pura libre serena.",
-    "author": "Ancla",
-    "category": "Paz"
-  },
-  {
-    "id": "289",
-    "text": "Declamo con voz sonora en mi interior silenciosa y rotunda vibrante el mandato absoluto supremo divino autoritario de proteger mi espacio de paz inmensamente resguardado maravilloso glorioso espléndido majestuoso.",
-    "author": "Ancla",
-    "category": "Seguridad"
-  },
-  {
-    "id": "290",
-    "text": "Tengo autorización sagrada para amarme incansable incondicional divina viva inmensurable asombrosa maravillosa heroica sublime grandiosa rotunda infinita transparente dorada majestuosa pura eterna invencible.",
-    "author": "Ancla",
-    "category": "Amor Propio"
-  },
-  {
     "id": "291",
-    "text": "Suelto dócil lo pesado denso asfixiante tóxico letárgico lúgubre triste envenenado destructivo; atraigo aéreo celestial espléndido libre puro dócil milagroso maravilloso infinito alegre luminoso sonoro hermoso e invulnerable gozo colosal divinamente opulento de resplandor infinito eterno.",
+    "text": "Suelto dócil lo pesado denso asfixiante tóxico letárgico lúgubre triste envenenado destructivo.",
     "author": "Ancla",
     "category": "Alegría"
   },
   {
-    "id": "292",
-    "text": "Mis finas raíces de fortaleza se alimentan colosalmente sanas prósperas inmensurables puras mágicas de las corrientes eternas divinas vibrantes maravillosas sublimes victoriosas legendarias.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
-    "id": "293",
-    "text": "Hoy decido florecer radiante gigantesco resplandeciente majestuoso en el jardín vital invencible divino colosal resguardado espléndido milagroso dorado y heroicamente vivo.",
-    "author": "Ancla",
-    "category": "Crecimiento"
-  },
-  {
     "id": "294",
-    "text": "La disciplina se me rinde complacida fácil orgánica bella libre; no pesa actuar asombroso majestuoso porque me guía un destino deslumbrantemente glorificado radiante y épico espectacular.",
+    "text": "La disciplina se me rinde complacida fácil orgánica bella libre.",
     "author": "Ancla",
     "category": "Enfoque"
   },
   {
-    "id": "295",
-    "text": "Visualizo cómo cada inhalación purifica oxigena revitaliza reaviva y sana maravillosamente mis complejos y grandiosos sistemas biológicos inmensurables perfectos vibrantes puros infinitos asombrosamente espléndidos deslumbradores incondicionalmente vivos sanados radiantes invencibles dorados indestructibles esplendorosos rotundos absolutos invulnerables majestuosamente completos inmaculados perfectos majestuosos soberanos y grandiosamente victoriosos.",
-    "author": "Ancla",
-    "category": "Sanación"
-  },
-  {
-    "id": "296",
-    "text": "Doy gracias eternas divinas compasivas asombrosas sublimes majestuosas vibrantes y ricas celestes al milagro absoluto e incuestionable heroico de existir maravillosamente radiante deslumbrador perfecto hoy opulento colosal vivo.",
-    "author": "Ancla",
-    "category": "Gratitud"
-  },
-  {
-    "id": "297",
-    "text": "Nadie me arrebatará jamás victorioso invulnerable inquebrantable puro la luz suprema majestuosa glorificada invencible y bendita colosal deslumbrante brillante hermosa resplandeciente dorada divina radiante asombrosamente rotunda espectacular sana y feliz ilimitada inmensa paz infinita celestial sagrada.",
-    "author": "Ancla",
-    "category": "Todas"
-  },
-  {
-    "id": "298",
-    "text": "El silencio milagroso etéreo vibrante reparador místico sosegado y colosal absoluto reconfortante inmenso es el sanatorio sagrado resguardado impenetrable indestructible puro divino donde yo me rearmo rotundo invencible heroico victorioso glorioso poderoso absoluto brillante resplandeciente gigantesco sano celestial invulnerable y plácidamente iluminado vivo y asombrosamente opulento en majestuosa grandeza incondicional infinita radiante.",
-    "author": "Ancla",
-    "category": "Calma"
-  },
-  {
-    "id": "299",
-    "text": "Siento cómo el cielo entero derrama lluvias de bendiciones doradas, maravillosas oportunidades, milagros cotidianos, éxitos asegurados y asombrosa victoria incesante que corona mis días.",
-    "author": "Ancla",
-    "category": "Abundancia"
-  },
-  {
     "id": "300",
-    "text": "Tomo control del timón de mi consciencia. Me niego a naufragar en excusas y navego firme hacia mares prósperos, cálidos y majestuosos de rotundo éxito imparable.",
+    "text": "Tomo control del timón de mi consciencia.",
     "author": "Ancla",
     "category": "Motivación"
   },
   {
     "id": "301",
-    "text": "Abrazo mi fragilidad y la envuelvo en un cálido escudo de compasión. Al amarme incondicionalmente, me vuelvo colosalmente irrompible.",
+    "text": "Abrazo mi fragilidad y la envuelvo en un cálido escudo de compasión.",
     "author": "Ancla",
     "category": "Amor Propio"
   },
   {
     "id": "302",
-    "text": "El presente resplandece como el único faro seguro. Suelto la sombra del ayer y la ansiedad del mañana; solo exito poderosa y lúcidamente hoy y aquí.",
+    "text": "El presente resplandece como el único faro seguro.",
     "author": "Ancla",
     "category": "Presencia"
   },
   {
     "id": "303",
-    "text": "Observo mis emociones como nubes pasajeras en el inmenso cielo de mi ser. Nada nubla mi tranquilidad eterna, pues detrás de toda nube brilla un sol indestructible.",
+    "text": "Observo mis emociones como nubes pasajeras en el inmenso cielo de mi ser.",
     "author": "Ancla",
     "category": "Paz"
   }
