@@ -691,5 +691,159 @@
     "author": "Mihaly Csikszentmihalyi",
     "source": "Flow",
     "category": "Focus"
+  },
+  {
+    "id": "100",
+    "text": "Me apruebo a mí mismo profundamente y sin condiciones en este mismo momento.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Autoestima"
+  },
+  {
+    "id": "101",
+    "text": "Soy digno de amor, no porque me lo haya ganado, sino simplemente porque existo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Autoestima"
+  },
+  {
+    "id": "102",
+    "text": "Renuncio al patrón en mi mente que crea resistencia. Elijo amarme exactamente como soy hoy.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Autoestima"
+  },
+  {
+    "id": "103",
+    "text": "Miro mi cuerpo con ojos de amor y aprecio cada cosa maravillosa que hace por mí.",
+    "author": "Louise Hay",
+    "source": "Afirmaciones Positivas",
+    "category": "Autoestima"
+  },
+  {
+    "id": "104",
+    "text": "Mi corazón y mi mente están abiertos profundamente para recibir y dar amor.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Amor Propio"
+  },
+  {
+    "id": "105",
+    "text": "Estoy dispuesto a soltar mis miedos. Solo son pensamientos y los pensamientos pueden cambiar.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "106",
+    "text": "Todo está bien en mi mundo. Estoy a salvo y el Universo siempre provee para mis necesidades.",
+    "author": "Louise Hay",
+    "source": "Afirmaciones Positivas",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "107",
+    "text": "Libero el pasado con amor y elijo fluir suavemente hacia este nuevo momento.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Paz Mental"
+  },
+  {
+    "id": "108",
+    "text": "Solo atraigo experiencias maravillosas porque estoy alineado con la calma de la vida.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Ansiedad"
+  },
+  {
+    "id": "109",
+    "text": "Tengo dentro de mí todo lo que necesito para superar este obstáculo.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "110",
+    "text": "Estoy en el proceso de un cambio positivo constante. Me permito evolucionar con gracia.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "111",
+    "text": "Cada nuevo día me ofrece una oportunidad perfecta para comenzar de nuevo.",
+    "author": "Louise Hay",
+    "source": "Sabiduría cotidiana",
+    "category": "Crecimiento"
+  },
+  {
+    "id": "112",
+    "text": "Perdono fácilmente. Elijo soltar el resentimiento porque mi libertad emocional es lo más importante.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Paz Mental"
+  },
+  {
+    "id": "113",
+    "text": "Dondequiera que voy encuentro amor y paz, porque eso es exactamente lo que llevo en mi corazón.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Paz Mental"
+  },
+  {
+    "id": "114",
+    "text": "Dejo que la paz interior dirija mi vida. Mi respiración fluye profundamente y todo mi ser se relaja.",
+    "author": "Louise Hay",
+    "source": "Afirmaciones Positivas",
+    "category": "Paz Mental"
+  },
+  {
+    "id": "115",
+    "text": "Me doy a mí mismo el regalo del silencio, comprendiendo que allí residen todas las respuestas.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Paz Mental"
+  },
+  {
+    "id": "116",
+    "text": "Merezco lo mejor y acepto lo mejor ahora mismo. Abro mis brazos a la abundancia del universo.",
+    "author": "Louise Hay",
+    "source": "Usted puede sanar su vida",
+    "category": "Focus"
+  },
+  {
+    "id": "117",
+    "text": "Mi vida es una alegría y fluye con propósito, dirección y significado.",
+    "author": "Louise Hay",
+    "source": "Pensamientos del corazón",
+    "category": "Focus"
+  },
+  {
+    "id": "118",
+    "text": "Dejo ir toda competencia y comparación; hay suficiente espacio y recursos para todos nosotros.",
+    "author": "Louise Hay",
+    "source": "El poder está dentro de ti",
+    "category": "Focus"
+  },
+  {
+    "id": "119",
+    "text": "Cierro mis ojos sabiendo que todo el trabajo del día está completo y que soy totalmente merecedor del descanso.",
+    "author": "Louise Hay",
+    "source": "Adaptación Clínica",
+    "category": "Dormir"
+  },
+  {
+    "id": "120",
+    "text": "En este momento silencioso, elijo perdonarme por cualquier error de hoy. Me deslizo suavemente hacia el sueño.",
+    "author": "Louise Hay",
+    "source": "Adaptación Clínica",
+    "category": "Dormir"
+  },
+  {
+    "id": "121",
+    "text": "Dejo que mis preocupaciones se disuelvan en el aire de la noche. Mi mente está serena y lista para sanar.",
+    "author": "Louise Hay",
+    "source": "Sabiduría cotidiana",
+    "category": "Dormir"
   }
 ]
