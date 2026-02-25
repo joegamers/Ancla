@@ -20,163 +20,163 @@ const moodMapping: Record<string, string[]> = {
 const affirmations: Affirmation[] = [
     {
         "id": "1",
-        "text": "Tus pensamientos no son hechos, son solo eventos mentales — Reconozco que mi ansiedad me miente; elijo observar mis pensamientos sin darles el control de mi realidad.",
+        "text": "Tus pensamientos no son hechos — Reconozco que mi ansiedad me miente; elijo observar sin controlarme.",
         "author": "Aaron Beck",
         "category": "Ansiedad"
     },
     {
         "id": "2",
-        "text": "No te afanes por el mañana, porque el mañana traerá su propio afán. — Mi mente está en paz con el presente; hoy decido enfocarme solo en el paso que tengo frente a mí.",
+        "text": "No te afanes por el mañana — Mi mente está en paz con el presente; me enfoco solo en el siguiente paso.",
         "author": "Mateo 6:34",
         "category": "Ansiedad"
     },
     {
         "id": "3",
-        "text": "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros. — Hoy suelto lo que no puedo controlar y descanso sabiendo que estoy sostenido.",
+        "text": "Echando toda ansiedad sobre él — Hoy suelto lo que no controlo y descanso sabiendo que estoy sostenido.",
         "author": "1 Pedro 5:7",
         "category": "Ansiedad"
     },
     {
         "id": "4",
-        "text": "Mis emociones son señales, no sentencias. — Me permito sentir mi ansiedad sin juzgarla, sabiendo que solo es energía que pronto pasará a través de mí.",
+        "text": "Mis emociones son señales, no sentencias. — Me permito sentir mi ansiedad sabiendo que pronto pasará.",
         "author": "Albert Ellis",
         "category": "Ansiedad"
     },
     {
         "id": "5",
-        "text": "Mi ansiedad es una alarma falsa. — Entiendo que mi cuerpo intenta protegerme, pero le agradezco y le indico que estoy a salvo en este momento.",
+        "text": "Mi ansiedad es una alarma falsa. — Agradezco a mi cuerpo por protegerme, pero estoy a salvo ahora.",
         "author": "David Carbonell",
         "category": "Ansiedad"
     },
     {
         "id": "6",
-        "text": "La única salida es a través — Tengo el coraje de enfrentar esta situación; confío plenamente en mi capacidad para superarla paso a paso.",
+        "text": "La única salida es a través — Tengo el coraje de enfrentar esto; confío en mi capacidad para superarlo.",
         "author": "Robert Frost",
         "category": "Estrés"
     },
     {
         "id": "7",
-        "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar. — Hoy elijo soltar mi carga de estrés, permitiéndome un genuino descanso.",
+        "text": "Venid a mí los cargados y os haré descansar. — Hoy suelto mi carga de estrés y me permito un descanso.",
         "author": "Mateo 11:28",
         "category": "Estrés"
     },
     {
         "id": "8",
-        "text": "Puedo tolerar la incomodidad. — Me recuerdo a mí mismo que esta situación es incómoda y cansada, pero no es insoportable; yo soy más grande que el estrés.",
+        "text": "Puedo tolerar la incomodidad. — Esta situación es incómoda, pero no insoportable; yo soy más grande.",
         "author": "Albert Ellis",
         "category": "Estrés"
     },
     {
         "id": "9",
-        "text": "Eres más fuerte de lo que crees. — Activo mi fuerza interior inagotable; reconozco que soy capaz de transformar cualquier obstáculo en un peldaño hacia mi éxito.",
+        "text": "Eres más fuerte de lo que crees. — Activo mi fuerza interior; soy capaz de transformar este obstáculo.",
         "author": "Marco Aurelio",
         "category": "Motivación"
     },
     {
         "id": "10",
-        "text": "Todo lo puedo en Cristo que me fortalece. — Siento cómo una energía superior a mí inunda cada célula, dándome la fortaleza absoluta para continuar hoy con éxito.",
+        "text": "Todo lo puedo en Cristo que me fortalece. — Siento cómo su energía me da la fortaleza para continuar.",
         "author": "Filipenses 4:13",
         "category": "Motivación"
     },
     {
         "id": "11",
-        "text": "Los que esperan a Jehová tendrán nuevas fuerzas. — Siento cómo mi agotamiento desaparece; hoy renuevo mis alas y mi vitalidad se restaura al 100%.",
+        "text": "Los que esperan a Jehová tendrán nuevas fuerzas. — Mi agotamiento desaparece; mi vitalidad se restaura.",
         "author": "Isaías 40:31",
         "category": "Motivación"
     },
     {
         "id": "12",
-        "text": "El que al viento observa, no sembrará. — Dejo de esperar el momento perfecto; hoy arranco motores y actúo a pesar de no ver todo el panorama completo.",
+        "text": "El que al viento observa, no sembrará. — Dejo de esperar el momento perfecto; arranco motores y actúo.",
         "author": "Eclesiastés 11:4",
         "category": "Motivación"
     },
     {
         "id": "13",
-        "text": "No busques que los eventos sucedan como quieres. — Yo renuncio a forzar las cosas; en su lugar, afino mi mente aguda para fluir y adaptarme perfectamente a cualquier situación.",
+        "text": "No busques que los eventos sucedan como quieres. — Renuncio a forzar las cosas; fluyo y me adapto.",
         "author": "Epicteto",
         "category": "Enfoque"
     },
     {
         "id": "14",
-        "text": "Puestos los ojos en Jesús. — Mi enfoque decide mi destino. Corto toda distracción; mantengo mis ojos clavados en mis objetivos más altos de hoy con láser y disciplina.",
+        "text": "Puestos los ojos en Jesús. — Corto toda distracción; mantengo mis ojos en mis objetivos con disciplina.",
         "author": "Hebreos 12:2",
         "category": "Enfoque"
     },
     {
         "id": "15",
-        "text": "Acepta lo que no puedes cambiar y cambia lo que no puedes aceptar. — Tengo la sabiduría absoluta para diferenciar entre ambas cosas; fluyo como el agua con lo que está fuera de mi control.",
+        "text": "Fluyo como el agua con lo que está fuera de mi control y tengo la sabiduría para adaptarme.",
         "author": "Reinhold Niebuhr",
         "category": "Calma"
     },
     {
         "id": "16",
-        "text": "Lo que resistes, persiste. — Hoy observo el mundo fluir sin juzgar o luchar. Elijo la profunda liberación de aceptar mi realidad en este momento sin intentar moldearla agresivamente a la fuerza.",
+        "text": "Lo que resistes, persiste. — Observo el mundo fluir sin juzgar. Elijo aceptar mi realidad en paz.",
         "author": "Carl Jung",
         "category": "Calma"
     },
     {
         "id": "17",
-        "text": "Cada respiración es una oportunidad de empezar de nuevo. — Me permito perdonarme lo que sucedió hace un segundo, limpio el lienzo, y reinicio mi ciclo de profunda paz vital desde este respiro consciente y profundo.",
+        "text": "Cada respiración es una oportunidad de empezar de nuevo. — Me perdono y reinicio mi ciclo de paz aquí.",
         "author": "Thich Nhat Hanh",
         "category": "Calma"
     },
     {
         "id": "18",
-        "text": "Estoy dispuesto a cambiar y a crecer. — Abro los brazos enteramente a mi transformación; reconozco fascinado que la expansión de mi ser está perfectamente bien cuidada dentro de mi propia consciencia.",
+        "text": "Estoy dispuesto a cambiar y crecer. — Mi expansión está perfectamente cuidada dentro de mi consciencia.",
         "author": "Louise Hay",
         "category": "Crecimiento"
     },
     {
         "id": "19",
-        "text": "Todo está bien cuando cometo una equivocación. — Considero la posibilidad liberadora de equivocarme; los errores no son más que datos invaluables para perfeccionar mi incesante progreso.",
+        "text": "Todo está bien al equivocarme. — Los errores son simples datos invaluables para perfeccionar mi progreso.",
         "author": "Louise Hay",
         "category": "Crecimiento"
     },
     {
         "id": "20",
-        "text": "He aquí, yo hago nuevas todas las cosas. — Siento la continua regeneración; cada amanecer decodifica un nuevo inicio ilimitado para hacer las cosas mejor que en el ayer.",
+        "text": "He aquí, yo hago nuevas todas las cosas. — Cada amanecer es un inicio ilimitado para hacer las cosas mejor.",
         "author": "Apocalipsis 21:5",
         "category": "Crecimiento"
     },
     {
         "id": "21",
-        "text": "El fracaso no es una identidad, es un evento. — Hoy decido retirar la pesada etiqueta del fracaso, reciclándolo ágilmente en retroalimentación objetiva que cataliza el crecimiento rotundo de mis habilidades.",
+        "text": "El fracaso es un evento, no una identidad. — Lo reciclo ágilmente en retroalimentación para crecer.",
         "author": "Carol Dweck",
         "category": "Crecimiento"
     },
     {
         "id": "22",
-        "text": "Me siento seguro y a salvo. — Hoy ordeno voluntariamente retirar toda la rigidez guardada; libero la zozobra imaginaria y declaro la paz total decretando estar fuera de peligro en mi universo protector.",
+        "text": "Me siento seguro y a salvo. — Libero la zozobra y declaro la paz total, estoy fuera de peligro hoy.",
         "author": "Louise Hay",
         "category": "Seguridad"
     },
     {
         "id": "23",
-        "text": "Me amo y me apruebo tal como soy. — Rechazo esperar con ansia cumplir un ideal ficticio; aprecio con inmensa devoción las complejas características exclusivas de mi propio ser hoy.",
+        "text": "Me amo y me apruebo tal como soy. — Aprecio con devoción las características exclusivas de mi propio ser.",
         "author": "Louise Hay",
         "category": "Amor Propio"
     },
     {
         "id": "24",
-        "text": "No temas, porque yo estoy contigo. — Experimento una muralla espiritual rodeándome que blinda con fuerza, silenciando completamente la estática incesante del ruido caótico exterior.",
+        "text": "No temas, porque yo estoy contigo. — Una muralla espiritual rodea mi ser y silencia el ruido exterior.",
         "author": "Isaías 41:10",
         "category": "Seguridad"
     },
     {
         "id": "25",
-        "text": "Ama a tu prójimo como a ti mismo. — Me autorizo irrevocablemente darme exactamente la misma prioridad inmensa y comprensión delicada que heroicamente y con desvelo entrego a los que quiero.",
+        "text": "Ama a tu prójimo como a ti mismo. — Me doy a mí la misma prioridad y comprensión que entrego a otros.",
         "author": "Marcos 12:31",
         "category": "Amor Propio"
     },
     {
         "id": "26",
-        "text": "Soy suficiente tal como soy en este momento. — Desmonto mis corazas asumiendo y manifestando purísima suficiencia vital divina que resplandece constante e incansablemente en mi ser.",
+        "text": "Soy suficiente tal como soy ahora. — Asumo y manifiesto la suficiencia vital que resplandece en mi ser.",
         "author": "Brené Brown",
         "category": "Amor Propio"
     },
     {
         "id": "27",
-        "text": "Todo lo que necesito saber se me revela. — Mantengo atentas mis antenas místicas limpiando el cristal borroso temporal desvaneciendo dudas angustiosas sabiendo infaliblemente ser guiado.",
+        "text": "Todo lo que necesito saber se me revela. — Mantengo atentas mis antenas, sabiendo que soy guiado.",
         "author": "Louise Hay",
         "category": "Revelación"
     },
@@ -188,91 +188,91 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "29",
-        "text": "El momento presente es el único que existe. — Aniquilo proyecciones torturosas del espejismo de ayer o mañana, disolviendo tiempos paralelos para fundirme en pura paz aquí.",
+        "text": "El momento presente es el único que existe. — Disuelvo proyecciones torturosas y me fundo en pura paz.",
         "author": "Eckhart Tolle",
         "category": "Presencia"
     },
     {
         "id": "30",
-        "text": "Estoy dispuesto a curarme. — Permito que mi cuerpo y mente sanen, soltando el dolor y abrazando la recuperación.",
+        "text": "Estoy dispuesto a curarme. — Permito que mi mente sane, soltando el dolor y abrazando la recuperación.",
         "author": "Louise Hay",
         "category": "Sanación"
     },
     {
         "id": "31",
-        "text": "Estoy dispuesto a perdonar. — Libero los rencores del pasado para regalarme paz interior y verdadera libertad.",
+        "text": "Estoy dispuesto a perdonar. — Libero los rencores del pasado para regalarme paz interior y libertad.",
         "author": "Louise Hay",
         "category": "Perdón"
     },
     {
         "id": "32",
-        "text": "Tengo el poder de ser instrumento de sanación. — Declaro fluida catarata vigorosa celestial derramándose milagrosa en conductos regenerando células cansadas para que se renueven en salud robusta.",
+        "text": "Tengo el poder de ser instrumento de sanación. — Declaro una catarata celestial renovando mis células.",
         "author": "Mateo 10:8",
         "category": "Sanación"
     },
     {
         "id": "33",
-        "text": "Perdona setenta veces siete. — Comprendo que perdonar constantemente me protege del dolor y me permite vivir en paz.",
+        "text": "Perdona setenta veces siete. — Comprendo que perdonar constantemente me protege y me permite vivir en paz.",
         "author": "Mateo 18:22",
         "category": "Perdón"
     },
     {
         "id": "34",
-        "text": "Estoy abierto a recibir toda la abundancia del universo. — Acepto con gratitud las bendiciones y oportunidades que la vida me ofrece cada día.",
+        "text": "Doy bienvenida a la abundancia. — Acepto con gratitud las oportunidades que la vida me ofrece cada día.",
         "author": "Louise Hay",
         "category": "Abundancia"
     },
     {
         "id": "35",
-        "text": "El Señor es mi pastor, nada me faltará. — Dejo atrás el miedo a la escasez y confío en que mis verdaderas necesidades siempre serán provistas.",
+        "text": "El Señor es mi pastor. — Dejo atrás el miedo a la escasez y confío en que mis necesidades serán provistas.",
         "author": "Salmos 23:1",
         "category": "Abundancia"
     },
     {
         "id": "36",
-        "text": "Dad gracias en todo. — Valoro cada instante y encuentro motivos para agradecer, lo cual multiplica lo bueno en mi vida.",
+        "text": "Dad gracias en todo. — Valoro cada instante y encuentro motivos para agradecer, multiplicando lo bueno.",
         "author": "1 Tesalonicenses 5:18",
         "category": "Gratitud"
     },
     {
         "id": "37",
-        "text": "La paz os dejo, mi paz os doy. — Recibo esta serenidad, permitiendo que calme mi mente y silencie el ruido del mundo exterior.",
+        "text": "La paz os dejo. — Recibo esta serenidad, permitiendo que calme mi mente y silencie el ruido del mundo.",
         "author": "Juan 14:27",
         "category": "Paz"
     },
     {
         "id": "38",
-        "text": "El gozo del Señor es mi fortaleza. — Mi alegría espiritual es mi armadura, protegiéndome del desánimo y llenándome de energía.",
+        "text": "El gozo del Señor es mi fortaleza. — Mi alegría espiritual me protege del desánimo y me llena de energía.",
         "author": "Nehemías 8:10",
         "category": "Alegría"
     },
     {
         "id": "39",
-        "text": "«Yo soy la luna en el agua». — Comprendo que los eventos externos son pasajeros; mantengo mi centro en calma y protejo mi resiliencia interior.",
+        "text": "«Yo soy la luna en el agua». — Los eventos externos son pasajeros; mantengo mi centro en calma total.",
         "author": "Proverbio Zen",
         "category": "Presencia"
     },
     {
         "id": "40",
-        "text": "«Cuando sabes qué quieres enseñarle al cerebro, le indicas cómo cablearse a sí mismo». — Asumo el control de mi mente, creando nuevos hábitos positivos y liberándome de los miedos del pasado.",
+        "text": "Asumo el control de mi mente estableciendo nuevos hábitos positivos y liberándome de miedos del pasado.",
         "author": "Joe Dispenza",
         "category": "Crecimiento"
     },
     {
         "id": "41",
-        "text": "«El miedo a menudo es nuestro radar a lo que necesitamos hacer». — No huyo del miedo, lo utilizo como brújula para enfrentar mis retos con valentía e ir hacia adelante.",
+        "text": "El miedo es mi radar. — No huyo de él, lo utilizo como brújula para enfrentar mis retos con valentía.",
         "author": "Ryan Holiday",
         "category": "Confianza"
     },
     {
         "id": "42",
-        "text": "«Si estás deprimido, vives en el pasado; si estás ansioso vives en el futuro; si estás en paz vives en el presente». — Suelto la nostalgia y la preocupación, decidiendo habitar plenamente en el presente seguro.",
+        "text": "Suelto la nostalgia y la preocupación, decidiendo habitar plenamente y en paz este presente seguro.",
         "author": "Lao Tse",
         "category": "Paz"
     },
     {
         "id": "43",
-        "text": "«Tú no eres la gota en el océano; eres el océano entero en una gota». — Reconozco mi enorme valor intrínseco, aceptando mi grandeza y abandonando la creencia de que soy pequeño o insuficiente.",
+        "text": "No eres la gota en el océano, eres el océano entero. — Reconozco mi valor y grandeza infinitos hoy.",
         "author": "Rumi",
         "category": "Amor Propio"
     },
@@ -320,7 +320,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "51",
-        "text": "Cualquier cosa que el momento presente contenga, elijo aceptarla como si yo mismo la hubiera elegido.",
+        "text": "Cualquier cosa que este momento contenga, la acepto plenamente como si yo mismo la hubiera elegido.",
         "author": "Eckhart Tolle",
         "category": "Paz Mental"
     },
@@ -344,7 +344,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "55",
-        "text": "No soy perturbado por lo que sucede, sino por la visión que elijo tener sobre lo que sucede. Elijo la calma.",
+        "text": "No soy perturbado por lo que sucede, sino por mi visión de lo que sucede. Elijo la perspectiva de la calma.",
         "author": "Albert Ellis",
         "category": "Paz Mental"
     },
@@ -368,13 +368,13 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "59",
-        "text": "Entre lo que me pasa y cómo reacciono hay un espacio. En ese espacio reside mi poder para elegir la calma.",
+        "text": "Entre lo que pasa y mi reacción, existe un espacio consciente. En ese espacio reside mi poder para calmarme.",
         "author": "Viktor Frankl",
         "category": "Focus"
     },
     {
         "id": "60",
-        "text": "Incluso cuando no puedo cambiar una situación, siempre mantengo la libertad de elegir mi actitud ante ella.",
+        "text": "Incluso cuando no puedo cambiar una situación, siempre mantengo y defiendo mi libertad de elegir mi actitud.",
         "author": "Viktor Frankl",
         "category": "Paz Mental"
     },
@@ -404,7 +404,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "65",
-        "text": "La curiosa paradoja es que cuando logro aceptarme a mí mismo tal cual soy, es entonces cuando puedo cambiar.",
+        "text": "La curiosa paradoja es que cuando logro finalmente aceptarme a mí mismo, es justo cuando empiezo a cambiar.",
         "author": "Carl Rogers",
         "category": "Autoestima"
     },
@@ -422,7 +422,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "68",
-        "text": "Tengo poder sobre mi propia mente, no sobre los eventos externos. Al darme cuenta de esto, encuentro fuerza inquebrantable.",
+        "text": "Tengo poder sobre mi mente, no sobre los eventos de afuera. Al darme cuenta, mi fuerza se hace irrompible.",
         "author": "Marco Aurelio",
         "category": "Ansiedad"
     },
@@ -476,7 +476,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "77",
-        "text": "Me trato a mí mismo con la misma amabilidad, cuidado y paciencia que le daría a un buen amigo herido.",
+        "text": "Me trato hoy mismo con la misma amabilidad, cuidado infinito y paciencia que le daría a un buen amigo.",
         "author": "Kristin Neff",
         "category": "Autoestima"
     },
@@ -494,7 +494,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "80",
-        "text": "Digo \"sí\" a lo que está sucediendo en mi interior en este momento, rindiéndome a la realidad con amabilidad.",
+        "text": "Digo firmemente \"sí\" a lo que está sucediendo en mi interior en este momento, rindiéndome con amabilidad.",
         "author": "Tara Brach",
         "category": "Paz Mental"
     },
@@ -530,7 +530,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "86",
-        "text": "La naturaleza nunca se apresura, y sin embargo todo se logra. Hoy respiro en el ritmo de la naturaleza.",
+        "text": "La naturaleza nunca jamás se apresura, y sin embargo todo lo logra. Respiro conectándome con ese ritmo.",
         "author": "Lao Tsé",
         "category": "Ansiedad"
     },
@@ -554,7 +554,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "90",
-        "text": "Libero todas las expectativas del mañana y me sumerjo placenteramente en la sanación del sueño ahora.",
+        "text": "Libero completamente todas las exigentes expectativas del mañana y me sumerjo en la sanación del sueño.",
         "author": "Dr. Andrew Huberman",
         "category": "Dormir"
     },
@@ -578,19 +578,19 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "94",
-        "text": "Mantengo mi atención en el siguiente paso más obvio. No necesito ver toda la escalera para subir un nivel.",
+        "text": "Mantengo mi atención fijada en el siguiente paso obvio. No necesito ver la escalera completa para subir.",
         "author": "Martin Luther King Jr.",
         "category": "Focus"
     },
     {
         "id": "95",
-        "text": "No pierdo energía en cosas fuera de mi círculo de influencia; concentro mi poder únicamente en lo que puedo controlar.",
+        "text": "No pierdo mi energía vital en cosas fuera de mi control; concentro todo mi poder solo en lo que sí puedo.",
         "author": "Stephen Covey",
         "category": "Focus"
     },
     {
         "id": "96",
-        "text": "Mis hábitos de hoy, por pequeños que sean, están esculpiendo mi identidad futura. Elijo el esfuerzo silencioso.",
+        "text": "Mis hábitos de hoy, por pequeños e imperceptibles que sean, esculpen mi identidad. Elijo seguir esforzándome.",
         "author": "James Clear",
         "category": "Focus"
     },
@@ -608,7 +608,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "99",
-        "text": "Acepto el estado de flujo. Toda mi energía mental se alza para encontrar el ritmo perfecto de mi trabajo actual.",
+        "text": "Acepto el hermoso estado de flujo mental. Mi energía viva se alza para encontrar el ritmo de este instante.",
         "author": "Mihaly Csikszentmihalyi",
         "category": "Focus"
     },
@@ -728,25 +728,25 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "119",
-        "text": "Cierro mis ojos sabiendo que todo el trabajo del día está completo y que soy totalmente merecedor del descanso.",
+        "text": "Cierro mis pesados ojos confirmando que mi trabajo hoy está completo y que he ganado el merecido descanso.",
         "author": "Louise Hay",
         "category": "Dormir"
     },
     {
         "id": "120",
-        "text": "En este momento silencioso, elijo perdonarme por cualquier error de hoy. Me deslizo suavemente hacia el sueño.",
+        "text": "En este momento suave y nocturno me perdono completamente los errores de hoy y me hundo en profundo sueño.",
         "author": "Louise Hay",
         "category": "Dormir"
     },
     {
         "id": "121",
-        "text": "Dejo que mis preocupaciones se disuelvan en el aire de la noche. Mi mente está serena y lista para sanar.",
+        "text": "Dejo que mis múltiples inquietudes se desintegren en el aire oscuro. Mi mente en calma se dedica a sanar.",
         "author": "Louise Hay",
         "category": "Dormir"
     },
     {
         "id": "122",
-        "text": "No me afano por el mañana; hoy decido enfocarme solo en el paso que tengo frente a mí, confiando en la provisión divina.",
+        "text": "No me afano por el misterioso mañana; decido intencionalmente enfocarme solo en el paso que veo hoy.",
         "author": "Mateo 6:34",
         "category": "Paz Mental"
     },
@@ -758,7 +758,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "124",
-        "text": "La paz de Dios, que sobrepasa todo entendimiento, guarda mi corazón y mis pensamientos en este momento.",
+        "text": "La paz suprema de Dios que evidentemente sobrepasa todo este entendimiento, guarda celosamente mi corazón.",
         "author": "Filipenses 4:7",
         "category": "Paz Mental"
     },
@@ -776,7 +776,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "127",
-        "text": "Todo lo puedo en Aquel que me fortalece. Mi fuerza no proviene solo de mí, sino de una fuente inagotable.",
+        "text": "Todo lo puedo y logro en Aquel que me fortalece. Mi fuerza vital proviene enteramente de una fuente divina.",
         "author": "Filipenses 4:13",
         "category": "Crecimiento"
     },
@@ -848,7 +848,7 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "139",
-        "text": "Sé que los planes que hay para mí son de bienestar y no de calamidad, para darme un futuro y una esperanza.",
+        "text": "Sé profundamente que todos los planes divinos dirigidos a mí son de intenso bienestar y gran esperanza.",
         "author": "Jeremías 29:11",
         "category": "Focus"
     },
