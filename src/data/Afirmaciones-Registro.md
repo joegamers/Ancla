@@ -3,10 +3,10 @@
 Este documento lleva el control de todos los autores y libros de los que la Inteligencia Artificial ha extraído o generado afirmaciones para el proyecto Ancla.
 
 ## Autores Agregados
-* Aaron Beck
-* Albert Ellis
-* Brené Brown
-* Carl Jung
+* Aaron Beck ---
+* Albert Ellis ---
+* Brené Brown ---
+* Carl Jung ---
 * Carl Rogers
 * Carol Dweck
 * David Carbonell
@@ -19,7 +19,7 @@ Este documento lleva el control de todos los autores y libros de los que la Inte
 * Joseph Murphy
 * Kristin Neff
 * Lao Tsé (Lao Tse)
-* Louise Hay
+* Louise Hay ---
 * Marco Aurelio
 * Martin Luther King Jr.
 * Matthew Walker

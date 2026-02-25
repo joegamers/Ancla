@@ -1799,6 +1799,720 @@ const affirmations: Affirmation[] = [
         "text": "Desarrollo una formidable autoconsciencia inquebrantable como escudo frente a dudas futuras.",
         "author": "Louise Hay",
         "category": "Defensa Psíquica"
+    },
+    {
+        "id": "298",
+        "text": "Mis pensamientos iniciales no siempre son hechos reales. — Observo mi mente con curiosidad y sin juzgar.",
+        "author": "Aaron Beck",
+        "category": "Claridad"
+    },
+    {
+        "id": "299",
+        "text": "Tengo el poder de cambiar cómo interpreto cada situación. — Elijo perspectivas que me traen paz interna.",
+        "author": "Aaron Beck",
+        "category": "Mindfulness"
+    },
+    {
+        "id": "300",
+        "text": "No necesito ser perfecto para ser inmensamente valioso. — Mi valor humano es incondicional e inherente.",
+        "author": "Aaron Beck",
+        "category": "Autoestima"
+    },
+    {
+        "id": "301",
+        "text": "Si mi mente anticipa desastres, recuerdo que son solo hipótesis. — Me anclo a la realidad del presente seguro.",
+        "author": "Aaron Beck",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "302",
+        "text": "El fracaso es un evento de aprendizaje, no una identidad. — Analizo mis errores para crecer fortalecido.",
+        "author": "Aaron Beck",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "303",
+        "text": "Evito leer la mente de los demás. — Prefiero preguntar y comunicarme abiertamente para evitar malentendidos.",
+        "author": "Aaron Beck",
+        "category": "Relaciones"
+    },
+    {
+        "id": "304",
+        "text": "Las emociones dolorosas son respuestas a mis interpretaciones. — Al flexibilizar mi mente, libero mi corazón.",
+        "author": "Aaron Beck",
+        "category": "Emociones"
+    },
+    {
+        "id": "305",
+        "text": "Cuestiono activamente mi voz crítica interior. — Merezco tratarme con la misma amabilidad que a un amigo.",
+        "author": "Aaron Beck",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "306",
+        "text": "Sustituyo el pensamiento polarizado por matices ricos. — La vida no es blanco o negro, está llena de colores.",
+        "author": "Aaron Beck",
+        "category": "Flexibilidad"
+    },
+    {
+        "id": "307",
+        "text": "Reconozco mis propios logros diarios, por más pequeños que parezcan. — Avanzo constantemente hacia la meta.",
+        "author": "Aaron Beck",
+        "category": "Celebración"
+    },
+    {
+        "id": "308",
+        "text": "Acepto que no puedo controlar el universo exterior, pero domino magistralmente mis reacciones internas hoy.",
+        "author": "Aaron Beck",
+        "category": "Autocontrol"
+    },
+    {
+        "id": "309",
+        "text": "El futuro aún no está escrito. — Suelto mis ansiedades anticipatorias y diseño creativamente mi día a día.",
+        "author": "Aaron Beck",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "310",
+        "text": "Mi tristeza no es permanente, es como una nube pasajera. — Observo cómo se disuelve mientras sigo respirando.",
+        "author": "Aaron Beck",
+        "category": "Sanación"
+    },
+    {
+        "id": "311",
+        "text": "Me libero de las etiquetas rígidas con las que me juzgaba. — Soy un ser humano complejo, fluido y valioso.",
+        "author": "Aaron Beck",
+        "category": "Liberación"
+    },
+    {
+        "id": "312",
+        "text": "No necesito la constante aprobación externa para estar en paz. — Mi propia validación es suficiente motor.",
+        "author": "Aaron Beck",
+        "category": "Independencia"
+    },
+    {
+        "id": "313",
+        "text": "Reemplazo las exigencias de 'debería' por simples preferencias. — Fluyo con la vida sin castigarme de más.",
+        "author": "Aaron Beck",
+        "category": "Aceptación"
+    },
+    {
+        "id": "314",
+        "text": "Filtro constructivamente mi perspectiva. — Me niego a ignorar lo positivo mientras solo me enfoco en lo malo.",
+        "author": "Aaron Beck",
+        "category": "Enfoque"
+    },
+    {
+        "id": "315",
+        "text": "Desactivo de inmediato mi visión catastrófica preguntándome por la probabilidad real y lógica de que ocurra.",
+        "author": "Aaron Beck",
+        "category": "Racionalidad"
+    },
+    {
+        "id": "316",
+        "text": "Examino la evidencia lógicamente antes de dar por cierto un pensamiento doloroso. — Mi raciocinio me protege.",
+        "author": "Aaron Beck",
+        "category": "Lógica"
+    },
+    {
+        "id": "317",
+        "text": "Tengo derecho absoluto a establecer límites emocionales y físicos saludables sin sentirme jamás culpable.",
+        "author": "Aaron Beck",
+        "category": "Límites"
+    },
+    {
+        "id": "318",
+        "text": "El pesimismo no es realismo. — Elijo una visión equilibrada que alimenta activamente mis esperanzas futuras.",
+        "author": "Aaron Beck",
+        "category": "Esperanza"
+    },
+    {
+        "id": "319",
+        "text": "Las sensaciones físicas de estrés son inofensivas. — Yo mantengo la profunda calma sabiendo que van a pasar.",
+        "author": "Aaron Beck",
+        "category": "Estrés"
+    },
+    {
+        "id": "320",
+        "text": "Abandono cualquier intento de tomarlo todo de forma personal. — Las acciones de otros reflejan su propio mundo.",
+        "author": "Aaron Beck",
+        "category": "Desapego"
+    },
+    {
+        "id": "321",
+        "text": "Transformo cada desafío complejo en un simple problema lógico con múltiples soluciones posibles de alcanzar.",
+        "author": "Aaron Beck",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "322",
+        "text": "Al alterar el lente con el que percibo mi dolorida realidad, logro disolver espontáneamente mi sufrimiento.",
+        "author": "Aaron Beck",
+        "category": "Cambio"
+    },
+    {
+        "id": "323",
+        "text": "Reconozco que dramatizar los eventos solo multiplica en vano y excesivamente mi sensación interna de pánico.",
+        "author": "Aaron Beck",
+        "category": "Tranquilidad"
+    },
+    {
+        "id": "324",
+        "text": "Mantengo mi mente enfocada únicamente en aquellos problemas que realmente dependen completamente de mi acción.",
+        "author": "Aaron Beck",
+        "category": "Eficiencia"
+    },
+    {
+        "id": "325",
+        "text": "Mi mente es sumamente capaz de reaprender nuevas formas de pensar mucho más útiles pacíficas y compasivas.",
+        "author": "Aaron Beck",
+        "category": "Neuroplasticidad"
+    },
+    {
+        "id": "326",
+        "text": "Interrumpo a propósito todos los dolorosos y estresantes ciclos inútiles continuos de rumiación obsesiva.",
+        "author": "Aaron Beck",
+        "category": "Mindfulness"
+    },
+    {
+        "id": "327",
+        "text": "Invierto tiempo valioso en cuestionar activamente las creencias más amargas irracionales arraigadas adentro.",
+        "author": "Aaron Beck",
+        "category": "Terapia"
+    },
+    {
+        "id": "328",
+        "text": "Acepto incondicionalmente mis imperfecciones. — Merezco existir alegremente sin necesidad de ser infalible.",
+        "author": "Albert Ellis",
+        "category": "Aceptación"
+    },
+    {
+        "id": "329",
+        "text": "Prefiero que las cosas salgan bien, pero no es el fin del mundo si fallan. — Yo puedo tolerar la gran frustración.",
+        "author": "Albert Ellis",
+        "category": "Tolerancia"
+    },
+    {
+        "id": "330",
+        "text": "No me perturban los hechos objetivos externos, sino mi propia y rígida visión sobre ellos. — Elijo la paz hoy.",
+        "author": "Albert Ellis",
+        "category": "Claridad"
+    },
+    {
+        "id": "331",
+        "text": "Rechazo categóricamente la terrible creencia irracional de que todos deben amarme siempre para ser yo alguien válido.",
+        "author": "Albert Ellis",
+        "category": "Independencia"
+    },
+    {
+        "id": "332",
+        "text": "El ser humano comete errores graves con total naturalidad absoluta. — Yo decido hoy perdonarme incondicionalmente.",
+        "author": "Albert Ellis",
+        "category": "Perdón"
+    },
+    {
+        "id": "333",
+        "text": "Tomo absoluta responsabilidad pragmática sobre mis propias emociones alteradas. — Yo soy mi único dueño vital.",
+        "author": "Albert Ellis",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "334",
+        "text": "Cambio mis autoexigencias absolutas por simples preferencias humanas flexibles. — La vida fluye mucho más suave.",
+        "author": "Albert Ellis",
+        "category": "Flexibilidad"
+    },
+    {
+        "id": "335",
+        "text": "Me niego rotundamente a dramatizar excesivamente las contrariedades menores diarias de mi vida actual.",
+        "author": "Albert Ellis",
+        "category": "Tranquilidad"
+    },
+    {
+        "id": "336",
+        "text": "Ninguna persona es igual a su peor error pasado cometido ciegamente. — Mi esencia valiosa permanece siempre intacta.",
+        "author": "Albert Ellis",
+        "category": "Autoestima"
+    },
+    {
+        "id": "337",
+        "text": "El universo no está en absoluto obligado a concederme todo lo que ansío profundamente. — Yo lo acepto con paz.",
+        "author": "Albert Ellis",
+        "category": "Aceptación"
+    },
+    {
+        "id": "338",
+        "text": "Descubrir mi propio pensamiento irracional escondido es siempre mi primer y tremendo salto hacia la alta madurez.",
+        "author": "Albert Ellis",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "339",
+        "text": "Me comprometo a erradicar de mi diálogo la dañina y exigente palabra 'debería'. — Prefiero alegremente fluir hoy.",
+        "author": "Albert Ellis",
+        "category": "Neuroplasticidad"
+    },
+    {
+        "id": "340",
+        "text": "Incluso si el resultado futuro fuese absolutamente adverso, yo mantengo la seguridad de que podré soportarlo.",
+        "author": "Albert Ellis",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "341",
+        "text": "Renuncio para siempre al hábito cruel e inservible de condenar mi propia persona entera por fallos puntuales.",
+        "author": "Albert Ellis",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "342",
+        "text": "Aunque la injusticia es común, perturbarme excesivamente por ella es inútilmente doloroso. — Actúo en calma.",
+        "author": "Albert Ellis",
+        "category": "Paz"
+    },
+    {
+        "id": "343",
+        "text": "Me esfuerzo vigorosamente en desarrollar alta tolerancia a la incomodidad natural. — Así crezco inmensamente.",
+        "author": "Albert Ellis",
+        "category": "Fortaleza"
+    },
+    {
+        "id": "344",
+        "text": "Acepto que mi valor como ser complejo no puede ser realmente encasillado por las estrechas escalas globales de logro.",
+        "author": "Albert Ellis",
+        "category": "Valor"
+    },
+    {
+        "id": "345",
+        "text": "Mantengo sanamente mis propias perspectivas realistas cuando enfrento el denso clima adverso y poco amigable.",
+        "author": "Albert Ellis",
+        "category": "Realismo"
+    },
+    {
+        "id": "346",
+        "text": "Confronto hoy activamente la perjudicial idea arraigada de que mi felicidad depende del exterior. — Crezco desde mi.",
+        "author": "Albert Ellis",
+        "category": "Felicidad"
+    },
+    {
+        "id": "347",
+        "text": "Afronto directamente los problemas pesados habituales en lugar de evadirlos. — Gano gran seguridad con cada paso.",
+        "author": "Albert Ellis",
+        "category": "Valentía"
+    },
+    {
+        "id": "348",
+        "text": "Mi mente racional y mi corazón vibrante trabajan juntos en gloriosa armonía productiva para estabilizarme sano.",
+        "author": "Albert Ellis",
+        "category": "Equilibrio"
+    },
+    {
+        "id": "349",
+        "text": "Es completamente absurdo esperar perfección extrema de mis hermanos humanos. — Abro los brazos a la alta compasión.",
+        "author": "Albert Ellis",
+        "category": "Compasión"
+    },
+    {
+        "id": "350",
+        "text": "Soporte no significa dolorosa sumisión; significa alta capacidad resiliente ante las grandes inclemencias del azar.",
+        "author": "Albert Ellis",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "351",
+        "text": "El profundo cambio psicológico requiere constante trabajo duro, pero su gratísima recompensa pura es la libertad.",
+        "author": "Albert Ellis",
+        "category": "Sanación"
+    },
+    {
+        "id": "352",
+        "text": "Cuestiono despiadadamente mis propios rígidos dogmas castigadores y oscuros. — Instalo luminosas verdades empíricas.",
+        "author": "Albert Ellis",
+        "category": "Claridad"
+    },
+    {
+        "id": "353",
+        "text": "Mi vida avanza majestuosa cuando ceso de exigir en vano facilidades al mundo y comienzo a fortalecerme por dentro.",
+        "author": "Albert Ellis",
+        "category": "Independencia"
+    },
+    {
+        "id": "354",
+        "text": "Es grato ser aprobado ampliamente por los demás humanos, pero jamás haré de esto una amarga necesidad de vida.",
+        "author": "Albert Ellis",
+        "category": "Desapego"
+    },
+    {
+        "id": "355",
+        "text": "Evalúo serenamente las desagradables conductas sin castigar jamás el incalculable valor vital de los individuos.",
+        "author": "Albert Ellis",
+        "category": "Límites"
+    },
+    {
+        "id": "356",
+        "text": "Siento enorme orgullo personal por aprender de manera incansable a dominar mi exigente y antiguo miedo interno hoy.",
+        "author": "Albert Ellis",
+        "category": "Orgullo"
+    },
+    {
+        "id": "357",
+        "text": "Vivo enfocado intensamente y alegre en este único instante preciado, renunciando a todas las mortificantes rumiaciones.",
+        "author": "Albert Ellis",
+        "category": "Mindfulness"
+    },
+    {
+        "id": "358",
+        "text": "Mi vulnerabilidad no es debilidad, es la principal medida de mi inmensa valentía hoy.",
+        "author": "Brené Brown",
+        "category": "Valentía"
+    },
+    {
+        "id": "359",
+        "text": "Pertenezco profunda y completamente a mí mismo. — No negocio mi integridad para encajar en lugares ajenos.",
+        "author": "Brené Brown",
+        "category": "Identidad"
+    },
+    {
+        "id": "360",
+        "text": "Acepto toda la maravillosa desordenada y compleja verdad de la persona que verdaderamente soy hoy.",
+        "author": "Brené Brown",
+        "category": "Aceptación"
+    },
+    {
+        "id": "361",
+        "text": "Soy imperfecto y estoy hecho para luchar, pero sigo siendo inmensamente digno de un inmenso y gran amor.",
+        "author": "Brené Brown",
+        "category": "Amor"
+    },
+    {
+        "id": "362",
+        "text": "Elijo el inmenso y profundo coraje en este mismo bello instante por encima de toda falsa enorme comodidad.",
+        "author": "Brené Brown",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "363",
+        "text": "Rechazo contundentemente el pesado e inútil perfeccionismo. — Simplemente me permito existir.",
+        "author": "Brené Brown",
+        "category": "Liberación"
+    },
+    {
+        "id": "364",
+        "text": "Me atrevo hermosamente y en una de forma magistral a mostrarme grande exactamente tal hermoso y maravilloso cual soy.",
+        "author": "Brené Brown",
+        "category": "Autenticidad"
+    },
+    {
+        "id": "365",
+        "text": "Abrazo mi gran historia entera porque ahí reside todo el verdadero inmenso e infinito e ilimitado poder interno mío.",
+        "author": "Brené Brown",
+        "category": "Poder"
+    },
+    {
+        "id": "366",
+        "text": "Hablo incesantemente y fuerte con mucha franqueza porque mi preciosa voz es verdaderamente muy necesaria.",
+        "author": "Brené Brown",
+        "category": "Autoexpresión"
+    },
+    {
+        "id": "367",
+        "text": "Digo NO a las cosas menores con la mayor inalcanzable inquebrantable fuerza absoluta indestructible e impenetrable paz.",
+        "author": "Brené Brown",
+        "category": "Límites"
+    },
+    {
+        "id": "368",
+        "text": "Mi empatía sana profundamente al mundo. — Ofrezco comprensión eterna.",
+        "author": "Brené Brown",
+        "category": "Compasión"
+    },
+    {
+        "id": "369",
+        "text": "Miro directo el terrible intenso negro denso fracaso y decido inteligentemente en paz de forma maravillosa intentarlo.",
+        "author": "Brené Brown",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "370",
+        "text": "Suelto maravillosamente pacíficamente felizmente profundamente y en absoluto totalmente el asfixiante deseo del control.",
+        "author": "Brené Brown",
+        "category": "Confianza"
+    },
+    {
+        "id": "371",
+        "text": "Mi corazón abraza valientemente la gran alegría genuina del presente vivo resplandeciente y puro.",
+        "author": "Brené Brown",
+        "category": "Felicidad"
+    },
+    {
+        "id": "372",
+        "text": "Cuestiono el enorme castigo interior. — Elijo ofrecerme amablemente infinito espacio de cálido afecto y perdón hoy.",
+        "author": "Brené Brown",
+        "category": "Perdón"
+    },
+    {
+        "id": "373",
+        "text": "La grandiosa abrumadora belleza existe maravillosamente escondida detrás del frágil quebradizo velo del humano miedo.",
+        "author": "Brené Brown",
+        "category": "Esperanza"
+    },
+    {
+        "id": "374",
+        "text": "Reconozco profundamente y en compasión y luz mis inevitables errores humanos. — Me perdono por todos y sigo adelante.",
+        "author": "Brené Brown",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "375",
+        "text": "Decido ser inmensa y profundamente gentil conmigo mismo. — Extiendo infinita compasión hacia mi frágil ser.",
+        "author": "Brené Brown",
+        "category": "Paciencia"
+    },
+    {
+        "id": "376",
+        "text": "Reemplazo la dura vergüenza interior por profunda y sanadora y enorme autocompasión amorosa hoy.",
+        "author": "Brené Brown",
+        "category": "Sanación"
+    },
+    {
+        "id": "377",
+        "text": "No requiero inútil permiso ajeno incesante de otros de nadie humano jamás en este inmenso precioso universo y mundo.",
+        "author": "Brené Brown",
+        "category": "Independencia"
+    },
+    {
+        "id": "378",
+        "text": "Abrazo la intensa felicidad reluciente natural de este precioso momento. — Es mi hogar interior.",
+        "author": "Brené Brown",
+        "category": "Alegría"
+    },
+    {
+        "id": "379",
+        "text": "Me río libremente de forma profunda y sincera de mis vulnerables rarezas únicas de esta valiosa vida.",
+        "author": "Brené Brown",
+        "category": "Relajación"
+    },
+    {
+        "id": "380",
+        "text": "Yo SOY por mí mismo suficiente poderoso valioso sabio infinito digno suficiente merecedor amado mágico luz radiante...",
+        "author": "Brené Brown",
+        "category": "Suficiencia"
+    },
+    {
+        "id": "381",
+        "text": "Acumulo amor infinito pacífico mágico constante grande enorme ilimitado inmenso y se lo riego bondadosamente saname...",
+        "author": "Brené Brown",
+        "category": "Bondad"
+    },
+    {
+        "id": "382",
+        "text": "La infinita gran profunda e inmensa y poderosa e inquebrantable gratitud radiante resplandece majestuosa desde todo...",
+        "author": "Brené Brown",
+        "category": "Gratitud"
+    },
+    {
+        "id": "383",
+        "text": "Mi inmenso incuestionable puro auténtico verdadero glorioso y divino gran maravilloso e inviolable valor radica ínt...",
+        "author": "Brené Brown",
+        "category": "Valor"
+    },
+    {
+        "id": "384",
+        "text": "Yo lucho invierto doy dedico laboriosamente majestuosamente pacíficamente felizmente mi más supremo inmenso gran sa...",
+        "author": "Brené Brown",
+        "category": "Esfuerzo"
+    },
+    {
+        "id": "385",
+        "text": "El inmensurable cálido silencio pacífico grandísimo hermoso puro majestuoso hermoso tierno tierno suave mágico míst...",
+        "author": "Brené Brown",
+        "category": "Paz"
+    },
+    {
+        "id": "386",
+        "text": "Caigo me levanto vivo respiro lloro me ilumino maravillosamente asombrosamente de forma inquebrantable gloriosament...",
+        "author": "Brené Brown",
+        "category": "Amor"
+    },
+    {
+        "id": "387",
+        "text": "Acepto mi sombra y la integro con amor. — Al abrazar toda mi oscuridad, descubro mi verdadera y completa luz interior.",
+        "author": "Carl Jung",
+        "category": "Integración"
+    },
+    {
+        "id": "388",
+        "text": "Miro hacia adentro y mi visión se aclara. — Quien mira hacia afuera sueña, quien mira hacia adentro verdaderamente ...",
+        "author": "Carl Jung",
+        "category": "Despertar"
+    },
+    {
+        "id": "389",
+        "text": "No soy simplemente lo que me ha sucedido. — Soy la persona maravillosa que elijo ser en este precioso instante.",
+        "author": "Carl Jung",
+        "category": "Identidad"
+    },
+    {
+        "id": "390",
+        "text": "Presto total atención a mis sinceros sueños. — Son los mensajes del vasto mar de mi profundo inconsciente sabio.",
+        "author": "Carl Jung",
+        "category": "Intuición"
+    },
+    {
+        "id": "391",
+        "text": "Abrazo por completo cada una de mis aparentes y oscuras contradicciones. — En mí habita pacíficamente la gran totalidad.",
+        "author": "Carl Jung",
+        "category": "Aceptación"
+    },
+    {
+        "id": "392",
+        "text": "Todo lo que me irrita de otros puede llevarme a entender un profundo misterio sobre yo mismo. — Yo descubro la paz.",
+        "author": "Carl Jung",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "393",
+        "text": "Reconozco el inmenso tesoro radiante escondido detrás de mis propios más grandes y profundos miedos. — Me atrevo hoy.",
+        "author": "Carl Jung",
+        "category": "Valentía"
+    },
+    {
+        "id": "394",
+        "text": "La vida humana verdaderamente tiene sentido pleno solo cuando comienzo a sumergirme en mis vastas profundidades cre...",
+        "author": "Carl Jung",
+        "category": "Propósito"
+    },
+    {
+        "id": "395",
+        "text": "El enorme encuentro magnífico entre dos personalidades nos transforma a ambos alquímicamente de la mejor forma pura.",
+        "author": "Carl Jung",
+        "category": "Relaciones"
+    },
+    {
+        "id": "396",
+        "text": "La completa sensación de sanación llega solamente cuando me atrevo honestamente a transitar la herida más profunda.",
+        "author": "Carl Jung",
+        "category": "Sanación"
+    },
+    {
+        "id": "397",
+        "text": "Confío plenamente en la sabiduría del inmenso y vasto inconsciente colectivo. — Estoy gloriosamente conectado a todos.",
+        "author": "Carl Jung",
+        "category": "Conexión"
+    },
+    {
+        "id": "398",
+        "text": "Permito que mi tranquila mente despierte y abrace las magníficas coincidencias mágicas sincrónicas del gran cosmos.",
+        "author": "Carl Jung",
+        "category": "Sincronicidad"
+    },
+    {
+        "id": "399",
+        "text": "Dejo de aferrarme a lo inútil y obsoleto doloroso para crear amplio espacio inmenso y pacífico a lo nuevo y vibrante.",
+        "author": "Carl Jung",
+        "category": "Transformación"
+    },
+    {
+        "id": "400",
+        "text": "Equilibro mis poderosas energías internas contrarias. — Encuentro una serena armonía y perfecta enorme paz en el centro.",
+        "author": "Carl Jung",
+        "category": "Equilibrio"
+    },
+    {
+        "id": "401",
+        "text": "La resplandeciente auténtica individuación es el principal milagroso objetivo sagrado principal de toda mi existenc...",
+        "author": "Carl Jung",
+        "category": "Individuación"
+    },
+    {
+        "id": "402",
+        "text": "Cada crisis vital inesperada y oscura lleva la potente valiosa y vibrante grandiosa brillante inmensa semilla del r...",
+        "author": "Carl Jung",
+        "category": "Resiliencia"
+    },
+    {
+        "id": "403",
+        "text": "Rechazo contundentemente ahogar mis instintos vitales. — Yo canalizo majestuosamente mi pura y gran esencia creativa.",
+        "author": "Carl Jung",
+        "category": "Creatividad"
+    },
+    {
+        "id": "404",
+        "text": "Entiendo de forma lógica y madura que cada síntoma emocional encierra y esconde un gran significado profundo.",
+        "author": "Carl Jung",
+        "category": "Claridad"
+    },
+    {
+        "id": "405",
+        "text": "Todo lo que nos irrita de otros nos puede llevar maravillosamente al gran tierno entendimiento de nosotros mismos.",
+        "author": "Carl Jung",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "406",
+        "text": "El zapato perfecto para una persona oprime y asfixia por completo y de forma muy dolora y pesada y oscura a la otra.",
+        "author": "Carl Jung",
+        "category": "Individualidad"
+    },
+    {
+        "id": "407",
+        "text": "Libero al mundo inmensamente gloriosamente bondadosamente puramente incondicionalmente pacíficamente de mis propias...",
+        "author": "Carl Jung",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "408",
+        "text": "Descubro que los mágicos y maravillosos misterios alquímicos grandiosos suceden verdaderamente en mi centro del corazón.",
+        "author": "Carl Jung",
+        "category": "Magia"
+    },
+    {
+        "id": "409",
+        "text": "Comprender la vasta compleja sombra enorme de los demás humanos nace solamente de poder abrazar la oscura sombra propia.",
+        "author": "Carl Jung",
+        "category": "Empatía"
+    },
+    {
+        "id": "410",
+        "text": "Acepto lo inexplicable. — No todos los grandes milagros y curas se pueden abarcar mediante la pura y sólida rígida ...",
+        "author": "Carl Jung",
+        "category": "Fe"
+    },
+    {
+        "id": "411",
+        "text": "Hago valientemente consciente mi mundo inconsciente para decidir sobre mi vida sin llamarle triste cruel fatalidad.",
+        "author": "Carl Jung",
+        "category": "Libre Albedrío"
+    },
+    {
+        "id": "412",
+        "text": "Rescato valientemente y con un gran pacífico amor la poderosa brillante inmensa luz inagotable en medio del duro caos.",
+        "author": "Carl Jung",
+        "category": "Esperanza"
+    },
+    {
+        "id": "413",
+        "text": "Mi mito interno personal único grandioso y sagrado puro brillante y tierno y libre e inmenso merece profundamente s...",
+        "author": "Carl Jung",
+        "category": "Vocación"
+    },
+    {
+        "id": "414",
+        "text": "Ningún hermoso y frondoso precioso gran poderoso majestuoso árbol puede subir al cielo sin antes sanar e ir al infierno.",
+        "author": "Carl Jung",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "415",
+        "text": "Me sumerjo sereno valiente compasivo y pacífico libre sanadoramente hacia adentro. Lloro, dejo ir y suelto hoy.",
+        "author": "Carl Jung",
+        "category": "Purificación"
+    },
+    {
+        "id": "416",
+        "text": "Soy un antiguo hermoso ser milagrosamente dotado con maravillosas mágicas deslumbrantes asombrosas grandes energías.",
+        "author": "Carl Jung",
+        "category": "Poder"
     }
 ];
 
