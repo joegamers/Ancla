@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SettingsModal, ZenToast, AffirmationOverlay, Onboarding } from './components';
+import { SettingsModal, ZenToast, AffirmationOverlay, Onboarding, SupportModal } from './components';
 import { ZenBackground } from './components/ZenBackground';
 import { affirmationEngine } from './services/AffirmationEngine';
 import { shareAffirmation } from './services/ShareService';
@@ -25,6 +25,7 @@ function App() {
   } = useStore();
 
   const [showSettings, setShowSettings] = useState(false);
+  const [showSupportModal, setShowSupportModal] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(!hasCompletedOnboarding);
 
@@ -282,15 +283,13 @@ function App() {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex flex-col items-center gap-1.5"
             >
-              <a
-                href="https://ko-fi.com/joegamersdev"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setShowSupportModal(true)}
                 className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-[10px] uppercase tracking-[0.1em] font-semibold"
               >
                 <Coffee size={12} />
                 Apoya este proyecto
-              </a>
+              </button>
               <p className="text-[8px] text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block">
                 Desarrollado por JoeGamers Dev
               </p>
@@ -302,6 +301,9 @@ function App() {
 
       {/* Settings Modal */}
       <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} />
+
+      {/* Support Modal */}
+      <SupportModal isOpen={showSupportModal} onClose={() => setShowSupportModal(false)} />
 
       {/* Notification tap overlay */}
       <AnimatePresence>
