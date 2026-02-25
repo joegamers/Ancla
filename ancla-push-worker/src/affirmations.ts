@@ -869,6 +869,216 @@ const affirmations: Affirmation[] = [
         "text": "No me apoyaré solo en mi propia prudencia; reconozco la guía superior en todos mis caminos.",
         "author": "Proverbios 3:5-6",
         "category": "Paz Mental"
+    },
+    {
+        "id": "143",
+        "text": "El centro de mi poder siempre está en el momento presente. — Elijo tomar el control de mi vida aquí y ahora.",
+        "author": "Louise Hay",
+        "category": "Poder"
+    },
+    {
+        "id": "144",
+        "text": "La vida siempre me apoya incondicionalmente. — Confío en que cada experiencia me brinda justo lo que necesito aprender.",
+        "author": "Louise Hay",
+        "category": "Confianza"
+    },
+    {
+        "id": "145",
+        "text": "Cuanto más me apruebo, mayores son los milagros en mi vida. — Dejo de criticarme y abrazo completamente quien soy.",
+        "author": "Louise Hay",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "146",
+        "text": "Las creencias son solo pensamientos, y los pensamientos se pueden cambiar. — Elijo instalar nuevos circuitos de éxito.",
+        "author": "Louise Hay",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "147",
+        "text": "Ninguna persona, lugar o cosa tiene poder sobre mí. — Yo soy el único pensador en mi mente y reclamo mi libertad.",
+        "author": "Louise Hay",
+        "category": "Libertad"
+    },
+    {
+        "id": "148",
+        "text": "Me desprendo de la necesidad de culpar. — Reconozco que la culpa solo me ata al pasado; elijo la sanación del presente.",
+        "author": "Louise Hay",
+        "category": "Perdón"
+    },
+    {
+        "id": "149",
+        "text": "Las puertas de mi corazón están abiertas al amor divino. — Me permito recibir afecto puro y me libero de barreras.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "150",
+        "text": "En la infinitud de la vida donde me encuentro, todo es perfecto. — Me relajo sabiendo que mi camino es sagrado.",
+        "author": "Louise Hay",
+        "category": "Paz"
+    },
+    {
+        "id": "151",
+        "text": "Me gano mi propio respeto al honrar mis propias decisiones. — Hoy me comprometo a ser fiel a mí mismo ante todo.",
+        "author": "Louise Hay",
+        "category": "Autoestima"
+    },
+    {
+        "id": "152",
+        "text": "El universo es inmensamente abundante. — Acepto mi riqueza innata y me abro a recibir prosperidad sin límite alguno.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "153",
+        "text": "Mis ingresos aumentan constantemente mientras yo me relajo. — Confío en que la vida me provee con gracia.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "154",
+        "text": "Mi voz interior es mi guía más sabia. — Apago el ruido externo, sintonizo mi intuición y actúo con absoluta certeza.",
+        "author": "Louise Hay",
+        "category": "Intuición"
+    },
+    {
+        "id": "155",
+        "text": "Soy digno de poseer lo que deseo. — No necesito ganarme el amor o la alegría; nací con el derecho a experimentarlos.",
+        "author": "Louise Hay",
+        "category": "Valor"
+    },
+    {
+        "id": "156",
+        "text": "Estoy seguro soltando el control absoluto. — Me entrego al río de la vida, sabiendo que me llevará a un lugar hermoso.",
+        "author": "Louise Hay",
+        "category": "Entrega"
+    },
+    {
+        "id": "157",
+        "text": "Hoy irradio pura energía creativa. — Mi niño interior está a salvo libre para imaginar, jugar y manifestar nuevas ideas.",
+        "author": "Louise Hay",
+        "category": "Creatividad"
+    },
+    {
+        "id": "158",
+        "text": "El universo fluye a través de mí con gracia. — Me abro a recibir todas las bendiciones que están destinadas para mí.",
+        "author": "Louise Hay",
+        "category": "Abundancia"
+    },
+    {
+        "id": "159",
+        "text": "Mi cuerpo es un templo sagrado y perfecto. — Elijo los pensamientos que me llenan de salud, vitalidad y pura energía.",
+        "author": "Louise Hay",
+        "category": "Salud"
+    },
+    {
+        "id": "160",
+        "text": "Suelto cualquier tipo de resistencia. — Aprendo a fluir armónicamente con la corriente de la vida sin oponerme a ella.",
+        "author": "Louise Hay",
+        "category": "Entrega"
+    },
+    {
+        "id": "161",
+        "text": "El pasado no tiene poder absoluto sobre mí. — Yo reclamo mi autoridad divina para crear libremente un nuevo mañana.",
+        "author": "Louise Hay",
+        "category": "Poder"
+    },
+    {
+        "id": "162",
+        "text": "Cada pensamiento que tengo crea activamente mi futuro. — Guío mi mente hacia la positividad y forjo luz para mí.",
+        "author": "Louise Hay",
+        "category": "Responsabilidad"
+    },
+    {
+        "id": "163",
+        "text": "Me desprendo suavemente de las críticas internas. — Reconozco que soy un ser en crecimiento digno de amor infinito.",
+        "author": "Louise Hay",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "164",
+        "text": "Mi espíritu siempre se siente a salvo y en paz. — Todo está bien en el universo que habito; no tengo nada que temer.",
+        "author": "Louise Hay",
+        "category": "Seguridad"
+    },
+    {
+        "id": "165",
+        "text": "Perdonar me sana más a mí que a los demás. — Libero el dolor del pasado y regreso pacíficamente a la serenidad.",
+        "author": "Louise Hay",
+        "category": "Perdón"
+    },
+    {
+        "id": "166",
+        "text": "La salud es el estado natural de mi cuerpo. — Permito que la armonía divina restaure cada célula de mi propio ser.",
+        "author": "Louise Hay",
+        "category": "Sanación"
+    },
+    {
+        "id": "167",
+        "text": "No hay problema demasiado grande para mí. — Mi intuición siempre me guía hacia las soluciones y repuestas correctas.",
+        "author": "Louise Hay",
+        "category": "Intuición"
+    },
+    {
+        "id": "168",
+        "text": "Mi voz interior está llena de profunda compasión. — Hoy elijo escuchar la parte de mí que solo sabe darme amor.",
+        "author": "Louise Hay",
+        "category": "Amor"
+    },
+    {
+        "id": "169",
+        "text": "El miedo es solo un hábito de pensamiento viejo. — Lo abandono con valentía y decido vivir enfocado en la esperanza.",
+        "author": "Louise Hay",
+        "category": "Confianza"
+    },
+    {
+        "id": "170",
+        "text": "Soy profundamente agradecido por mi vida entera. — Cada minuto es una nueva oportunidad para agradecer la existencia.",
+        "author": "Louise Hay",
+        "category": "Gratitud"
+    },
+    {
+        "id": "171",
+        "text": "Toda experiencia trae consigo una valiosa joya. — Miro atentamente los obstáculos sabiendo que esconden grandes regalos.",
+        "author": "Louise Hay",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "172",
+        "text": "No necesito ser perfecto para tener valor. — Me apruebo incondicionalmente exactamente como soy en este preciso momento.",
+        "author": "Louise Hay",
+        "category": "Autoestima"
+    },
+    {
+        "id": "173",
+        "text": "Todo lo que aporto a la vida me es devuelto. — Por eso decido actuar y regalar únicamente compasión, paz y luz.",
+        "author": "Louise Hay",
+        "category": "Paz"
+    },
+    {
+        "id": "174",
+        "text": "El éxito no es una meta distante; es mi estado natural. — Logro mis objetivos porque confío plenamente en mi camino.",
+        "author": "Louise Hay",
+        "category": "Éxito"
+    },
+    {
+        "id": "175",
+        "text": "Mi niño interior merece ser escuchado y consolado. — Le ofrezco toda mi ternura, paciencia y protección hoy y siempre.",
+        "author": "Louise Hay",
+        "category": "Amor Propio"
+    },
+    {
+        "id": "176",
+        "text": "Acepto recibir ayuda cuando la necesito verdaderamente. — Abro los brazos para que otros llenen mi vida de luz profunda.",
+        "author": "Louise Hay",
+        "category": "Comunidad"
+    },
+    {
+        "id": "177",
+        "text": "Soy el autor, el director y escritor de mi propio guion. — Mi poder personal es innegable y mi potencial es inmenso.",
+        "author": "Louise Hay",
+        "category": "Poder"
     }
 ];
 

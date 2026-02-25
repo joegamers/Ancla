@@ -42,6 +42,19 @@ for (let item of finalItems) {
 // Write the combined and clean array back to the main JSON file
 fs.writeFileSync(baseFile, JSON.stringify(cleanItems, null, 2));
 
+// Validation: Ensure no affirmation is too long for push notifications
+const maxLength = 120;
+const longAffirmations = cleanItems.filter(item => item.text.length > maxLength);
+
+if (longAffirmations.length > 0) {
+    console.error(`\u001b[31mERROR: Found ${longAffirmations.length} affirmations exceeding ${maxLength} characters limit for Push Notifications.\u001b[0m`);
+    longAffirmations.forEach(item => {
+        console.error(`- ID ${item.id} (${item.text.length} chars): ${item.text.substring(0, 50)}...`);
+    });
+    console.error('\u001b[31mPlease shorten them in affirmations.json before syncing again.\u001b[0m');
+    process.exit(1);
+}
+
 // Delete the temporary batches
 for (const batch of batches) {
     const batchPath = path.join(__dirname, batch);
