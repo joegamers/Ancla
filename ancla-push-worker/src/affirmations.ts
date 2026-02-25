@@ -50,891 +50,567 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "6",
-        "text": "Suelto la necesidad de saber exactamente qué pasará en el futuro.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "7",
-        "text": "Mi respiración es mi ancla.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "8",
-        "text": "No tengo que solucionar todos mis problemas hoy. Me doy permiso de descansar la mente hasta mañana.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "9",
-        "text": "Este sentimiento de urgencia no es real. Tengo tiempo, tengo espacio, y estoy protegido.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "10",
-        "text": "Elijo reemplazar la palabra \"Y si...\" por \"Incluso si pasa, podré con ello\". Confío en mi resiliencia.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "11",
-        "text": "No soy mis pensamientos acelerados.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "12",
-        "text": "Pongo mi mano en el corazón y siento sus latidos.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "13",
-        "text": "Acepto la incertidumbre.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "14",
         "text": "La única salida es a través — Tengo el coraje de enfrentar esta situación; confío plenamente en mi capacidad para superarla paso a paso.",
         "author": "Robert Frost",
         "category": "Estrés"
     },
     {
-        "id": "15",
+        "id": "7",
         "text": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar. — Hoy elijo soltar mi carga de estrés, permitiéndome un genuino descanso.",
         "author": "Mateo 11:28",
         "category": "Estrés"
     },
     {
-        "id": "16",
+        "id": "8",
         "text": "Puedo tolerar la incomodidad. — Me recuerdo a mí mismo que esta situación es incómoda y cansada, pero no es insoportable; yo soy más grande que el estrés.",
         "author": "Albert Ellis",
         "category": "Estrés"
     },
     {
-        "id": "17",
-        "text": "Suelto lo que no puedo controlar.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "18",
-        "text": "Tengo derecho a decir \"no\" sin sentir culpa. Mi tiempo y mi energía me pertenecen a mí en primer lugar.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "19",
-        "text": "Inhalo calma, exhalo presión. Todo lo que debo hacer se irá resolviendo a su debido ritmo perfecto.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "20",
-        "text": "Me doy permiso de hacer pausas.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "21",
-        "text": "Ninguna tarea, por urgente que parezca, es más importante que mi salud mental y mi equilibrio interior.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "22",
-        "text": "Desacelero mi ritmo a propósito. Camino con calma, hablo con calma, respiro con calma.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "23",
-        "text": "Puedo manejar grandes presiones manteniendo mi centro. Yo soy una roca en medio del río.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "24",
-        "text": "Al final del día, lo hice lo mejor que pude con los recursos que tenía. Y eso es completamente suficiente.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "25",
-        "text": "El perfeccionismo es sólo miedo. Hoy elijo la paz por encima de ser perfecto en todo.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "26",
+        "id": "9",
         "text": "Eres más fuerte de lo que crees. — Activo mi fuerza interior inagotable; reconozco que soy capaz de transformar cualquier obstáculo en un peldaño hacia mi éxito.",
         "author": "Marco Aurelio",
         "category": "Motivación"
     },
     {
-        "id": "27",
+        "id": "10",
         "text": "Todo lo puedo en Cristo que me fortalece. — Siento cómo una energía superior a mí inunda cada célula, dándome la fortaleza absoluta para continuar hoy con éxito.",
         "author": "Filipenses 4:13",
         "category": "Motivación"
     },
     {
-        "id": "28",
+        "id": "11",
         "text": "Los que esperan a Jehová tendrán nuevas fuerzas. — Siento cómo mi agotamiento desaparece; hoy renuevo mis alas y mi vitalidad se restaura al 100%.",
         "author": "Isaías 40:31",
         "category": "Motivación"
     },
     {
-        "id": "29",
+        "id": "12",
         "text": "El que al viento observa, no sembrará. — Dejo de esperar el momento perfecto; hoy arranco motores y actúo a pesar de no ver todo el panorama completo.",
         "author": "Eclesiastés 11:4",
         "category": "Motivación"
     },
     {
-        "id": "30",
-        "text": "Tengo todo lo que necesito dentro de mí para crear la vida que sueño. Cada paso cuenta.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "31",
-        "text": "Yo soy el arquitecto de mi propio éxito y felicidad. Hoy diseño un día maravillosamente productivo.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "32",
-        "text": "Mi potencial es ilimitado. Las dudas solo están en mi mente, pero mi capacidad reside en mi acción constante.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "33",
-        "text": "Elijo levantarme después de cada caída con más sabiduría. Mis fracasos son mi mejor entrenamiento.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "34",
-        "text": "Hoy me comprometo con el proceso más que con el resultado. Disfruto el pequeño avance de hoy.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "35",
-        "text": "La resistencia que siento es la confirmación perfecta de que estoy a punto de avanzar al siguiente nivel.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "36",
-        "text": "Me niego a conformarme con menos de lo que merezco. Hoy exijo grandeza en mí y en todo lo que hago.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "37",
+        "id": "13",
         "text": "No busques que los eventos sucedan como quieres. — Yo renuncio a forzar las cosas; en su lugar, afino mi mente aguda para fluir y adaptarme perfectamente a cualquier situación.",
         "author": "Epicteto",
         "category": "Enfoque"
     },
     {
-        "id": "38",
+        "id": "14",
         "text": "Puestos los ojos en Jesús. — Mi enfoque decide mi destino. Corto toda distracción; mantengo mis ojos clavados en mis objetivos más altos de hoy con láser y disciplina.",
         "author": "Hebreos 12:2",
         "category": "Enfoque"
     },
     {
-        "id": "39",
-        "text": "Mi mente es cristalina, aguda y enfocada. Nada exterior tiene permiso para desviar mi atención hoy.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "40",
-        "text": "Priorizo implacablemente. Me enfoco solo en el 20% de tareas que traerán el 80% de mis resultados.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "41",
-        "text": "Mi concentración es como un rayo láser curativo.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "42",
-        "text": "Tengo control total sobre dónde dirijo mi atención.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "43",
-        "text": "Realizo una tarea a la vez con total devoción y presencia. Dejo ir la trampa del multitasking.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "44",
+        "id": "15",
         "text": "Acepta lo que no puedes cambiar y cambia lo que no puedes aceptar. — Tengo la sabiduría absoluta para diferenciar entre ambas cosas; fluyo como el agua con lo que está fuera de mi control.",
         "author": "Reinhold Niebuhr",
         "category": "Calma"
     },
     {
-        "id": "45",
+        "id": "16",
         "text": "Lo que resistes, persiste. — Hoy observo el mundo fluir sin juzgar o luchar. Elijo la profunda liberación de aceptar mi realidad en este momento sin intentar moldearla agresivamente a la fuerza.",
         "author": "Carl Jung",
         "category": "Calma"
     },
     {
-        "id": "46",
+        "id": "17",
         "text": "Cada respiración es una oportunidad de empezar de nuevo. — Me permito perdonarme lo que sucedió hace un segundo, limpio el lienzo, y reinicio mi ciclo de profunda paz vital desde este respiro consciente y profundo.",
         "author": "Thich Nhat Hanh",
         "category": "Calma"
     },
     {
-        "id": "47",
-        "text": "Mi calma interior es inviolable. Todo el ruido del mundo exterior se detiene en las puertas de mi mente.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "48",
-        "text": "Exhalo lentamente, soltando cada expectativa.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "49",
-        "text": "No necesito reaccionar a nada.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "50",
-        "text": "Estoy arraigado a la tierra.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "51",
-        "text": "El silencio no me incomoda; es el hogar de mi mente. Hoy decido abrazar la ausencia de ruido con gratitud.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "52",
+        "id": "18",
         "text": "Estoy dispuesto a cambiar y a crecer. — Abro los brazos enteramente a mi transformación; reconozco fascinado que la expansión de mi ser está perfectamente bien cuidada dentro de mi propia consciencia.",
         "author": "Louise Hay",
         "category": "Crecimiento"
     },
     {
-        "id": "53",
+        "id": "19",
         "text": "Todo está bien cuando cometo una equivocación. — Considero la posibilidad liberadora de equivocarme; los errores no son más que datos invaluables para perfeccionar mi incesante progreso.",
         "author": "Louise Hay",
         "category": "Crecimiento"
     },
     {
-        "id": "54",
+        "id": "20",
         "text": "He aquí, yo hago nuevas todas las cosas. — Siento la continua regeneración; cada amanecer decodifica un nuevo inicio ilimitado para hacer las cosas mejor que en el ayer.",
         "author": "Apocalipsis 21:5",
         "category": "Crecimiento"
     },
     {
-        "id": "55",
+        "id": "21",
         "text": "El fracaso no es una identidad, es un evento. — Hoy decido retirar la pesada etiqueta del fracaso, reciclándolo ágilmente en retroalimentación objetiva que cataliza el crecimiento rotundo de mis habilidades.",
         "author": "Carol Dweck",
         "category": "Crecimiento"
     },
     {
-        "id": "56",
-        "text": "Veo la resiliencia fluir abundantemente.",
-        "author": "Ancla",
-        "category": "Crecimiento"
-    },
-    {
-        "id": "57",
-        "text": "Mis raíces persisten creciendo día con día en lo frondoso de lo profundo.",
-        "author": "Ancla",
-        "category": "Crecimiento"
-    },
-    {
-        "id": "58",
-        "text": "Me fascina absorber nuevos aprendizajes.",
-        "author": "Ancla",
-        "category": "Crecimiento"
-    },
-    {
-        "id": "59",
+        "id": "22",
         "text": "Me siento seguro y a salvo. — Hoy ordeno voluntariamente retirar toda la rigidez guardada; libero la zozobra imaginaria y declaro la paz total decretando estar fuera de peligro en mi universo protector.",
         "author": "Louise Hay",
         "category": "Seguridad"
     },
     {
-        "id": "60",
+        "id": "23",
         "text": "Me amo y me apruebo tal como soy. — Rechazo esperar con ansia cumplir un ideal ficticio; aprecio con inmensa devoción las complejas características exclusivas de mi propio ser hoy.",
         "author": "Louise Hay",
         "category": "Amor Propio"
     },
     {
-        "id": "61",
+        "id": "24",
         "text": "No temas, porque yo estoy contigo. — Experimento una muralla espiritual rodeándome que blinda con fuerza, silenciando completamente la estática incesante del ruido caótico exterior.",
         "author": "Isaías 41:10",
         "category": "Seguridad"
     },
     {
-        "id": "62",
+        "id": "25",
         "text": "Ama a tu prójimo como a ti mismo. — Me autorizo irrevocablemente darme exactamente la misma prioridad inmensa y comprensión delicada que heroicamente y con desvelo entrego a los que quiero.",
         "author": "Marcos 12:31",
         "category": "Amor Propio"
     },
     {
-        "id": "63",
+        "id": "26",
         "text": "Soy suficiente tal como soy en este momento. — Desmonto mis corazas asumiendo y manifestando purísima suficiencia vital divina que resplandece constante e incansablemente en mi ser.",
         "author": "Brené Brown",
         "category": "Amor Propio"
     },
     {
-        "id": "64",
-        "text": "Extiendo infinitas banderas de la más alta compasión, especialmente para mis días frágiles.",
-        "author": "Ancla",
-        "category": "Amor Propio"
-    },
-    {
-        "id": "65",
+        "id": "27",
         "text": "Todo lo que necesito saber se me revela. — Mantengo atentas mis antenas místicas limpiando el cristal borroso temporal desvaneciendo dudas angustiosas sabiendo infaliblemente ser guiado.",
         "author": "Louise Hay",
         "category": "Revelación"
     },
     {
-        "id": "66",
+        "id": "28",
         "text": "El pasado ha terminado. — Clavo estacas atrincherándome anclado glorioso en el único fragmento vital de inmaculado tiempo divino transpirado que titila incandescente: Este presente eterno.",
         "author": "Louise Hay",
         "category": "Presencia"
     },
     {
-        "id": "67",
+        "id": "29",
         "text": "El momento presente es el único que existe. — Aniquilo proyecciones torturosas del espejismo de ayer o mañana, disolviendo tiempos paralelos para fundirme en pura paz aquí.",
         "author": "Eckhart Tolle",
         "category": "Presencia"
     },
     {
-        "id": "68",
+        "id": "30",
         "text": "Estoy dispuesto a curarme. — Consiento la cicatrización profunda bañado con ungüento colosal del olvido sano redentor y la inyección cálida milagrosa de purísima inmunológica restitución sanada.",
         "author": "Louise Hay",
         "category": "Sanación"
     },
     {
-        "id": "69",
+        "id": "31",
         "text": "Estoy dispuesto a perdonar. — Destruyo rejas asfixiantes desmantelando prisiones lúgubres rancios inmensos rencores; disuelvo ataduras concediendo el indulto sublime heroico al otro para regalarme inmensa paz total en plácida libertad celestial.",
         "author": "Louise Hay",
         "category": "Perdón"
     },
     {
-        "id": "70",
+        "id": "32",
         "text": "Tengo el poder de ser instrumento de sanación. — Declaro fluida catarata vigorosa celestial derramándose milagrosa en conductos regenerando células cansadas para que se renueven en salud robusta.",
         "author": "Mateo 10:8",
         "category": "Sanación"
     },
     {
-        "id": "71",
+        "id": "33",
         "text": "Perdona setenta veces siete. — Entiendo místico que absueltos colosos indultos repetidamente me erigen majestuoso altísimo intocable por viles espinas evaporadas totalmente en purísima paz.",
         "author": "Mateo 18:22",
         "category": "Perdón"
     },
     {
-        "id": "72",
+        "id": "34",
         "text": "Estoy abierto a recibir toda la abundancia del universo. — Exijo colosales bendiciones desmesuradas inmensas lluvias en avalancha espectacular descendida majestuosa hacia mi alma inmensurablemente opulenta.",
         "author": "Louise Hay",
         "category": "Abundancia"
     },
     {
-        "id": "73",
+        "id": "35",
         "text": "El Señor es mi pastor, nada me faltará. — Repudio la farsa lúgubre escasez ficticia abrazando exuberantes lianas providenciales entrelazadas surfeadas inmaculadas en caudal inagotable radiante asegurado perpetuo.",
         "author": "Salmos 23:1",
         "category": "Abundancia"
     },
     {
-        "id": "74",
+        "id": "36",
         "text": "Dad gracias en todo. — Mapeo minuciosa todo humilde respiro bendecido transformando instantes majestuosos rotundamente en un oro multiplicador cósmico inmenso agradecido para mi alma magnética.",
         "author": "1 Tesalonicenses 5:18",
         "category": "Gratitud"
     },
     {
-        "id": "75",
+        "id": "37",
         "text": "La paz os dejo, mi paz os doy. — Absorbo magnéticamente la monumental infinita serenidad suprema; decreto el aplacamiento unificado y majestuoso colosal acallando inmensa bulliciosa mundanidad.",
         "author": "Juan 14:27",
         "category": "Paz"
     },
     {
-        "id": "76",
+        "id": "38",
         "text": "El gozo del Señor es mi fortaleza. — Mi dicha espiritual se convierte majestuosamente en armadura inquebrantable escudara contra grises letargos aplastantes, refulgiendo rotunda en plácida eternidad inmensa radiante sonora.",
         "author": "Nehemías 8:10",
         "category": "Alegría"
     },
     {
-        "id": "77",
-        "text": "Entiendo que el pánico es solo adrenalina intentando escapar.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "78",
-        "text": "Mi cuerpo sabe cómo volver al equilibrio por sí mismo. Le doy permiso para relajarse a su propio ritmo.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "79",
-        "text": "La ansiedad se alimenta de mis suposiciones futuras.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "80",
-        "text": "He sobrevivido al 100% de mis peores días. Hoy no será la excepción; confío en mi infinita resiliencia.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "81",
-        "text": "El latido rápido de mi corazón solo significa que estoy vivo. Acaricio mi pecho con suavidad y le susurro paz.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "82",
-        "text": "No necesito tener todas las respuestas ahora mismo.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "83",
-        "text": "Lo peor rara vez sucede. Me libero del hábito de ensayar tragedias en mi mente.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "84",
-        "text": "Me perdono por sentir miedo. Es de humanos asustarse, y yo me trato con infinita ternura en mis días grises.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "85",
-        "text": "Reemplazo el '¿Qué pasaría si...?' con 'Pase lo que pase, seré capaz de afrontarlo y superarlo'.",
-        "author": "Ancla",
-        "category": "Ansiedad"
-    },
-    {
-        "id": "86",
-        "text": "Bajo la velocidad deliberadamente.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "87",
-        "text": "Ninguna urgencia laboral vale mi paz mental. Priorizo mi salud hoy y siempre.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "88",
-        "text": "Tengo permiso incondicional para desconectarme. Mi descanso es una necesidad biológica sagrada, no un premio.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "89",
-        "text": "Suelto los hombros, relajo la mandíbula, y separo la lengua del paladar. Dejo que la gravedad haga su trabajo.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "90",
-        "text": "Cada límite que marco es un poderoso acto de amor hacia mí mismo. Digo 'no' para decirme 'sí' a mí.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "91",
-        "text": "Hice lo mejor que pude con los recursos y la energía que tenía hoy. Estoy en paz con lo que quedó pendiente.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "92",
-        "text": "La prisa es una ilusión.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "93",
-        "text": "Me desprendo del perfeccionismo tóxico. Me celebro por intentar, no por alcanzar el ideal inexistente.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "94",
-        "text": "Visualizo cómo el estrés de mi cuerpo baja por mis piernas y se descarga en la profundidad de la tierra.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "95",
-        "text": "Me niego a participar en la cultura de presionar hasta enfermar. Yo lidero desde el balance y el bienestar.",
-        "author": "Ancla",
-        "category": "Estrés"
-    },
-    {
-        "id": "96",
-        "text": "Tengo fuego en mis venas y propósito en mi corazón. Ningún revés temporal apagará mi profunda convicción.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "97",
-        "text": "Declaro finalizada la espera: hoy es mi momento. Doy el primer pequeño paso y el camino se abrirá solo.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "98",
-        "text": "La disciplina pesa onzas, el arrepentimiento pesa toneladas. Hoy elijo la victoria de cumplir mis promesas.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "99",
-        "text": "Transformo mi pereza en curiosidad. ¿Qué pasaría hoy si diera lo mejor de mí, solo por hoy?",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "100",
-        "text": "Tengo talentos inmensos esperando ser usados.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "101",
-        "text": "Los obstáculos en mi camino no son bloqueos, son escalones hacia niveles más altos de grandeza y sabiduría.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "102",
-        "text": "Celebro cada pequeño triunfo con inmensa gratitud. Avanzar así sea un uno por ciento es un gran avance.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "103",
-        "text": "Rechazo conformarme con la mediocridad en cualquier área de mi vida. Me exijo con respeto e inmenso amor.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "104",
-        "text": "Siento cómo un manantial inagotable de vitalidad se activa dentro de mí.",
-        "author": "Ancla",
-        "category": "Motivación"
-    },
-    {
-        "id": "105",
-        "text": "Corto todos mis miedos con el bisturí de mi enfoque absoluto. Solo importa el aquí y el ahora, paso a paso.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "106",
-        "text": "Mi mente es aguda y afilada como una espada maestra.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "107",
-        "text": "Elijo desconectar de las irrelevancias masivas. Dedico mis horas pico a lo verdaderamente trascendente.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "108",
-        "text": "Retiro el permiso que le he dado a los demás para robar mi atención.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "109",
-        "text": "Ejecuto una sola tarea monumental en este momento.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "110",
-        "text": "Soy invulnerable al ruido exterior. Me rodeo de un capullo sagrado de máximo rendimiento cognitivo constante.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "111",
-        "text": "Apago todas las alarmas virtuales del mundo.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "112",
-        "text": "Cedo gratamente a la rotunda paz y quietud magnética.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "113",
-        "text": "Me colmo con profundos inmensos sosegados silencios.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "114",
-        "text": "Absolutamente nada es tan desesperanzador como el laberinto imaginario turbulento desarticulado.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "115",
-        "text": "No importa cuán oscuras o tenebrosamente profundas se sintieran las tumbas sofocantes.",
-        "author": "Ancla",
-        "category": "Crecimiento"
-    },
-    {
-        "id": "116",
-        "text": "Rechazo radicalmente creerme o admitir que he llegado a un techo asfixiante tope paralizado.",
-        "author": "Ancla",
-        "category": "Crecimiento"
-    },
-    {
-        "id": "117",
-        "text": "Todo se está reescribiendo continuamente colosal.",
-        "author": "Ancla",
-        "category": "Crecimiento"
-    },
-    {
-        "id": "118",
-        "text": "Tomo mis manos, palpo la textura heroica sanada fuerte en mi rostro invicto.",
-        "author": "Ancla",
-        "category": "Amor Propio"
-    },
-    {
-        "id": "119",
-        "text": "Disuelvo cualquier temor a la carencia.",
-        "author": "Ancla",
-        "category": "Abundancia"
-    },
-    {
-        "id": "120",
-        "text": "Hecho fuera de mi psique los limitadores envenenados que frenan mi éxito grandioso y glorioso.",
-        "author": "Ancla",
-        "category": "Abundancia"
-    },
-    {
-        "id": "121",
-        "text": "Hoy doy gracias por mi propia existencia.",
-        "author": "Ancla",
-        "category": "Gratitud"
-    },
-    {
-        "id": "122",
+        "id": "39",
         "text": "«Yo soy la luna en el agua». — Comprendo que los acontecimientos externos solo son reflejos pasajeros; dejo de alterar mi superficie y me sumerjo profundo hacia el núcleo sólido colosal incólume intocable invulnerable pacificador resguardando resiliencia viva.",
         "author": "Proverbio Zen",
         "category": "Presencia"
     },
     {
-        "id": "123",
+        "id": "40",
         "text": "«Cuando sabes qué quieres enseñarle al cerebro, le indicas cómo cablearse a sí mismo». — Asumo el mando absoluto de mi plasticidad rotunda divina; instalo pacíficas asombrosas redes constructivas poderosísimas liberándome de miedos anclados destructivos pasados envenenados carentes tóxicos lúgubres.",
         "author": "Joe Dispenza",
         "category": "Crecimiento"
     },
     {
-        "id": "124",
+        "id": "41",
         "text": "«El miedo a menudo es nuestro radar a lo que necesitamos hacer». — No huyo de la perturbación, al contrario heroico me encamino hacia la cima resplandeciente del reto para conquistarlo todo majestuosamente desmantelando sombras lúgubres asustadas.",
         "author": "Ryan Holiday",
         "category": "Confianza"
     },
     {
-        "id": "125",
+        "id": "42",
         "text": "«Si estás deprimido, vives en el pasado; si estás ansioso vives en el futuro; si estás en paz vives en el presente». — Destruyo tajantemente amarras nostalgias; huyo de ansiedades crónicas; habito maravillosamente viviente deslumbrante este minúsculo divino asombroso presente resguardado.",
         "author": "Lao Tse",
         "category": "Paz"
     },
     {
-        "id": "126",
+        "id": "43",
         "text": "«Tú no eres la gota en el océano; eres el océano entero en una gota». — Rechazo mi supuesta miseria humilde pequeñez de abandono asfixiante carente; y acojo en majestuosidad mi divinidad colosal resplandeciente gigantesca y estelar inmensamente unida unívoca universal asombrosa abrumadoramente espléndida e invulnerable divina majestuosidad resplandeciente rotunda.",
         "author": "Rumi",
         "category": "Amor Propio"
     },
     {
-        "id": "127",
-        "text": "Rechazo conformarme con la mediocridad en cualquier área de mi vida.",
-        "author": "Ancla",
-        "category": "Motivación"
+        "id": "44",
+        "text": "Mi respiración es el puente que me conecta con la vida y la conciencia en este momento.",
+        "author": "Thich Nhat Hanh",
+        "category": "Paz Mental"
     },
     {
-        "id": "128",
-        "text": "Soy invulnerable al ruido exterior destructivo.",
-        "author": "Ancla",
-        "category": "Enfoque"
-    },
-    {
-        "id": "129",
-        "text": "Todo se está reescribiendo de manera gigantesca cósmica y milagrosamente.",
-        "author": "Ancla",
+        "id": "45",
+        "text": "Para que las cosas se revelen, elijo estar listo para abandonar mis puntos de vista tradicionales.",
+        "author": "Thich Nhat Hanh",
         "category": "Crecimiento"
     },
     {
-        "id": "130",
-        "text": "Escudo mágicamente cada minúscula duda instilada asfixiante tóxica.",
-        "author": "Ancla",
-        "category": "Protección"
-    },
-    {
-        "id": "131",
-        "text": "Renuncio dócilmente a reaccionar a la desesperación.",
-        "author": "Ancla",
-        "category": "Calma"
-    },
-    {
-        "id": "132",
-        "text": "Inhalo suavemente paz colosal y serena confianza, exhalo tensa vibración ansiosa oscura tóxica.",
-        "author": "Ancla",
+        "id": "46",
+        "text": "Sonrío a la nube gris dentro de mí; reconozco mi dolor sin que me defina.",
+        "author": "Thich Nhat Hanh",
         "category": "Ansiedad"
     },
     {
-        "id": "133",
-        "text": "Inundo mi existencia milagrosa de heroica invencible deslumbradora paz.",
-        "author": "Ancla",
-        "category": "Paz"
+        "id": "47",
+        "text": "Bebo mi té despacio y con reverencia, como si este acto fuera el eje sobre el que gira el mundo.",
+        "author": "Thich Nhat Hanh",
+        "category": "Paz Mental"
     },
     {
-        "id": "134",
-        "text": "Mis maravillosas entrañas confían en mí.",
-        "author": "Ancla",
-        "category": "Sanación"
+        "id": "48",
+        "text": "No puedo detener las olas de la vida, pero elijo aprender a surfearlas.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Crecimiento"
     },
     {
-        "id": "135",
-        "text": "Hoy resido en un paraíso eterno interior, invulnerable al bullicio, al ataque sutil y a la confusión opaca.",
-        "author": "Ancla",
-        "category": "Paz"
-    },
-    {
-        "id": "136",
-        "text": "Acojo la calma sedante pura.",
-        "author": "Ancla",
-        "category": "Relajación"
-    },
-    {
-        "id": "137",
-        "text": "Confío plenamente en la infinita inteligencia de mi cuerpo.",
-        "author": "Ancla",
+        "id": "49",
+        "text": "Me permito estar plenamente donde estoy, abrazando este instante por completo.",
+        "author": "Jon Kabat-Zinn",
         "category": "Ansiedad"
     },
     {
-        "id": "138",
-        "text": "Exijo a mis propios miedos que retrocedan.",
-        "author": "Ancla",
-        "category": "Estrés"
+        "id": "50",
+        "text": "Reconozco profundamente que el momento presente es lo único que tengo.",
+        "author": "Eckhart Tolle",
+        "category": "Paz Mental"
     },
     {
-        "id": "139",
-        "text": "El verdadero descanso es un acto de amor innegociable.",
-        "author": "Ancla",
-        "category": "Estrés"
+        "id": "51",
+        "text": "Cualquier cosa que el momento presente contenga, elijo aceptarla como si yo mismo la hubiera elegido.",
+        "author": "Eckhart Tolle",
+        "category": "Paz Mental"
     },
     {
-        "id": "140",
-        "text": "Transformo en aire cada exigencia asfixiante tóxica.",
-        "author": "Ancla",
-        "category": "Estrés"
+        "id": "52",
+        "text": "No me preocupo por el futuro; encuentro mi fuerza en lidiar con el ahora.",
+        "author": "Eckhart Tolle",
+        "category": "Ansiedad"
     },
     {
-        "id": "141",
-        "text": "Destrozo todo muro paralizante impuesto.",
-        "author": "Ancla",
-        "category": "Motivación"
+        "id": "53",
+        "text": "Dejo ir mi resistencia interna; la paz fluye cuando dejo de pelear con lo que es.",
+        "author": "Eckhart Tolle",
+        "category": "Dormir"
     },
     {
-        "id": "142",
-        "text": "Acumulo sabidurías colosales deslumbradoras infinitas de cada lágrima pasada.",
-        "author": "Ancla",
+        "id": "54",
+        "text": "Mis pensamientos no son hechos absolutos, son solo eventos mentales pasajeros que no me controlan.",
+        "author": "Aaron Beck",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "55",
+        "text": "No soy perturbado por lo que sucede, sino por la visión que elijo tener sobre lo que sucede. Elijo la calma.",
+        "author": "Albert Ellis",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "56",
+        "text": "Dejo de exigir que el mundo sea fácil, y en su lugar construyo tolerancia a la incomodidad.",
+        "author": "Albert Ellis",
         "category": "Crecimiento"
     },
     {
-        "id": "143",
-        "text": "Niego terminantemente estancarme asfixiado.",
-        "author": "Ancla",
+        "id": "57",
+        "text": "No catastrofizo mi futuro; elijo centrarme en las soluciones de mi presente.",
+        "author": "Aaron Beck",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "58",
+        "text": "Acepto que equivocarme no me hace un fracaso, solo me hace un ser humano aprendiendo.",
+        "author": "Albert Ellis",
+        "category": "Autoestima"
+    },
+    {
+        "id": "59",
+        "text": "Entre lo que me pasa y cómo reacciono hay un espacio. En ese espacio reside mi poder para elegir la calma.",
+        "author": "Viktor Frankl",
+        "category": "Focus"
+    },
+    {
+        "id": "60",
+        "text": "Incluso cuando no puedo cambiar una situación, siempre mantengo la libertad de elegir mi actitud ante ella.",
+        "author": "Viktor Frankl",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "61",
+        "text": "Encuentro significado incluso en mi sufrimiento, sabiendo que me forja en alguien más fuerte.",
+        "author": "Viktor Frankl",
         "category": "Crecimiento"
     },
     {
-        "id": "144",
-        "text": "Beso y abrazo afectuoso cada error humano de mis ayer.",
-        "author": "Ancla",
-        "category": "Amor Propio"
+        "id": "62",
+        "text": "No soy lo que me ha sucedido; soy la persona en la que elijo convertirme a partir de hoy.",
+        "author": "Carl Jung",
+        "category": "Autoestima"
     },
     {
-        "id": "145",
-        "text": "Hoy consiento purificados relajos infinitos.",
-        "author": "Ancla",
-        "category": "Relajación"
+        "id": "63",
+        "text": "Miro mi propia oscuridad para poder tener visión; entiendo que la luz nace de la sombra.",
+        "author": "Carl Jung",
+        "category": "Crecimiento"
     },
     {
-        "id": "146",
-        "text": "Deslizo todos los fútiles oscuros caóticos asfixiantes o lúgubres de mi conciencia atestados dolorosamente.",
-        "author": "Ancla",
-        "category": "Mente"
+        "id": "64",
+        "text": "Hasta que no haga consciente lo inconsciente, dejaré de llamarle destino a lo que me sucede.",
+        "author": "Carl Jung",
+        "category": "Focus"
     },
     {
-        "id": "147",
-        "text": "Elijo perdonar al instante y exhalar compasivo todo tóxico agobiante o espeso.",
-        "author": "Ancla",
-        "category": "Perdón"
+        "id": "65",
+        "text": "La curiosa paradoja es que cuando logro aceptarme a mí mismo tal cual soy, es entonces cuando puedo cambiar.",
+        "author": "Carl Rogers",
+        "category": "Autoestima"
     },
     {
-        "id": "148",
-        "text": "Suelto dócil lo pesado denso asfixiante tóxico letárgico lúgubre triste envenenado destructivo.",
-        "author": "Ancla",
-        "category": "Alegría"
+        "id": "66",
+        "text": "Me permito ser un proceso fluido, dejando ir la necesidad de ser una entidad estática y terminada.",
+        "author": "Carl Rogers",
+        "category": "Crecimiento"
     },
     {
-        "id": "149",
-        "text": "La disciplina se me rinde complacida fácil orgánica bella libre.",
-        "author": "Ancla",
-        "category": "Enfoque"
+        "id": "67",
+        "text": "Confío en mi propia experiencia orgánica por encima del juicio externo.",
+        "author": "Carl Rogers",
+        "category": "Autoestima"
     },
     {
-        "id": "150",
-        "text": "Tomo control del timón de mi consciencia.",
-        "author": "Ancla",
-        "category": "Motivación"
+        "id": "68",
+        "text": "Tengo poder sobre mi propia mente, no sobre los eventos externos. Al darme cuenta de esto, encuentro fuerza inquebrantable.",
+        "author": "Marco Aurelio",
+        "category": "Ansiedad"
     },
     {
-        "id": "151",
-        "text": "Abrazo mi fragilidad y la envuelvo en un cálido escudo de compasión.",
-        "author": "Ancla",
-        "category": "Amor Propio"
+        "id": "69",
+        "text": "Reconozco que sufro más en mi propia imaginación que en la realidad tangible.",
+        "author": "Séneca",
+        "category": "Ansiedad"
     },
     {
-        "id": "152",
-        "text": "El presente resplandece como el único faro seguro.",
-        "author": "Ancla",
-        "category": "Presencia"
+        "id": "70",
+        "text": "No es lo que me sucede, sino cómo elijo reaccionar a ello lo que define mi vida.",
+        "author": "Epicteto",
+        "category": "Crecimiento"
     },
     {
-        "id": "153",
-        "text": "Observo mis emociones como nubes pasajeras en el inmenso cielo de mi ser.",
-        "author": "Ancla",
-        "category": "Paz"
+        "id": "71",
+        "text": "Obstáculo es el camino; uso esta adversidad actual como combustible para mi avance.",
+        "author": "Marco Aurelio",
+        "category": "Focus"
+    },
+    {
+        "id": "72",
+        "text": "Mi mente se tiñe del color de mis pensamientos; hoy elijo pensamientos de serenidad y virtud.",
+        "author": "Marco Aurelio",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "73",
+        "text": "La suerte es lo que sucede cuando la preparación extrema se encuentra con la oportunidad.",
+        "author": "Séneca",
+        "category": "Focus"
+    },
+    {
+        "id": "74",
+        "text": "Me permito ser vulnerable. Reconozco que es mi mayor medida de coraje, no de debilidad.",
+        "author": "Brené Brown",
+        "category": "Autoestima"
+    },
+    {
+        "id": "75",
+        "text": "Dejo ir la meta de ser perfecto y abrazo mi propia autenticidad con compasión.",
+        "author": "Brené Brown",
+        "category": "Autoestima"
+    },
+    {
+        "id": "76",
+        "text": "Hablar de mis miedos les quita el poder que tienen sobre mí.",
+        "author": "Brené Brown",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "77",
+        "text": "Me trato a mí mismo con la misma amabilidad, cuidado y paciencia que le daría a un buen amigo herido.",
+        "author": "Kristin Neff",
+        "category": "Autoestima"
+    },
+    {
+        "id": "78",
+        "text": "Reconozco que el dolor es parte de la experiencia humana compartida; no estoy solo en lo que siento.",
+        "author": "Kristin Neff",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "79",
+        "text": "En lugar de juzgarme sin piedad, elijo abrazarme con suavidad en este momento difícil.",
+        "author": "Kristin Neff",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "80",
+        "text": "Digo \"sí\" a lo que está sucediendo en mi interior en este momento, rindiéndome a la realidad con amabilidad.",
+        "author": "Tara Brach",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "81",
+        "text": "Hago una pausa. Respiro. Reconozco qué está pasando y lo permito simplemente estar ahí.",
+        "author": "Tara Brach",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "82",
+        "text": "El caos frente a mí es el lugar perfecto para despertar y crecer; no huyo de él.",
+        "author": "Pema Chödrön",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "83",
+        "text": "Dejo que esta incomodidad me suavice el corazón en lugar de endurecerme.",
+        "author": "Pema Chödrön",
+        "category": "Paz Mental"
+    },
+    {
+        "id": "84",
+        "text": "Entiendo que la herida es precisamente el lugar por donde la luz entra en mí.",
+        "author": "Rumi",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "85",
+        "text": "Acepto quien soy y, al hacerlo, me doy cuenta de que todo el universo estaba ya dentro de mí.",
+        "author": "Rumi",
+        "category": "Autoestima"
+    },
+    {
+        "id": "86",
+        "text": "La naturaleza nunca se apresura, y sin embargo todo se logra. Hoy respiro en el ritmo de la naturaleza.",
+        "author": "Lao Tsé",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "87",
+        "text": "Al dejar ir de lo que soy, elijo convertirme en aquello en lo que podría llegar a ser.",
+        "author": "Lao Tsé",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "88",
+        "text": "El sueño es un puente seguro entre este día y mi mañana. Cruzo con total confianza.",
+        "author": "Matthew Walker",
+        "category": "Dormir"
+    },
+    {
+        "id": "89",
+        "text": "Mi mente consciente ha hecho suficiente por hoy; autorizo a mi subconsciente a descansar en calma.",
+        "author": "Joseph Murphy",
+        "category": "Dormir"
+    },
+    {
+        "id": "90",
+        "text": "Libero todas las expectativas del mañana y me sumerjo placenteramente en la sanación del sueño ahora.",
+        "author": "Dr. Andrew Huberman",
+        "category": "Dormir"
+    },
+    {
+        "id": "91",
+        "text": "El descanso profundo no es un lujo, es el cimiento absoluto de mi sistema nervioso.",
+        "author": "Dr. Andrew Huberman",
+        "category": "Dormir"
+    },
+    {
+        "id": "92",
+        "text": "Me perdono por lo que no logré hoy. La noche está aquí y yo decido soltar las cargas.",
+        "author": "Kristin Neff",
+        "category": "Dormir"
+    },
+    {
+        "id": "93",
+        "text": "Miro la oscuridad con comodidad. En este silencio mi cuerpo se regenera totalmente.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Dormir"
+    },
+    {
+        "id": "94",
+        "text": "Mantengo mi atención en el siguiente paso más obvio. No necesito ver toda la escalera para subir un nivel.",
+        "author": "Martin Luther King Jr.",
+        "category": "Focus"
+    },
+    {
+        "id": "95",
+        "text": "No pierdo energía en cosas fuera de mi círculo de influencia; concentro mi poder únicamente en lo que puedo controlar.",
+        "author": "Stephen Covey",
+        "category": "Focus"
+    },
+    {
+        "id": "96",
+        "text": "Mis hábitos de hoy, por pequeños que sean, están esculpiendo mi identidad futura. Elijo el esfuerzo silencioso.",
+        "author": "James Clear",
+        "category": "Focus"
+    },
+    {
+        "id": "97",
+        "text": "Las distracciones retroceden; mi capacidad cognitiva y mi voluntad permanecen afiladas y presentes.",
+        "author": "Cal Newport",
+        "category": "Focus"
+    },
+    {
+        "id": "98",
+        "text": "Donde coloco mi atención fluye mi energía. Hoy elijo enfocarme estrictamente en mi progreso.",
+        "author": "Tony Robbins",
+        "category": "Focus"
+    },
+    {
+        "id": "99",
+        "text": "Acepto el estado de flujo. Toda mi energía mental se alza para encontrar el ritmo perfecto de mi trabajo actual.",
+        "author": "Mihaly Csikszentmihalyi",
+        "category": "Focus"
     }
 ];
 
