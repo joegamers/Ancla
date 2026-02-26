@@ -266,7 +266,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                     </span>
                                     {deviceCount !== null && (
                                         <span className="text-[10px] font-medium text-pink-500/80 tracking-wide flex items-center gap-1">
-                                            ❤️ Dispositivos activos: {deviceCount}
+                                            ❤️ Corazones anclados: {deviceCount}
                                         </span>
                                     )}
                                 </div>
