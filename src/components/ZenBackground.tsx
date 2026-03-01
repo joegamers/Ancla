@@ -7,102 +7,202 @@ import { useStore } from '../store/useStore';
  * - Persistent Renderer (No more freezes on "Nueva")
  * - Reactive Geometry update (In-place swap)
  * - Memory leak protection (Proper disposal of clones)
+ * - Performance Phase 2: FPS Throttling & Delayed Start
  */
 export const ZenBackground: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const mouseRef = useRef({ x: 0, y: 0 });
+    const animationIdRef = useRef<number>(0);
     const componentsRef = useRef<{
         renderer: THREE.WebGLRenderer;
         scene: THREE.Scene;
         camera: THREE.PerspectiveCamera;
         coreMesh: THREE.Mesh;
         shellMesh: THREE.Mesh;
-        particles: THREE.Points;
-        lines: THREE.LineSegments;
+        particleSystem: THREE.Points;
         particlesGeo: THREE.BufferGeometry;
-        lineGeo: THREE.BufferGeometry;
-        particleVelocities: THREE.Vector3[];
+        particlesVel: Float32Array;
+        lines: THREE.LineSegments;
         fragments: THREE.Mesh[];
     } | null>(null);
 
     const currentVibe = useStore((state) => state.currentVibe);
     const geometrySeed = useStore((state) => state.geometrySeed);
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 100 : 250;
-    const lineMaxConnections = isMobile ? 400 : 1000;
+    const particleCount = isMobile ? 80 : 200; // Further reduced for TBT
+    const lineMaxConnections = isMobile ? 0 : 600; // Zero links on mobile to save TBT
 
     // ─── Phase 1: Engine Initialization (Once) ───
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 100);
-        camera.position.z = 5;
-
+        // Renderer setup
         const renderer = new THREE.WebGLRenderer({
             antialias: !isMobile,
             alpha: true,
             powerPreference: 'high-performance'
         });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setClearColor(0x000000, 0);
         container.appendChild(renderer.domElement);
 
-        // Core 3D objects
-        const placeholderGeo = new THREE.SphereGeometry(0.1, 8, 8); // Placeholder geometry
-        placeholderGeo.name = 'placeholder';
-        const coreMat = new THREE.MeshPhysicalMaterial({ color: 0x5eead4, metalness: 0.3, roughness: 0.1, transmission: 0.8, transparent: true, opacity: 0.45 });
-        const coreMesh = new THREE.Mesh(placeholderGeo, coreMat);
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.z = 12;
 
-        const shellMat = new THREE.MeshStandardMaterial({ color: 0x0d9488, wireframe: true, transparent: true, opacity: 0.15 });
-        const shellMesh = new THREE.Mesh(placeholderGeo.clone(), shellMat); // Clone for shell
-        shellMesh.geometry.name = 'placeholder';
-        shellMesh.scale.setScalar(1.6);
+        // Materials
+        const commonMaterial = new THREE.MeshPhysicalMaterial({
+            color: 0x5eead4,
+            metalness: 0.3,
+            roughness: 0.1,
+            transmission: 0.8,
+            transparent: true,
+            opacity: 0.4
+        });
+        const shellMaterial = new THREE.MeshStandardMaterial({
+            color: 0x0d9488,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.1
+        });
 
+        // Geometries mapping (reduced complexity for mobile)
+        const mapping: Record<string, THREE.BufferGeometry> = {
+            'Todas': new THREE.IcosahedronGeometry(4, isMobile ? 0 : 1),
+            'Calma': new THREE.TorusGeometry(3, 1, 8, isMobile ? 24 : 48),
+            'Fuerza': new THREE.OctahedronGeometry(4, 0),
+            'Amor': new THREE.IcosahedronGeometry(3.5, isMobile ? 1 : 2),
+            'Gratitud': new THREE.DodecahedronGeometry(4, 0),
+            'Enfoque': new THREE.TetrahedronGeometry(4, isMobile ? 1 : 2)
+        };
+
+        const initialGeo = mapping[useStore.getState().currentVibe] || mapping['Todas'];
+        const coreMesh = new THREE.Mesh(initialGeo, commonMaterial);
+        const shellMesh = new THREE.Mesh(initialGeo.clone(), shellMaterial);
+        shellMesh.scale.setScalar(1.25);
         scene.add(coreMesh, shellMesh);
 
-        // Fragments
+        // Ambient fragments
         const fragments: THREE.Mesh[] = [];
-        const fragCount = isMobile ? 8 : 15;
-        const fragGeo = new THREE.OctahedronGeometry(0.1, 0);
-        const fragMat = new THREE.MeshPhysicalMaterial({ color: 0x5eead4, transparent: true, opacity: 0.2 });
+        const fragGeo = new THREE.OctahedronGeometry(0.12, 0);
+        const fragCount = isMobile ? 6 : 12;
         for (let i = 0; i < fragCount; i++) {
-            const f = new THREE.Mesh(fragGeo, fragMat);
-            f.position.set((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 8);
-            scene.add(f);
-            fragments.push(f);
+            const m = new THREE.Mesh(fragGeo, commonMaterial);
+            m.position.set((Math.random() - 0.5) * 12, (Math.random() - 0.5) * 12, (Math.random() - 0.5) * 10);
+            scene.add(m);
+            fragments.push(m);
         }
 
         // Particles
         const particlesPos = new Float32Array(particleCount * 3);
-        const particleVelocities: THREE.Vector3[] = [];
-        for (let i = 0; i < particleCount; i++) {
-            particlesPos[i * 3] = (Math.random() - 0.5) * 15;
-            particlesPos[i * 3 + 1] = (Math.random() - 0.5) * 15;
-            particlesPos[i * 3 + 2] = (Math.random() - 0.5) * 10;
-            particleVelocities.push(new THREE.Vector3((Math.random() - 0.5) * 0.008, (Math.random() - 0.5) * 0.008, (Math.random() - 0.5) * 0.008));
+        const particlesVel = new Float32Array(particleCount * 3);
+        for (let i = 0; i < particleCount * 3; i++) {
+            particlesPos[i] = (Math.random() - 0.5) * 35;
+            particlesVel[i] = (Math.random() - 0.5) * 0.015;
         }
+
         const particlesGeo = new THREE.BufferGeometry();
         particlesGeo.setAttribute('position', new THREE.BufferAttribute(particlesPos, 3));
-        const particlesMat = new THREE.PointsMaterial({ color: 0x5eead4, size: 0.015, transparent: true, opacity: 0.35, blending: THREE.AdditiveBlending });
-        const particles = new THREE.Points(particlesGeo, particlesMat);
-        scene.add(particles);
+        const particlesMat = new THREE.PointsMaterial({ color: 0x5eead4, size: 0.04, transparent: true, opacity: 0.3 });
+        const particleSystem = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particleSystem);
 
-        // Lines
+        // Links (empty by default)
         const lineGeo = new THREE.BufferGeometry();
-        lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lineMaxConnections * 6), 3));
-        const lineMat = new THREE.LineBasicMaterial({ color: 0x5eead4, transparent: true, opacity: 0.1, blending: THREE.AdditiveBlending });
+        const lineMat = new THREE.LineBasicMaterial({ color: 0x2dd4bf, transparent: true, opacity: 0.08 });
         const lines = new THREE.LineSegments(lineGeo, lineMat);
         scene.add(lines);
 
-        // Lights
         scene.add(new THREE.AmbientLight(0xffffff, 0.4));
-        const spot = new THREE.SpotLight(0x5eead4, 2, 25, 0.6, 0.5);
-        spot.position.set(5, 5, 8);
+        const spot = new THREE.SpotLight(0x5eead4, 1.5, 30, 0.5, 0.5);
+        spot.position.set(5, 8, 10);
         scene.add(spot);
 
-        componentsRef.current = { renderer, scene, camera, coreMesh, shellMesh, particles, lines, particlesGeo, lineGeo, particleVelocities, fragments };
+        componentsRef.current = {
+            renderer, scene, camera, coreMesh, shellMesh,
+            particleSystem, particlesGeo, particlesVel,
+            lines, fragments
+        };
+
+        // ─── Animation Loop (Throttled) ───
+        let lastFrameTime = performance.now();
+        const frameInterval = isMobile ? 1000 / 30 : 1000 / 60; // Max 30 FPS on Mobile
+
+        const animate = () => {
+            const animationId = requestAnimationFrame(animate);
+            animationIdRef.current = animationId;
+
+            if (document.hidden) return;
+
+            const now = performance.now();
+            const delta = now - lastFrameTime;
+
+            if (delta < frameInterval) return;
+            lastFrameTime = now - (delta % frameInterval);
+
+            if (!componentsRef.current) return;
+            const { renderer, scene, camera, coreMesh, shellMesh, fragments, particleSystem, lines, particlesVel } = componentsRef.current;
+
+            // Movement
+            coreMesh.rotation.y += 0.002;
+            shellMesh.rotation.y -= 0.0012;
+            shellMesh.rotation.z += 0.0008;
+
+            fragments.forEach((f, i) => {
+                f.rotation.x += 0.005;
+                f.position.y += Math.sin(now * 0.0008 + i) * 0.004;
+            });
+
+            // Particles
+            const pos = particleSystem.geometry.attributes.position.array as Float32Array;
+            for (let i = 0; i < particleCount; i++) {
+                pos[i * 3] += particlesVel[i * 3];
+                pos[i * 3 + 1] += particlesVel[i * 3 + 1];
+                pos[i * 3 + 2] += particlesVel[i * 3 + 2];
+
+                if (Math.abs(pos[i * 3]) > 18) particlesVel[i * 3] *= -1;
+                if (Math.abs(pos[i * 3 + 1]) > 18) particlesVel[i * 3 + 1] *= -1;
+                if (Math.abs(pos[i * 3 + 2]) > 18) particlesVel[i * 3 + 2] *= -1;
+            }
+            particleSystem.geometry.attributes.position.needsUpdate = true;
+
+            // Inter-particle links (SKIPPED ON MOBILE)
+            if (!isMobile && lines) {
+                const linePositions = [];
+                let connections = 0;
+                for (let i = 0; i < particleCount && connections < lineMaxConnections; i++) {
+                    for (let j = i + 1; j < particleCount && connections < lineMaxConnections; j++) {
+                        const dx = pos[i * 3] - pos[j * 3];
+                        const dy = pos[i * 3 + 1] - pos[j * 3 + 1];
+                        const dz = pos[i * 3 + 2] - pos[j * 3 + 2];
+                        const d2 = dx * dx + dy * dy + dz * dz;
+
+                        if (d2 < 12) { // dist < ~3.4
+                            linePositions.push(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]);
+                            linePositions.push(pos[j * 3], pos[j * 3 + 1], pos[j * 3 + 2]);
+                            connections++;
+                        }
+                    }
+                }
+                if (linePositions.length > 0) {
+                    lines.geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
+                    lines.geometry.attributes.position.needsUpdate = true;
+                } else {
+                    // Clear lines if no connections
+                    lines.geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(0), 3));
+                    lines.geometry.attributes.position.needsUpdate = true;
+                }
+            }
+
+            // Smooth mouse camera drift
+            camera.position.x += (mouseRef.current.x * 2 - camera.position.x) * 0.03;
+            camera.position.y += (-mouseRef.current.y * 2 - camera.position.y) * 0.03;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        };
 
         // Handlers
         const onMouseMove = (e: MouseEvent) => {
@@ -110,102 +210,45 @@ export const ZenBackground: React.FC = () => {
             mouseRef.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
         };
         const onResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
+            if (!componentsRef.current) return;
+            const { camera, renderer } = componentsRef.current;
+            camera.aspect = container.clientWidth / container.clientHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(container.clientWidth, container.clientHeight);
         };
+
         window.addEventListener('mousemove', onMouseMove);
         window.addEventListener('resize', onResize);
 
-        // Animate loop
-        let animId = 0;
-        const animate = () => {
-            const time = performance.now() * 0.001;
-            const mouseVec = new THREE.Vector3(mouseRef.current.x * 5, -mouseRef.current.y * 5, 0);
-
-            // Core motion
-            const breath = 1 + Math.sin(time * 0.8) * 0.05;
-            coreMesh.scale.setScalar(breath);
-            shellMesh.scale.setScalar(1.6 * breath);
-            coreMesh.rotation.y = time * 0.15;
-            shellMesh.rotation.y = -time * 0.1;
-
-            fragments.forEach((f, i) => { f.position.y += Math.sin(time + i) * 0.002; f.rotation.x += 0.01; });
-
-            // Particles & Links
-            const pos = particlesGeo.attributes.position.array as Float32Array;
-            const lPos = lineGeo.attributes.position.array as Float32Array;
-            let lIdx = 0;
-
-            for (let i = 0; i < particleCount; i++) {
-                // Move
-                pos[i * 3] += particleVelocities[i].x; pos[i * 3 + 1] += particleVelocities[i].y; pos[i * 3 + 2] += particleVelocities[i].z;
-                // Bounds
-                if (Math.abs(pos[i * 3]) > 8) particleVelocities[i].x *= -1;
-                if (Math.abs(pos[i * 3 + 1]) > 8) particleVelocities[i].y *= -1;
-                if (Math.abs(pos[i * 3 + 2]) > 6) particleVelocities[i].z *= -1;
-
-                // Mouse Repulse
-                const dM = Math.sqrt((pos[i * 3] - mouseVec.x) ** 2 + (pos[i * 3 + 1] - mouseVec.y) ** 2);
-                if (dM < 2) { pos[i * 3] += (pos[i * 3] - mouseVec.x) * 0.02; pos[i * 3 + 1] += (pos[i * 3 + 1] - mouseVec.y) * 0.02; }
-
-                // Mouse Link
-                if (dM < 2.5 && lIdx < lineMaxConnections) {
-                    lPos[lIdx * 6] = pos[i * 3]; lPos[lIdx * 6 + 1] = pos[i * 3 + 1]; lPos[lIdx * 6 + 2] = pos[i * 3 + 2];
-                    lPos[lIdx * 6 + 3] = mouseVec.x; lPos[lIdx * 6 + 4] = mouseVec.y; lPos[lIdx * 6 + 5] = mouseVec.z;
-                    lIdx++;
-                }
-
-                // Inter-particle links (SKIPPED ON MOBILE OR SIMPLIFIED)
-                if (!isMobile) {
-                    for (let j = i + 1; j < particleCount && lIdx < lineMaxConnections; j++) {
-                        const d = Math.sqrt((pos[i * 3] - pos[j * 3]) ** 2 + (pos[i * 3 + 1] - pos[j * 3 + 1]) ** 2 + (pos[i * 3 + 2] - pos[j * 3 + 2]) ** 2);
-                        if (d < 1.5) {
-                            lPos[lIdx * 6] = pos[i * 3]; lPos[lIdx * 6 + 1] = pos[i * 3 + 1]; lPos[lIdx * 6 + 2] = pos[i * 3 + 2];
-                            lPos[lIdx * 6 + 3] = pos[j * 3]; lPos[lIdx * 6 + 4] = pos[j * 3 + 1]; lPos[lIdx * 6 + 5] = pos[j * 3 + 2];
-                            lIdx++;
-                        }
-                    }
-                }
-            }
-            // Clear rest
-            for (let k = lIdx; k < lineMaxConnections; k++) { for (let m = 0; m < 6; m++) lPos[k * 6 + m] = 0; }
-            particlesGeo.attributes.position.needsUpdate = true;
-            lineGeo.attributes.position.needsUpdate = true;
-
-            camera.position.x += (mouseRef.current.x * 0.8 - camera.position.x) * 0.05;
-            camera.position.y += (-mouseRef.current.y * 0.8 - camera.position.y) * 0.05;
-            camera.lookAt(0, 0, 0);
-
-            renderer.render(scene, camera);
-            animId = requestAnimationFrame(animate);
-        };
-        animate();
+        // Delay start on mobile to save TBT during high-priority load/hydration
+        const delay = isMobile ? 1800 : 0;
+        const timerId = setTimeout(() => {
+            animate();
+        }, delay);
 
         return () => {
+            clearTimeout(timerId);
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('resize', onResize);
-            cancelAnimationFrame(animId);
+            if (animationIdRef.current) cancelAnimationFrame(animationIdRef.current);
 
-            // Dispose of all Three.js resources
             if (componentsRef.current) {
-                const { renderer, scene, coreMesh, shellMesh, particlesGeo, lineGeo } = componentsRef.current;
+                const { renderer, scene, coreMesh, shellMesh, particleSystem, lines, fragments } = componentsRef.current;
 
                 // Dispose materials
                 (coreMesh.material as THREE.Material).dispose();
                 (shellMesh.material as THREE.Material).dispose();
-                (particles.material as THREE.Material).dispose();
+                (particleSystem.material as THREE.Material).dispose();
                 (lines.material as THREE.Material).dispose();
                 fragments.forEach(f => (f.material as THREE.Material).dispose());
-                fragMat.dispose(); // Dispose the shared fragment material
+                // Dispose fragGeo if it's not shared or if it's the only instance
+                fragGeo.dispose();
 
                 // Dispose geometries
-                coreMesh.geometry.dispose(); // Dispose current core geometry
-                shellMesh.geometry.dispose(); // Dispose current shell geometry
-                placeholderGeo.dispose(); // Dispose the initial placeholder geometry
-                fragGeo.dispose(); // Dispose the shared fragment geometry
-                particlesGeo.dispose();
-                lineGeo.dispose();
+                coreMesh.geometry.dispose();
+                shellMesh.geometry.dispose();
+                particleSystem.geometry.dispose();
+                lines.geometry.dispose();
 
                 scene.clear(); // Clear all objects from the scene
                 renderer.dispose();
@@ -213,24 +256,21 @@ export const ZenBackground: React.FC = () => {
             }
             componentsRef.current = null;
         };
-    }, []);
+    }, [isMobile, particleCount, lineMaxConnections]);
 
-    // ─── Phase 2: Reactive Geometry Update (Fast) ───
+    // ─── Phase 2: Reactive Geometry Update ───
     useEffect(() => {
         if (!componentsRef.current) return;
         const { coreMesh, shellMesh } = componentsRef.current;
         const s = geometrySeed % 3;
 
         const mapping: Record<string, THREE.BufferGeometry> = {
-            'Todas': s === 0 ? new THREE.IcosahedronGeometry(0.8, 1) : s === 1 ? new THREE.TorusKnotGeometry(0.5, 0.2, 128, 16) : new THREE.DodecahedronGeometry(0.8, 0),
-            'Calma': new THREE.TorusGeometry(0.6, 0.2, 16, 100),
-            'Fuerza': new THREE.DodecahedronGeometry(0.8, 0),
-            'Amor': new THREE.SphereGeometry(0.8, 32, 32),
-            'Crecimiento': new THREE.OctahedronGeometry(0.8, 0),
-            'Abundancia': new THREE.IcosahedronGeometry(0.9, 0),
-            'Confianza': new THREE.TetrahedronGeometry(0.9, 0),
-            'Claridad': new THREE.OctahedronGeometry(0.8, 2),
-            'Bienestar': new THREE.CapsuleGeometry(0.4, 0.8, 4, 16),
+            'Todas': s === 0 ? new THREE.IcosahedronGeometry(4, isMobile ? 0 : 1) : s === 1 ? new THREE.TorusKnotGeometry(2.5, 0.8, isMobile ? 64 : 128, 16) : new THREE.DodecahedronGeometry(4, 0),
+            'Calma': new THREE.TorusGeometry(3, 1, 8, isMobile ? 24 : 48),
+            'Fuerza': new THREE.OctahedronGeometry(4, 0),
+            'Amor': new THREE.IcosahedronGeometry(3.5, isMobile ? 1 : 2),
+            'Gratitud': new THREE.DodecahedronGeometry(4, 0),
+            'Enfoque': new THREE.TetrahedronGeometry(4, isMobile ? 1 : 2)
         };
 
         const newGeo = mapping[currentVibe] || mapping['Todas'];
@@ -242,14 +282,13 @@ export const ZenBackground: React.FC = () => {
         coreMesh.geometry = newGeo;
         shellMesh.geometry = newGeo.clone();
 
-        // Important: Garbage collection
-        // Only dispose if it's not the initial placeholder geometry
-        // The placeholder geometry is disposed in the main cleanup effect
-        if (oldCoreGeo.name !== 'placeholder') {
+        // Avoid disposing the initial ones used by mapping (they are not tracked here yet, but usually fine for small set)
+        // For production, we should track if they are unique per cycle
+        if (oldCoreGeo !== newGeo) {
             oldCoreGeo.dispose();
             oldShellGeo.dispose();
         }
-    }, [currentVibe, geometrySeed]);
+    }, [currentVibe, geometrySeed, isMobile]);
 
     return (
         <div
