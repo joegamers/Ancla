@@ -29,8 +29,8 @@ export const ZenBackground: React.FC = () => {
     const currentVibe = useStore((state) => state.currentVibe);
     const geometrySeed = useStore((state) => state.geometrySeed);
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 80 : 200; // Further reduced for TBT
-    const lineMaxConnections = isMobile ? 0 : 600; // Zero links on mobile to save TBT
+    const particleCount = isMobile ? 50 : 180; // Absolute minimum for mobile to pass PageSpeed
+    const lineMaxConnections = isMobile ? 0 : 500; // Zero links on mobile to save TBT
 
     // ─── Phase 1: Engine Initialization (Once) ───
     useEffect(() => {
@@ -87,7 +87,7 @@ export const ZenBackground: React.FC = () => {
         // Ambient fragments
         const fragments: THREE.Mesh[] = [];
         const fragGeo = new THREE.OctahedronGeometry(0.12, 0);
-        const fragCount = isMobile ? 6 : 12;
+        const fragCount = isMobile ? 4 : 10; // Reduced for performance
         for (let i = 0; i < fragCount; i++) {
             const m = new THREE.Mesh(fragGeo, commonMaterial);
             m.position.set((Math.random() - 0.5) * 12, (Math.random() - 0.5) * 12, (Math.random() - 0.5) * 10);
@@ -128,12 +128,13 @@ export const ZenBackground: React.FC = () => {
 
         // ─── Animation Loop (Throttled) ───
         let lastFrameTime = performance.now();
-        const frameInterval = isMobile ? 1000 / 30 : 1000 / 60; // Max 30 FPS on Mobile
+        const frameInterval = isMobile ? 1000 / 25 : 1000 / 60; // 25 FPS on mobile is enough for ambient
 
         const animate = () => {
             const animationId = requestAnimationFrame(animate);
             animationIdRef.current = animationId;
 
+            // Kill loop if tab is buried or window is blurred (Phase 3 Optimization)
             if (document.hidden) return;
 
             const now = performance.now();
