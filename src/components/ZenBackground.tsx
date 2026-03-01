@@ -70,12 +70,12 @@ export const ZenBackground: React.FC = () => {
 
         // Geometries mapping (reduced complexity for mobile)
         const mapping: Record<string, THREE.BufferGeometry> = {
-            'Todas': new THREE.IcosahedronGeometry(4, isMobile ? 0 : 1),
-            'Calma': new THREE.TorusGeometry(3, 1, 8, isMobile ? 24 : 48),
-            'Fuerza': new THREE.OctahedronGeometry(4, 0),
-            'Amor': new THREE.IcosahedronGeometry(3.5, isMobile ? 1 : 2),
-            'Gratitud': new THREE.DodecahedronGeometry(4, 0),
-            'Enfoque': new THREE.TetrahedronGeometry(4, isMobile ? 1 : 2)
+            'Todas': new THREE.IcosahedronGeometry(3.2, isMobile ? 0 : 1),
+            'Calma': new THREE.TorusGeometry(2.4, 0.8, 8, isMobile ? 24 : 48),
+            'Fuerza': new THREE.OctahedronGeometry(3.2, 0),
+            'Amor': new THREE.IcosahedronGeometry(2.8, isMobile ? 1 : 2),
+            'Gratitud': new THREE.DodecahedronGeometry(3.2, 0),
+            'Enfoque': new THREE.TetrahedronGeometry(3.2, isMobile ? 1 : 2)
         };
 
         const initialGeo = mapping[useStore.getState().currentVibe] || mapping['Todas'];
@@ -266,12 +266,12 @@ export const ZenBackground: React.FC = () => {
         const s = geometrySeed % 3;
 
         const mapping: Record<string, THREE.BufferGeometry> = {
-            'Todas': s === 0 ? new THREE.IcosahedronGeometry(4, isMobile ? 0 : 1) : s === 1 ? new THREE.TorusKnotGeometry(2.5, 0.8, isMobile ? 64 : 128, 16) : new THREE.DodecahedronGeometry(4, 0),
-            'Calma': new THREE.TorusGeometry(3, 1, 8, isMobile ? 24 : 48),
-            'Fuerza': new THREE.OctahedronGeometry(4, 0),
-            'Amor': new THREE.IcosahedronGeometry(3.5, isMobile ? 1 : 2),
-            'Gratitud': new THREE.DodecahedronGeometry(4, 0),
-            'Enfoque': new THREE.TetrahedronGeometry(4, isMobile ? 1 : 2)
+            'Todas': s === 0 ? new THREE.IcosahedronGeometry(3.2, isMobile ? 0 : 1) : s === 1 ? new THREE.TorusKnotGeometry(2, 0.6, isMobile ? 64 : 128, 16) : new THREE.DodecahedronGeometry(3.2, 0),
+            'Calma': new THREE.TorusGeometry(2.4, 0.8, 8, isMobile ? 24 : 48),
+            'Fuerza': new THREE.OctahedronGeometry(3.2, 0),
+            'Amor': new THREE.IcosahedronGeometry(2.8, isMobile ? 1 : 2),
+            'Gratitud': new THREE.DodecahedronGeometry(3.2, 0),
+            'Enfoque': new THREE.TetrahedronGeometry(3.2, isMobile ? 1 : 2)
         };
 
         const newGeo = mapping[currentVibe] || mapping['Todas'];
