@@ -18,6 +18,7 @@ export function SupportModal({ isOpen, onClose }: SupportModalProps) {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={onClose}
+                        aria-label="Cerrar modal de soporte"
                         className="absolute inset-0 bg-black/40 backdrop-blur-md"
                     />
 
@@ -33,6 +34,7 @@ export function SupportModal({ isOpen, onClose }: SupportModalProps) {
                             {/* Close button */}
                             <button
                                 onClick={onClose}
+                                aria-label="Cerrar soporte"
                                 className="absolute top-4 right-4 p-2 rounded-full focus:outline-none transition-colors text-white/40 hover:text-white hover:bg-white/10 z-10"
                             >
                                 <X size={20} />

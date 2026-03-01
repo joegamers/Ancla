@@ -1,7 +1,6 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SettingsModal, ZenToast, AffirmationOverlay, Onboarding, SupportModal } from './components';
-import { ZenBackground } from './components/ZenBackground';
 import { affirmationEngine } from './services/AffirmationEngine';
 import { shareAffirmation } from './services/ShareService';
 import { notificationService } from './services/NotificationService';
@@ -10,6 +9,9 @@ import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
 import { Button } from './components/ui/button';
+
+// Lazy load the heavy Three.js background
+const ZenBackground = lazy(() => import('./components/ZenBackground').then(m => ({ default: m.ZenBackground })));
 
 function App() {
   const {
@@ -128,8 +130,12 @@ function App() {
 
   return (
     <>
-      {/* Three.js Zen Background */}
-      <ZenBackground />
+      {/* Three.js Zen Background - Lazy Loaded */}
+      <Suspense fallback={
+        <div className="fixed inset-0 z-0" style={{ background: 'linear-gradient(135deg, #0a1428 0%, #0d1f2d 40%, #0a1212 100%)' }} />
+      }>
+        <ZenBackground />
+      </Suspense>
 
       {/* Onboarding overlay */}
       {showOnboarding && (
@@ -145,10 +151,11 @@ function App() {
               variant="ghost"
               size="icon"
               onClick={handleToggleNotifications}
-              className={`rounded-full h-8 w-8 ${notificationsEnabled ? 'text-teal-400' : 'text-white/30'} hover:bg-white/10`}
+              aria-label={notificationsEnabled ? 'Desactivar notificaciones' : 'Activar notificaciones'}
+              className={`rounded-full h-10 w-10 ${notificationsEnabled ? 'text-teal-400' : 'text-white/30'} hover:bg-white/10`}
               title={notificationsEnabled ? 'Notificaciones activadas' : 'Activar notificaciones'}
             >
-              <Bell size={16} />
+              <Bell size={18} />
             </Button>
 
             {/* Brand badge (inline with top bar) */}
@@ -169,9 +176,10 @@ function App() {
               variant="ghost"
               size="icon"
               onClick={() => setShowSettings(true)}
-              className="rounded-full h-8 w-8 text-white/30 hover:text-white hover:bg-white/10"
+              aria-label="Abrir configuración"
+              className="rounded-full h-10 w-10 text-white/30 hover:text-white hover:bg-white/10"
             >
-              <Settings size={16} />
+              <Settings size={18} />
             </Button>
           </div>
 
@@ -190,7 +198,9 @@ function App() {
                   const newAff = affirmationEngine.getRandomAffirmation(mood);
                   setLastAffirmation(newAff);
                 }}
-                className={`px-2.5 py-0.5 rounded-full text-[9px] uppercase tracking-wider font-semibold transition-all duration-300 ${currentVibe === mood
+                aria-label={`Filtrar por ${mood}`}
+                aria-pressed={currentVibe === mood}
+                className={`px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold transition-all duration-300 ${currentVibe === mood
                   ? 'bg-teal-500/20 text-teal-300 ring-1 ring-teal-500/30'
                   : 'text-white/25 hover:text-white/50 hover:bg-white/5'
                   }`}
@@ -251,25 +261,27 @@ function App() {
             >
               <button
                 onClick={handleNewAffirmation}
-                className="flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                aria-label="Obtener nueva afirmación"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm min-w-[120px]"
               >
-                <RefreshCw size={12} />
+                <RefreshCw size={14} />
                 Nueva
               </button>
               <button
                 onClick={handleShare}
                 disabled={isSharing}
-                className="flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50"
+                aria-label="Compartir esta afirmación"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
               >
-                <Share2 size={12} />
+                <Share2 size={14} />
                 {isSharing ? 'Creando...' : 'Compartir'}
               </button>
               <button
                 onClick={handleInvite}
-                className="flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
-                title="Invitar amigos"
+                aria-label="Invitar amigos a Ancla"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
-                <Users size={12} />
+                <Users size={14} />
                 Invitar
               </button>
             </motion.div>
@@ -283,9 +295,10 @@ function App() {
             >
               <button
                 onClick={() => setShowSupportModal(true)}
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-[10px] uppercase tracking-[0.1em] font-semibold"
+                aria-label="Apoyar el proyecto con un café"
+                className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-[10px] uppercase tracking-[0.1em] font-semibold"
               >
-                <Coffee size={12} />
+                <Coffee size={14} />
                 Apoya este proyecto
               </button>
               <p className="text-[8px] text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block">

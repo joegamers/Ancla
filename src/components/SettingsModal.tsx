@@ -133,7 +133,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                     <Bell className="w-5 h-5" />
                                     Frecuencia
                                 </h2>
-                                <Button variant="ghost" size="icon" onClick={onClose} className="rounded-full">
+                                <Button variant="ghost" size="icon" onClick={onClose} aria-label="Cerrar configuración" className="rounded-full">
                                     <X className="w-5 h-5 text-zen-secondary dark:text-slate-400" />
                                 </Button>
                             </div>
@@ -145,6 +145,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                         <span className="text-sm font-medium text-zen-primary dark:text-slate-200">Activadas</span>
                                         <button
                                             onClick={() => handleToggleNotifications(!notificationsEnabled)}
+                                            aria-label={notificationsEnabled ? 'Desactivar notificaciones' : 'Activar notificaciones'}
+                                            aria-pressed={notificationsEnabled}
                                             className={`w-12 h-6 rounded-full transition-colors relative ${notificationsEnabled ? 'bg-teal-600' : 'bg-slate-300 dark:bg-slate-700'}`}
                                         >
                                             <div className={`w-4 h-4 rounded-full bg-white shadow-sm absolute top-1 transition-all ${notificationsEnabled ? 'left-7' : 'left-1'}`} />
@@ -156,6 +158,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                             variant="outline"
                                             size="sm"
                                             onClick={() => notificationService.sendTestNotification()}
+                                            aria-label="Enviar notificación de prueba"
                                             className="w-full border-teal-200 text-teal-700 hover:bg-teal-50 dark:border-teal-800 dark:text-teal-400 dark:hover:bg-teal-900/20"
                                         >
                                             <Bell className="w-4 h-4 mr-2" />
@@ -171,12 +174,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                         className="space-y-6"
                                     >
                                         <div className="space-y-3">
-                                            <label className="text-xs font-bold uppercase tracking-wider text-zen-secondary dark:text-slate-400">Intención de los mensajes</label>
-                                            <div className="flex flex-wrap gap-2">
+                                            <label id="intention-label" className="text-xs font-bold uppercase tracking-wider text-zen-secondary dark:text-slate-400">Intención de los mensajes</label>
+                                            <div className="flex flex-wrap gap-2" role="group" aria-labelledby="intention-label">
                                                 {allCategories.map((cat) => (
                                                     <button
                                                         key={cat}
                                                         onClick={() => setTempIntention(cat)}
+                                                        aria-label={`Seleccionar intención ${cat}`}
+                                                        aria-pressed={tempIntention === cat}
                                                         className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${tempIntention === cat
                                                             ? 'bg-teal-100 text-teal-800 ring-1 ring-teal-300 dark:bg-teal-900/50 dark:text-teal-200 dark:ring-teal-700'
                                                             : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700'
@@ -189,9 +194,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                         </div>
 
                                         <div className="space-y-3">
-                                            <label className="text-xs font-bold uppercase tracking-wider text-zen-secondary dark:text-slate-400">Ritmo de afirmaciones</label>
+                                            <label id="rhythm-label" className="text-xs font-bold uppercase tracking-wider text-zen-secondary dark:text-slate-400">Ritmo de afirmaciones</label>
 
-                                            <div className="grid grid-cols-3 gap-2">
+                                            <div className="grid grid-cols-3 gap-2" role="group" aria-labelledby="rhythm-label">
                                                 {intervals.map((opt) => {
                                                     const Icon = opt.icon;
                                                     const isSelected = tempInterval === opt.value;
@@ -199,6 +204,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                                         <button
                                                             key={opt.value}
                                                             onClick={() => setTempInterval(opt.value)}
+                                                            aria-label={`Ritmo ${opt.label}`}
+                                                            aria-pressed={isSelected}
                                                             className={`p-3 rounded-xl border flex flex-col items-center gap-1 transition-all ${isSelected
                                                                 ? 'bg-teal-50 border-teal-200 ring-1 ring-teal-200 dark:bg-teal-900/30 dark:border-teal-700 dark:ring-teal-800'
                                                                 : 'border-transparent bg-slate-50 text-slate-500 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-400'}`}
@@ -213,8 +220,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
 
                                         {tempInterval !== 1440 && (
                                             <div className="space-y-3">
-                                                <label className="text-xs font-bold uppercase tracking-wider text-zen-secondary dark:text-slate-400">Periodo Activo</label>
-                                                <div className="grid grid-cols-3 gap-2">
+                                                <label id="period-label" className="text-xs font-bold uppercase tracking-wider text-zen-secondary dark:text-slate-400">Periodo Activo</label>
+                                                <div className="grid grid-cols-3 gap-2" role="group" aria-labelledby="period-label">
                                                     {periods.map((p) => {
                                                         const Icon = p.icon;
                                                         const isSelected = tempPeriod === p.value;
@@ -222,6 +229,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                                                             <button
                                                                 key={p.value}
                                                                 onClick={() => setTempPeriod(p.value)}
+                                                                aria-label={`Periodo ${p.label}`}
+                                                                aria-pressed={isSelected}
                                                                 className={`p-3 rounded-xl border flex flex-col items-center gap-1 transition-all ${isSelected
                                                                     ? 'bg-amber-50 border-amber-200 ring-1 ring-amber-200 dark:bg-amber-900/20 dark:border-amber-700 dark:ring-amber-800'
                                                                     : 'border-transparent bg-slate-50 text-slate-500 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-400'}`}

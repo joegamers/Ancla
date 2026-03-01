@@ -136,10 +136,13 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 {/* Bottom area */}
                 <div className="w-full mt-8 space-y-3">
                     {/* Dots */}
-                    <div className="flex justify-center space-x-2 mb-4">
+                    <div className="flex justify-center space-x-2 mb-4" role="tablist" aria-label="Progreso de bienvenida">
                         {steps.map((_, idx) => (
                             <motion.div
                                 key={idx}
+                                role="tab"
+                                aria-selected={idx === currentStep}
+                                aria-label={`Paso ${idx + 1}`}
                                 animate={{
                                     width: idx === currentStep ? 20 : 6,
                                     backgroundColor: idx === currentStep ? '#14b8a6' : '#334155',
@@ -155,12 +158,14 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="space-y-2">
                             <button
                                 onClick={requestPermissions}
+                                aria-label="Permitir notificaciones"
                                 className="w-full py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-300 font-semibold text-sm uppercase tracking-wider hover:bg-teal-500/30 transition-all"
                             >
                                 Activar Notificaciones
                             </button>
                             <button
                                 onClick={handleNext}
+                                aria-label="Omitir activación de notificaciones"
                                 className="w-full py-2.5 text-white/30 text-xs uppercase tracking-wider hover:text-white/50 transition-colors"
                             >
                                 Omitir
@@ -170,12 +175,14 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="space-y-2">
                             <button
                                 onClick={finish}
+                                aria-label="Finalizar configuración y comenzar"
                                 className="w-full py-3 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-300 font-semibold text-sm uppercase tracking-wider hover:bg-teal-500/30 transition-all"
                             >
                                 Comenzar
                             </button>
                             <button
                                 onClick={handleSkip}
+                                aria-label="Omitir frecuencia y comenzar"
                                 className="w-full py-2.5 text-white/30 text-xs uppercase tracking-wider hover:text-white/50 transition-colors"
                             >
                                 Omitir
@@ -185,6 +192,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="space-y-2">
                             <button
                                 onClick={handleNext}
+                                aria-label="Continuar al siguiente paso"
                                 className="w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white/70 font-semibold text-sm uppercase tracking-wider hover:bg-white/10 transition-all flex items-center justify-center gap-2"
                             >
                                 Continuar
@@ -192,6 +200,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                             </button>
                             <button
                                 onClick={handleSkip}
+                                aria-label="Omitir tutorial"
                                 className="w-full py-2.5 text-white/30 text-xs uppercase tracking-wider hover:text-white/50 transition-colors"
                             >
                                 Omitir

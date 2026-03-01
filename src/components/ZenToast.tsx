@@ -22,6 +22,7 @@ export const ZenToast = () => {
                         <span className="text-sm font-medium tracking-wide">{toast.message}</span>
                         <button
                             onClick={hideToast}
+                            aria-label="Cerrar aviso"
                             className="ml-2 hover:bg-white/10 rounded-full p-1 transition-colors"
                         >
                             <X size={14} className="opacity-60 hover:opacity-100" />

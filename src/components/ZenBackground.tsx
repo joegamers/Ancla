@@ -27,6 +27,9 @@ export const ZenBackground: React.FC = () => {
 
     const currentVibe = useStore((state) => state.currentVibe);
     const geometrySeed = useStore((state) => state.geometrySeed);
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 100 : 250;
+    const lineMaxConnections = isMobile ? 400 : 1000;
 
     // ─── Phase 1: Engine Initialization (Once) ───
     useEffect(() => {
@@ -37,7 +40,11 @@ export const ZenBackground: React.FC = () => {
         const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 100);
         camera.position.z = 5;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+        const renderer = new THREE.WebGLRenderer({
+            antialias: !isMobile,
+            alpha: true,
+            powerPreference: 'high-performance'
+        });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         container.appendChild(renderer.domElement);
@@ -57,9 +64,10 @@ export const ZenBackground: React.FC = () => {
 
         // Fragments
         const fragments: THREE.Mesh[] = [];
+        const fragCount = isMobile ? 8 : 15;
         const fragGeo = new THREE.OctahedronGeometry(0.1, 0);
         const fragMat = new THREE.MeshPhysicalMaterial({ color: 0x5eead4, transparent: true, opacity: 0.2 });
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < fragCount; i++) {
             const f = new THREE.Mesh(fragGeo, fragMat);
             f.position.set((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 8);
             scene.add(f);
@@ -67,7 +75,6 @@ export const ZenBackground: React.FC = () => {
         }
 
         // Particles
-        const particleCount = 250;
         const particlesPos = new Float32Array(particleCount * 3);
         const particleVelocities: THREE.Vector3[] = [];
         for (let i = 0; i < particleCount; i++) {
@@ -83,7 +90,6 @@ export const ZenBackground: React.FC = () => {
         scene.add(particles);
 
         // Lines
-        const lineMaxConnections = 1000;
         const lineGeo = new THREE.BufferGeometry();
         lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lineMaxConnections * 6), 3));
         const lineMat = new THREE.LineBasicMaterial({ color: 0x5eead4, transparent: true, opacity: 0.1, blending: THREE.AdditiveBlending });
@@ -150,13 +156,15 @@ export const ZenBackground: React.FC = () => {
                     lIdx++;
                 }
 
-                // Inter-particle links
-                for (let j = i + 1; j < particleCount && lIdx < lineMaxConnections; j++) {
-                    const d = Math.sqrt((pos[i * 3] - pos[j * 3]) ** 2 + (pos[i * 3 + 1] - pos[j * 3 + 1]) ** 2 + (pos[i * 3 + 2] - pos[j * 3 + 2]) ** 2);
-                    if (d < 1.5) {
-                        lPos[lIdx * 6] = pos[i * 3]; lPos[lIdx * 6 + 1] = pos[i * 3 + 1]; lPos[lIdx * 6 + 2] = pos[i * 3 + 2];
-                        lPos[lIdx * 6 + 3] = pos[j * 3]; lPos[lIdx * 6 + 4] = pos[j * 3 + 1]; lPos[lIdx * 6 + 5] = pos[j * 3 + 2];
-                        lIdx++;
+                // Inter-particle links (SKIPPED ON MOBILE OR SIMPLIFIED)
+                if (!isMobile) {
+                    for (let j = i + 1; j < particleCount && lIdx < lineMaxConnections; j++) {
+                        const d = Math.sqrt((pos[i * 3] - pos[j * 3]) ** 2 + (pos[i * 3 + 1] - pos[j * 3 + 1]) ** 2 + (pos[i * 3 + 2] - pos[j * 3 + 2]) ** 2);
+                        if (d < 1.5) {
+                            lPos[lIdx * 6] = pos[i * 3]; lPos[lIdx * 6 + 1] = pos[i * 3 + 1]; lPos[lIdx * 6 + 2] = pos[i * 3 + 2];
+                            lPos[lIdx * 6 + 3] = pos[j * 3]; lPos[lIdx * 6 + 4] = pos[j * 3 + 1]; lPos[lIdx * 6 + 5] = pos[j * 3 + 2];
+                            lIdx++;
+                        }
                     }
                 }
             }
@@ -246,6 +254,7 @@ export const ZenBackground: React.FC = () => {
     return (
         <div
             ref={containerRef}
+            aria-hidden="true"
             className="fixed inset-0 z-0 pointer-events-none transition-colors duration-1000"
             style={{ background: 'linear-gradient(135deg, #0a1428 0%, #0d1f2d 40%, #0a1212 100%)' }}
         />

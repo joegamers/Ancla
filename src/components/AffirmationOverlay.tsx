@@ -46,6 +46,7 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                         variant="ghost"
                         size="icon"
                         onClick={onClose}
+                        aria-label="Cerrar afirmación"
                         className="rounded-full text-white/40 hover:text-white hover:bg-white/10 w-10 h-10"
                     >
                         <X size={20} />
