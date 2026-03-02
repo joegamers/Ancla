@@ -14,6 +14,19 @@ interface ShareOptions {
 }
 
 /**
+ * Draws a rounded rectangle path (polyfill for ctx.roundRect which isn't supported on older WebViews).
+ */
+function drawRoundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+}
+
+/**
  * Creates a beautiful branded image from an affirmation.
  */
 function generateImage(options: ShareOptions): Promise<Blob> {
@@ -118,8 +131,7 @@ function generateImage(options: ShareOptions): Promise<Blob> {
 
         // Card background
         ctx.save();
-        ctx.beginPath();
-        ctx.roundRect(cardX, cardY, cardW, cardH, cardRadius);
+        drawRoundRect(ctx, cardX, cardY, cardW, cardH, cardRadius);
         ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
         ctx.fill();
         // Card border
@@ -127,8 +139,7 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         ctx.lineWidth = 1.5;
         ctx.stroke();
         // Inner highlight (top edge)
-        ctx.beginPath();
-        ctx.roundRect(cardX + 1, cardY + 1, cardW - 2, cardH - 2, cardRadius);
+        drawRoundRect(ctx, cardX + 1, cardY + 1, cardW - 2, cardH - 2, cardRadius);
         ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -256,9 +267,16 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
     } catch (err) {
-        // User cancelled share or error
-        if ((err as Error).name !== 'AbortError') {
-            console.error('[Ancla] Share error:', err);
+        // User cancelled share — don't show error
+        if ((err as Error).name === 'AbortError') return;
+        console.error('[Ancla] Share error:', err);
+        // Show visible feedback so user knows something went wrong
+        try {
+            const { useStore } = await import('../store/useStore');
+            useStore.getState().showToast('Error al compartir. Intenta de nuevo.');
+        } catch {
+            // Last resort fallback
+            alert('No se pudo compartir la imagen. Por favor intenta de nuevo.');
         }
     }
 }
