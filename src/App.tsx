@@ -44,13 +44,28 @@ function App() {
     }
   };
 
-  // Load initial affirmation
+  // Load initial affirmation (or check deep link from notification)
   useEffect(() => {
     if (!lastAffirmation) {
-      const aff = affirmationEngine.getRandomAffirmation(currentVibe);
-      setLastAffirmation(aff);
+      // Check if we were opened via a notification click (Cold Start)
+      const params = new URLSearchParams(window.location.search);
+      const forcedText = params.get('t');
+
+      if (forcedText) {
+        const decoded = decodeURIComponent(forcedText);
+        setNotificationAffirmation(decoded);
+
+        // Optional: Clean up URL without reloading page
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        // We still need a default background affirmation to fade from
+        setLastAffirmation(affirmationEngine.getRandomAffirmation(currentVibe));
+      } else {
+        const aff = affirmationEngine.getRandomAffirmation(currentVibe);
+        setLastAffirmation(aff);
+      }
     }
-  }, [lastAffirmation, setLastAffirmation, currentVibe]);
+  }, [lastAffirmation, setLastAffirmation, currentVibe, setNotificationAffirmation]);
 
   // Re-schedule notifications on app open
   useEffect(() => {

@@ -54,8 +54,13 @@ self.addEventListener('notificationclick', (event) => {
                     return;
                 }
             }
-            // Otherwise, open the app
-            return self.clients.openWindow('/');
+            // Otherwise, open the app, pass the text in the URL so it can be picked up on cold start
+            const url = new URL(self.location.origin);
+            if (affirmationText) {
+                // Short key 't' to avoid a massive URL on cold start
+                url.searchParams.set('t', encodeURIComponent(affirmationText));
+            }
+            return self.clients.openWindow(url.toString());
         })
     );
 });
