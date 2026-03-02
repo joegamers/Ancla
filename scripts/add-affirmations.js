@@ -14,15 +14,24 @@ const targetPath = path.join(__dirname, '..', 'src', 'data', 'affirmations.json'
 try {
     const args = process.argv.slice(2);
     if (!args.length || args[0].trim() === '') {
-        console.error('❌ Error: Debes enviar un string JSON válido como primer argumento.');
-        console.log('💡 Ejemplo: node scripts/add-affirmations.js \'[{"text":"hola", "author":"yo", "category":"Paz", "id":"999"}]\'');
+        console.error('❌ Error: Faltan argumentos.');
+        console.log('💡 Opción A: node scripts/add-affirmations.js \'[{"text":"hola"...}]\'');
+        console.log('💡 Opción B: node scripts/add-affirmations.js --file=temp.json');
         process.exit(1);
     }
 
-    // Parse argument correctly allowing for single/double quotes escaped from shells
-    let inputString = args[0].trim();
+    let newAffirmations = [];
 
-    const newAffirmations = JSON.parse(inputString);
+    if (args[0].startsWith('--file=')) {
+        const filePath = args[0].split('=')[1];
+        const absolutePath = path.resolve(process.cwd(), filePath);
+        const content = fs.readFileSync(absolutePath, 'utf8');
+        newAffirmations = JSON.parse(content);
+    } else {
+        // Parse argument correctly allowing for single/double quotes escaped from shells
+        let inputString = args[0].trim();
+        newAffirmations = JSON.parse(inputString);
+    }
 
     if (!Array.isArray(newAffirmations)) {
         throw new Error('El JSON proporcionado debe ser un Array [] de afirmaciones.');

@@ -2522,91 +2522,91 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "418",
-        "text": "Yo soy el arquitecto de mis h�bitos; hoy elijo enfocarme en ser un 1% mejor que ayer.",
+        "text": "Yo soy el arquitecto de mis hábitos; hoy elijo enfocarme en ser un 1% mejor que ayer.",
         "author": "James Clear",
-        "category": "Motivaci�n"
+        "category": "Motivación"
     },
     {
         "id": "419",
-        "text": "No necesito m�s motivaci�n, necesito claridad de acci�n. Yo dise�o mi entorno para el �xito.",
+        "text": "No necesito más motivación, necesito claridad de acción. Yo diseño mi entorno para el éxito.",
         "author": "James Clear",
         "category": "Enfoque"
     },
     {
         "id": "420",
-        "text": "Cada acci�n que tomo es un voto por la confianza en la persona que deseo y elijo ser.",
+        "text": "Cada acción que tomo es un voto por la confianza en la persona que deseo y elijo ser.",
         "author": "James Clear",
         "category": "Confianza"
     },
     {
         "id": "421",
-        "text": "Me enfoco en el sistema diario, no en el evento final. Mi grandeza se forja cada d�a.",
+        "text": "Me enfoco en el sistema diario, no en el evento final. Mi grandeza se forja cada día.",
         "author": "James Clear",
-        "category": "�xito"
+        "category": "Éxito"
     },
     {
         "id": "422",
-        "text": "El �xito es el producto de mis h�bitos diarios, conf�o en mi capacidad de hacerlos duraderos.",
+        "text": "El éxito es el producto de mis hábitos diarios, confío en mi capacidad de hacerlos duraderos.",
         "author": "James Clear",
-        "category": "�xito"
+        "category": "Éxito"
     },
     {
         "id": "423",
-        "text": "Hago f�cil el inicio; permito que mis peque�as victorias de hoy alimenten mi paz de ma�ana.",
+        "text": "Hago fácil el inicio; permito que mis pequeñas victorias de hoy alimenten mi paz de mañana.",
         "author": "James Clear",
         "category": "Paz"
     },
     {
         "id": "424",
-        "text": "Yo no busco cambiar quien soy por fuera; elijo transformar mis h�bitos y mi identidad desde dentro.",
+        "text": "Yo no busco cambiar quien soy por fuera; elijo transformar mis hábitos y mi identidad desde dentro.",
         "author": "James Clear",
         "category": "Crecimiento"
     },
     {
         "id": "425",
-        "text": "Rompo las grandes metas en sistemas min�sculos, porque la constancia pac�fica trae grandes cambios.",
+        "text": "Rompo las grandes metas en sistemas minúsculos, porque la constancia pacífica trae grandes cambios.",
         "author": "James Clear",
         "category": "Paz"
     },
     {
         "id": "426",
-        "text": "Acepto que mi progreso no siempre es lineal. Conf�o en que mis esfuerzos se acumulan bajo la superficie.",
+        "text": "Acepto que mi progreso no siempre es lineal. Confío en que mis esfuerzos se acumulan bajo la superficie.",
         "author": "James Clear",
         "category": "Confianza"
     },
     {
         "id": "427",
-        "text": "Si mejoro un 1% cada d�a, los resultados llegar�n a m�. Me entrego al proceso seguro y sin prisa.",
+        "text": "Si mejoro un 1% cada día, los resultados llegarán a mí. Me entrego al proceso seguro y sin prisa.",
         "author": "James Clear",
         "category": "Entrega"
     },
     {
         "id": "428",
-        "text": "Yo elijo estar m�s interesado en el trayecto de mis h�bitos que preocupado por la meta final.",
+        "text": "Yo elijo estar más interesado en el trayecto de mis hábitos que preocupado por la meta final.",
         "author": "James Clear",
         "category": "Ansiedad"
     },
     {
         "id": "429",
-        "text": "Yo dise�o un ambiente sereno donde hacer lo correcto es la opci�n m�s sencilla y natural.",
+        "text": "Yo diseño un ambiente sereno donde hacer lo correcto es la opción más sencilla y natural.",
         "author": "James Clear",
         "category": "Calma"
     },
     {
         "id": "430",
-        "text": "No permito que una derrota frene mi sistema. Nunca rompo la cadena dos d�as seguidos.",
+        "text": "No permito que una derrota frene mi sistema. Nunca rompo la cadena dos días seguidos.",
         "author": "James Clear",
         "category": "Enfoque"
     },
     {
         "id": "431",
-        "text": "Me convierto en una obra maestra al repetir las acciones correctas cada d�a, por aburridas que sean.",
+        "text": "Me convierto en una obra maestra al repetir las acciones correctas cada día, por aburridas que sean.",
         "author": "James Clear",
         "category": "Poder"
     },
     {
         "id": "432",
-        "text": "Suelto la necesidad de perfecci�n. Hoy elijo mostrarme y hacer de mi h�bito una repetici�n m�s.",
+        "text": "Suelto la necesidad de perfección. Hoy elijo mostrarme y hacer de mi hábito una repetición más.",
         "author": "James Clear",
         "category": "Serenidad"
     },
@@ -2618,31 +2618,31 @@ const affirmations: Affirmation[] = [
     },
     {
         "id": "434",
-        "text": "Mis peque�os buenos h�bitos son el inter�s compuesto de mi automejora emocional y mental.",
+        "text": "Mis pequeños buenos hábitos son el interés compuesto de mi automejora emocional y mental.",
         "author": "James Clear",
         "category": "Salud"
     },
     {
         "id": "435",
-        "text": "Yo celebro dominar los buenos h�bitos, porque son ellos los que traen mi libertad financiera y paz.",
+        "text": "Yo celebro dominar los buenos hábitos, porque son ellos los que traen mi libertad financiera y paz.",
         "author": "James Clear",
         "category": "Abundancia"
     },
     {
         "id": "436",
-        "text": "Yo construyo un ecosistema a mi alrededor donde mi �xito sea inevitable y no dependa de mi fuerza de voluntad.",
+        "text": "Yo construyo un ecosistema a mi alrededor donde mi éxito sea inevitable y no dependa de mi fuerza de voluntad.",
         "author": "James Clear",
         "category": "Seguridad"
     },
     {
         "id": "437",
-        "text": "Dejo de culpar a mi falta de voluntad. Asumo la responsabilidad divina de dise�ar mis sistemas.",
+        "text": "Dejo de culpar a mi falta de voluntad. Asumo la responsabilidad divina de diseñar mis sistemas.",
         "author": "James Clear",
-        "category": "Motivaci�n"
+        "category": "Motivación"
     },
     {
         "id": "438",
-        "text": "Doy gracias por cada repetici�n que puedo hacer, porque me acerca un poco m�s a mi paz duradera.",
+        "text": "Doy gracias por cada repetición que puedo hacer, porque me acerca un poco más a mi paz duradera.",
         "author": "James Clear",
         "category": "Gratitud"
     },
@@ -2794,6 +2794,138 @@ const affirmations: Affirmation[] = [
         "id": "463",
         "text": "Sostengo una señal radiante y amorosa hacia el campo unificado, sabiendo que estoy divinamente seguro.",
         "author": "Joe Dispenza",
+        "category": "Seguridad"
+    },
+    {
+        "id": "464",
+        "text": "Yo me anclo en este instante. Respirar es mi único deber ahora y encuentro paz en ello.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Paz"
+    },
+    {
+        "id": "465",
+        "text": "Suelto mis pensamientos ansiosos como nubes pasando. Solo elijo ser mi propia consciencia.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Serenidad"
+    },
+    {
+        "id": "466",
+        "text": "A donde quiera que vaya, ahí estoy. Elijo habitar mi cuerpo con total atención y compasión.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Entrega"
+    },
+    {
+        "id": "467",
+        "text": "Renuncio a querer que este momento sea diferente. Lo acepto y encuentro calma en su realidad.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Calma"
+    },
+    {
+        "id": "468",
+        "text": "Yo no soy mi dolor ni mis miedos. Soy la consciencia amplia que los observa y los deja ir.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Seguridad"
+    },
+    {
+        "id": "469",
+        "text": "Presto atención plena a cada paso que doy, enraizando mi energía profunda en la tierra.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Enfoque"
+    },
+    {
+        "id": "470",
+        "text": "En la quietud descubro mi verdadera abundancia. Simplemente ser y respirar ya es un milagro.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Abundancia"
+    },
+    {
+        "id": "471",
+        "text": "Abrazo mi estrés sin juzgarlo. Al darle espacio, su poder sobre mí se disuelve en el aire.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Estrés"
+    },
+    {
+        "id": "472",
+        "text": "Transformo mis prisas en presencia. Yo elijo saborear la vida sin tener que correr al final.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Paz"
+    },
+    {
+        "id": "473",
+        "text": "Acepto mis emociones como olas del mar: suben y bajan, pero yo soy el vasto océano quieto.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Serenidad"
+    },
+    {
+        "id": "474",
+        "text": "No hay mayor éxito que estar completamente vivo y consciente en el aquí y el ahora mismo.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Éxito"
+    },
+    {
+        "id": "475",
+        "text": "Cultivo la bondad hacia mí mismo. Me trato con el amor profundo que ofrezco a todo el mundo.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Autoestima"
+    },
+    {
+        "id": "476",
+        "text": "Despierto a la realidad de que este momento es el único lugar donde puedo vivir y crecer.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "477",
+        "text": "Doy gracias por el regalo de esta respiración. Hoy confío en el ritmo natural de mi vida.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Gratitud"
+    },
+    {
+        "id": "478",
+        "text": "Suelto mis ideas preconcebidas y elijo ver el día de hoy con la mente fresca de aprendiz.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Poder"
+    },
+    {
+        "id": "479",
+        "text": "No trato de forzar la curación; la permito creando un espacio de consciencia tierna y pura.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Salud"
+    },
+    {
+        "id": "480",
+        "text": "Confío en mi intuición interior. Mi sabiduría surge cuando mantengo mi mente en silencio.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Confianza"
+    },
+    {
+        "id": "481",
+        "text": "Yo respiro dentro del miedo y lo rodeo de luz, recordándome que estoy a salvo en el presente.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "482",
+        "text": "Mi motivación no nace del afán de lograr logros externos, sino del gozo simple de existir hoy.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Motivación"
+    },
+    {
+        "id": "483",
+        "text": "Cada día vacío mi mente de preocupaciones inútiles y elijo colmarla con atención plena total.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Relajación"
+    },
+    {
+        "id": "484",
+        "text": "Siento mi cuerpo vivo, relajando cada músculo y permitiéndome disfrutar del descanso absoluto.",
+        "author": "Jon Kabat-Zinn",
+        "category": "Salud"
+    },
+    {
+        "id": "485",
+        "text": "Yo soy una presencia serena ante el caos temporal. Mi paz interior permanece siempre intocable.",
+        "author": "Jon Kabat-Zinn",
         "category": "Seguridad"
     }
 ];
