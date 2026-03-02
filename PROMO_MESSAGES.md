@@ -20,7 +20,7 @@ Este documento contiene copys y guiones sugeridos para compartir **Ancla** en di
 > "¿Sabías que pasamos 5 horas al día viendo notificaciones estresantes? 📱💥
 >
 > Por eso hice **Ancla**. Una app que solo vibra para darte paz.
-> No se instala, es gratis y tiene +300 afirmaciones curadas para frenar la ansiedad.
+> No se instala, es gratis y tiene +500 afirmaciones curadas para frenar la ansiedad.
 >
 > Dale una oportunidad aquí: https://anclas.vercel.app ⚓"
 
