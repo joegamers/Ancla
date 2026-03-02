@@ -2,7 +2,7 @@
  * ShareService — Generates a shareable image of an affirmation
  * using Canvas API and triggers native Share (Capacitor) or Web Share fallback.
  * 
- * Uses dynamic imports for Capacitor so it doesn't break PWA environments.
+ * Highly optimized for speed to avoid "User Gesture Timeout" on PWA Chrome.
  */
 
 interface ShareOptions {
@@ -12,189 +12,122 @@ interface ShareOptions {
 }
 
 /**
- * Draws a rounded rectangle path using arcTo (compatible with all browsers/WebViews).
- */
-function drawRoundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
-}
-
-/**
- * Creates a beautiful branded image from an affirmation.
+ * Creates a branded image FAST to ensure navigator.share works.
  */
 function generateImage(options: ShareOptions): Promise<Blob> {
     return new Promise((resolve, reject) => {
-        try {
-            const width = 1080;
-            const height = 1080;
-            const canvas = document.createElement('canvas');
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                reject(new Error('Canvas not supported'));
-                return;
-            }
-
-            // ─── Background: deep dark gradient ───
-            const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-            bgGrad.addColorStop(0, '#050b16');
-            bgGrad.addColorStop(0.35, '#071a26');
-            bgGrad.addColorStop(0.55, '#0a2220');
-            bgGrad.addColorStop(1, '#060e18');
-            ctx.fillStyle = bgGrad;
-            ctx.fillRect(0, 0, width, height);
-
-            // ─── Nebula glow layers ───
-            const glow1 = ctx.createRadialGradient(width * 0.4, height * 0.15, 0, width * 0.4, height * 0.15, 500);
-            glow1.addColorStop(0, 'rgba(20, 184, 166, 0.45)');
-            glow1.addColorStop(0.5, 'rgba(6, 95, 70, 0.20)');
-            glow1.addColorStop(1, 'rgba(0, 0, 0, 0)');
-            ctx.fillStyle = glow1;
-            ctx.fillRect(0, 0, width, height);
-
-            const glow2 = ctx.createRadialGradient(width * 0.75, height * 0.8, 0, width * 0.75, height * 0.8, 450);
-            glow2.addColorStop(0, 'rgba(34, 211, 238, 0.35)');
-            glow2.addColorStop(0.5, 'rgba(8, 145, 178, 0.15)');
-            glow2.addColorStop(1, 'rgba(0, 0, 0, 0)');
-            ctx.fillStyle = glow2;
-            ctx.fillRect(0, 0, width, height);
-
-            const glowCenter = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, 350);
-            glowCenter.addColorStop(0, 'rgba(20, 184, 166, 0.30)');
-            glowCenter.addColorStop(0.6, 'rgba(13, 148, 136, 0.10)');
-            glowCenter.addColorStop(1, 'rgba(0, 0, 0, 0)');
-            ctx.fillStyle = glowCenter;
-            ctx.fillRect(0, 0, width, height);
-
-            // ─── Brand badge ───
-            ctx.font = '600 14px Inter, system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(94, 234, 212, 0.50)';
-            ctx.textAlign = 'center';
-            ctx.fillText('A  N  C  L  A', width / 2, 120);
-
-            // Decorative lines
-            ctx.strokeStyle = 'rgba(94, 234, 212, 0.25)';
-            ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(width / 2 - 100, 117); ctx.lineTo(width / 2 - 50, 117); ctx.stroke();
-            ctx.beginPath(); ctx.moveTo(width / 2 + 50, 117); ctx.lineTo(width / 2 + 100, 117); ctx.stroke();
-
-            // ─── Measure and wrap text ───
-            ctx.font = 'italic 300 38px Inter, Georgia, serif';
-            const maxTextWidth = width - 200;
-            const lineHeight = 56;
-            const words = options.text.split(' ');
-            const lines: string[] = [];
-            let currentLine = '';
-
-            for (const word of words) {
-                const testLine = currentLine ? `${currentLine} ${word}` : word;
-                const metrics = ctx.measureText(testLine);
-                if (metrics.width > maxTextWidth && currentLine) {
-                    lines.push(currentLine);
-                    currentLine = word;
-                } else {
-                    currentLine = testLine;
-                }
-            }
-            if (currentLine) lines.push(currentLine);
-
-            // ─── Glassmorphism card ───
-            const cardPadX = 70;
-            const cardPadY = 50;
-            const textBlockH = lines.length * lineHeight;
-            const cardH = textBlockH + cardPadY * 2 + 20;
-            const cardY = (height - cardH) / 2 - 20;
-            const cardX = cardPadX;
-            const cardW = width - cardPadX * 2;
-            const cardRadius = 32;
-
-            // Card background
-            ctx.save();
-            drawRoundRect(ctx, cardX, cardY, cardW, cardH, cardRadius);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
-            ctx.fill();
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-            // Inner highlight
-            drawRoundRect(ctx, cardX + 1, cardY + 1, cardW - 2, cardH - 2, cardRadius);
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-            ctx.lineWidth = 1;
-            ctx.stroke();
-            ctx.restore();
-
-            // ─── Decorative quote marks ───
-            ctx.font = '300 120px Georgia, serif';
-            ctx.fillStyle = 'rgba(94, 234, 212, 0.12)';
-            ctx.textAlign = 'left';
-            ctx.fillText('\u201C', cardX + 25, cardY + 75);
-            ctx.textAlign = 'right';
-            ctx.fillText('\u201D', cardX + cardW - 25, cardY + cardH - 15);
-
-            // ─── Draw affirmation text ───
-            ctx.textAlign = 'center';
-            ctx.font = 'italic 300 38px Inter, Georgia, serif';
-            const textStartY = cardY + cardPadY + 30;
-
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
-            for (let i = 0; i < lines.length; i++) {
-                ctx.fillText(lines[i], width / 2, textStartY + i * lineHeight);
-            }
-
-            // ─── Author ───
-            const authorY = cardY + cardH + 50;
-            ctx.font = '500 22px Inter, system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
-            ctx.textAlign = 'center';
-            ctx.fillText(`\u2014 ${options.author}`, width / 2, authorY);
-
-            if (options.source) {
-                ctx.font = '400 15px Inter, system-ui, sans-serif';
-                ctx.fillStyle = 'rgba(94, 234, 212, 0.30)';
-                ctx.fillText(options.source.toUpperCase(), width / 2, authorY + 30);
-            }
-
-            // ─── Footer ───
-            ctx.font = '500 14px Inter, system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(94, 234, 212, 0.35)';
-            ctx.fillText('anclas.vercel.app', width / 2, height - 60);
-
-            // ─── Export as blob ───
-            canvas.toBlob((blob) => {
-                if (blob) resolve(blob);
-                else reject(new Error('Failed to generate image'));
-            }, 'image/png', 1.0);
-        } catch (e) {
-            reject(e);
+        const width = 1080;
+        const height = 1080;
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            reject(new Error('Canvas not supported'));
+            return;
         }
+
+        // ─── Simple Background (fast) ───
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0, '#0a0f18');
+        gradient.addColorStop(0.4, '#0d3d3d');
+        gradient.addColorStop(1, '#0a1a2a');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+
+        // Simple Radial (fast)
+        const radial = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, 400);
+        radial.addColorStop(0, 'rgba(20, 184, 166, 0.15)');
+        radial.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = radial;
+        ctx.fillRect(0, 0, width, height);
+
+        // ─── Fast lines ───
+        ctx.strokeStyle = 'rgba(94, 234, 212, 0.3)';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(width / 2 - 60, 200); ctx.lineTo(width / 2 + 60, 200); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(width / 2 - 60, height - 200); ctx.lineTo(width / 2 + 60, height - 200); ctx.stroke();
+
+        // ─── Brand badge ───
+        ctx.font = '600 14px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(94, 234, 212, 0.6)';
+        ctx.textAlign = 'center';
+        // Mock letter spacing via spaces
+        ctx.fillText('A N C L A', width / 2, 170);
+
+        // ─── Text wrapping calculation ───
+        ctx.font = 'italic 300 40px Inter, Georgia, serif';
+        const maxTextWidth = width - 160;
+        const lineHeight = 56;
+        const words = options.text.split(' ');
+        const lines: string[] = [];
+        let currentLine = '';
+
+        for (const word of words) {
+            const testLine = currentLine ? `${currentLine} ${word}` : word;
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxTextWidth && currentLine) {
+                lines.push(currentLine);
+                currentLine = word;
+            } else {
+                currentLine = testLine;
+            }
+        }
+        if (currentLine) lines.push(currentLine);
+
+        // ─── Draw Quotes and Text ───
+        const textBlockHeight = lines.length * lineHeight;
+        const startY = (height - textBlockHeight) / 2 + 20;
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.textAlign = 'center';
+
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i];
+            if (i === 0) line = `"${line}`;
+            if (i === lines.length - 1) line = `${line}"`;
+            ctx.fillText(line, width / 2, startY + i * lineHeight);
+        }
+
+        // ─── Author ───
+        ctx.font = '500 24px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.fillText(`— ${options.author}`, width / 2, height - 260);
+
+        if (options.source) {
+            ctx.font = '400 16px Inter, system-ui, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.fillText(options.source, width / 2, height - 230);
+        }
+
+        // ─── Footer ───
+        ctx.font = '600 14px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(94, 234, 212, 0.4)';
+        ctx.fillText('ANCLAS.VERCEL.APP', width / 2, height - 60);
+
+        // Export (toBlob is the slow part, simplifying canvas makes it faster)
+        canvas.toBlob((blob) => {
+            if (blob) resolve(blob);
+            else reject(new Error('Failed to generate image'));
+        }, 'image/png');
     });
 }
 
-/**
- * Detect if running natively in Capacitor shell safely.
- */
 function isNative(): boolean {
     return !!(window as any).Capacitor?.isNativePlatform?.();
 }
 
 /**
- * Share an affirmation: attempts native -> Web Share with image -> Web Share text only -> download
+ * Share an affirmation using Web Share API or Capacitor natively.
  */
 export async function shareAffirmation(options: ShareOptions): Promise<void> {
     try {
         const blob = await generateImage(options);
-        const fileName = `ancla-afirmacion-${Date.now()}.png`;
-
+        const fileName = `ancla-afirm-${Date.now()}.png`;
         const shareTitle = 'Ancla — Tu espacio de calma';
-        const shareText = `"${options.text}" — ${options.author}\n\nEncuentra más paz en: https://anclas.vercel.app`;
+        const shareText = `"${options.text}" — ${options.author}\n\nEncuentra paz en: https://anclas.vercel.app`;
 
-        // 1. NATIVE SHARE VIA CAPACITOR
+        // 1. CAPACITOR NATIVE (Android APK)
         if (isNative()) {
             try {
                 const { Filesystem, Directory } = await import('@capacitor/filesystem');
@@ -204,7 +137,7 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
                     const reader = new FileReader();
                     reader.onloadend = () => {
                         if (typeof reader.result === 'string') resolve(reader.result.split(',')[1]);
-                        else reject(new Error('Failed to convert to base64'));
+                        else reject(new Error('b64 fail'));
                     };
                     reader.onerror = reject;
                     reader.readAsDataURL(blob);
@@ -223,17 +156,16 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
                     dialogTitle: 'Compartir afirmación'
                 });
                 return;
-            } catch (nativeErr) {
-                console.warn('[Ancla] Native share error:', nativeErr);
-                // Fall through to web sharing
+            } catch (err) {
+                console.warn('[Ancla] Native share err:', err);
+                // fallback below
             }
         }
 
-        // 2. WEB SHARE
+        // 2. BROWSER / PWA WEB SHARE
         if (navigator.share) {
             try {
                 const file = new File([blob], fileName, { type: 'image/png' });
-                // If canShare supports the file, try sharing with the image
                 if (navigator.canShare?.({ files: [file] })) {
                     await navigator.share({
                         title: shareTitle,
@@ -241,32 +173,16 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
                         files: [file],
                     });
                     return;
-                } else {
-                    // Fallback to just sharing text/link if files aren't supported
-                    await navigator.share({
-                        title: shareTitle,
-                        text: shareText,
-                    });
-                    return;
                 }
-            } catch (webShareErr: any) {
-                // If sharing file failed (e.g. some Android Chrome issues), try text-only fallback
-                if (webShareErr.name !== 'AbortError' && webShareErr.name !== 'NotAllowedError') {
-                    console.warn('[Ancla] Image web share failed, attempting text-only...', webShareErr);
-                    try {
-                        await navigator.share({
-                            title: shareTitle,
-                            text: shareText,
-                        });
-                        return;
-                    } catch (textShareErr: any) {
-                        if (textShareErr.name === 'AbortError') return;
-                        throw textShareErr; // go to download fallback
-                    }
-                } else if (webShareErr.name === 'AbortError') {
-                    return; // user cancelled
-                }
-                throw webShareErr; // NotAllowedError or other
+            } catch (e: any) {
+                if (e.name === 'AbortError') return;
+                console.warn('[Ancla] Web Share (Image) failed, sending text...', e);
+                // Fallback instantly to text
+                await navigator.share({
+                    title: shareTitle,
+                    text: shareText,
+                });
+                return;
             }
         }
 
@@ -282,14 +198,13 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
 
     } catch (err: any) {
         if (err.name === 'AbortError') return;
-        console.error('[Ancla] Final Share error:', err);
+        console.error('[Ancla] Share failed:', err);
 
-        // Show user feedback that sharing failed
         try {
             const { useStore } = await import('../store/useStore');
-            useStore.getState().showToast('Error al compartir. Asegúrate de intentar desde tu navegador.');
+            useStore.getState().showToast('Error: Intenta desde el menú de tu navegador.');
         } catch {
-            alert('No se pudo compartir la imagen. Por favor intenta de nuevo.');
+            alert('Error al compartir.');
         }
     }
 }
