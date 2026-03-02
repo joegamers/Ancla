@@ -1,10 +1,8 @@
-import { Capacitor } from '@capacitor/core';
-import { Share } from '@capacitor/share';
-import { Filesystem, Directory } from '@capacitor/filesystem';
-
 /**
  * ShareService — Generates a shareable image of an affirmation
  * using Canvas API and triggers native Share (Capacitor) or Web Share fallback.
+ *
+ * Capacitor plugins are imported DYNAMICALLY to avoid crashes in PWA/web context.
  */
 
 interface ShareOptions {
@@ -204,48 +202,66 @@ function generateImage(options: ShareOptions): Promise<Blob> {
 }
 
 /**
- * Share an affirmation using Web Share API or fallback to download.
+ * Checks if running inside Capacitor native shell (safe — returns false if Capacitor isn't loaded).
+ */
+function isNative(): boolean {
+    try {
+        // @capacitor/core sets window.Capacitor when running in native shell
+        return !!(window as any).Capacitor?.isNativePlatform?.();
+    } catch {
+        return false;
+    }
+}
+
+/**
+ * Share an affirmation using native Capacitor Share or Web Share API.
  */
 export async function shareAffirmation(options: ShareOptions): Promise<void> {
     try {
         const blob = await generateImage(options);
         const fileName = `ancla-afirmacion-${Date.now()}.png`;
 
-        // ─── NATIVE SHARE (Android / iOS) ───
-        if (Capacitor.isNativePlatform()) {
-            // First, convert blob to base64
-            const base64Data = await new Promise<string>((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    if (typeof reader.result === 'string') {
-                        // Remove the data:image/png;base64, prefix
-                        resolve(reader.result.split(',')[1]);
-                    } else {
-                        reject(new Error('Failed to convert blob to base64'));
-                    }
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-            });
+        // ─── NATIVE SHARE (Android / iOS via Capacitor) ───
+        if (isNative()) {
+            try {
+                // Dynamic imports — only loaded inside Capacitor shell
+                const { Filesystem, Directory } = await import('@capacitor/filesystem');
+                const { Share } = await import('@capacitor/share');
 
-            // Write to device cache
-            const writeFileResult = await Filesystem.writeFile({
-                path: fileName,
-                data: base64Data,
-                directory: Directory.Cache,
-            });
+                // Convert blob to base64
+                const base64Data = await new Promise<string>((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        if (typeof reader.result === 'string') {
+                            resolve(reader.result.split(',')[1]);
+                        } else {
+                            reject(new Error('Failed to convert blob to base64'));
+                        }
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                });
 
-            // Share native URI
-            await Share.share({
-                title: 'Ancla — Tu espacio de calma',
-                text: `"${options.text}" — ${options.author}\n\nEncuentra más paz en: https://anclas.vercel.app`,
-                url: writeFileResult.uri, // This is the local file path
-                dialogTitle: 'Compartir afirmación'
-            });
-            return;
+                const writeResult = await Filesystem.writeFile({
+                    path: fileName,
+                    data: base64Data,
+                    directory: Directory.Cache,
+                });
+
+                await Share.share({
+                    title: 'Ancla — Tu espacio de calma',
+                    text: `"${options.text}" — ${options.author}\n\nEncuentra más paz en: https://anclas.vercel.app`,
+                    url: writeResult.uri,
+                    dialogTitle: 'Compartir afirmación'
+                });
+                return;
+            } catch (nativeErr) {
+                console.warn('[Ancla] Native share failed, falling back to web:', nativeErr);
+                // Fall through to web share below
+            }
         }
 
-        // ─── WEB SHARE (Browser) ───
+        // ─── WEB SHARE (PWA / Browser) ───
         const file = new File([blob], fileName, { type: 'image/png' });
 
         if (navigator.share && navigator.canShare?.({ files: [file] })) {
@@ -267,16 +283,13 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
     } catch (err) {
-        // User cancelled share — don't show error
         if ((err as Error).name === 'AbortError') return;
         console.error('[Ancla] Share error:', err);
-        // Show visible feedback so user knows something went wrong
         try {
             const { useStore } = await import('../store/useStore');
             useStore.getState().showToast('Error al compartir. Intenta de nuevo.');
         } catch {
-            // Last resort fallback
-            alert('No se pudo compartir la imagen. Por favor intenta de nuevo.');
+            alert('No se pudo compartir la imagen.');
         }
     }
 }
