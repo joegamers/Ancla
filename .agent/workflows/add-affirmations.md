@@ -20,7 +20,10 @@ Este proceso define cómo la Inteligencia Artificial debe actuar cada vez que el
    Redactar las afirmaciones solicitadas siguiendo estrictamente las Reglas de Formato (limite de longitud y uso de la primera persona). Si el usuario no específica cuántas crear, genera **siempre un mínimo de 20 y un máximo de 30** por defecto.
 
 3. **Insertar en JSON**:
-   Agrega los nuevos objetos JSON al final del array en el archivo `src/data/affirmations.json`.
+   Para agregar afirmaciones garantizando que la codificación UTF-8 se proteja por completo, NO uses PowerShell ni manipules el archivo manualmente. **Genera el array JSON de objetos en memoria y pásalo textualmente al script inyector dedicado:**
+   
+   Ejemplo de comando:
+   `node scripts/add-affirmations.js '[{"text": "...", "author": "...", "source": "...", "category": "Paz", "id": "499"}, ...]'`
 
 4. **Ejecutar la sincronización**:
    Siempre debes correr el script de sincronización con el Worker.
