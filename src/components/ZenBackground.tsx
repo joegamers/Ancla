@@ -296,7 +296,7 @@ export const ZenBackground: React.FC = () => {
             ref={containerRef}
             aria-hidden="true"
             className="fixed inset-0 z-0 pointer-events-none transition-colors duration-1000"
-            style={{ background: 'linear-gradient(135deg, #0a1428 0%, #0d1f2d 40%, #0a1212 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #060d1a 0%, #0a1e2e 30%, #0d2a2a 60%, #081018 100%)' }}
         />
     );
 };

@@ -22,50 +22,69 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         const ctx = canvas.getContext('2d');
         if (!ctx) return reject(new Error('Canvas not supported'));
 
-        // ─── Background gradient ───
-        const gradient = ctx.createLinearGradient(0, 0, width, height);
-        gradient.addColorStop(0, '#0a0f18');
-        gradient.addColorStop(0.4, '#0d3d3d');
-        gradient.addColorStop(1, '#0a1a2a');
-        ctx.fillStyle = gradient;
+        // ─── Background: deep dark gradient matching home ───
+        const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+        bgGrad.addColorStop(0, '#050b16');
+        bgGrad.addColorStop(0.35, '#071a26');
+        bgGrad.addColorStop(0.55, '#0a2220');
+        bgGrad.addColorStop(1, '#060e18');
+        ctx.fillStyle = bgGrad;
         ctx.fillRect(0, 0, width, height);
 
-        // Subtle radial glow
-        const radial = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, 400);
-        radial.addColorStop(0, 'rgba(20, 184, 166, 0.12)');
-        radial.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = radial;
+        // ─── Nebula glow layers (simulates wave effects) ───
+        // Teal aurora — top
+        const glow1 = ctx.createRadialGradient(width * 0.4, height * 0.15, 0, width * 0.4, height * 0.15, 500);
+        glow1.addColorStop(0, 'rgba(20, 184, 166, 0.45)');
+        glow1.addColorStop(0.5, 'rgba(6, 95, 70, 0.20)');
+        glow1.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = glow1;
         ctx.fillRect(0, 0, width, height);
 
-        // ─── Decorative elements ───
-        // Top line
-        ctx.strokeStyle = 'rgba(94, 234, 212, 0.3)';
+        // Cyan wave — bottom-right
+        const glow2 = ctx.createRadialGradient(width * 0.75, height * 0.8, 0, width * 0.75, height * 0.8, 450);
+        glow2.addColorStop(0, 'rgba(34, 211, 238, 0.35)');
+        glow2.addColorStop(0.5, 'rgba(8, 145, 178, 0.15)');
+        glow2.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = glow2;
+        ctx.fillRect(0, 0, width, height);
+
+        // Violet mist — left
+        const glow3 = ctx.createRadialGradient(width * 0.15, height * 0.5, 0, width * 0.15, height * 0.5, 400);
+        glow3.addColorStop(0, 'rgba(99, 102, 241, 0.25)');
+        glow3.addColorStop(0.6, 'rgba(67, 56, 202, 0.08)');
+        glow3.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = glow3;
+        ctx.fillRect(0, 0, width, height);
+
+        // Central glow — behind text
+        const glowCenter = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, 350);
+        glowCenter.addColorStop(0, 'rgba(20, 184, 166, 0.30)');
+        glowCenter.addColorStop(0.6, 'rgba(13, 148, 136, 0.10)');
+        glowCenter.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = glowCenter;
+        ctx.fillRect(0, 0, width, height);
+
+        // ─── Brand badge — top ───
+        ctx.font = '600 14px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(94, 234, 212, 0.50)';
+        ctx.textAlign = 'center';
+        ctx.fillText('A  N  C  L  A', width / 2, 120);
+
+        // Decorative lines beside brand
+        ctx.strokeStyle = 'rgba(94, 234, 212, 0.25)';
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(width / 2 - 60, 200);
-        ctx.lineTo(width / 2 + 60, 200);
+        ctx.moveTo(width / 2 - 100, 117);
+        ctx.lineTo(width / 2 - 50, 117);
         ctx.stroke();
-
-        // Bottom line
         ctx.beginPath();
-        ctx.moveTo(width / 2 - 60, height - 200);
-        ctx.lineTo(width / 2 + 60, height - 200);
+        ctx.moveTo(width / 2 + 50, 117);
+        ctx.lineTo(width / 2 + 100, 117);
         ctx.stroke();
 
-        // ─── Brand badge ───
-        ctx.font = '600 14px Inter, system-ui, sans-serif';
-        ctx.fillStyle = 'rgba(94, 234, 212, 0.5)';
-        ctx.textAlign = 'center';
-        ctx.letterSpacing = '6px';
-        ctx.fillText('A N C L A', width / 2, 170);
-
-        // ─── Affirmation text ───
-        ctx.font = 'italic 300 40px Inter, Georgia, serif';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.textAlign = 'center';
-
-        // Word-wrap the text
-        const maxWidth = width - 160;
+        // ─── Measure and wrap affirmation text ───
+        ctx.font = 'italic 300 38px Inter, Georgia, serif';
+        const maxTextWidth = width - 200;
         const lineHeight = 56;
         const words = options.text.split(' ');
         const lines: string[] = [];
@@ -74,7 +93,7 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         for (const word of words) {
             const testLine = currentLine ? `${currentLine} ${word}` : word;
             const metrics = ctx.measureText(testLine);
-            if (metrics.width > maxWidth && currentLine) {
+            if (metrics.width > maxTextWidth && currentLine) {
                 lines.push(currentLine);
                 currentLine = word;
             } else {
@@ -83,71 +102,83 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         }
         if (currentLine) lines.push(currentLine);
 
-        // Center vertically
-        const textBlockHeight = lines.length * lineHeight;
-        const startY = (height - textBlockHeight) / 2 + 20;
+        // ─── Glassmorphism card ───
+        const cardPadX = 70;
+        const cardPadY = 50;
+        const textBlockH = lines.length * lineHeight;
+        const cardH = textBlockH + cardPadY * 2 + 20;
+        const cardY = (height - cardH) / 2 - 20;
+        const cardX = cardPadX;
+        const cardW = width - cardPadX * 2;
+        const cardRadius = 32;
 
-        for (let i = 0; i < lines.length; i++) {
-            ctx.fillText(`"${i === 0 ? '' : ''}${lines[i]}${i === lines.length - 1 ? '' : ''}"`.replace(/""/g, '"'), width / 2, startY + i * lineHeight);
-        }
-
-        // Fix: draw quotes properly
-        ctx.fillText('', 0, 0); // reset
-        // Redraw with proper quotes
-        ctx.clearRect(0, 0, width, height); // clear and redo
-
-        // Redo background
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
-        ctx.fillStyle = radial;
-        ctx.fillRect(0, 0, width, height);
-
-        // Redo decorative lines
-        ctx.strokeStyle = 'rgba(94, 234, 212, 0.3)';
+        // Card background
+        ctx.save();
+        ctx.beginPath();
+        ctx.roundRect(cardX, cardY, cardW, cardH, cardRadius);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+        ctx.fill();
+        // Card border
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        // Inner highlight (top edge)
+        ctx.beginPath();
+        ctx.roundRect(cardX + 1, cardY + 1, cardW - 2, cardH - 2, cardRadius);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
         ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(width / 2 - 60, 200);
-        ctx.lineTo(width / 2 + 60, 200);
         ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(width / 2 - 60, height - 200);
-        ctx.lineTo(width / 2 + 60, height - 200);
-        ctx.stroke();
+        ctx.restore();
 
-        // Brand
-        ctx.font = '600 14px Inter, system-ui, sans-serif';
-        ctx.fillStyle = 'rgba(94, 234, 212, 0.5)';
+        // ─── Decorative quote marks ───
+        ctx.font = '300 120px Georgia, serif';
+        ctx.fillStyle = 'rgba(94, 234, 212, 0.12)';
+        ctx.textAlign = 'left';
+        ctx.fillText('\u201C', cardX + 25, cardY + 75);
+        ctx.textAlign = 'right';
+        ctx.fillText('\u201D', cardX + cardW - 25, cardY + cardH - 15);
+
+        // ─── Draw affirmation text with glow ───
         ctx.textAlign = 'center';
-        ctx.fillText('A N C L A', width / 2, 170);
+        ctx.font = 'italic 300 38px Inter, Georgia, serif';
+        const textStartY = cardY + cardPadY + 30;
 
-        // Text with quotes as a single block
-        ctx.font = 'italic 300 40px Inter, Georgia, serif';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.textAlign = 'center';
-
+        // Glow layer (behind text)
+        ctx.save();
+        ctx.shadowColor = 'rgba(20, 184, 166, 0.4)';
+        ctx.shadowBlur = 40;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
         for (let i = 0; i < lines.length; i++) {
-            let line = lines[i];
-            if (i === 0) line = `"${line}`;
-            if (i === lines.length - 1) line = `${line}"`;
-            ctx.fillText(line, width / 2, startY + i * lineHeight);
+            ctx.fillText(lines[i], width / 2, textStartY + i * lineHeight);
+        }
+        ctx.restore();
+
+        // Crisp text layer (on top)
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+        for (let i = 0; i < lines.length; i++) {
+            ctx.fillText(lines[i], width / 2, textStartY + i * lineHeight);
         }
 
-        // ─── Author ───
-        ctx.font = '500 24px Inter, system-ui, sans-serif';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-        ctx.fillText(`— ${options.author}`, width / 2, height - 260);
+        // ─── Author (below card) ───
+        const authorY = cardY + cardH + 50;
+        ctx.font = '500 22px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+        ctx.textAlign = 'center';
+        ctx.fillText(`\u2014 ${options.author}`, width / 2, authorY);
 
         if (options.source) {
-            ctx.font = '400 16px Inter, system-ui, sans-serif';
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-            ctx.fillText(options.source, width / 2, height - 230);
+            ctx.font = '400 15px Inter, system-ui, sans-serif';
+            ctx.fillStyle = 'rgba(94, 234, 212, 0.30)';
+            ctx.fillText(options.source.toUpperCase(), width / 2, authorY + 30);
         }
 
         // ─── Footer ───
-        ctx.font = '600 18px Inter, system-ui, sans-serif';
-        ctx.fillStyle = 'rgba(94, 234, 212, 0.45)';
-        ctx.letterSpacing = '3px';
-        ctx.fillText('ANCLAS.VERCEL.APP · @JOEGAMERSDEV', width / 2, height - 60);
+        ctx.font = '500 14px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(94, 234, 212, 0.35)';
+        ctx.fillText('anclas.vercel.app', width / 2, height - 60);
+        ctx.font = '400 11px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.fillText('@JoeGamersDev', width / 2, height - 40);
 
         // ─── Export as blob ───
         canvas.toBlob((blob) => {

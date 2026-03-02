@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SettingsModal, ZenToast, AffirmationOverlay, Onboarding, SupportModal } from './components';
 import { affirmationEngine } from './services/AffirmationEngine';
@@ -10,11 +10,7 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
 import { Button } from './components/ui/button';
 
-// Lazy load the heavy Three.js background
-const ZenBackground = lazy(() => import('./components/ZenBackground').then(m => ({ default: m.ZenBackground })));
-
 function App() {
-  const [shouldLoadBackground, setShouldLoadBackground] = useState(false);
   const {
     currentVibe,
     setVibe,
@@ -33,38 +29,6 @@ function App() {
   const [showOnboarding, setShowOnboarding] = useState(!hasCompletedOnboarding);
 
   const moods = useMemo(() => affirmationEngine.getMoods(), []);
-
-  // Interaction-First Hydration (Phase 3 Optimization)
-  useEffect(() => {
-    // If we've already decided to load it, don't re-run
-    if (shouldLoadBackground) return;
-
-    const loadTrigger = () => {
-      setShouldLoadBackground(true);
-      removeEventListeners();
-    };
-
-    const removeEventListeners = () => {
-      window.removeEventListener('touchstart', loadTrigger);
-      window.removeEventListener('mousedown', loadTrigger);
-      window.removeEventListener('scroll', loadTrigger);
-      window.removeEventListener('mousemove', loadTrigger);
-    };
-
-    window.addEventListener('touchstart', loadTrigger, { passive: true });
-    window.addEventListener('mousedown', loadTrigger, { passive: true });
-    window.addEventListener('scroll', loadTrigger, { passive: true });
-    window.addEventListener('mousemove', loadTrigger, { passive: true });
-
-    // Fallback for users who don't interact but wait (e.g. 10s)
-    // PageSpeed bot tests usually finish before this if there's no activity
-    const timeout = setTimeout(loadTrigger, 10000);
-
-    return () => {
-      removeEventListeners();
-      clearTimeout(timeout);
-    };
-  }, [shouldLoadBackground]);
 
   const handleInvite = async () => {
     try {
@@ -163,19 +127,146 @@ function App() {
 
   return (
     <>
-      {/* Three.js Zen Background - Interaction Triggered */}
-      {shouldLoadBackground && (
-        <Suspense fallback={
-          <div className="fixed inset-0 z-0" style={{ background: 'linear-gradient(135deg, #0a1428 0%, #0d1f2d 40%, #0a1212 100%)' }} />
-        }>
-          <ZenBackground />
-        </Suspense>
-      )}
+      {/* ─── Background: radial gradient with warm center ─── */}
+      <div
+        className="fixed inset-0 z-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 80% 60% at 50% 45%, rgba(13,42,42,0.9) 0%, transparent 70%),
+            radial-gradient(ellipse 60% 50% at 20% 20%, rgba(6,30,46,0.6) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 40% at 80% 80%, rgba(8,25,50,0.5) 0%, transparent 60%),
+            linear-gradient(135deg, #050b16 0%, #071a26 35%, #0a2220 55%, #060e18 100%)
+          `,
+        }}
+      />
 
-      {/* Static Fallback (Always visible initially) */}
-      {!shouldLoadBackground && (
-        <div className="fixed inset-0 z-0" style={{ background: 'linear-gradient(135deg, #0a1428 0%, #0d1f2d 40%, #0a1212 100%)' }} />
-      )}
+      {/* ─── Nebula Layer — Enhanced Waves (visible on all devices) ─── */}
+      <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden" aria-hidden="true">
+        {/* Teal aurora — top */}
+        <div
+          className="absolute"
+          style={{
+            width: '140vw',
+            height: '60vh',
+            top: '-10%',
+            left: '-20%',
+            background: 'radial-gradient(ellipse at 50% 90%, rgba(20,184,166,0.85) 0%, rgba(6,95,70,0.45) 30%, transparent 60%)',
+            filter: 'blur(50px)',
+            animation: 'nebula-drift-1 20s ease-in-out infinite',
+            willChange: 'transform, opacity',
+          }}
+        />
+        {/* Cyan wave — bottom-right */}
+        <div
+          className="absolute"
+          style={{
+            width: '120vw',
+            height: '55vh',
+            bottom: '-8%',
+            right: '-25%',
+            background: 'radial-gradient(ellipse at 40% 10%, rgba(34,211,238,0.70) 0%, rgba(8,145,178,0.35) 30%, transparent 60%)',
+            filter: 'blur(55px)',
+            animation: 'nebula-drift-2 25s ease-in-out infinite',
+            willChange: 'transform, opacity',
+          }}
+        />
+        {/* Violet mist — left side */}
+        <div
+          className="absolute"
+          style={{
+            width: '90vw',
+            height: '70vh',
+            top: '10%',
+            left: '-25%',
+            background: 'radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.55) 0%, rgba(67,56,202,0.25) 35%, transparent 60%)',
+            filter: 'blur(60px)',
+            animation: 'nebula-drift-3 28s ease-in-out infinite',
+            willChange: 'transform, opacity',
+          }}
+        />
+        {/* Emerald glow — bottom-left */}
+        <div
+          className="absolute"
+          style={{
+            width: '80vw',
+            height: '50vh',
+            bottom: '0%',
+            left: '-5%',
+            background: 'radial-gradient(ellipse at 60% 30%, rgba(16,185,129,0.50) 0%, rgba(5,150,105,0.20) 35%, transparent 60%)',
+            filter: 'blur(45px)',
+            animation: 'nebula-drift-1 24s ease-in-out infinite reverse',
+            willChange: 'transform, opacity',
+          }}
+        />
+
+        {/* ─── Organic Wave Blobs ─── */}
+        {/* Wave blob 1 — teal-cyan organic shape */}
+        <div
+          className="absolute"
+          style={{
+            width: '60vw',
+            height: '40vh',
+            top: '20%',
+            left: '10%',
+            background: 'linear-gradient(135deg, rgba(20,184,166,0.50) 0%, rgba(34,211,238,0.30) 50%, rgba(6,182,212,0.15) 100%)',
+            filter: 'blur(35px)',
+            animation: 'wave-flow 18s ease-in-out infinite',
+            willChange: 'transform, border-radius',
+            borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
+          }}
+        />
+        {/* Wave blob 2 — emerald-indigo organic shape */}
+        <div
+          className="absolute"
+          style={{
+            width: '55vw',
+            height: '45vh',
+            bottom: '15%',
+            right: '5%',
+            background: 'linear-gradient(225deg, rgba(16,185,129,0.45) 0%, rgba(99,102,241,0.25) 50%, rgba(20,184,166,0.15) 100%)',
+            filter: 'blur(40px)',
+            animation: 'wave-flow 22s ease-in-out infinite reverse',
+            willChange: 'transform, border-radius',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+          }}
+        />
+
+        {/* Central focus glow — behind the affirmation */}
+        <div
+          className="absolute"
+          style={{
+            width: '80vw',
+            height: '50vh',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            background: 'radial-gradient(ellipse at 50% 50%, rgba(20,184,166,0.55) 0%, rgba(13,148,136,0.25) 30%, transparent 55%)',
+            filter: 'blur(30px)',
+            animation: 'pulse-glow 7s ease-in-out infinite',
+            willChange: 'transform, opacity',
+          }}
+        />
+
+        {/* Shimmer sweep — subtle light streak */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(105deg, transparent 40%, rgba(94,234,212,0.08) 50%, transparent 60%)',
+            animation: 'shimmer-drift 12s ease-in-out infinite',
+            willChange: 'transform, opacity',
+          }}
+        />
+
+        {/* Noise texture for premium feel */}
+        <div
+          className="absolute inset-0"
+          style={{
+            opacity: 0.03,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundSize: '200px 200px',
+          }}
+        />
+      </div>
 
       {/* Onboarding overlay */}
       {showOnboarding && (
@@ -251,7 +342,7 @@ function App() {
           </motion.div>
 
           {/* Affirmation Card — takes remaining space */}
-          <div className="flex-1 flex flex-col justify-center items-center w-full min-h-0 overflow-hidden">
+          <div className="flex-1 flex flex-col justify-center items-center w-full min-h-0 overflow-y-auto no-scrollbar">
             <AnimatePresence mode="wait">
               {lastAffirmation && (
                 <motion.div
@@ -260,31 +351,86 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full text-center flex flex-col items-center justify-center max-h-full overflow-y-auto no-scrollbar"
+                  className="w-full text-center flex flex-col items-center justify-center"
                 >
-                  {/* Category tag */}
-                  <div className="flex items-center justify-center space-x-2 mb-2 sm:mb-3 shrink-0">
-                    <div className="w-1 h-1 rounded-full bg-teal-400/40" />
-                    <span className="text-[8px] uppercase tracking-[0.25em] text-teal-300/40 font-bold">
-                      {lastAffirmation.category}
-                    </span>
-                  </div>
+                  {/* Category tag — enhanced */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1, duration: 0.5 }}
+                    className="flex items-center justify-center space-x-3 mb-3 sm:mb-4 shrink-0"
+                  >
+                    <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-teal-400/50" />
+                    <div className="flex items-center space-x-1.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400/60 animate-pulse" />
+                      <span className="text-[9px] uppercase tracking-[0.3em] text-teal-300/60 font-bold">
+                        {lastAffirmation.category}
+                      </span>
+                    </div>
+                    <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-teal-400/50" />
+                  </motion.div>
 
-                  {/* The affirmation */}
-                  <p className="text-lg sm:text-2xl md:text-3xl font-light leading-snug text-white/85 italic mb-3 sm:mb-4 px-1"
-                    style={{ textShadow: '0 2px 20px rgba(0,0,0,0.3)' }}>
-                    "{lastAffirmation.text}"
-                  </p>
+                  {/* The affirmation — with glow and glassmorphism */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative px-6 sm:px-10 py-6 sm:py-8 rounded-3xl mx-2"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255,255,255,0.06)',
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
+                    }}
+                  >
+                    {/* Decorative quote mark */}
+                    <div
+                      className="absolute -top-3 left-6 sm:left-10 text-teal-400/15 select-none pointer-events-none"
+                      style={{ fontSize: '4rem', fontFamily: 'Georgia, serif', lineHeight: 1 }}
+                    >
+                      "
+                    </div>
 
-                  {/* Author */}
-                  <div className="space-y-0.5 shrink-0 pb-2">
-                    <p className="text-xs font-medium text-white/50">
+                    <p
+                      className="text-lg sm:text-2xl md:text-3xl font-light leading-relaxed text-white/90 italic relative z-10"
+                      style={{
+                        textShadow: `
+                          0 0 40px rgba(20,184,166,0.3),
+                          0 0 80px rgba(20,184,166,0.15),
+                          0 2px 15px rgba(0,0,0,0.4)
+                        `,
+                      }}
+                    >
+                      {lastAffirmation.text}
+                    </p>
+
+                    {/* Decorative closing quote */}
+                    <div
+                      className="absolute -bottom-3 right-6 sm:right-10 text-teal-400/15 select-none pointer-events-none"
+                      style={{ fontSize: '4rem', fontFamily: 'Georgia, serif', lineHeight: 1, transform: 'rotate(180deg)' }}
+                    >
+                      "
+                    </div>
+                  </motion.div>
+
+                  {/* Author — enhanced with stagger */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className="space-y-1 shrink-0 pt-3 sm:pt-4 pb-2"
+                  >
+                    <p
+                      className="text-xs sm:text-sm font-medium text-white/55"
+                      style={{ textShadow: '0 0 20px rgba(20,184,166,0.2)' }}
+                    >
                       — {lastAffirmation.author}
                     </p>
-                    <p className="text-[9px] uppercase tracking-widest text-white/20">
+                    <p className="text-[9px] uppercase tracking-[0.2em] text-teal-300/25 font-semibold">
                       {lastAffirmation.source}
                     </p>
-                  </div>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>
