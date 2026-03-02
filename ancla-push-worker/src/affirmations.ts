@@ -2513,6 +2513,288 @@ const affirmations: Affirmation[] = [
         "text": "Soy un antiguo hermoso ser milagrosamente dotado con maravillosas mágicas deslumbrantes asombrosas grandes energías.",
         "author": "Carl Jung",
         "category": "Poder"
+    },
+    {
+        "id": "417",
+        "text": "No me elevo al nivel de mis metas, caigo al nivel de mis sistemas. Construyo mejores sistemas.",
+        "author": "James Clear",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "418",
+        "text": "Yo soy el arquitecto de mis h�bitos; hoy elijo enfocarme en ser un 1% mejor que ayer.",
+        "author": "James Clear",
+        "category": "Motivaci�n"
+    },
+    {
+        "id": "419",
+        "text": "No necesito m�s motivaci�n, necesito claridad de acci�n. Yo dise�o mi entorno para el �xito.",
+        "author": "James Clear",
+        "category": "Enfoque"
+    },
+    {
+        "id": "420",
+        "text": "Cada acci�n que tomo es un voto por la confianza en la persona que deseo y elijo ser.",
+        "author": "James Clear",
+        "category": "Confianza"
+    },
+    {
+        "id": "421",
+        "text": "Me enfoco en el sistema diario, no en el evento final. Mi grandeza se forja cada d�a.",
+        "author": "James Clear",
+        "category": "�xito"
+    },
+    {
+        "id": "422",
+        "text": "El �xito es el producto de mis h�bitos diarios, conf�o en mi capacidad de hacerlos duraderos.",
+        "author": "James Clear",
+        "category": "�xito"
+    },
+    {
+        "id": "423",
+        "text": "Hago f�cil el inicio; permito que mis peque�as victorias de hoy alimenten mi paz de ma�ana.",
+        "author": "James Clear",
+        "category": "Paz"
+    },
+    {
+        "id": "424",
+        "text": "Yo no busco cambiar quien soy por fuera; elijo transformar mis h�bitos y mi identidad desde dentro.",
+        "author": "James Clear",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "425",
+        "text": "Rompo las grandes metas en sistemas min�sculos, porque la constancia pac�fica trae grandes cambios.",
+        "author": "James Clear",
+        "category": "Paz"
+    },
+    {
+        "id": "426",
+        "text": "Acepto que mi progreso no siempre es lineal. Conf�o en que mis esfuerzos se acumulan bajo la superficie.",
+        "author": "James Clear",
+        "category": "Confianza"
+    },
+    {
+        "id": "427",
+        "text": "Si mejoro un 1% cada d�a, los resultados llegar�n a m�. Me entrego al proceso seguro y sin prisa.",
+        "author": "James Clear",
+        "category": "Entrega"
+    },
+    {
+        "id": "428",
+        "text": "Yo elijo estar m�s interesado en el trayecto de mis h�bitos que preocupado por la meta final.",
+        "author": "James Clear",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "429",
+        "text": "Yo dise�o un ambiente sereno donde hacer lo correcto es la opci�n m�s sencilla y natural.",
+        "author": "James Clear",
+        "category": "Calma"
+    },
+    {
+        "id": "430",
+        "text": "No permito que una derrota frene mi sistema. Nunca rompo la cadena dos d�as seguidos.",
+        "author": "James Clear",
+        "category": "Enfoque"
+    },
+    {
+        "id": "431",
+        "text": "Me convierto en una obra maestra al repetir las acciones correctas cada d�a, por aburridas que sean.",
+        "author": "James Clear",
+        "category": "Poder"
+    },
+    {
+        "id": "432",
+        "text": "Suelto la necesidad de perfecci�n. Hoy elijo mostrarme y hacer de mi h�bito una repetici�n m�s.",
+        "author": "James Clear",
+        "category": "Serenidad"
+    },
+    {
+        "id": "433",
+        "text": "Cada vez que decido actuar conforme a mis valores, fortalezco la identidad que deseo abrazar.",
+        "author": "James Clear",
+        "category": "Autoestima"
+    },
+    {
+        "id": "434",
+        "text": "Mis peque�os buenos h�bitos son el inter�s compuesto de mi automejora emocional y mental.",
+        "author": "James Clear",
+        "category": "Salud"
+    },
+    {
+        "id": "435",
+        "text": "Yo celebro dominar los buenos h�bitos, porque son ellos los que traen mi libertad financiera y paz.",
+        "author": "James Clear",
+        "category": "Abundancia"
+    },
+    {
+        "id": "436",
+        "text": "Yo construyo un ecosistema a mi alrededor donde mi �xito sea inevitable y no dependa de mi fuerza de voluntad.",
+        "author": "James Clear",
+        "category": "Seguridad"
+    },
+    {
+        "id": "437",
+        "text": "Dejo de culpar a mi falta de voluntad. Asumo la responsabilidad divina de dise�ar mis sistemas.",
+        "author": "James Clear",
+        "category": "Motivaci�n"
+    },
+    {
+        "id": "438",
+        "text": "Doy gracias por cada repetici�n que puedo hacer, porque me acerca un poco m�s a mi paz duradera.",
+        "author": "James Clear",
+        "category": "Gratitud"
+    },
+    {
+        "id": "439",
+        "text": "Al cambiar mis pensamientos y emociones, cambio mi energía y mi realidad. Hoy elijo vibrar en salud.",
+        "author": "Joe Dispenza",
+        "category": "Salud"
+    },
+    {
+        "id": "440",
+        "text": "Cruzo el río del cambio: abandono la persona que fui y abrazo con confianza la versión que elijo ser.",
+        "author": "Joe Dispenza",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "441",
+        "text": "No soy el producto de mis recuerdos. Soy el creador de mi propio destino cada vez que defino mi pensar.",
+        "author": "Joe Dispenza",
+        "category": "Poder"
+    },
+    {
+        "id": "442",
+        "text": "Dejo de esperar que suceda algo; hoy elevo mi vibración y siento la emoción de mi futuro para crearlo.",
+        "author": "Joe Dispenza",
+        "category": "Abundancia"
+    },
+    {
+        "id": "443",
+        "text": "Donde pongo mi atención, pongo mi energía. Hoy dirijo toda mi fuerza creadora hacia la calma.",
+        "author": "Joe Dispenza",
+        "category": "Paz"
+    },
+    {
+        "id": "444",
+        "text": "Observo los hábitos de mi mente. Me elevo hacia mi propia conciencia sin juzgar, solo siendo presente.",
+        "author": "Joe Dispenza",
+        "category": "Serenidad"
+    },
+    {
+        "id": "445",
+        "text": "Yo elijo la compasión sobre el viejo dolor, sintonizando mi campo con la frecuencia del amor sano.",
+        "author": "Joe Dispenza",
+        "category": "Amor"
+    },
+    {
+        "id": "446",
+        "text": "Agradezco la vida que anhelo como si ya estuviera ocurriendo, atrayendo ese destino hacia mí mismo.",
+        "author": "Joe Dispenza",
+        "category": "Gratitud"
+    },
+    {
+        "id": "447",
+        "text": "Desconecto mi energía del pasado. Recupero mi poder interior para vivir plenamente en este ahora.",
+        "author": "Joe Dispenza",
+        "category": "Entrega"
+    },
+    {
+        "id": "448",
+        "text": "Dejo atrás mi cuerpo, mi espacio y mi tiempo, y elevo mi conciencia hacia un mar infinito de energía.",
+        "author": "Joe Dispenza",
+        "category": "Relajación"
+    },
+    {
+        "id": "449",
+        "text": "Mis pensamientos configuran mi biología. Hoy inundo mis células con mensajes de luz y paz eterna.",
+        "author": "Joe Dispenza",
+        "category": "Salud"
+    },
+    {
+        "id": "450",
+        "text": "Cierro mis programas automáticos. Ahora dirijo el estado profundo de mi ser con intención consciente.",
+        "author": "Joe Dispenza",
+        "category": "Enfoque"
+    },
+    {
+        "id": "451",
+        "text": "Me rindo al majestuoso campo cuántico, donde las barreras físicas caen y encuentro una calma profunda.",
+        "author": "Joe Dispenza",
+        "category": "Calma"
+    },
+    {
+        "id": "452",
+        "text": "Transformo cualquier tensión futura en entusiasmo creador, forjando algo maravilloso en el aquí.",
+        "author": "Joe Dispenza",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "453",
+        "text": "Mantengo una intención clara ligada a una emoción elevada; así atraigo el éxito de manera magnética.",
+        "author": "Joe Dispenza",
+        "category": "Éxito"
+    },
+    {
+        "id": "454",
+        "text": "Renuncio a las antiguas emociones de supervivencia extrema y paso hoy al maravilloso estado creativo.",
+        "author": "Joe Dispenza",
+        "category": "Estrés"
+    },
+    {
+        "id": "455",
+        "text": "Ensayo mentalmente mi mejor expresión de vida hasta que mi propio cuerpo cree fielmente que ha sucedido.",
+        "author": "Joe Dispenza",
+        "category": "Autoestima"
+    },
+    {
+        "id": "456",
+        "text": "Desarrollo afecto real por lo desconocido de la vida. Confío plenamente en el flujo universal a mi favor.",
+        "author": "Joe Dispenza",
+        "category": "Confianza"
+    },
+    {
+        "id": "457",
+        "text": "El registro del pasado se desvanece de mi neurología; mi visión hoy conforma un nuevo mapa brillante.",
+        "author": "Joe Dispenza",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "458",
+        "text": "Ya no soy víctima pasiva de mi entorno. Yo condiciono mi entorno desde mi estado mental superior.",
+        "author": "Joe Dispenza",
+        "category": "Poder"
+    },
+    {
+        "id": "459",
+        "text": "Mis nuevas decisiones firmes desmontan bloqueos internos. Celebro esta nueva mentalidad de grandeza.",
+        "author": "Joe Dispenza",
+        "category": "Éxito"
+    },
+    {
+        "id": "460",
+        "text": "Mi frecuencia se sincroniza ahora mismo a una octava alta de motivación, abundancia y profundo gozo.",
+        "author": "Joe Dispenza",
+        "category": "Motivación"
+    },
+    {
+        "id": "461",
+        "text": "Me sumerjo en sentimientos de pura gratitud cada mañana y de esa forma el mundo exterior me acompaña.",
+        "author": "Joe Dispenza",
+        "category": "Abundancia"
+    },
+    {
+        "id": "462",
+        "text": "Cada vez que noto el impulso viejo regresar, lo corto gentilmente con serenidad y elijo de nuevo la vida.",
+        "author": "Joe Dispenza",
+        "category": "Serenidad"
+    },
+    {
+        "id": "463",
+        "text": "Sostengo una señal radiante y amorosa hacia el campo unificado, sabiendo que estoy divinamente seguro.",
+        "author": "Joe Dispenza",
+        "category": "Seguridad"
     }
 ];
 

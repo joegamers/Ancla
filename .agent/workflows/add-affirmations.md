@@ -17,7 +17,7 @@ Este proceso define cómo la Inteligencia Artificial debe actuar cada vez que el
    Revisar el final del archivo `src/data/affirmations.json` para saber en qué ID continuo debe comenzar.
    
 2. **Generar el contenido**:
-   Redactar las afirmaciones solicitadas siguiendo estrictamente las Reglas de Formato (limite de longitud y uso de la primera persona). Si el usuario no específica cuántas crear, genera entre 5 y 10 por defecto.
+   Redactar las afirmaciones solicitadas siguiendo estrictamente las Reglas de Formato (limite de longitud y uso de la primera persona). Si el usuario no específica cuántas crear, genera **siempre un mínimo de 20 y un máximo de 30** por defecto.
 
 3. **Insertar en JSON**:
    Agrega los nuevos objetos JSON al final del array en el archivo `src/data/affirmations.json`.
