@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Feather, Share2 } from 'lucide-react';
 import { Button } from './ui/button';
-import { shareAffirmation } from '../services/ShareService';
+import { shareAffirmation, generateImage } from '../services/ShareService';
 import { affirmationEngine } from '../services/AffirmationEngine';
 
 interface AffirmationOverlayProps {
@@ -17,15 +17,47 @@ interface AffirmationOverlayProps {
  */
 export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, onClose }) => {
     const [isSharing, setIsSharing] = useState(false);
+    const [preloadedBlob, setPreloadedBlob] = useState<Blob | null>(null);
 
     // Pre-calculate affirmation details to avoid blocking the thread on click
-    // (which causes "User Gesture Timeout" error in Web Share API)
     const [fullAffirmation] = useState(() => affirmationEngine.findByText(text));
+
+    // Pre-generate the image blob to make sharing strictly synchronous
+    // This prevents the "User Gesture Timeout" on Android PWA.
+    useEffect(() => {
+        let isMounted = true;
+        generateImage({
+            text,
+            author: fullAffirmation?.author ?? 'Ancla',
+            source: fullAffirmation?.source,
+        }).then(blob => {
+            if (isMounted) setPreloadedBlob(blob);
+        }).catch(err => console.warn('Preload share image failed:', err));
+
+        return () => { isMounted = false; };
+    }, [text, fullAffirmation]);
 
     const handleShare = async () => {
         if (isSharing) return;
         setIsSharing(true);
         try {
+            // Check native share first
+            const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
+
+            // Si ya tenemos el Blob y estamos en Web (PWA), vamos más directo para no perder el Gesto
+            if (!isNative && navigator.share && navigator.canShare && preloadedBlob) {
+                const file = new File([preloadedBlob], `ancla-afirm-${Date.now()}.jpeg`, { type: 'image/jpeg' });
+                if (navigator.canShare({ files: [file] })) {
+                    await navigator.share({
+                        title: 'Ancla — Tu espacio de calma',
+                        text: `"${text}" — ${fullAffirmation?.author ?? 'Ancla'}\n\nEncuentra paz en: https://anclas.vercel.app`,
+                        files: [file],
+                    });
+                    return; // early exit success
+                }
+            }
+
+            // Fallback general 
             await shareAffirmation({
                 text,
                 author: fullAffirmation?.author ?? 'Ancla',

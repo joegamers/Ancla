@@ -14,7 +14,7 @@ interface ShareOptions {
 /**
  * Creates a branded image FAST to ensure navigator.share works.
  */
-function generateImage(options: ShareOptions): Promise<Blob> {
+export function generateImage(options: ShareOptions): Promise<Blob> {
     return new Promise((resolve, reject) => {
         const width = 1080;
         const height = 1080;
