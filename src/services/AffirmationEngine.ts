@@ -44,6 +44,10 @@ export class AffirmationEngine {
         return Object.keys(this.moodMapping);
     }
 
+    public findByText(text: string): Affirmation | undefined {
+        return this.data.find(a => a.text === text);
+    }
+
     public getAllCategories(): string[] {
         // dynamic list of all unique categories in data
         const categories = new Set(this.data.map(a => a.category));

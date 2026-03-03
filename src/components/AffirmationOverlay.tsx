@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, Feather, Share2 } from 'lucide-react';
 import { Button } from './ui/button';
+import { shareAffirmation } from '../services/ShareService';
+import { affirmationEngine } from '../services/AffirmationEngine';
 
 interface AffirmationOverlayProps {
     text: string;
@@ -14,18 +16,20 @@ interface AffirmationOverlayProps {
  * with breathing animation and zen aesthetic.
  */
 export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, onClose }) => {
+    const [isSharing, setIsSharing] = useState(false);
+
     const handleShare = async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: 'Afirmación Ancla',
-                    text: `"${text}"\n\n- Ancla App`,
-                });
-            } catch (error) {
-                console.error('Error al compartir:', error);
-            }
-        } else {
-            navigator.clipboard.writeText(`"${text}"\n\n- Ancla App`);
+        if (isSharing) return;
+        setIsSharing(true);
+        try {
+            const found = affirmationEngine.findByText(text);
+            await shareAffirmation({
+                text,
+                author: found?.author ?? 'Ancla',
+                source: found?.source,
+            });
+        } finally {
+            setIsSharing(false);
         }
     };
 
@@ -112,10 +116,11 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                     <Button
                         variant="ghost"
                         onClick={handleShare}
-                        className="rounded-full text-teal-200/60 hover:text-teal-100 hover:bg-teal-900/30 border border-teal-500/20 px-4 py-2 h-auto text-sm gap-2 transition-all duration-300"
+                        disabled={isSharing}
+                        className="rounded-full text-teal-200/60 hover:text-teal-100 hover:bg-teal-900/30 border border-teal-500/20 px-4 py-2 h-auto text-sm gap-2 transition-all duration-300 disabled:opacity-50"
                     >
                         <Share2 size={16} />
-                        Compartir
+                        {isSharing ? 'Creando...' : 'Compartir'}
                     </Button>
                 </motion.div>
 
