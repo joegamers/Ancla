@@ -113,15 +113,15 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                     transition={{ delay: 0.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     className="mt-8"
                 >
-                    <Button
-                        variant="ghost"
+                    <button
                         onClick={handleShare}
                         disabled={isSharing}
-                        className="rounded-full text-teal-200/60 hover:text-teal-100 hover:bg-teal-900/30 border border-teal-500/20 px-4 py-2 h-auto text-sm gap-2 transition-all duration-300 disabled:opacity-50"
+                        aria-label="Compartir esta afirmación"
+                        className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
                     >
-                        <Share2 size={16} />
+                        <Share2 size={14} />
                         {isSharing ? 'Creando...' : 'Compartir'}
-                    </Button>
+                    </button>
                 </motion.div>
 
                 {/* Bottom decorative line */}
