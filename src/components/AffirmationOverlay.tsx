@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { X, Feather } from 'lucide-react';
+import { X, Feather, Share2 } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface AffirmationOverlayProps {
@@ -14,6 +14,21 @@ interface AffirmationOverlayProps {
  * with breathing animation and zen aesthetic.
  */
 export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, onClose }) => {
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Afirmación Ancla',
+                    text: `"${text}"\n\n- Ancla App`,
+                });
+            } catch (error) {
+                console.error('Error al compartir:', error);
+            }
+        } else {
+            navigator.clipboard.writeText(`"${text}"\n\n- Ancla App`);
+        }
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -87,12 +102,29 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                     "{text}"
                 </motion.p>
 
+                {/* Share button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="mt-8"
+                >
+                    <Button
+                        variant="ghost"
+                        onClick={handleShare}
+                        className="rounded-full text-teal-200/60 hover:text-teal-100 hover:bg-teal-900/30 border border-teal-500/20 px-4 py-2 h-auto text-sm gap-2 transition-all duration-300"
+                    >
+                        <Share2 size={16} />
+                        Compartir
+                    </Button>
+                </motion.div>
+
                 {/* Bottom decorative line */}
                 <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 0.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-16 h-[1px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent mt-10"
+                    className="w-16 h-[1px] bg-gradient-to-r from-transparent via-teal-400/40 to-transparent mt-8"
                 />
 
                 {/* Subtle breathing indicator */}
