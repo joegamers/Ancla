@@ -202,7 +202,8 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
 
         try {
             const { useStore } = await import('../store/useStore');
-            useStore.getState().showToast('Error: Intenta desde el menú de tu navegador.');
+            const errorMsg = err instanceof Error ? err.message : JSON.stringify(err);
+            useStore.getState().showToast(`Error comp: ${errorMsg}`);
         } catch {
             alert('Error al compartir.');
         }
