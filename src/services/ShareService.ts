@@ -105,11 +105,11 @@ function generateImage(options: ShareOptions): Promise<Blob> {
         ctx.fillStyle = 'rgba(94, 234, 212, 0.4)';
         ctx.fillText('ANCLAS.VERCEL.APP', width / 2, height - 60);
 
-        // Export (toBlob is the slow part, simplifying canvas makes it faster)
+        // Export (JPEG is ~10x faster than PNG on mobile CPUs, keeps user gesture alive)
         canvas.toBlob((blob) => {
             if (blob) resolve(blob);
             else reject(new Error('Failed to generate image'));
-        }, 'image/png');
+        }, 'image/jpeg', 0.9);
     });
 }
 
@@ -123,7 +123,7 @@ function isNative(): boolean {
 export async function shareAffirmation(options: ShareOptions): Promise<void> {
     try {
         const blob = await generateImage(options);
-        const fileName = `ancla-afirm-${Date.now()}.png`;
+        const fileName = `ancla-afirm-${Date.now()}.jpeg`;
         const shareTitle = 'Ancla — Tu espacio de calma';
         const shareText = `"${options.text}" — ${options.author}\n\nEncuentra paz en: https://anclas.vercel.app`;
 
@@ -165,7 +165,7 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
         // 2. BROWSER / PWA WEB SHARE
         if (navigator.share) {
             try {
-                const file = new File([blob], fileName, { type: 'image/png' });
+                const file = new File([blob], fileName, { type: 'image/jpeg' });
                 if (navigator.canShare?.({ files: [file] })) {
                     await navigator.share({
                         title: shareTitle,

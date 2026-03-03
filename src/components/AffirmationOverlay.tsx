@@ -18,15 +18,18 @@ interface AffirmationOverlayProps {
 export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, onClose }) => {
     const [isSharing, setIsSharing] = useState(false);
 
+    // Pre-calculate affirmation details to avoid blocking the thread on click
+    // (which causes "User Gesture Timeout" error in Web Share API)
+    const [fullAffirmation] = useState(() => affirmationEngine.findByText(text));
+
     const handleShare = async () => {
         if (isSharing) return;
         setIsSharing(true);
         try {
-            const found = affirmationEngine.findByText(text);
             await shareAffirmation({
                 text,
-                author: found?.author ?? 'Ancla',
-                source: found?.source,
+                author: fullAffirmation?.author ?? 'Ancla',
+                source: fullAffirmation?.source,
             });
         } finally {
             setIsSharing(false);
