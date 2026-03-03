@@ -113,18 +113,59 @@ function App() {
     refreshGeometry();
   };
 
-  const handleShare = async () => {
-    if (!lastAffirmation || isSharing) return;
-    setIsSharing(true);
-    try {
-      await shareAffirmation({
+  const [preloadedShareBlob, setPreloadedShareBlob] = useState<Blob | null>(null);
+
+  // Pre-generate image to avoid "User Gesture Timeout" on Web Share
+  useEffect(() => {
+    if (!lastAffirmation) return;
+    let isMounted = true;
+    import('./services/ShareService').then(({ generateImage }) => {
+      generateImage({
         text: lastAffirmation.text,
         author: lastAffirmation.author,
         source: lastAffirmation.source,
-      });
-    } finally {
-      setIsSharing(false);
+      }).then(blob => {
+        if (isMounted) setPreloadedShareBlob(blob);
+      }).catch(err => console.warn('Home preload share image failed:', err));
+    });
+    return () => { isMounted = false; };
+  }, [lastAffirmation]);
+
+  const handleShare = () => {
+    if (!lastAffirmation || isSharing) return;
+
+    // Check native share first
+    const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
+
+    // Fast path for PWA to avoid timeout: STRICTLY SYNCHRONOUS BEFORE AWAIT
+    if (!isNative && navigator.share && navigator.canShare && preloadedShareBlob) {
+      setIsSharing(true); // Se pone *después* de iniciar la request si es posible, pero es mejor ni bloquear
+      const file = new File([preloadedShareBlob], `ancla-afirm-${Date.now()}.jpeg`, { type: 'image/jpeg' });
+
+      if (navigator.canShare({ files: [file] })) {
+        navigator.share({
+          title: 'Ancla — Tu espacio de calma',
+          text: `"${lastAffirmation.text}" — ${lastAffirmation.author}\n\nEncuentra paz en: https://anclas.vercel.app`,
+          files: [file],
+        })
+          .then(() => setIsSharing(false))
+          .catch((err) => {
+            setIsSharing(false);
+            if (err.name !== 'AbortError') console.warn('Share error', err);
+          });
+        return; // early exit success
+      }
     }
+
+    // Fallback if not PWA or no blob preloaded
+    setIsSharing(true);
+    shareAffirmation({
+      text: lastAffirmation.text,
+      author: lastAffirmation.author,
+      source: lastAffirmation.source,
+      preloadedBlob: preloadedShareBlob || undefined,
+    })
+      .finally(() => setIsSharing(false));
   };
 
   const handleToggleNotifications = async () => {

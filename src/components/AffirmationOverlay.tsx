@@ -37,35 +37,41 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
         return () => { isMounted = false; };
     }, [text, fullAffirmation]);
 
-    const handleShare = async () => {
+    const handleShare = () => {
         if (isSharing) return;
-        setIsSharing(true);
-        try {
-            // Check native share first
-            const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
 
-            // Si ya tenemos el Blob y estamos en Web (PWA), vamos más directo para no perder el Gesto
-            if (!isNative && navigator.share && navigator.canShare && preloadedBlob) {
-                const file = new File([preloadedBlob], `ancla-afirm-${Date.now()}.jpeg`, { type: 'image/jpeg' });
-                if (navigator.canShare({ files: [file] })) {
-                    await navigator.share({
-                        title: 'Ancla — Tu espacio de calma',
-                        text: `"${text}" — ${fullAffirmation?.author ?? 'Ancla'}\n\nEncuentra paz en: https://anclas.vercel.app`,
-                        files: [file],
+        // Check native share first
+        const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
+
+        // Si ya tenemos el Blob y estamos en Web (PWA), vamos directo sin ASYNC para no perder el Gesto
+        if (!isNative && navigator.share && navigator.canShare && preloadedBlob) {
+            setIsSharing(true);
+            const file = new File([preloadedBlob], `ancla-afirm-${Date.now()}.jpeg`, { type: 'image/jpeg' });
+            if (navigator.canShare({ files: [file] })) {
+                navigator.share({
+                    title: 'Ancla — Tu espacio de calma',
+                    text: `"${text}" — ${fullAffirmation?.author ?? 'Ancla'}\n\nEncuentra paz en: https://anclas.vercel.app`,
+                    files: [file],
+                })
+                    .then(() => setIsSharing(false))
+                    .catch(err => {
+                        setIsSharing(false);
+                        if (err.name !== 'AbortError') console.warn('Share err', err);
                     });
-                    return; // early exit success
-                }
+                return; // early exit success
             }
-
-            // Fallback general 
-            await shareAffirmation({
-                text,
-                author: fullAffirmation?.author ?? 'Ancla',
-                source: fullAffirmation?.source,
-            });
-        } finally {
-            setIsSharing(false);
         }
+
+        // Fallback general 
+        setIsSharing(true);
+        shareAffirmation({
+            text,
+            author: fullAffirmation?.author ?? 'Ancla',
+            source: fullAffirmation?.source,
+            preloadedBlob: preloadedBlob || undefined
+        }).finally(() => {
+            setIsSharing(false);
+        });
     };
 
     return (

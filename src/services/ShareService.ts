@@ -9,6 +9,7 @@ interface ShareOptions {
     text: string;
     author: string;
     source?: string;
+    preloadedBlob?: Blob;
 }
 
 /**
@@ -122,7 +123,7 @@ function isNative(): boolean {
  */
 export async function shareAffirmation(options: ShareOptions): Promise<void> {
     try {
-        const blob = await generateImage(options);
+        const blob = options.preloadedBlob || await generateImage(options);
         const fileName = `ancla-afirm-${Date.now()}.jpeg`;
         const shareTitle = 'Ancla — Tu espacio de calma';
         const shareText = `"${options.text}" — ${options.author}\n\nEncuentra paz en: https://anclas.vercel.app`;
