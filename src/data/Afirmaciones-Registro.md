@@ -69,6 +69,7 @@ Este documento lleva el control de todos los autores y libros de los que la Inte
 * Proverbio Zen (Sabiduría Zen)
 * REBT / TRE (Terapia Racional Emotiva)
 * Sabiduría cotidiana
+* Sé amable contigo mismo
 * Tao Te Ching (Tao Te King)
 * Terapia Centrada en el Cliente
 * The Worry Trick

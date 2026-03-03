@@ -2927,6 +2927,258 @@ const affirmations: Affirmation[] = [
         "text": "Yo soy una presencia serena ante el caos temporal. Mi paz interior permanece siempre intocable.",
         "author": "Jon Kabat-Zinn",
         "category": "Seguridad"
+    },
+    {
+        "id": "486",
+        "text": "Mi mente subconsciente responde a mis pensamientos. Elijo pensar en paz, éxito y abundancia.",
+        "author": "Joseph Murphy",
+        "category": "Poder"
+    },
+    {
+        "id": "487",
+        "text": "Tengo el poder de curarme. Mi subconsciente moldea mi cuerpo según mis convicciones de salud vital.",
+        "author": "Joseph Murphy",
+        "category": "Salud"
+    },
+    {
+        "id": "488",
+        "text": "Confío en la sabiduría infinita dentro de mí que me guía y abre los caminos correctos siempre.",
+        "author": "Joseph Murphy",
+        "category": "Confianza"
+    },
+    {
+        "id": "489",
+        "text": "Alimento mi mente con pensamientos de armonía, y mi entorno refleja esa misma tranquilidad.",
+        "author": "Joseph Murphy",
+        "category": "Paz"
+    },
+    {
+        "id": "490",
+        "text": "Yo soy el capitán de mi alma. Elijo afirmar belleza, bienestar y prosperidad infinita.",
+        "author": "Joseph Murphy",
+        "category": "Poder"
+    },
+    {
+        "id": "491",
+        "text": "Irradio amor, alegría y gratitud, atrayendo resultados maravillosos a cada área de mi vida.",
+        "author": "Joseph Murphy",
+        "category": "Gratitud"
+    },
+    {
+        "id": "492",
+        "text": "Merezco riqueza y abundancia. Mi mente subconsciente multiplica todo lo bueno que reconozco.",
+        "author": "Joseph Murphy",
+        "category": "Abundancia"
+    },
+    {
+        "id": "493",
+        "text": "Suelto mis miedos hoy. Sé que lo que imprimo en mi mente profunda se materializará protegido.",
+        "author": "Joseph Murphy",
+        "category": "Serenidad"
+    },
+    {
+        "id": "494",
+        "text": "Cada noche entrego mis problemas a la inteligencia superior, despertando con respuestas claras.",
+        "author": "Joseph Murphy",
+        "category": "Relajación"
+    },
+    {
+        "id": "495",
+        "text": "Atraigo el éxito de forma natural. Mi convicción profunda es el motor de mis grandes logros.",
+        "author": "Joseph Murphy",
+        "category": "Éxito"
+    },
+    {
+        "id": "496",
+        "text": "Perdono todo para dejar espacio a la sanación. Acepto la paz que fluye en cada rincón de mi ser.",
+        "author": "Joseph Murphy",
+        "category": "Calma"
+    },
+    {
+        "id": "497",
+        "text": "El tesoro de la sabiduría reside en mí. Al buscar dentro, encuentro las maravillas que necesito.",
+        "author": "Joseph Murphy",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "498",
+        "text": "Soy invencible cuando vivo afirmando mi verdad interior con fe, certeza y profunda alegría.",
+        "author": "Joseph Murphy",
+        "category": "Seguridad"
+    },
+    {
+        "id": "499",
+        "text": "Me doy permiso de descansar. Todo problema encuentra su solución cuando mi mente entra en reposo.",
+        "author": "Joseph Murphy",
+        "category": "Estrés"
+    },
+    {
+        "id": "500",
+        "text": "Yo planto semillas de bondad en el jardín de mi mente y cosecharé un futuro magnífico.",
+        "author": "Joseph Murphy",
+        "category": "Amor"
+    },
+    {
+        "id": "501",
+        "text": "Con cada respiro, elimino toda preocupación. Confío ciegamente en mi propio poder transformador.",
+        "author": "Joseph Murphy",
+        "category": "Ansiedad"
+    },
+    {
+        "id": "502",
+        "text": "El secreto de mi triunfo es mantener mi concentración en el fin logrado, sin dudar del proceso.",
+        "author": "Joseph Murphy",
+        "category": "Enfoque"
+    },
+    {
+        "id": "503",
+        "text": "He dejado de luchar contra las circunstancias. Elijo reprogramar mi interior para ver cambios fuera.",
+        "author": "Joseph Murphy",
+        "category": "Entrega"
+    },
+    {
+        "id": "504",
+        "text": "Toda limitación desaparece cuando asumo mi derecho divino a la libertad y a la felicidad extrema.",
+        "author": "Joseph Murphy",
+        "category": "Poder"
+    },
+    {
+        "id": "505",
+        "text": "Mi seguridad no depende del mundo externo. Nace de la paz inquebrantable de mi propio ser.",
+        "author": "Joseph Murphy",
+        "category": "Seguridad"
+    },
+    {
+        "id": "506",
+        "text": "Soy un canal de vida. Cada célula de mi cuerpo se renueva por las afirmaciones que me dedico hoy.",
+        "author": "Joseph Murphy",
+        "category": "Salud"
+    },
+    {
+        "id": "507",
+        "text": "Acepto el presente con coraje. Sé que cualquier creencia nueva destruirá viejos bloqueos inútiles.",
+        "author": "Joseph Murphy",
+        "category": "Motivación"
+    },
+    {
+        "id": "508",
+        "text": "Abrazo mis imperfecciones con ternura. Merezco mi propia compasión tanto como cualquier otra persona.",
+        "author": "Kristin Neff",
+        "category": "Autoestima"
+    },
+    {
+        "id": "509",
+        "text": "En momentos de dificultad, elijo ser mi propio refugio seguro, tratándome con paciencia y amor.",
+        "author": "Kristin Neff",
+        "category": "Calma"
+    },
+    {
+        "id": "510",
+        "text": "Reconozco mi sufrimiento sin juzgarlo. Es humano sentir dolor y me permito sanar a mi propio ritmo.",
+        "author": "Kristin Neff",
+        "category": "Paz"
+    },
+    {
+        "id": "511",
+        "text": "No estoy solo en mis luchas. Mi experiencia me conecta con la humanidad compartida que todos vivimos.",
+        "author": "Kristin Neff",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "512",
+        "text": "Suelto la autocrítica destructiva. Hoy decido hablarme con la misma calidez que le daría a un buen amigo.",
+        "author": "Kristin Neff",
+        "category": "Amor"
+    },
+    {
+        "id": "513",
+        "text": "Encuentro fuerza en mi vulnerabilidad. Ser compasivo conmigo mismo es un acto de pura valentía.",
+        "author": "Kristin Neff",
+        "category": "Poder"
+    },
+    {
+        "id": "514",
+        "text": "Perdono mis errores del pasado. Hice lo mejor que pude con la conciencia que tenía en ese momento.",
+        "author": "Kristin Neff",
+        "category": "Serenidad"
+    },
+    {
+        "id": "515",
+        "text": "Acepto mis defectos como parte natural de mi ser. Soy suficiente exactamente tal y como soy ahora mismo.",
+        "author": "Kristin Neff",
+        "category": "Autoestima"
+    },
+    {
+        "id": "516",
+        "text": "Me libero de las expectativas poco realistas. Mi único deber hoy es tratarme con suprema amabilidad.",
+        "author": "Kristin Neff",
+        "category": "Paz"
+    },
+    {
+        "id": "517",
+        "text": "Respiro bondad hacia mí mismo y exhalo cualquier juicio. Mi espacio interior es un santuario seguro.",
+        "author": "Kristin Neff",
+        "category": "Relajación"
+    },
+    {
+        "id": "518",
+        "text": "Cuando fallo, me sostengo con gracia. El error es una oportunidad para crecer, no la medida de mi valor.",
+        "author": "Kristin Neff",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "519",
+        "text": "Acojo mis emociones difíciles con curiosidad afectuosa, sabiendo que también pasarán.",
+        "author": "Kristin Neff",
+        "category": "Entrega"
+    },
+    {
+        "id": "520",
+        "text": "Me ofrezco el consuelo que necesito. Mi dolor es válido y merece ser atendido con sumo cariño.",
+        "author": "Kristin Neff",
+        "category": "Autoestima"
+    },
+    {
+        "id": "521",
+        "text": "Renuncio a la necesidad de ser perfecto. Elijo celebrar quien soy en este preciso instante.",
+        "author": "Kristin Neff",
+        "category": "Confianza"
+    },
+    {
+        "id": "522",
+        "text": "Mi valía es incondicional. No tengo que ganar mi derecho a ser tratado con amor y respeto absoluto.",
+        "author": "Kristin Neff",
+        "category": "Seguridad"
+    },
+    {
+        "id": "523",
+        "text": "Elijo la autocompasión frente a la autoexigencia. Me permito descansar y recargar mi energía vital.",
+        "author": "Kristin Neff",
+        "category": "Salud"
+    },
+    {
+        "id": "524",
+        "text": "Cada vez que me tropiezo, me levanto con apoyo y palabras de aliento reales, sin castigarme jamás.",
+        "author": "Kristin Neff",
+        "category": "Motivación"
+    },
+    {
+        "id": "525",
+        "text": "Agradezco a mi mente por intentar protegerme, pero ahora decido liderar con el corazón abierto.",
+        "author": "Kristin Neff",
+        "category": "Gratitud"
+    },
+    {
+        "id": "526",
+        "text": "Me concedo el premio de la tranquilidad emocional. No necesito luchar constantemente contra mí mismo.",
+        "author": "Kristin Neff",
+        "category": "Paz"
+    },
+    {
+        "id": "527",
+        "text": "Nutro mi espíritu con amabilidad diaria. La autocompasión es el verdadero motor de mi bienestar.",
+        "author": "Kristin Neff",
+        "category": "Amor"
     }
 ];
 
