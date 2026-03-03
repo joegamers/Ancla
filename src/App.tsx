@@ -452,7 +452,7 @@ function App() {
           </div>
 
           {/* Bottom actions — pinned */}
-          <div className="shrink-0 w-full flex flex-col items-center gap-3 pb-2 pt-2">
+          <div className="shrink-0 w-full flex flex-col items-center gap-3 pb-2 pt-2" style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}>
             {/* Action buttons */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
