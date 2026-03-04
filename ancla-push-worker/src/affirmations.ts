@@ -3179,6 +3179,306 @@ const affirmations: Affirmation[] = [
         "text": "Nutro mi espíritu con amabilidad diaria. La autocompasión es el verdadero motor de mi bienestar.",
         "author": "Kristin Neff",
         "category": "Amor"
+    },
+    {
+        "id": "528",
+        "text": "Fluyo como el agua, adaptándome a cada circunstancia con serenidad y fuerza.",
+        "author": "Lao Tsé",
+        "category": "Paz"
+    },
+    {
+        "id": "529",
+        "text": "Mi verdadera fuerza reside en mi capacidad de ceder; elijo ser flexible y resiliente.",
+        "author": "Lao Tsé",
+        "category": "Serenidad"
+    },
+    {
+        "id": "530",
+        "text": "Encuentro paz en el silencio, donde mi sabiduría interior me guía.",
+        "author": "Lao Tsé",
+        "category": "Paz"
+    },
+    {
+        "id": "531",
+        "text": "Acepto el curso natural de las cosas y me libero de la necesidad de controlar todo.",
+        "author": "Lao Tsé",
+        "category": "Entrega"
+    },
+    {
+        "id": "532",
+        "text": "Mi riqueza más grande es el contentamiento; agradezco profundamente lo que tengo hoy.",
+        "author": "Lao Tsé",
+        "category": "Gratitud"
+    },
+    {
+        "id": "533",
+        "text": "Conozco a los demás y confío en mí mismo; esa es mi mayor fuente de paz y poder.",
+        "author": "Lao Tsé",
+        "category": "Confianza"
+    },
+    {
+        "id": "534",
+        "text": "Avanzo un paso a la vez, sabiendo que así completo los viajes más largos.",
+        "author": "Lao Tsé",
+        "category": "Motivación"
+    },
+    {
+        "id": "535",
+        "text": "Dejo ir lo que creo ser para poder convertirme en lo que realmente soy.",
+        "author": "Lao Tsé",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "536",
+        "text": "Elijo la suavidad sobre la dureza, pues en lo blando y sutil encuentro mi fuerza vital.",
+        "author": "Lao Tsé",
+        "category": "Calma"
+    },
+    {
+        "id": "537",
+        "text": "Mi mente está clara y en calma, abrazando el momento presente sin resistencia.",
+        "author": "Lao Tsé",
+        "category": "Serenidad"
+    },
+    {
+        "id": "538",
+        "text": "Respiro lenta y profundamente, liberando tensiones y permitiendo la paz en mi interior.",
+        "author": "Lao Tsé",
+        "category": "Relajación"
+    },
+    {
+        "id": "539",
+        "text": "Confío en que, al no forzar nada, todo en mi vida se acomoda a su debido tiempo.",
+        "author": "Lao Tsé",
+        "category": "Entrega"
+    },
+    {
+        "id": "540",
+        "text": "Me sostengo en la sencillez de mi ser y encuentro en ella mi mayor alegría.",
+        "author": "Lao Tsé",
+        "category": "Paz"
+    },
+    {
+        "id": "541",
+        "text": "Soy paciente frente a la adversidad, esperando a que el lodo se asiente y el agua aclare.",
+        "author": "Lao Tsé",
+        "category": "Serenidad"
+    },
+    {
+        "id": "542",
+        "text": "Acepto el mundo tal cual es, sin emitir juicios, cultivando un corazón compasivo.",
+        "author": "Lao Tsé",
+        "category": "Amor"
+    },
+    {
+        "id": "543",
+        "text": "Valoro el vacío y el descanso tanto como la acción; mi equilibrio es mi bienestar.",
+        "author": "Lao Tsé",
+        "category": "Salud"
+    },
+    {
+        "id": "544",
+        "text": "Vivo fiel a mi naturaleza, libre de las expectativas y de la aprobación externa.",
+        "author": "Lao Tsé",
+        "category": "Autoestima"
+    },
+    {
+        "id": "545",
+        "text": "Observo mis pensamientos sin atraparme en ellos, regresando siempre a la quietud.",
+        "author": "Lao Tsé",
+        "category": "Calma"
+    },
+    {
+        "id": "546",
+        "text": "Mi éxito no reside en competir con otros, sino en mi propia paz interior.",
+        "author": "Lao Tsé",
+        "category": "Éxito"
+    },
+    {
+        "id": "547",
+        "text": "Amo y cuido mi cuerpo y mi espíritu con la misma gentileza con la que trato a un amigo.",
+        "author": "Lao Tsé",
+        "category": "Salud"
+    },
+    {
+        "id": "548",
+        "text": "Cedo ante lo inevitable, transformando así los obstáculos en mi propio camino.",
+        "author": "Lao Tsé",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "549",
+        "text": "Me desprendo de la tensión; confío plenamente en el proceso natural de mi vida.",
+        "author": "Lao Tsé",
+        "category": "Entrega"
+    },
+    {
+        "id": "550",
+        "text": "Mi sabiduría nace cuando me permito escuchar antes de hablar o actuar.",
+        "author": "Lao Tsé",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "551",
+        "text": "Abrazo mi vulnerabilidad y en ella descubro una fuente infinita de conexión y amor.",
+        "author": "Lao Tsé",
+        "category": "Amor"
+    },
+    {
+        "id": "552",
+        "text": "No corro precipitadamente; disfruto del camino y avanzo con pasos seguros y en calma.",
+        "author": "Lao Tsé",
+        "category": "Paz"
+    },
+    {
+        "id": "553",
+        "text": "Tengo poder sobre mi mente, no sobre los eventos externos. Al entender esto, encuentro mi fuerza.",
+        "author": "Marco Aurelio",
+        "category": "Poder"
+    },
+    {
+        "id": "554",
+        "text": "Elige no ser dañado, y no te sentirás dañado. No te sientas dañado, y no lo habrás sido.",
+        "author": "Marco Aurelio",
+        "category": "Paz"
+    },
+    {
+        "id": "555",
+        "text": "Mi felicidad depende de la calidad de mis pensamientos. Elijo cultivar ideas constructivas siempre.",
+        "author": "Marco Aurelio",
+        "category": "Paz"
+    },
+    {
+        "id": "556",
+        "text": "Lo que es un obstáculo para la acción impulsa a la acción. El impedimento se convierte en mi camino.",
+        "author": "Marco Aurelio",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "557",
+        "text": "Acepto que todo lo que oímos es una opinión, no un hecho, y todo lo que vemos es una perspectiva.",
+        "author": "Marco Aurelio",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "558",
+        "text": "Al levantarme cada mañana, pienso en el precioso privilegio de estar vivo, respirar y disfrutar.",
+        "author": "Marco Aurelio",
+        "category": "Gratitud"
+    },
+    {
+        "id": "559",
+        "text": "Reconozco que el universo es cambio y nuestra vida entera es lo que nuestros pensamientos hacen de ella.",
+        "author": "Marco Aurelio",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "560",
+        "text": "Me retiro dentro de mí mismo; el alma racional pacífica siempre tiene un refugio seguro.",
+        "author": "Marco Aurelio",
+        "category": "Serenidad"
+    },
+    {
+        "id": "561",
+        "text": "Nunca estimo nada como útil si me obliga a romper mi palabra o perder el respeto por mí mismo.",
+        "author": "Marco Aurelio",
+        "category": "Autoestima"
+    },
+    {
+        "id": "562",
+        "text": "Vivo enfocado en el presente y dedico toda mi energía al deber que tengo por delante hoy.",
+        "author": "Marco Aurelio",
+        "category": "Enfoque"
+    },
+    {
+        "id": "563",
+        "text": "Sé que no es la muerte lo que debo temer, sino el no haber empezado nunca a vivir.",
+        "author": "Marco Aurelio",
+        "category": "Motivación"
+    },
+    {
+        "id": "564",
+        "text": "Si no es correcto, decido no hacerlo. Si no es verdad, elijo no decirlo bajo ninguna circunstancia.",
+        "author": "Marco Aurelio",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "565",
+        "text": "Doy la bienvenida y amo todo lo que me sucede, porque sé que es lo necesario para mi evolución.",
+        "author": "Marco Aurelio",
+        "category": "Amor"
+    },
+    {
+        "id": "566",
+        "text": "Encuentro que hacer un buen trabajo de acuerdo a mis principios me da la mayor satisfacción posible.",
+        "author": "Marco Aurelio",
+        "category": "Éxito"
+    },
+    {
+        "id": "567",
+        "text": "Recuerdo que soy parte de un todo más grande y mis acciones siempre deben ir en su favor.",
+        "author": "Marco Aurelio",
+        "category": "Amor"
+    },
+    {
+        "id": "568",
+        "text": "Me perdono rápidamente cuando fallo y retomo el camino de la razón con alegría constante.",
+        "author": "Marco Aurelio",
+        "category": "Autoestima"
+    },
+    {
+        "id": "569",
+        "text": "Acepto la muerte y la pérdida como transformaciones naturales esenciales para el funcionamiento del universo.",
+        "author": "Marco Aurelio",
+        "category": "Paz"
+    },
+    {
+        "id": "570",
+        "text": "Cuido mi fuerza interior; es la ciudadela impenetrable que ninguna adversidad podrá derrumbar.",
+        "author": "Marco Aurelio",
+        "category": "Confianza"
+    },
+    {
+        "id": "571",
+        "text": "No me dejo arrastrar por lo que opinen los demás, pues su alabanza no aumenta mi verdadero valor.",
+        "author": "Marco Aurelio",
+        "category": "Autoestima"
+    },
+    {
+        "id": "572",
+        "text": "Sigo mi propio ritmo y naturaleza sin quejarme, adaptándome a cualquier realidad que se me presente.",
+        "author": "Marco Aurelio",
+        "category": "Entrega"
+    },
+    {
+        "id": "573",
+        "text": "Mi mente es mi único juez; decido mantenerla quieta, libre de enojos, angustia y deseos vacíos.",
+        "author": "Marco Aurelio",
+        "category": "Serenidad"
+    },
+    {
+        "id": "574",
+        "text": "Observo profundamente cada evento, y entiendo su naturaleza pasajera quitándole el peso emocional.",
+        "author": "Marco Aurelio",
+        "category": "Sabiduría"
+    },
+    {
+        "id": "575",
+        "text": "Lucho genuinamente por mantener vivas las virtudes sutiles que la filosofía y la razón me enseñan.",
+        "author": "Marco Aurelio",
+        "category": "Crecimiento"
+    },
+    {
+        "id": "576",
+        "text": "Al enfrentar dificultades, recuerdo: esto no es desgracia, y sobrellevarlo dignamente es buena fortuna.",
+        "author": "Marco Aurelio",
+        "category": "Poder"
+    },
+    {
+        "id": "577",
+        "text": "Hago cada pequeña tarea en mi vida como si fuera la última cosa que haré, con plena y sincera atención.",
+        "author": "Marco Aurelio",
+        "category": "Enfoque"
     }
 ];
 

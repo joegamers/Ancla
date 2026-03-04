@@ -18,9 +18,9 @@ Este documento lleva el control de todos los autores y libros de los que la Inte
 * Jon Kabat-Zinn
 * Joseph Murphy
 * Kristin Neff
-* Lao Tsé (Lao Tse)
+* Lao Tsé (Lao Tse) ---
 * Louise Hay ---
-* Marco Aurelio
+* Marco Aurelio ---
 * Martin Luther King Jr.
 * Matthew Walker
 * Mihaly Csikszentmihalyi
