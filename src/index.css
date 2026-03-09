@@ -259,9 +259,12 @@ html {
     radial-gradient(circle at 100% 0%, #F1F8E9 0%, transparent 50%),
     radial-gradient(circle at 100% 100%, #E3F2FD 0%, transparent 50%),
     radial-gradient(circle at 0% 100%, #F5F5F5 0%, transparent 50%);
-  filter: blur(40px);
+  filter: blur(70px);
   opacity: 0.8;
 }
+
+.nebula-1 { top: -10%; left: -10%; background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%); filter: blur(70px); }
+.nebula-2 { bottom: -10%; right: -10%; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); filter: blur(70px); }
 
 .bg-zen-blobs {
   position: fixed;
@@ -276,7 +279,7 @@ html {
   width: 60vw;
   height: 60vw;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(50px);
   opacity: 0.4;
   animation: blobFloat 20s infinite ease-in-out;
 }

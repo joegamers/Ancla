@@ -76,7 +76,6 @@ function App() {
     // PWA Service Worker message listener (for when a notification is clicked)
     const handleServiceWorkerMessage = (event: MessageEvent) => {
       if (event.data && event.data.type === 'NOTIFICATION_CLICK' && event.data.text) {
-        console.log('[Ancla] PWA Notification tapped:', event.data.text);
         setNotificationAffirmation(event.data.text);
       }
     };
@@ -96,7 +95,6 @@ function App() {
       await LocalNotifications.addListener('localNotificationActionPerformed', (action) => {
         const body = action.notification.body;
         if (body) {
-          console.log('[Ancla] Notification tapped:', body);
           setNotificationAffirmation(body);
         }
       });
@@ -207,7 +205,7 @@ function App() {
             top: '-10%',
             left: '-20%',
             background: 'radial-gradient(ellipse at 50% 90%, rgba(20,184,166,0.85) 0%, rgba(6,95,70,0.45) 30%, transparent 60%)',
-            filter: 'blur(50px)',
+            filter: 'blur(35px)',
             animation: 'nebula-drift-1 20s ease-in-out infinite',
             willChange: 'transform, opacity',
           }}
@@ -221,7 +219,7 @@ function App() {
             bottom: '-8%',
             right: '-25%',
             background: 'radial-gradient(ellipse at 40% 10%, rgba(34,211,238,0.70) 0%, rgba(8,145,178,0.35) 30%, transparent 60%)',
-            filter: 'blur(55px)',
+            filter: 'blur(40px)',
             animation: 'nebula-drift-2 25s ease-in-out infinite',
             willChange: 'transform, opacity',
           }}
@@ -235,7 +233,7 @@ function App() {
             top: '10%',
             left: '-25%',
             background: 'radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.55) 0%, rgba(67,56,202,0.25) 35%, transparent 60%)',
-            filter: 'blur(60px)',
+            filter: 'blur(45px)',
             animation: 'nebula-drift-3 28s ease-in-out infinite',
             willChange: 'transform, opacity',
           }}
@@ -249,7 +247,7 @@ function App() {
             bottom: '0%',
             left: '-5%',
             background: 'radial-gradient(ellipse at 60% 30%, rgba(16,185,129,0.50) 0%, rgba(5,150,105,0.20) 35%, transparent 60%)',
-            filter: 'blur(45px)',
+            filter: 'blur(35px)',
             animation: 'nebula-drift-1 24s ease-in-out infinite reverse',
             willChange: 'transform, opacity',
           }}
@@ -265,7 +263,7 @@ function App() {
             top: '20%',
             left: '10%',
             background: 'linear-gradient(135deg, rgba(20,184,166,0.50) 0%, rgba(34,211,238,0.30) 50%, rgba(6,182,212,0.15) 100%)',
-            filter: 'blur(35px)',
+            filter: 'blur(25px)',
             animation: 'wave-flow 18s ease-in-out infinite',
             willChange: 'transform, border-radius',
             borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
@@ -280,7 +278,7 @@ function App() {
             bottom: '15%',
             right: '5%',
             background: 'linear-gradient(225deg, rgba(16,185,129,0.45) 0%, rgba(99,102,241,0.25) 50%, rgba(20,184,166,0.15) 100%)',
-            filter: 'blur(40px)',
+            filter: 'blur(30px)',
             animation: 'wave-flow 22s ease-in-out infinite reverse',
             willChange: 'transform, border-radius',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
@@ -297,7 +295,7 @@ function App() {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             background: 'radial-gradient(ellipse at 50% 50%, rgba(20,184,166,0.55) 0%, rgba(13,148,136,0.25) 30%, transparent 55%)',
-            filter: 'blur(30px)',
+            filter: 'blur(20px)',
             animation: 'pulse-glow 7s ease-in-out infinite',
             willChange: 'transform, opacity',
           }}
@@ -353,7 +351,7 @@ function App() {
               className="flex items-center space-x-2"
             >
               <div className="h-[1px] w-6 bg-teal-400/20" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-teal-300/50 font-bold">
+              <span className="text-xs uppercase tracking-[0.35em] text-teal-300/50 font-bold">
                 Ancla
               </span>
               <div className="h-[1px] w-6 bg-teal-400/20" />
@@ -387,7 +385,7 @@ function App() {
                 }}
                 aria-label={`Filtrar por ${mood}`}
                 aria-pressed={currentVibe === mood}
-                className={`px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold transition-all duration-300 ${currentVibe === mood
+                className={`px-3 py-1.5 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${currentVibe === mood
                   ? 'bg-teal-500/20 text-teal-300 ring-1 ring-teal-500/30'
                   : 'text-white/25 hover:text-white/50 hover:bg-white/5'
                   }`}
@@ -419,7 +417,7 @@ function App() {
                     <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-teal-400/50" />
                     <div className="flex items-center space-x-1.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-teal-400/60 animate-pulse" />
-                      <span className="text-[9px] uppercase tracking-[0.3em] text-teal-300/60 font-bold">
+                      <span className="text-[11px] uppercase tracking-[0.3em] text-teal-300/60 font-bold">
                         {lastAffirmation.category}
                       </span>
                     </div>
@@ -483,7 +481,7 @@ function App() {
                     >
                       — {lastAffirmation.author}
                     </p>
-                    <p className="text-[9px] uppercase tracking-[0.2em] text-teal-300/25 font-semibold">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-teal-300/25 font-semibold">
                       {lastAffirmation.source}
                     </p>
                   </motion.div>
@@ -504,7 +502,7 @@ function App() {
               <button
                 onClick={handleNewAffirmation}
                 aria-label="Obtener nueva afirmación"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm min-w-[120px]"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm min-w-[120px]"
               >
                 <RefreshCw size={14} />
                 Nueva
@@ -513,7 +511,7 @@ function App() {
                 onClick={handleShare}
                 disabled={isSharing}
                 aria-label="Compartir esta afirmación"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
               >
                 <Share2 size={14} />
                 {isSharing ? 'Creando...' : 'Compartir'}
@@ -521,7 +519,7 @@ function App() {
               <button
                 onClick={handleInvite}
                 aria-label="Invitar amigos a Ancla"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
                 <Users size={14} />
                 Invitar
@@ -538,12 +536,12 @@ function App() {
               <button
                 onClick={() => setShowSupportModal(true)}
                 aria-label="Apoyar el proyecto con un café"
-                className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-[10px] uppercase tracking-[0.1em] font-semibold"
+                className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-xs uppercase tracking-[0.1em] font-semibold"
               >
                 <Coffee size={14} />
                 Apoya este proyecto
               </button>
-              <p className="text-[8px] text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block">
+              <p className="text-xs text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block">
                 Desarrollado por JoeGamers Dev
               </p>
             </motion.div>
