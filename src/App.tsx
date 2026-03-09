@@ -1,14 +1,19 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SettingsModal, ZenToast, AffirmationOverlay, Onboarding, SupportModal } from './components';
 import { affirmationEngine } from './services/AffirmationEngine';
-import { shareAffirmation } from './services/ShareService';
 import { notificationService } from './services/NotificationService';
 import { useStore } from './store/useStore';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
 import { Button } from './components/ui/button';
+
+// Lazy load non-critical components
+const SettingsModal = lazy(() => import('./components').then(m => ({ default: m.SettingsModal })));
+const ZenToast = lazy(() => import('./components').then(m => ({ default: m.ZenToast })));
+const AffirmationOverlay = lazy(() => import('./components').then(m => ({ default: m.AffirmationOverlay })));
+const Onboarding = lazy(() => import('./components').then(m => ({ default: m.Onboarding })));
+const SupportModal = lazy(() => import('./components').then(m => ({ default: m.SupportModal })));
 
 function App() {
   const {
@@ -157,13 +162,14 @@ function App() {
 
     // Fallback if not PWA or no blob preloaded
     setIsSharing(true);
-    shareAffirmation({
-      text: lastAffirmation.text,
-      author: lastAffirmation.author,
-      source: lastAffirmation.source,
-      preloadedBlob: preloadedShareBlob || undefined,
-    })
-      .finally(() => setIsSharing(false));
+    import('./services/ShareService').then(({ shareAffirmation }) => {
+      shareAffirmation({
+        text: lastAffirmation.text,
+        author: lastAffirmation.author,
+        source: lastAffirmation.source,
+        preloadedBlob: preloadedShareBlob || undefined,
+      }).finally(() => setIsSharing(false));
+    });
   };
 
   const handleToggleNotifications = async () => {
@@ -324,7 +330,9 @@ function App() {
 
       {/* Onboarding overlay */}
       {showOnboarding && (
-        <Onboarding onComplete={() => setShowOnboarding(false)} />
+        <Suspense fallback={null}>
+          <Onboarding onComplete={() => setShowOnboarding(false)} />
+        </Suspense>
       )}
 
       <div className="relative z-10 h-[100dvh] w-full flex flex-col px-5 py-3 sm:py-6 overflow-hidden">
@@ -347,7 +355,7 @@ function App() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
               className="flex items-center space-x-2"
             >
               <div className="h-[1px] w-6 bg-teal-400/20" />
@@ -372,7 +380,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
             className="flex flex-wrap justify-center gap-1.5 mt-3 mb-3 max-w-sm shrink-0 px-2"
           >
             {['Todas', ...moods.filter(m => m !== 'Todas')].map((mood) => (
@@ -550,23 +558,22 @@ function App() {
         </div>
       </div>
 
-      {/* Settings Modal */}
-      <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} />
+      {/* Modals & Overlays */}
+      <Suspense fallback={null}>
+        <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} />
+        <SupportModal isOpen={showSupportModal} onClose={() => setShowSupportModal(false)} />
+        
+        <AnimatePresence>
+          {notificationAffirmation && (
+            <AffirmationOverlay
+              text={notificationAffirmation}
+              onClose={() => setNotificationAffirmation(null)}
+            />
+          )}
+        </AnimatePresence>
 
-      {/* Support Modal */}
-      <SupportModal isOpen={showSupportModal} onClose={() => setShowSupportModal(false)} />
-
-      {/* Notification tap overlay */}
-      <AnimatePresence>
-        {notificationAffirmation && (
-          <AffirmationOverlay
-            text={notificationAffirmation}
-            onClose={() => setNotificationAffirmation(null)}
-          />
-        )}
-      </AnimatePresence>
-
-      <ZenToast />
+        <ZenToast />
+      </Suspense>
     </>
   );
 }
