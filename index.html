@@ -62,8 +62,7 @@
   <meta name="apple-mobile-web-app-title" content="Ancla" />
 
   <!-- Local Fonts Preload -->
-  <link rel="preload" href="/fonts/inter-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="/fonts/inter-bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Critical CSS -->
   <style>
@@ -74,6 +73,8 @@
       margin: 0;
       background: #060d18;
       overflow: hidden;
+      /* Improve composite animations */
+      will-change: transform, opacity;
     }
     #root {
       background: radial-gradient(circle at 0% 0%, #E0F2F1 0%, transparent 50%),
@@ -82,6 +83,7 @@
                   radial-gradient(circle at 0% 100%, #F5F5F5 0%, transparent 50%);
       background-attachment: fixed;
       min-height: 100vh;
+      will-change: transform, opacity;
     }
     .dark #root {
       background: radial-gradient(circle at 0% 0%, #0d94881a 0%, transparent 50%),

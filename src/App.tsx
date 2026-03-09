@@ -9,11 +9,11 @@ import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
 import { Button } from './components/ui/button';
 
 // Lazy load non-critical components
-const SettingsModal = lazy(() => import('./components').then(m => ({ default: m.SettingsModal })));
-const ZenToast = lazy(() => import('./components').then(m => ({ default: m.ZenToast })));
-const AffirmationOverlay = lazy(() => import('./components').then(m => ({ default: m.AffirmationOverlay })));
-const Onboarding = lazy(() => import('./components').then(m => ({ default: m.Onboarding })));
-const SupportModal = lazy(() => import('./components').then(m => ({ default: m.SupportModal })));
+const SettingsModal = lazy(() => import('./components/SettingsModal').then(m => ({ default: m.SettingsModal })));
+const ZenToast = lazy(() => import('./components/ZenToast').then(m => ({ default: m.ZenToast })));
+const AffirmationOverlay = lazy(() => import('./components/AffirmationOverlay').then(m => ({ default: m.AffirmationOverlay })));
+const Onboarding = lazy(() => import('./components/Onboarding').then(m => ({ default: m.Onboarding })));
+const SupportModal = lazy(() => import('./components/SupportModal').then(m => ({ default: m.SupportModal })));
 
 function App() {
   const {
