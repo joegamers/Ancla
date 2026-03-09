@@ -142,6 +142,14 @@ html {
   /* Force dark background beyond the safe area */
 }
 
+/* Optimize animations for GPU */
+.nebula-drill, .nebula-1, .nebula-2, .blob, [style*="animation"] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+}
+
 /* ─── Nebula / Aurora Animations — Enhanced Waves ─── */
 @keyframes nebula-drift-1 {
 

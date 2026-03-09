@@ -63,27 +63,32 @@
 
   <!-- Local Fonts Preload -->
   <link rel="preload" href="/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-bold.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Critical CSS -->
   <style>
     :root {
       background-color: #060d18;
+      color-scheme: dark;
     }
     body {
       margin: 0;
       background: #060d18;
       overflow: hidden;
-      /* Improve composite animations */
-      will-change: transform, opacity;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
     #root {
-      background: radial-gradient(circle at 0% 0%, #E0F2F1 0%, transparent 50%),
-                  radial-gradient(circle at 100% 0%, #F1F8E9 0%, transparent 50%),
-                  radial-gradient(circle at 100% 100%, #E3F2FD 0%, transparent 50%),
-                  radial-gradient(circle at 0% 100%, #F5F5F5 0%, transparent 50%);
-      background-attachment: fixed;
+      background: #060d18;
       min-height: 100vh;
-      will-change: transform, opacity;
+    }
+    /* Estilos mínimos para evitar CLS en el layout inicial */
+    .bg-main-radial {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 45%, rgba(13,42,42,0.9) 0%, transparent 70%),
+                  linear-gradient(135deg, #050b16 0%, #060e18 100%);
     }
     .dark #root {
       background: radial-gradient(circle at 0% 0%, #0d94881a 0%, transparent 50%),

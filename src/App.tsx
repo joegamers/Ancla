@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 import { affirmationEngine } from './services/AffirmationEngine';
 import { notificationService } from './services/NotificationService';
 import { useStore } from './store/useStore';
@@ -186,19 +186,9 @@ function App() {
   };
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       {/* ─── Background: radial gradient with warm center ─── */}
-      <div
-        className="fixed inset-0 z-0"
-        style={{
-          background: `
-            radial-gradient(ellipse 80% 60% at 50% 45%, rgba(13,42,42,0.9) 0%, transparent 70%),
-            radial-gradient(ellipse 60% 50% at 20% 20%, rgba(6,30,46,0.6) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 40% at 80% 80%, rgba(8,25,50,0.5) 0%, transparent 60%),
-            linear-gradient(135deg, #050b16 0%, #071a26 35%, #0a2220 55%, #060e18 100%)
-          `,
-        }}
-      />
+      <div className="bg-main-radial" />
 
       {/* ─── Nebula Layer — Enhanced Waves (visible on all devices) ─── */}
       <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden" aria-hidden="true">
@@ -574,7 +564,7 @@ function App() {
 
         <ZenToast />
       </Suspense>
-    </>
+    </LazyMotion>
   );
 }
 
