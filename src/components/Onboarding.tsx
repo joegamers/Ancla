@@ -83,10 +83,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             style={{ background: 'linear-gradient(135deg, #0a0f18 0%, #0d1f2d 40%, #0a1a1a 100%)' }}>
 
             <div className="w-full max-w-sm px-6 flex flex-col items-center text-center">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={currentStep}
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        initial={currentStep === 0 ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
                         transition={{ duration: 0.4, ease: 'easeOut' }}
