@@ -4,6 +4,7 @@ import { X, Feather, Share2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { shareAffirmation, generateImage } from '../services/ShareService';
 import { affirmationEngine } from '../services/AffirmationEngine';
+import { getFontSize } from '../lib/utils';
 
 interface AffirmationOverlayProps {
     text: string;
@@ -141,7 +142,7 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-light leading-relaxed text-white/90 text-center italic"
+                    className={`${getFontSize(text)} font-light leading-relaxed text-white/90 text-center italic px-4`}
                     style={{ textShadow: '0 2px 20px rgba(0,0,0,0.3)' }}
                 >
                     "{text}"

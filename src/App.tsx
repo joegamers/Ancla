@@ -7,6 +7,7 @@ import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
 import { Button } from './components/ui/button';
+import { getFontSize } from './lib/utils';
 
 // Lazy load non-critical components
 const SettingsModal = lazy(() => import('./components/SettingsModal').then(m => ({ default: m.SettingsModal })));
@@ -185,14 +186,6 @@ function App() {
     }
   };
 
-  const getFontSize = (text: string) => {
-    const length = text.length;
-    if (length < 50) return 'text-3xl sm:text-4xl md:text-5xl';
-    if (length < 80) return 'text-2xl sm:text-3xl md:text-4xl';
-    if (length < 120) return 'text-xl sm:text-2xl md:text-3xl';
-    if (length < 180) return 'text-lg sm:text-xl md:text-2xl';
-    return 'text-base sm:text-lg md:text-xl';
-  };
 
   return (
     <LazyMotion features={domAnimation}>
@@ -436,7 +429,7 @@ function App() {
                     initial={{ opacity: 0, y: 10, scale: 0.97 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative px-6 sm:px-10 py-6 sm:py-8 rounded-3xl mx-2"
+                    className="relative px-6 sm:px-10 py-6 sm:py-8 rounded-3xl mx-2 flex flex-col justify-center min-h-[140px] overflow-hidden"
                     style={{
                       background: 'rgba(255,255,255,0.03)',
                       backdropFilter: 'blur(12px)',

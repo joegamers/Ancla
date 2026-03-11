@@ -106,11 +106,7 @@ export class CapacitorNotificationService extends NotificationService {
                 schedule: options.scheduleAt ? { at: options.scheduleAt, allowWhileIdle: true } : undefined,
                 channelId: 'affirmations',
                 sound: 'zen_bell.mp3',
-                style: {
-                    type: 'BigText',
-                    text: options.text,
-                    title: 'Ancla'
-                }
+                largeBody: options.text,
             }]
         });
     }
@@ -247,11 +243,7 @@ export class CapacitorNotificationService extends NotificationService {
                     schedule: { on: { hour, minute }, allowWhileIdle: true, every: 'day' },
                     channelId: 'affirmations',
                     sound: 'zen_bell.mp3',
-                    style: {
-                        type: 'BigText',
-                        text: aff.text,
-                        title: 'Ancla'
-                    }
+                    largeBody: aff.text,
                 }]
             });
         } else {
@@ -279,11 +271,7 @@ export class CapacitorNotificationService extends NotificationService {
                         schedule: { at: new Date(date), allowWhileIdle: true },
                         channelId: 'affirmations',
                         sound: 'zen_bell.mp3',
-                        style: {
-                            type: 'BigText',
-                            text: queue[scheduledCount % queue.length],
-                            title: 'Ancla'
-                        }
+                        largeBody: queue[scheduledCount % queue.length],
                     });
                     scheduledCount++;
                 }
