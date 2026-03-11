@@ -185,6 +185,15 @@ function App() {
     }
   };
 
+  const getFontSize = (text: string) => {
+    const length = text.length;
+    if (length < 50) return 'text-3xl sm:text-4xl md:text-5xl';
+    if (length < 80) return 'text-2xl sm:text-3xl md:text-4xl';
+    if (length < 120) return 'text-xl sm:text-2xl md:text-3xl';
+    if (length < 180) return 'text-lg sm:text-xl md:text-2xl';
+    return 'text-base sm:text-lg md:text-xl';
+  };
+
   return (
     <LazyMotion features={domAnimation}>
       {/* ─── Background: radial gradient with warm center ─── */}
@@ -394,7 +403,7 @@ function App() {
           </motion.div>
 
           {/* Affirmation Card — takes remaining space */}
-          <div className="flex-1 flex flex-col justify-center items-center w-full min-h-0 overflow-y-auto no-scrollbar">
+          <div className="flex-1 flex flex-col justify-center items-center w-full min-h-0">
             <AnimatePresence mode="wait">
               {lastAffirmation && (
                 <motion.div
@@ -445,7 +454,7 @@ function App() {
                     </div>
 
                     <p
-                      className="text-lg sm:text-2xl md:text-3xl font-light leading-relaxed text-white/90 italic relative z-10"
+                      className={`${getFontSize(lastAffirmation.text)} font-light leading-relaxed text-white/90 italic relative z-10`}
                       style={{
                         textShadow: `
                           0 0 40px rgba(20,184,166,0.3),

@@ -105,7 +105,12 @@ export class CapacitorNotificationService extends NotificationService {
                 id: Math.floor(Math.random() * 100000),
                 schedule: options.scheduleAt ? { at: options.scheduleAt, allowWhileIdle: true } : undefined,
                 channelId: 'affirmations',
-                sound: 'zen_bell.mp3'
+                sound: 'zen_bell.mp3',
+                style: {
+                    type: 'BigText',
+                    text: options.text,
+                    title: 'Ancla'
+                }
             }]
         });
     }
@@ -241,7 +246,12 @@ export class CapacitorNotificationService extends NotificationService {
                     id: 1001,
                     schedule: { on: { hour, minute }, allowWhileIdle: true, every: 'day' },
                     channelId: 'affirmations',
-                    sound: 'zen_bell.mp3'
+                    sound: 'zen_bell.mp3',
+                    style: {
+                        type: 'BigText',
+                        text: aff.text,
+                        title: 'Ancla'
+                    }
                 }]
             });
         } else {
@@ -268,7 +278,12 @@ export class CapacitorNotificationService extends NotificationService {
                         id: 2000 + scheduledCount,
                         schedule: { at: new Date(date), allowWhileIdle: true },
                         channelId: 'affirmations',
-                        sound: 'zen_bell.mp3'
+                        sound: 'zen_bell.mp3',
+                        style: {
+                            type: 'BigText',
+                            text: queue[scheduledCount % queue.length],
+                            title: 'Ancla'
+                        }
                     });
                     scheduledCount++;
                 }
