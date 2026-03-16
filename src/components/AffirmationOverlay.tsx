@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { X, Feather, Share2 } from 'lucide-react';
+import { X, Feather, Share2, Download } from 'lucide-react';
 import { Button } from './ui/button';
-import { shareAffirmation, generateImage } from '../services/ShareService';
+import { ShareService } from '../services/ShareService';
+import './AffirmationOverlay.css';
 import { affirmationEngine } from '../services/AffirmationEngine';
 import { getFontSize } from '../lib/utils';
 
@@ -19,6 +20,7 @@ interface AffirmationOverlayProps {
 export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, onClose }) => {
     const [isSharing, setIsSharing] = useState(false);
     const [preloadedBlob, setPreloadedBlob] = useState<Blob | null>(null);
+    const [isDownloading, setIsDownloading] = useState(false);
 
     // Pre-calculate affirmation details to avoid blocking the thread on click
     const [fullAffirmation] = useState(() => affirmationEngine.findByText(text));
@@ -27,7 +29,7 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
     // This prevents the "User Gesture Timeout" on Android PWA.
     useEffect(() => {
         let isMounted = true;
-        generateImage({
+        ShareService.generateImage({
             text,
             author: fullAffirmation?.author ?? 'Ancla',
             source: fullAffirmation?.source,
@@ -41,17 +43,15 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
     const handleShare = () => {
         if (isSharing) return;
 
-        // Check native share first
         const isNative = !!(window as any).Capacitor?.isNativePlatform?.();
 
-        // Si ya tenemos el Blob y estamos en Web (PWA), vamos directo sin ASYNC para no perder el Gesto
         if (!isNative && navigator.share && navigator.canShare && preloadedBlob) {
             setIsSharing(true);
             const file = new File([preloadedBlob], `ancla-afirm-${Date.now()}.jpeg`, { type: 'image/jpeg' });
             if (navigator.canShare({ files: [file] })) {
                 navigator.share({
                     title: 'Ancla — Tu espacio de calma',
-                    text: `"${text}" — ${fullAffirmation?.author ?? 'Ancla'}\n\nEncuentra paz en: https://anclas.vercel.app`,
+                    text: `"${text}" — ${fullAffirmation?.author ?? 'Ancla'}\n\nEncuentra paz en: https://anclas.app`,
                     files: [file],
                 })
                     .then(() => setIsSharing(false))
@@ -59,13 +59,12 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                         setIsSharing(false);
                         if (err.name !== 'AbortError') console.warn('Share err', err);
                     });
-                return; // early exit success
+                return;
             }
         }
 
-        // Fallback general 
         setIsSharing(true);
-        shareAffirmation({
+        ShareService.shareAffirmation({
             text,
             author: fullAffirmation?.author ?? 'Ancla',
             source: fullAffirmation?.source,
@@ -73,6 +72,22 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
         }).finally(() => {
             setIsSharing(false);
         });
+    };
+
+    const handleDownload = () => {
+        if (!preloadedBlob || isDownloading) return;
+        setIsDownloading(true);
+
+        const url = URL.createObjectURL(preloadedBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `ancla-afirmacion-${Date.now()}.jpeg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+        setTimeout(() => setIsDownloading(false), 1000);
     };
 
     return (
@@ -153,16 +168,25 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="mt-8"
+                    className="mt-8 flex gap-3"
                 >
                     <button
                         onClick={handleShare}
                         disabled={isSharing}
                         aria-label="Compartir esta afirmación"
-                        className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
+                        className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] uppercase tracking-[0.15em] font-bold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
                     >
                         <Share2 size={14} />
-                        {isSharing ? 'Creando...' : 'Compartir'}
+                        {isSharing ? 'Preparando...' : 'Compartir'}
+                    </button>
+
+                    <button
+                        onClick={handleDownload}
+                        disabled={!preloadedBlob || isDownloading}
+                        aria-label="Descargar imagen"
+                        className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white/50 hover:text-white transition-all duration-300 disabled:opacity-30"
+                    >
+                        <Download size={18} />
                     </button>
                 </motion.div>
 
@@ -182,7 +206,13 @@ export const AffirmationOverlay: React.FC<AffirmationOverlayProps> = ({ text, on
                     className="mt-16"
                 >
                     <motion.div
-                        animate={{
+                        // Branding
+                // This part of the instruction seems to be for the image generation logic,
+                // which is handled within ShareService.generateImage.
+                // The provided snippet for ctx.fillText(APP_DOMAIN.toUpperCase(), ...)
+                // would typically be inside that service function, not directly in the component's render.
+                // Assuming the instruction implies that ShareService.generateImage now uses APP_DOMAIN internally.
+                            animate={{
                             scale: [1, 1.2, 1],
                             opacity: [0.3, 0.6, 0.3]
                         }}

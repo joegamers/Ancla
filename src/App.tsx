@@ -5,7 +5,7 @@ import { notificationService } from './services/NotificationService';
 import { useStore } from './store/useStore';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { RefreshCw, Share2, Settings, Coffee, Bell, Users } from 'lucide-react';
+import { RefreshCw, Share2, Settings, Coffee, Bell, Users, Download } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { getFontSize } from './lib/utils';
 
@@ -170,6 +170,17 @@ function App() {
         source: lastAffirmation.source,
         preloadedBlob: preloadedShareBlob || undefined,
       }).finally(() => setIsSharing(false));
+    });
+  };
+
+  const handleDownload = () => {
+    if (!lastAffirmation) return;
+    import('./services/ShareService').then(({ downloadAffirmation }) => {
+      downloadAffirmation({
+        text: lastAffirmation.text,
+        author: lastAffirmation.author,
+        source: lastAffirmation.source,
+      });
     });
   };
 
@@ -517,30 +528,41 @@ function App() {
                 {isSharing ? 'Creando...' : 'Compartir'}
               </button>
               <button
-                onClick={handleInvite}
-                aria-label="Invitar amigos a Ancla"
+                onClick={handleDownload}
+                aria-label="Descargar como Zen Card"
                 className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
-                <Users size={14} />
-                Invitar
+                <Download size={14} />
+                Zen Card
               </button>
             </motion.div>
 
             {/* Donate */}
+            {/* Support Area — Invite & Donate */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex flex-col items-center gap-1.5"
+              className="flex flex-col items-center gap-3"
             >
-              <button
-                onClick={() => setShowSupportModal(true)}
-                aria-label="Apoyar el proyecto con un café"
-                className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-xs uppercase tracking-[0.1em] font-semibold"
-              >
-                <Coffee size={14} />
-                Apoya este proyecto
-              </button>
+              <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
+                <button
+                  onClick={handleInvite}
+                  aria-label="Invitar amigos a Ancla"
+                  className="flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                >
+                  <Users size={14} />
+                  Invitar
+                </button>
+                <button
+                  onClick={() => setShowSupportModal(true)}
+                  aria-label="Apoyar el proyecto con un café"
+                  className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-xs uppercase tracking-[0.1em] font-semibold"
+                >
+                  <Coffee size={14} />
+                  Apoya este proyecto
+                </button>
+              </div>
               <p className="text-xs text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block">
                 Desarrollado por JoeGamers Dev
               </p>

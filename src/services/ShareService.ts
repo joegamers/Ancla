@@ -104,7 +104,7 @@ export function generateImage(options: ShareOptions): Promise<Blob> {
         // ─── Footer ───
         ctx.font = '600 14px Inter, system-ui, sans-serif';
         ctx.fillStyle = 'rgba(94, 234, 212, 0.4)';
-        ctx.fillText('ANCLAS.VERCEL.APP', width / 2, height - 60);
+        ctx.fillText('ANCLAS.APP', width / 2, height - 60);
 
         // Export (JPEG is ~10x faster than PNG on mobile CPUs, keeps user gesture alive)
         canvas.toBlob((blob) => {
@@ -126,7 +126,7 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
         const blob = options.preloadedBlob || await generateImage(options);
         const fileName = `ancla-afirm-${Date.now()}.jpeg`;
         const shareTitle = 'Ancla — Tu espacio de calma';
-        const shareText = `"${options.text}" — ${options.author}\n\nEncuentra paz en: https://anclas.vercel.app`;
+        const shareText = `"${options.text}" — ${options.author}\n\nEncuentra paz en: https://anclas.app`;
 
         // 1. CAPACITOR NATIVE (Android APK)
         if (isNative()) {
@@ -210,3 +210,36 @@ export async function shareAffirmation(options: ShareOptions): Promise<void> {
         }
     }
 }
+/**
+ * Downloads an affirmation as an image.
+ */
+export async function downloadAffirmation(options: ShareOptions): Promise<void> {
+    try {
+        const blob = options.preloadedBlob || await generateImage(options);
+        const fileName = `ancla-zen-${Date.now()}.jpeg`;
+        
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    } catch (err: any) {
+        console.error('[Ancla] Download failed:', err);
+        try {
+            const { useStore } = await import('../store/useStore');
+            const errorMsg = err instanceof Error ? err.message : JSON.stringify(err);
+            useStore.getState().showToast(`Error desc: ${errorMsg}`);
+        } catch {
+            alert('Error al descargar.');
+        }
+    }
+}
+
+export const ShareService = {
+    generateImage,
+    shareAffirmation,
+    downloadAffirmation
+};
