@@ -394,7 +394,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
-            className="flex flex-wrap justify-center gap-1.5 mt-3 mb-3 max-w-sm shrink-0 px-2"
+            className="flex flex-wrap justify-center gap-1.5 mt-2 mb-2 sm:mt-3 sm:mb-3 max-w-sm shrink-0 px-2"
           >
             {['Todas', ...moods.filter(m => m !== 'Todas')].map((mood) => (
               <button
@@ -434,7 +434,7 @@ function App() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1, duration: 0.5 }}
-                    className="flex items-center justify-center space-x-3 mb-3 sm:mb-4 shrink-0"
+                    className="flex items-center justify-center space-x-3 mb-2 sm:mb-4 shrink-0"
                   >
                     <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-teal-400/50" />
                     <div className="flex items-center space-x-1.5">
@@ -495,7 +495,7 @@ function App() {
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="space-y-1 shrink-0 pt-3 sm:pt-4 pb-2"
+                    className="space-y-1 shrink-0 pt-2 sm:pt-4 pb-2"
                   >
                     <p
                       className="text-xs sm:text-sm font-medium text-white/55"
@@ -513,12 +513,12 @@ function App() {
           </div>
 
           {/* Bottom actions — pinned */}
-          <div className="shrink-0 w-full flex flex-col items-center gap-3 pb-2 pt-2" style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}>
+          <div className="shrink-0 w-full flex flex-col items-center gap-1.5 sm:gap-3 pb-1 pt-1 sm:pb-2 sm:pt-2" style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-2 sm:gap-3 w-full max-w-[340px] sm:max-w-none px-2 sm:px-0"
+              className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-1.5 sm:gap-3 w-full max-w-[340px] sm:max-w-none px-2 sm:px-0"
             >
               {/* Row 1 Group */}
               <button
@@ -528,7 +528,7 @@ function App() {
                   if (newAff) navigate(`/a/${newAff.id}`, { replace: true });
                 }}
                 aria-label="Obtener nueva afirmación"
-                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
                 <RefreshCw size={14} />
                 Nueva
@@ -557,7 +557,7 @@ function App() {
               <button
                 onClick={handleInvite}
                 aria-label="Invitar amigos a Ancla"
-                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
                 <Users size={14} />
                 Invitar
@@ -578,7 +578,7 @@ function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="text-[10px] text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block mt-1"
+              className="text-[10px] text-white/15 uppercase tracking-[0.2em] font-medium block mt-1"
             >
               Desarrollado por JoeGamers Dev
             </motion.p>
