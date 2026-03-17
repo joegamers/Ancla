@@ -503,70 +503,70 @@ function App() {
 
           {/* Bottom actions — pinned */}
           <div className="shrink-0 w-full flex flex-col items-center gap-3 pb-2 pt-2" style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom))' }}>
-            {/* Action buttons */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-wrap justify-center items-center gap-2 sm:gap-3"
+              className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-center gap-2 sm:gap-3 w-full max-w-[340px] sm:max-w-none px-2 sm:px-0"
             >
+              {/* Row 1 Group */}
               <button
                 onClick={handleNewAffirmation}
                 aria-label="Obtener nueva afirmación"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm min-w-[120px]"
+                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
                 <RefreshCw size={14} />
                 Nueva
               </button>
+
               <button
                 onClick={handleShare}
                 disabled={isSharing}
                 aria-label="Compartir esta afirmación"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50 min-w-[140px]"
+                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/20 hover:border-teal-500/40 text-teal-300/70 hover:text-teal-300 transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm disabled:opacity-50"
               >
                 <Share2 size={14} />
                 {isSharing ? 'Creando...' : 'Compartir'}
               </button>
+
+              {/* Row 2 Group */}
               <button
                 onClick={handleDownload}
                 aria-label="Descargar como Zen Card"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
                 <Download size={14} />
                 Zen Card
               </button>
+
+              <button
+                onClick={handleInvite}
+                aria-label="Invitar amigos a Ancla"
+                className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
+              >
+                <Users size={14} />
+                Invitar
+              </button>
+
+              {/* Row 3 - Full width on mobile */}
+              <button
+                onClick={() => setShowSupportModal(true)}
+                aria-label="Apoyar el proyecto con un café"
+                className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-1.5 px-6 py-3 sm:py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.1em] font-semibold"
+              >
+                <Coffee size={14} />
+                Apoya este proyecto
+              </button>
             </motion.div>
 
-            {/* Donate */}
-            {/* Support Area — Invite & Donate */}
-            <motion.div
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="flex flex-col items-center gap-3"
+              className="text-[10px] text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block mt-1"
             >
-              <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
-                <button
-                  onClick={handleInvite}
-                  aria-label="Invitar amigos a Ancla"
-                  className="flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/50 hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
-                >
-                  <Users size={14} />
-                  Invitar
-                </button>
-                <button
-                  onClick={() => setShowSupportModal(true)}
-                  aria-label="Apoyar el proyecto con un café"
-                  className="inline-flex items-center gap-1.5 px-6 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 hover:border-amber-500/40 text-amber-300/60 hover:text-amber-300 transition-all duration-300 text-xs uppercase tracking-[0.1em] font-semibold"
-                >
-                  <Coffee size={14} />
-                  Apoya este proyecto
-                </button>
-              </div>
-              <p className="text-xs text-white/15 uppercase tracking-[0.2em] font-medium hidden sm:block">
-                Desarrollado por JoeGamers Dev
-              </p>
-            </motion.div>
+              Desarrollado por JoeGamers Dev
+            </motion.p>
           </div>
 
         </div>
