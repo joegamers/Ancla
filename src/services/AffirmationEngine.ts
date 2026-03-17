@@ -48,6 +48,10 @@ export class AffirmationEngine {
         return this.data.find(a => a.text === text);
     }
 
+    public getAffirmationById(id: string): Affirmation | undefined {
+        return this.data.find(a => a.id === id);
+    }
+
     public getAllCategories(): string[] {
         // dynamic list of all unique categories in data
         const categories = new Set(this.data.map(a => a.category));

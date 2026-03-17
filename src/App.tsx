@@ -1,5 +1,7 @@
 import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
+import { useNavigate, useParams } from 'react-router-dom';
+import SEOManager from './components/SEO/SEOManager';
 import { affirmationEngine } from './services/AffirmationEngine';
 import { notificationService } from './services/NotificationService';
 import { useStore } from './store/useStore';
@@ -34,6 +36,9 @@ function App() {
   const [isSharing, setIsSharing] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(!hasCompletedOnboarding);
 
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+
   const moods = useMemo(() => affirmationEngine.getMoods(), []);
 
   const handleInvite = async () => {
@@ -50,28 +55,34 @@ function App() {
     }
   };
 
-  // Load initial affirmation (or check deep link from notification)
+  // Load initial affirmation (or check deep link from URL/notification)
   useEffect(() => {
     if (!lastAffirmation) {
-      // Check if we were opened via a notification click (Cold Start)
+      // 1. Check if we have an ID in the URL (Deep Link / SEO)
+      if (id) {
+        const aff = affirmationEngine.getAffirmationById(id);
+        if (aff) {
+          setLastAffirmation(aff);
+          return;
+        }
+      }
+
+      // 2. Check if we were opened via a notification query (Legacy/Specific)
       const params = new URLSearchParams(window.location.search);
       const forcedText = params.get('t');
 
       if (forcedText) {
         const decoded = decodeURIComponent(forcedText);
         setNotificationAffirmation(decoded);
-
-        // Optional: Clean up URL without reloading page
         window.history.replaceState({}, document.title, window.location.pathname);
-
-        // We still need a default background affirmation to fade from
         setLastAffirmation(affirmationEngine.getRandomAffirmation(currentVibe));
       } else {
+        // 3. Default random
         const aff = affirmationEngine.getRandomAffirmation(currentVibe);
         setLastAffirmation(aff);
       }
     }
-  }, [lastAffirmation, setLastAffirmation, currentVibe, setNotificationAffirmation]);
+  }, [lastAffirmation, setLastAffirmation, currentVibe, setNotificationAffirmation, id]);
 
   // Re-schedule notifications on app open
   useEffect(() => {
@@ -110,12 +121,6 @@ function App() {
     return () => { LocalNotifications.removeAllListeners(); };
   }, [setNotificationAffirmation]);
 
-  const handleNewAffirmation = () => {
-    const { refreshGeometry } = useStore.getState();
-    const newAff = affirmationEngine.getRandomAffirmation(currentVibe);
-    setLastAffirmation(newAff);
-    refreshGeometry();
-  };
 
   const [preloadedShareBlob, setPreloadedShareBlob] = useState<Blob | null>(null);
 
@@ -200,6 +205,11 @@ function App() {
 
   return (
     <LazyMotion features={domAnimation}>
+      <SEOManager 
+        title={lastAffirmation ? `"${lastAffirmation.text.substring(0, 40)}..." — Ancla` : undefined}
+        description={lastAffirmation ? `${lastAffirmation.text} — ${lastAffirmation.author}` : undefined}
+        url={lastAffirmation ? `https://anclas.vercel.app/a/${lastAffirmation.id}` : undefined}
+      />
       {/* ─── Background: radial gradient with warm center ─── */}
       <div className="bg-main-radial" />
 
@@ -393,6 +403,7 @@ function App() {
                   setVibe(mood);
                   const newAff = affirmationEngine.getRandomAffirmation(mood);
                   setLastAffirmation(newAff);
+                  if (newAff) navigate(`/a/${newAff.id}`, { replace: true });
                 }}
                 aria-label={`Filtrar por ${mood}`}
                 aria-pressed={currentVibe === mood}
@@ -511,7 +522,11 @@ function App() {
             >
               {/* Row 1 Group */}
               <button
-                onClick={handleNewAffirmation}
+                onClick={() => {
+                  const newAff = affirmationEngine.getRandomAffirmation(currentVibe);
+                  setLastAffirmation(newAff);
+                  if (newAff) navigate(`/a/${newAff.id}`, { replace: true });
+                }}
                 aria-label="Obtener nueva afirmación"
                 className="col-span-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/30 text-white/60 hover:text-teal-300 transition-all duration-300 text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold backdrop-blur-sm"
               >
